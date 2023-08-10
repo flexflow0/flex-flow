@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const MainNavbar = () => {
 
@@ -58,28 +59,61 @@ const MainNavbar = () => {
                         <li className="w-64"><a className="hover:text-white">Contact Us</a></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <div className="w-52">
+                    <Link to='/home'>
+                        <img className="w-full" src="https://i.ibb.co/WpJvMk4/9270632-02.png" alt="" />
+                    </Link>
+                </div>
             </div>
             {/* desktop device */}
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    <li tabIndex={0}>
-                        <details>
-                            <summary className="hover:text-white">Movies</summary>
-                            {MovieSector}
-                        </details>
-                    </li>
-                    <li tabIndex={0}>
-                        <details>
-                            <summary className="hover:text-white">Genres</summary>
-                            {MovieGenres}
-                        </details>
-                    </li>
-                    <li><a className="hover:text-white">Contact Us</a></li>
-                </ul>
+                <div className=" dropdown dropdown-hover">
+                    <ul className="menu menu-horizontal px-1">
+                        <li tabIndex={0}>
+                            <details>
+                                <summary className="hover:text-white">Movies</summary>
+                                {MovieSector}
+                            </details>
+                        </li>
+                        <li tabIndex={0}>
+                            <details>
+                                <summary className="hover:text-white">Genres</summary>
+                                {MovieGenres}
+                            </details>
+                        </li>
+                        <li><a className="hover:text-white">Contact Us</a></li>
+                    </ul>
+                </div>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                <div className="dropdown dropdown-end">
+                    <label tabIndex={0} className="">
+                        <div className="avatar flex items-center space-x-2 mr-5 p-1 rounded-full bg-[#c9c9c9]">
+                            <i className="fa-solid fa-bars-staggered text-[#505051]"></i>
+                            <div className="w-10 rounded-full ring-2 ring-primary">
+                                <img src="https://sb.kaleidousercontent.com/67418/1920x1545/c5f15ac173/samuel-raita-ridxdghg7pw-unsplash.jpg" />
+                            </div>
+                        </div>
+                    </label>
+                    <ul
+                        tabIndex={0}
+                        className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 mt-3 bg-[#091231ec]"
+                    >
+
+                        <li className={liClasses}>
+                            <a className="hover:text-white uppercase">Profile Name</a>
+                        </li>
+                        <li className={`${liClasses} flex flex-row items-center justify-between px-4`}>
+                            <span className="hover:text-white ps-0"> Sign Up</span>
+                            <i className="fa-solid fa-user-plus hover:text-white"></i>
+                        </li>
+                        <li className={`${liClasses} flex flex-row items-center justify-between px-4`}>
+                            <span className="hover:text-white ps-0">Login</span>
+                            <img className="w-14" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABqUlEQVR4nO2WTS8DURSGuxUsNdRHgyb8F7ERhPQXVOsjQfwUJSESEUJrJX4ACwldkai1CEuUCEofuckrGY3p3Jnpooue5cw573PvuefecyKRpjWaAb3ACnAM3AFvwCtQ1Lc00FNPYB+wDXzjbWVgHYiFhU4BzxJ9B3aACSAOtACtwBAwDewBH/ItAaNBofNARUIHZucWMQNATjEmQxm/0HFBTfBsgEUvAl+Kt9s50K1UGZvzC62Co6PqsgnYVEAuKNShlZfWmo3zKnBf62oAJ0ABiHpoDargyiaTAdf/R/BcO7mygO/Ld6Ye4KignnAgKb+j0GAJdgCXEi26FZDuubGbWmKnBLeCi2a7/pcaDxwy1Z0ufsPyufYFaKjiAi5soFXXKWXzgDyY/lvD58zyAUlYPyDAhlaYj4Q04FBaWRvnmKMHL4SALknjya3w/gsaU1usBIEL+tsWR/wGZxyDgGnucYuYhCO9Bpr2u2jnQPDoGH12gUmgX6NPm+5pUlPKpyO9/nbqMl1uKXVeZqo3a32mPiaTZfMQALcab1/Mi6Rvqbr03KZF6mw/8SePh1dYTfYAAAAASUVORK5CYII=" />
+                        </li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     );
