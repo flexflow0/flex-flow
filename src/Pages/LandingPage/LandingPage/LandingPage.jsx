@@ -1,12 +1,14 @@
 import Banner from "../Banner/Banner";
-import Navbar from "../Navbar/Navbar";
 
+import FrequentlyAsked from "../FrequentlyAsked/FrequentlyAsked";
+import Navbar from "../Navbar/Navbar";
 
 const LandingPage = () => {
     return (
         <div>
             <Navbar></Navbar>
             <Banner></Banner>
+            <FrequentlyAsked></FrequentlyAsked>
         </div>
     );
 };

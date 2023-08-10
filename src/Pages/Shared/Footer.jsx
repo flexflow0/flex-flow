@@ -23,34 +23,35 @@ const Footer = () => {
 
             <div className='pb-[50px] MyContainer gap-5 max-w-7xl grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 text-white'>
                 <ul >
-                    <li className='text-xl fontB'>Popular Classes</li>
-                    <li>Turkish</li>
-                    <li>Korean</li>
-                    <li>Arabic</li>
-                    <li>Mandarin Chinese</li>
+                    {/* <li className='text-xl fontB'>Popular Classes</li> */}
+                    <li>FAQ</li>
+                    <li>Inventor Relations</li>
+                    <li>Privacy</li>
+                    <li>Speed Test</li>
 
                 </ul>
                 <ul >
-                    <li className='text-xl fontB'>Popular Instructors </li>
-                    <li>Ayşe Kaya</li>
-                    <li>Seo Yeon-ji</li>
-                    <li>Fatima Khalid</li>
-                    <li>Li Wei</li>
+                    {/* <li className='text-xl fontB'>Popular Instructors </li> */}
+                    <li>Help Center</li>
+                    <li>Jobs</li>
+                    <li>Cookie Preferences</li>
+                    <li>Legial Notices</li>
 
                 </ul>
                 <ul>
-                    <li className='text-xl font-bold'>Contacts</li>
-                    <li>Dhaka, Bangladesh</li>
-                    <li>info@example.com</li>
-                    <li>18881234567</li>
+                    {/* <li className='text-xl font-bold'>Contacts</li> */}
+                    <li>Account</li>
+                    <li>Ways to Watch</li>
+                    <li>Corporate Information</li>
+                    <li>Only on FlexFlow</li>
 
                 </ul>
                 <ul>
-                    <li className='text-xl font-bold'>Social</li>
-                    <li>Facebook</li>
-                    <li>Behance</li>
-                    <li>Instagram</li>
-                    <li>Twitter</li>
+                    {/* <li className='text-xl font-bold'>Social</li> */}
+                    <li>Media Center</li>
+                    <li>Terms Of Use</li>
+                    <li>Contact Us</li>
+                    {/* <li>Twitter</li> */}
                 </ul> 
             </div>
             <hr className='border-purple-950 mb-4' />
