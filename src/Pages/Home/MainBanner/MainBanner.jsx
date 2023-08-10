@@ -1,11 +1,13 @@
+import './MainBanner.css'
 
 const MainBanner = () => {
     return (
         <div
-            className="w-full h-[100vh] banner text-white text-center flex flex-col justify-center space-y-8 -mt-16 blo rounded-sm bg-gradient-to-r from-[#0c0209] to-[#67299e]"
+            className="w-full h-[60vh] text-white text-center flex flex-col justify-center space-y-8 blo rounded-sm mainbanner"
         >
             <h1 className='font-bold text-5xl'>
-                Unlimited Animations, TV shows, and more
+                Adventures Unveiled: <br />
+                Exploring Life&apos;s Wonders with
             </h1>
             <h3 className='font-semibold text-2xl'>
                 Watch anywhere. Cancel anytime. <br />
