@@ -1,7 +1,7 @@
 import Banner from "../Banner/Banner";
-import FrequentlyAsked from "../FrequentlyAsked/FrequentlyAsked";
-import Navbar from "../Shared/Navbar/Navbar";
 
+import FrequentlyAsked from "../FrequentlyAsked/FrequentlyAsked";
+import Navbar from "../Navbar/Navbar";
 
 const LandingPage = () => {
     return (
