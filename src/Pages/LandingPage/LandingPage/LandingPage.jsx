@@ -4,6 +4,8 @@ import ProfilesKids from "../ProfilesKids/ProfilesKids";
 import Navbar from "../Shared/Navbar/Navbar";
 import WatchOffline from "../WatchOffline/WatchOffline";
 
+import FrequentlyAsked from "../FrequentlyAsked/FrequentlyAsked";
+import Navbar from "../Navbar/Navbar";
 
 const LandingPage = () => {
     return (
@@ -13,6 +15,7 @@ const LandingPage = () => {
             <EnjoyTV></EnjoyTV>
             <WatchOffline></WatchOffline>
             <ProfilesKids></ProfilesKids>
+            <FrequentlyAsked></FrequentlyAsked>
         </div>
     );
 };
