@@ -1,13 +1,9 @@
+import MainBanner from "../MainBanner/MainBanner";
 
 const Home = () => {
     return (
         <div>
-            <h1>this is home</h1>
-
-            <button className="btn btn-primary">Primary</button>
-            <button className="btn btn-primary">Primary</button>
-
-            
+            <MainBanner></MainBanner>
         </div>
     );
 };
