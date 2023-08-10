@@ -1,5 +1,5 @@
 import Banner from "../Banner/Banner";
-import Navbar from "../Shared/Navbar/Navbar";
+import Navbar from "../Navbar/Navbar";
 
 
 const LandingPage = () => {
