@@ -1,7 +1,7 @@
 const Footer = () => {
 
     return (
-        <div className='text-center mt-[130px] pt-[50px] bg-gray-950'>
+        <div className='text-center  pt-[50px] bg-[#000000]'>
             <hr className='border-purple-950' />
             {/* Heading Started */}
             <h1 className='pt-[50px] text-purple-950 text-5xl mb-16 fontB '>FlexFlow

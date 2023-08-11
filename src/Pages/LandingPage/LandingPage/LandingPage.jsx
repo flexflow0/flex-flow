@@ -4,6 +4,7 @@ import ProfilesKids from "../ProfilesKids/ProfilesKids";
 import WatchOffline from "../WatchOffline/WatchOffline";
 import FrequentlyAsked from "../FrequentlyAsked/FrequentlyAsked";
 import Navbar from "../Navbar/Navbar";
+import WatchSector from "../Watch sector/WatchSector";
 
 const LandingPage = () => {
     return (
@@ -12,6 +13,7 @@ const LandingPage = () => {
             <Banner></Banner>
             <EnjoyTV></EnjoyTV>
             <WatchOffline></WatchOffline>
+            <WatchSector></WatchSector>
             <ProfilesKids></ProfilesKids>
             <FrequentlyAsked></FrequentlyAsked>
         </div>
