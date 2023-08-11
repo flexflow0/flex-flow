@@ -96,7 +96,7 @@ const MainNavbar = () => {
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="">
                         <div className="avatar flex items-center space-x-2 mr-5 p-1 rounded-full bg-[#c9c9c9]">
-                            <div className="w-8">
+                            <div className="w-6 opacity-40">
                                 <img className="w-full Icon" src={menuIcon} alt="menuIcon" />
                             </div>
                             <div className="w-10 rounded-full ring-2 ring-primary">
