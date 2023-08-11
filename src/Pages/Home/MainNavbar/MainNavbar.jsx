@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import menuIcon from "../../../assets/menu-alt-2.svg"
+import './MainNavbar.css'
+
 
 const MainNavbar = () => {
 
@@ -69,6 +72,10 @@ const MainNavbar = () => {
             <div className="navbar-center hidden lg:flex">
                 <div className=" dropdown dropdown-hover">
                     <ul className="menu menu-horizontal px-1">
+                        {/* <li><Link to='/home' className="hover:text-white">Home</Link></li> */}
+                        <Link to='/home'>
+                            <li><a className="hover:text-white">Home</a></li>
+                        </Link>
                         <li tabIndex={0}>
                             <details>
                                 <summary className="hover:text-white">Movies</summary>
@@ -89,7 +96,9 @@ const MainNavbar = () => {
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="">
                         <div className="avatar flex items-center space-x-2 mr-5 p-1 rounded-full bg-[#c9c9c9]">
-                            <i className="fa-solid fa-bars-staggered text-[#505051]"></i>
+                            <div className="w-8">
+                                <img className="w-full Icon" src={menuIcon} alt="menuIcon" />
+                            </div>
                             <div className="w-10 rounded-full ring-2 ring-primary">
                                 <img src="https://sb.kaleidousercontent.com/67418/1920x1545/c5f15ac173/samuel-raita-ridxdghg7pw-unsplash.jpg" />
                             </div>
@@ -97,9 +106,8 @@ const MainNavbar = () => {
                     </label>
                     <ul
                         tabIndex={0}
-                        className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 mt-3 bg-[#091231ec]"
+                        className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 mt-3 bg-[#0c1535ec]"
                     >
-
                         <li className={liClasses}>
                             <a className="hover:text-white uppercase">Profile Name</a>
                         </li>
