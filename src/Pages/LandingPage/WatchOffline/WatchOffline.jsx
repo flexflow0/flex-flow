@@ -2,9 +2,9 @@
 const WatchOffline = () => {
     return (
         <div className="border-y-2 border-purple-800">
-            <div className="flex bg-black h-[450px] px-20 text-white">
+            <div className="md:flex bg-black md:h-[450px] px-20 text-white">
                 <div className=" ml-20  mt-20">
-                    <img className="w-[400px] h-[270px]" src="https://i.ibb.co/TPn5Qv1/download-video.gif" alt="" />
+                    <img className="md:w-[400px]  md:h-[270px] w-[600px] h-[200px]" src="https://i.ibb.co/TPn5Qv1/download-video.gif" alt="" />
 
                 </div>
                 <div className=" my-auto ">
