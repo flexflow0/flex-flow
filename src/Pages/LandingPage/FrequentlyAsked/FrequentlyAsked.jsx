@@ -2,7 +2,7 @@
 
 const FrequentlyAsked = () => {
     return (
-        <div className="px-20 bg-[#000000] py-10">
+        <div className="MyContainer mt-36 py-10">
 
             <h2 className="text-white text-center text-5xl sm:text-4xl font-bold mb-10">Frequently Asked Questions</h2>
             <div className="collapse collapse-plus bg-[#333144] text-white p-4 mb-2">
