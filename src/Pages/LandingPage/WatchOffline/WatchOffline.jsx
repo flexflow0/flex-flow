@@ -12,6 +12,8 @@ const WatchOffline = () => {
                     <p className="text-2xl mt-5">Save your favorites easily and always have
                         something to watch.</p>
 
+=======
+
                 </div>
 
 
