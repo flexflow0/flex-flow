@@ -2,9 +2,9 @@
 const Footer = () => {
 
     return (
+        <div className='text-center  pt-[50px] bg-gray-950'>
+            <hr className='border-purple-950' />
 
-        <div className='text-center pb-5  pt-32 bg-[#000000] '>
-            <hr className='border-[#830FEA]' />
             {/* Heading Started */}
             <h1 className='pt-[50px] font2 text-[#830FEA] text-5xl mb-16 fontB '>Newsletter
             </h1>
