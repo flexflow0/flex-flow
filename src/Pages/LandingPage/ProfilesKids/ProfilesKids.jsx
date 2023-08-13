@@ -1,4 +1,5 @@
-
+import Lottie from "lottie-react-web";
+import kidsAni from '../../../../public/kids.json';
 const ProfilesKids = () => {
     return (
         <div className="border-y-2 border-purple-800">
@@ -9,15 +10,20 @@ const ProfilesKids = () => {
 characters in a space made just for them—free <br/>
 with your membership.</p>
 
-            </div>
-            <div className="  mt-20">
-                <img className="w-[400px] h-[270px]" src="https://i.ibb.co/x8NcnxB/children.gif" alt="" />
+
+                </div>
+                <div className=" w-full">
+                    <Lottie
+                        options={{
+                            animationData: kidsAni
+                        }}
+                    />
+
+                </div>
 
             </div>
 
         </div>
-
-    </div>
     );
 };
 

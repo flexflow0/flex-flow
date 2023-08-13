@@ -8,13 +8,13 @@ const Registration = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name,photo,password,email);
-        
+
     }
 
     return (
         <div>
              <div className="hero min-h-screen bg-base-200 ">
+
                 <div className="hero-content flex-col lg:flex-row-reverse w-full">
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
@@ -61,7 +61,7 @@ const Registration = () => {
                     </div>
                 </div>
             </div>
-            
+
         </div>
     );
 };

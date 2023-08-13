@@ -1,23 +1,25 @@
+/* eslint-disable react/no-unescaped-entities */
 const Footer = () => {
 
     return (
         <div className='text-center  pt-[50px] bg-gray-950'>
             <hr className='border-purple-950' />
+
             {/* Heading Started */}
-            <h1 className='pt-[50px] text-purple-950 text-5xl mb-16 fontB '>FlexFlow
+            <h1 className='pt-[50px] font2 text-[#830FEA] text-5xl mb-16 fontB '>Newsletter
             </h1>
-            <div className='relative mb-10'>
-                <hr className='w-72 -mt-12 border border-purple-950 mx-auto ' />
-                <p className='absolute -top-3 text-purple-950 left-1/2 -translate-x-1/2 text-7xl font-thin rotate-12'></p>
+            <div className='relative mb-16 '>
+                <hr className='w-72 -mt-12 border border-[#830FEA] mx-auto ' />
+                <p className='absolute -top-2  bg-black text-[#830FEA] left-1/2 -translate-x-1/2 text-7xl rotate-12  font1'>"</p>
             </div>
-            <p className='fontA -mt-6 text-lg mb-7 text-white'>Subscribe to our mailing list</p>
+            <p className='font1 text-lg mb-7  text-white'>Subscribe to our mailing list</p>
             {/* Heading Finish */}
 
             <div className='relative mx-auto mb-20 w-full sm:w-96 md:w-[500px] '>
                 {/* Subscribe Email */}
-                <input required className='pl-4 h-10 w-full sm:w-96 md:w-[500px] bg-transparent border-2 border-purple-950 input rounded-full text-white' type="email" placeholder='Enter Your Email' />
+                <input required className='pl-4 h-10 w-full sm:w-96 md:w-[500px] bg-transparent border-2 border-[#830FEA] input rounded-full text-white' type="email" placeholder='Enter Your Email' />
                 {/* Subscribe button */}
-                <button className='absolute -top-4  right-0 drop-shadow-md transition-all duration-200 border-2 border-purple-950 px-4 text-white sm:px-10 rounded-full text-lg font-bold py-1 mt-4 bg-purple-950 hover:bg-purple-950 hover:text-base-300' type="submit">Subscribe</button>
+                <button className='absolute -top-4  right-0 drop-shadow-md transition-all duration-200 border-2 border-[#830FEA] px-4 text-white sm:px-10 rounded-full text-lg font-bold py-1 mt-4 bg-[#830FEA] hover:bg-purple-950 ' type="submit">Subscribe</button>
             </div>
 
 
@@ -52,7 +54,7 @@ const Footer = () => {
                     <li>Terms Of Use</li>
                     <li>Contact Us</li>
                     {/* <li>Twitter</li> */}
-                </ul> 
+                </ul>
             </div>
             <hr className='border-purple-950 mb-4' />
 

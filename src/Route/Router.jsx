@@ -1,11 +1,12 @@
 import {
-    createBrowserRouter,
-  } from "react-router-dom";
+  createBrowserRouter,
+} from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
 import LandingPage from "../Pages/LandingPage/LandingPage/LandingPage";
 import Login from "../Pages/Authentication/Login/Login";
 import Registration from "../Pages/Authentication/Registration/Registration";
+
 
    export const router = createBrowserRouter([
     {
@@ -28,7 +29,9 @@ import Registration from "../Pages/Authentication/Registration/Registration";
           path:'/register',
           element: <Registration></Registration>
 
+
         }
+
       ]
     },
   ]);
