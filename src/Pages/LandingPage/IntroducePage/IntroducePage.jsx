@@ -6,7 +6,7 @@ import FrequentlyAsked from "../FrequentlyAsked/FrequentlyAsked";
 import Navbar from "../Navbar/Navbar";
 import WatchSector from "../Watch sector/WatchSector";
 
-const LandingPage = () => {
+const IntroducePage = () => {
     return (
         <div>
             <Navbar></Navbar>
@@ -20,4 +20,4 @@ const LandingPage = () => {
     );
 };
 
-export default LandingPage;
+export default IntroducePage;
