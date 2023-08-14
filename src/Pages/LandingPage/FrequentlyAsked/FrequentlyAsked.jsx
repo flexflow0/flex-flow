@@ -3,9 +3,9 @@
 
 const FrequentlyAsked = () => {
     return (
-        <div className="MyContainer mt-36 py-10">
+        <div className="MyContainer  mt-10 px-20">
 
-            <h2 className="text-white text-center text-5xl sm:text-4xl font-bold mb-10">Frequently Asked Questions</h2>
+            <h2 className="text-white text-center lg:text-6xl text-4xl font-bold mb-10">Frequently Asked Questions</h2>
             <div className="collapse collapse-plus rounded-lg bg-[#333144] text-white p-4 mb-2">
                 <input type="radio" className="bg-purple-700" name="my-accordion-3" checked="checked" />
                 <div className="collapse-title text-xl font-medium">

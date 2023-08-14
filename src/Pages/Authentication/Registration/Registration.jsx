@@ -27,13 +27,7 @@ const Registration = () => {
                                     <input type="text" placeholder="Enter Your Name" name="name" className="input input-bordered" />
 
                                 </div>
-                                <div className="form-control">
-                                    <label className="label">
-                                        <span className="label-text">Photo Url</span>
-                                    </label>
-                                    <input type="text" placeholder="Enter Your Photo" name="photo" className="input input-bordered" />
 
-                                </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
@@ -46,12 +40,21 @@ const Registration = () => {
                                         <span className="label-text">Password</span>
                                     </label>
                                     <input type="password" placeholder="Enter Your Password" name="password" className="input input-bordered" />
-                                    <label className="label">
-
-                                        <p> <span>if you have an account please  </span> <Link className="link-hover ml-10 text-xl text-purple-600" to='/login'>Login</Link></p>
-                                    </label>
 
                                 </div>
+                                <div className="form-control mt-5">
+                                    <input type="file" name="photo" className="file-input file-input-bordered file-input-primary w-full max-w-xs" />
+
+
+                                </div>
+
+
+                                <label className="label">
+
+                                    <p> <span>if you have an account please  </span> <Link className="link-hover ml-10 text-xl text-purple-600" to='/login'>Login</Link></p>
+                                </label>
+
+
                                 <div className="form-control mt-6">
                                     <button className="btn text-white bg-purple-800 ">Regster</button><br />
                                 </div>
