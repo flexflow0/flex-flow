@@ -1,12 +1,11 @@
 import Banner from "../Banner/Banner";
 import EnjoyTV from "../EnjoyTV/EnjoyTV";
+import FrequentlyAsked from "../FrequentlyAsked/FrequentlyAsked";
 import ProfilesKids from "../ProfilesKids/ProfilesKids";
-
+import Navbar from "../Shared/Navbar/Navbar";
+import WatchSector from "../Watch sector/WatchSector";
 import WatchOffline from "../WatchOffline/WatchOffline";
 
-import FrequentlyAsked from "../FrequentlyAsked/FrequentlyAsked";
-import Navbar from "../Navbar/Navbar";
-import WatchSector from "../Watch sector/WatchSector";
 
 const LandingPage = () => {
     return (
@@ -20,6 +19,7 @@ const LandingPage = () => {
             <FrequentlyAsked></FrequentlyAsked>
         </div>
     );
+    
 };
 
 export default LandingPage;

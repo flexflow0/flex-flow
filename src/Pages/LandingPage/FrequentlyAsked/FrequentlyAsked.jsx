@@ -1,11 +1,12 @@
+/* eslint-disable react/no-unescaped-entities */
 
 
 const FrequentlyAsked = () => {
     return (
-        <div className="px-20 bg-[#000000] py-10">
+        <div className="MyContainer  mt-10 px-20">
 
-            <h2 className="text-white text-center text-5xl sm:text-4xl font-bold mb-10">Frequently Asked Questions</h2>
-            <div className="collapse collapse-plus bg-[#333144] text-white p-4 mb-2">
+            <h2 className="text-white text-center lg:text-6xl text-4xl font-bold mb-10">Frequently Asked Questions</h2>
+            <div className="collapse collapse-plus rounded-lg bg-[#333144] text-white p-4 mb-2">
                 <input type="radio" className="bg-purple-700" name="my-accordion-3" checked="checked" />
                 <div className="collapse-title text-xl font-medium">
                     What is FlexFlow?
@@ -15,7 +16,7 @@ const FrequentlyAsked = () => {
                 </div>
             </div>
 
-            <div className="collapse collapse-plus  bg-[#333144] text-white p-4 mb-2">
+            <div className="collapse collapse-plus rounded-lg  bg-[#333144] text-white p-4 mb-2">
                 <input type="radio" name="my-accordion-3" />
                 <div className="collapse-title text-xl font-medium">
                     How do I cancel?
@@ -26,7 +27,7 @@ const FrequentlyAsked = () => {
                         Remember to cancel your subscription before the next billing cycle to avoid any further charges. We value your experience with FlexFlow and hope you've enjoyed your time with us. If you ever decide to come back, we'll be here to welcome you with open arms.</p>
                 </div>
             </div>
-            <div className="collapse collapse-plus  bg-[#333144] text-white p-4 mb-2">
+            <div className="collapse collapse-plus rounded-lg bg-[#333144] text-white p-4 mb-2">
                 <input type="radio" name="my-accordion-3" />
                 <div className="collapse-title text-xl font-medium">
                     What can I watch on FlexFlow?
@@ -35,7 +36,7 @@ const FrequentlyAsked = () => {
                     <p>FlexFlow offers an expansive and diverse range of content to cater to a wide variety of tastes and preferences. When you join FlexFlow, you can enjoy the following types of contents like Movie, Tv shows, Documentaries, Original Content, Kids Content, Personalization, Offline Viewing. </p>
                 </div>
             </div>
-            <div className="collapse collapse-plus  bg-[#333144] text-white p-4 mb-2">
+            <div className="collapse collapse-plus rounded-lg bg-[#333144] text-white p-4 mb-2">
                 <input type="radio" name="my-accordion-3" />
                 <div className="collapse-title text-xl font-medium">
                     Where can I watch? </div>
@@ -43,7 +44,7 @@ const FrequentlyAsked = () => {
                     <p>FlexFlow, our cutting-edge streaming platform, offers an extensive array of content for your entertainment pleasure. To enjoy the diverse range of movies, TV shows, documentaries, and more, you can access FlexFlow on our official website. Additionally, we have user-friendly apps available for download on various devices including iOS and Android smartphones, tablets, smart TVs, and streaming media players. With FlexFlow, your entertainment desires are just a click away, anytime and anywhere.</p>
                 </div>
             </div>
-            <div className="collapse collapse-plus  bg-[#333144] text-white p-4 mb-2">
+            <div className="collapse collapse-plus rounded-lg bg-[#333144] text-white p-4 mb-2">
                 <input type="radio" name="my-accordion-3" />
                 <div className="collapse-title text-xl font-medium">
                     Is FlexFlow good for kids?</div>
