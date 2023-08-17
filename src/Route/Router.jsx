@@ -8,7 +8,6 @@ import Payment from "../Pages/SubscriptionPlans/Payment/Payment";
 import MoviesList from "../Pages/Home/Movies/MoviesList/MoviesList";
 import Loading from "../Pages/Shared/Loading";
 import { createBrowserRouter } from "react-router-dom";
-import Home from "../Pages/Home/Home/Home";
 import Main from "../Layout/Main";
 
 export const router = createBrowserRouter([
@@ -19,10 +18,6 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: <LandingPage></LandingPage>
-      },
-      {
-        path: '/home',
-        element: <Home></Home>
       },
       {
         path: '/register',
