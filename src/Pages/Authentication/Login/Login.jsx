@@ -17,6 +17,7 @@ const Login = () => {
       <div className="hero min-h-screen bg-base-200 ">
         <div className="hero-content flex-col lg:flex-row-reverse w-full">
           <div className="card flex-shrinFk-0 w-full max-w-sm shadow-2xl bg-base-100">
+
             <div className="card-body">
               <form onSubmit={handelLogin}>
                 <div className="form-control">
@@ -39,7 +40,8 @@ const Login = () => {
 
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn text-white bg-purple-800 ">Login</button><br />
+                  <Link to='/chooseplan'> <button className="btn text-white bg-purple-800 ">Login</button><br />
+                  </Link>
                   <button className="btn text-white bg-purple-800 "> <FaGoogle></FaGoogle>Login With Google</button>
 
                 </div>
