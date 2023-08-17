@@ -4,6 +4,7 @@ import {
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
 import IntroducePage from "../Pages/LandingPage/IntroducePage/IntroducePage";
+import Loading from "../Pages/Shared/Loading";
 
 export const router = createBrowserRouter([
   {
@@ -20,4 +21,8 @@ export const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path: '/loading',
+    element: <Loading />
+  }
 ]);
