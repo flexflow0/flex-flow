@@ -4,7 +4,7 @@ import './Banner.css'
 const Banner = () => {
     return (
         <div
-            className="w-full h-[100vh] banner text-white text-center flex flex-col justify-center space-y-8 -mt-16 blo rounded-sm"
+            className="w-full h-[100vh] banner text-white text-center flex flex-col justify-center space-y-8  blo rounded-sm"
         >
             <h1 className='font-bold text-5xl'>
                 Unlimited Animations, TV shows, and more

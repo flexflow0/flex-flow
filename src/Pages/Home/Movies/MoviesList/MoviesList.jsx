@@ -43,6 +43,7 @@ const MoviesList = () => {
                     </SingleMovie>)
                 }
             </div>
+
         </div>
     );
 };
