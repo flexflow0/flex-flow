@@ -6,7 +6,7 @@ const Footer = () => {
         <div className='text-center pb-5  pt-32 bg-[#000000] '>
             <hr className='border-[#830FEA]' />
             {/* Heading Started */}
-            <h1 className='pt-[50px] font2 text-[#830FEA] text-5xl mb-16 fontB '>Newsletter
+            <h1 className='pt-[50px] font2 text-[#830FEA] text-5xl mb-16 fontB '>FlexFlow
             </h1>
             <div className='relative mb-16 '>
                 <hr className='w-72 -mt-12 border border-[#830FEA] mx-auto ' />
