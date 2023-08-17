@@ -48,7 +48,6 @@ const Login = () => {
                   <Link to='/chooseplan'> <button className="btn w-full mb-5 text-white bg-purple-800 ">Login</button><br />
                   </Link>
 
-                  <button className="btn text-white bg-purple-800 ">Login</button><br />
 
                   <button className="btn text-white bg-purple-800 "> <FaGoogle></FaGoogle>Login With Google</button>
 
