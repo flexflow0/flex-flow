@@ -20,6 +20,7 @@ const Login = () => {
       <div className="banner">
       <div className="hero min-h-screen ">
         <div className="hero-content flex-col lg:flex-row-reverse w-full">
+
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 bg-opacity-90">
             <div className="card-body">
               <form onSubmit={handelLogin}>
@@ -38,13 +39,17 @@ const Login = () => {
 
 
 
-                    <p> <span>You don,t have an account </span> <Link className="link-hover ml-10 text-xl text-purple-600" to='/register' > Regster </Link></p>
+                    <p> <span>You don,t have an account </span> <Link className="link-hover ml-10 text-xl text-purple-600" to='/register' > Register </Link></p>
                   </label>
 
                 </div>
                 <div className="form-control mt-6">
+
                   <Link to='/chooseplan'> <button className="btn w-full mb-5 text-white bg-purple-800 ">Login</button><br />
                   </Link>
+
+                  <button className="btn text-white bg-purple-800 ">Login</button><br />
+
                   <button className="btn text-white bg-purple-800 "> <FaGoogle></FaGoogle>Login With Google</button>
 
                 </div>
