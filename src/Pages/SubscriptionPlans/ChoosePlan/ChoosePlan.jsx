@@ -25,7 +25,7 @@ const ChoosePlan = () => {
         <p className="text-md flex gap-2 items-center"><FaCheck className="text-red-800 text-xl"></FaCheck>No adverts and no extra fees. Ever.</p>
     </div>
 
-    <Link to='/choosetheplan'> <button className="btn text-white w-full rounded-lg bg-red-800 mt-8">Next</button><br />
+    <Link to='/choosetheplan'> <button className="btn text-white w-full rounded-lg bg-purple-800 mt-8">Next</button><br />
     </Link>
 </div>
 
