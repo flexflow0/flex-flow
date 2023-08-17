@@ -10,6 +10,7 @@ import ChoosePlan from "../Pages/SubscriptionPlans/ChoosePlan/ChoosePlan";
 import ChooseThePlan from "../Pages/SubscriptionPlans/ChooseThePlan/ChooseThePlan";
 import ChoosePay from "../Pages/SubscriptionPlans/ChoosePay/ChoosePay";
 import Payment from "../Pages/SubscriptionPlans/Payment/Payment";
+import MoviesList from "../Pages/Home/Movies/MoviesList/MoviesList";
 
 export const router = createBrowserRouter([
   {
@@ -47,8 +48,11 @@ export const router = createBrowserRouter([
       {
         path: '/payment',
         element: <Payment></Payment>
-
-      }
+      },
+     { 
+      path: '/movieslist',
+      element: <MoviesList></MoviesList>
+    }
 
     ]
   },
