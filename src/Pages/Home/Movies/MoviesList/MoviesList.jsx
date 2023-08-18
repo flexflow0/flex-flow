@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import SingleMovie from "./SingleMovie";
-import MainBanner from "../../MainBanner/MainBanner";
-import CompanyInfoBanner from "../../CompanyInfoBanner/CompanyInfoBanner";
 
 const MoviesList = () => {
 
