@@ -63,7 +63,7 @@ const MainNavbar = () => {
                     </ul>
                 </div>
                 <div className="w-52">
-                    <Link to='/home'>
+                    <Link to='/'>
                         <img className="w-full" src="https://i.ibb.co/WpJvMk4/9270632-02.png" alt="" />
                     </Link>
                 </div>

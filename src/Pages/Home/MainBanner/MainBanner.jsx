@@ -1,10 +1,11 @@
 import './MainBanner.css'
 import searchIcon from '../../../assets/Vector.svg'
 
+
 const MainBanner = () => {
     return (
         <div
-            className="w-full h-[60vh] text-white text-center flex flex-col justify-center space-y-8 blo rounded-sm mainbanner"
+            className="w-full h-[60vh] text-white text-center flex flex-col justify-center space-y-8 blo rounded-sm mainbanner mb-16"
         >
             <h1 className='font-bold text-5xl'>
                 Adventures Unveiled: <br />
@@ -20,6 +21,7 @@ const MainBanner = () => {
                 {/* Search button */}
                 <img className="absolute top-3 right-5 drop-shadow-md transition-all duration-200  disabled" height="20px" width="20px" src={searchIcon} alt="search icon" />
             </div>
+        
         </div>
     );
 };

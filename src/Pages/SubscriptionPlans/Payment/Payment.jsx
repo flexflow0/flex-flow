@@ -1,4 +1,7 @@
 
+import { Link } from "react-router-dom";
+import Navbar from "../../LandingPage/Shared/Navbar/Navbar";
+
 // import useSelectedData from '../../../../Hooks/useSelectedData';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
@@ -14,10 +17,16 @@ const Payment = () => {
     // console.log(amount);
 
     return (
+      <div>
+           <Navbar></Navbar>
+
         <div className='w-[97%] md:w-[90%] mx-auto '>
             <Elements stripe={stripePromise}>
                 <CheckoutForm />
             </Elements>
+            <Link to='/movieslist'> <button className="btn text-white bg-purple-800 ">Next</button><br /> </Link>
+           </div>
+            
         </div>
     );
 };

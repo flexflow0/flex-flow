@@ -1,0 +1,501 @@
+[
+    {
+        "movie": {
+            "name": "The Godfather",
+            "year": 2010,
+            "duration": "2h 28min",
+            "rating": 8.8,
+            "description": "A thief who enters the dreams of others to steal their secrets gets a final task that will test his skills and push the limits of reality.",
+            "release_date": "July 16, 2010",
+            "release_month": "July",
+            "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+            ],
+            "casts": [
+                "Leonardo DiCaprio",
+                "Joseph Gordon-Levitt",
+                "Elliot Page"
+            ],
+            "production": "Warner Bros. Pictures",
+            "trailer_url": "https: //www.youtube.com/watch?v=d3A3-zSOBT4",
+            "url": "https: //www.example.com/inception",
+            "thumbnail": "https://ibb.co/B6g4XkS",
+            "status": "Released"
+        },
+        "tv_show": {
+            "name": "Stranger Things",
+            "year": 2016,
+            "duration": "45min per episode",
+            "rating": 8.7,
+            "description": "A group of friends in a small town uncover a secret government experiment and strange supernatural occurrences when a young boy goes missing.",
+            "release_date": "July 15, 2016",
+            "release_month": "July",
+            "genre": [
+                "Drama",
+                "Fantasy",
+                "Horror"
+            ],
+            "casts": [
+                "Millie Bobby Brown",
+                "Finn Wolfhard",
+                "Winona Ryder"
+            ],
+            "production": "Netflix",
+            "trailer_url": "https: //www.youtube.com/watch?v=XWxyRG_tckY",
+            "url": "https: //www.example.com/stranger-things",
+            "thumbnail": "https: //www.example.com/thumbnails/stranger-things.jpg",
+            "status": "Ongoing"
+        }
+    },
+    {
+        "movie": {
+            "name": "The Dark Knight",
+            "year": 2010,
+            "duration": "2h 28min",
+            "rating": 8.8,
+            "description": "A thief who enters the dreams of others to steal their secrets gets a final task that will test his skills and push the limits of reality.",
+            "release_date": "July 16, 2010",
+            "release_month": "July",
+            "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+            ],
+            "casts": [
+                "Leonardo DiCaprio",
+                "Joseph Gordon-Levitt",
+                "Elliot Page"
+            ],
+            "production": "Warner Bros. Pictures",
+            "trailer_url": "https: //www.youtube.com/watch?v=d3A3-zSOBT4",
+            "url": "https: //www.example.com/inception",
+            "thumbnail": "https://ibb.co/dG6qsZF",
+            "status": "Released"
+        },
+        "tv_show": {
+            "name": "Stranger Things",
+            "year": 2016,
+            "duration": "45min per episode",
+            "rating": 8.7,
+            "description": "A group of friends in a small town uncover a secret government experiment and strange supernatural occurrences when a young boy goes missing.",
+            "release_date": "July 15, 2016",
+            "release_month": "July",
+            "genre": [
+                "Drama",
+                "Fantasy",
+                "Horror"
+            ],
+            "casts": [
+                "Millie Bobby Brown",
+                "Finn Wolfhard",
+                "Winona Ryder"
+            ],
+            "production": "Netflix",
+            "trailer_url": "https: //www.youtube.com/watch?v=XWxyRG_tckY",
+            "url": "https: //www.example.com/stranger-things",
+            "thumbnail": "https: //www.example.com/thumbnails/stranger-things.jpg",
+            "status": "Ongoing"
+        }
+    },
+    {
+        "movie": {
+            "name": "Forrest Gump",
+            "year": 2010,
+            "duration": "2h 28min",
+            "rating": 8.8,
+            "description": "A thief who enters the dreams of others to steal their secrets gets a final task that will test his skills and push the limits of reality.",
+            "release_date": "July 16, 2010",
+            "release_month": "July",
+            "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+            ],
+            "casts": [
+                "Leonardo DiCaprio",
+                "Joseph Gordon-Levitt",
+                "Elliot Page"
+            ],
+            "production": "Warner Bros. Pictures",
+            "trailer_url": "https: //www.youtube.com/watch?v=d3A3-zSOBT4",
+            "url": "https: //www.example.com/inception",
+            "thumbnail": "https://ibb.co/4mtRWrj",
+            "status": "Released"
+        },
+        "tv_show": {
+            "name": "Stranger Things",
+            "year": 2016,
+            "duration": "45min per episode",
+            "rating": 8.7,
+            "description": "A group of friends in a small town uncover a secret government experiment and strange supernatural occurrences when a young boy goes missing.",
+            "release_date": "July 15, 2016",
+            "release_month": "July",
+            "genre": [
+                "Drama",
+                "Fantasy",
+                "Horror"
+            ],
+            "casts": [
+                "Millie Bobby Brown",
+                "Finn Wolfhard",
+                "Winona Ryder"
+            ],
+            "production": "Netflix",
+            "trailer_url": "https: //www.youtube.com/watch?v=XWxyRG_tckY",
+            "url": "https: //www.example.com/stranger-things",
+            "thumbnail": "https: //www.example.com/thumbnails/stranger-things.jpg",
+            "status": "Ongoing"
+        }
+    },
+    {
+        "movie": {
+            "name": "Pulp Fiction",
+            "year": 2010,
+            "duration": "2h 28min",
+            "rating": 8.8,
+            "description": "A thief who enters the dreams of others to steal their secrets gets a final task that will test his skills and push the limits of reality.",
+            "release_date": "July 16, 2010",
+            "release_month": "July",
+            "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+            ],
+            "casts": [
+                "Leonardo DiCaprio",
+                "Joseph Gordon-Levitt",
+                "Elliot Page"
+            ],
+            "production": "Warner Bros. Pictures",
+            "trailer_url": "https: //www.youtube.com/watch?v=d3A3-zSOBT4",
+            "url": "https: //www.example.com/inception",
+            "thumbnail": "https://ibb.co/frsR72b",
+            "status": "Released"
+        },
+        "tv_show": {
+            "name": "Stranger Things",
+            "year": 2016,
+            "duration": "45min per episode",
+            "rating": 8.7,
+            "description": "A group of friends in a small town uncover a secret government experiment and strange supernatural occurrences when a young boy goes missing.",
+            "release_date": "July 15, 2016",
+            "release_month": "July",
+            "genre": [
+                "Drama",
+                "Fantasy",
+                "Horror"
+            ],
+            "casts": [
+                "Millie Bobby Brown",
+                "Finn Wolfhard",
+                "Winona Ryder"
+            ],
+            "production": "Netflix",
+            "trailer_url": "https: //www.youtube.com/watch?v=XWxyRG_tckY",
+            "url": "https: //www.example.com/stranger-things",
+            "thumbnail": "https: //www.example.com/thumbnails/stranger-things.jpg",
+            "status": "Ongoing"
+        }
+    },
+    {
+        "movie": {
+            "name": "The Shawshank Redemption",
+            "year": 2010,
+            "duration": "2h 28min",
+            "rating": 8.8,
+            "description": "A thief who enters the dreams of others to steal their secrets gets a final task that will test his skills and push the limits of reality.",
+            "release_date": "July 16, 2010",
+            "release_month": "July",
+            "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+            ],
+            "casts": [
+                "Leonardo DiCaprio",
+                "Joseph Gordon-Levitt",
+                "Elliot Page"
+            ],
+            "production": "Warner Bros. Pictures",
+            "trailer_url": "https: //www.youtube.com/watch?v=d3A3-zSOBT4",
+            "url": "https: //www.example.com/inception",
+            "thumbnail": "https://ibb.co/vJFfTzy",
+            "status": "Released"
+        },
+        "tv_show": {
+            "name": "Stranger Things",
+            "year": 2016,
+            "duration": "45min per episode",
+            "rating": 8.7,
+            "description": "A group of friends in a small town uncover a secret government experiment and strange supernatural occurrences when a young boy goes missing.",
+            "release_date": "July 15, 2016",
+            "release_month": "July",
+            "genre": [
+                "Drama",
+                "Fantasy",
+                "Horror"
+            ],
+            "casts": [
+                "Millie Bobby Brown",
+                "Finn Wolfhard",
+                "Winona Ryder"
+            ],
+            "production": "Netflix",
+            "trailer_url": "https: //www.youtube.com/watch?v=XWxyRG_tckY",
+            "url": "https: //www.example.com/stranger-things",
+            "thumbnail": "https: //www.example.com/thumbnails/stranger-things.jpg",
+            "status": "Ongoing"
+        }
+    },
+    {
+        "movie": {
+            "name": "Schindler's List",
+            "year": 2010,
+            "duration": "2h 28min",
+            "rating": 8.8,
+            "description": "A thief who enters the dreams of others to steal their secrets gets a final task that will test his skills and push the limits of reality.",
+            "release_date": "July 16, 2010",
+            "release_month": "July",
+            "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+            ],
+            "casts": [
+                "Leonardo DiCaprio",
+                "Joseph Gordon-Levitt",
+                "Elliot Page"
+            ],
+            "production": "Warner Bros. Pictures",
+            "trailer_url": "https: //www.youtube.com/watch?v=d3A3-zSOBT4",
+            "url": "https: //www.example.com/inception",
+            "thumbnail": "https://ibb.co/tqXrc0m",
+            "status": "Released"
+        },
+        "tv_show": {
+            "name": "Stranger Things",
+            "year": 2016,
+            "duration": "45min per episode",
+            "rating": 8.7,
+            "description": "A group of friends in a small town uncover a secret government experiment and strange supernatural occurrences when a young boy goes missing.",
+            "release_date": "July 15, 2016",
+            "release_month": "July",
+            "genre": [
+                "Drama",
+                "Fantasy",
+                "Horror"
+            ],
+            "casts": [
+                "Millie Bobby Brown",
+                "Finn Wolfhard",
+                "Winona Ryder"
+            ],
+            "production": "Netflix",
+            "trailer_url": "https: //www.youtube.com/watch?v=XWxyRG_tckY",
+            "url": "https: //www.example.com/stranger-things",
+            "thumbnail": "https: //www.example.com/thumbnails/stranger-things.jpg",
+            "status": "Ongoing"
+        }
+    },
+    {
+        "movie": {
+            "name": "Avengers: Endgame",
+            "year": 2010,
+            "duration": "2h 28min",
+            "rating": 8.8,
+            "description": "A thief who enters the dreams of others to steal their secrets gets a final task that will test his skills and push the limits of reality.",
+            "release_date": "July 16, 2010",
+            "release_month": "July",
+            "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+            ],
+            "casts": [
+                "Leonardo DiCaprio",
+                "Joseph Gordon-Levitt",
+                "Elliot Page"
+            ],
+            "production": "Warner Bros. Pictures",
+            "trailer_url": "https: //www.youtube.com/watch?v=d3A3-zSOBT4",
+            "url": "https: //www.example.com/inception",
+            "thumbnail": "https://ibb.co/z5m18qq",
+            "status": "Released"
+        },
+        "tv_show": {
+            "name": "Stranger Things",
+            "year": 2016,
+            "duration": "45min per episode",
+            "rating": 8.7,
+            "description": "A group of friends in a small town uncover a secret government experiment and strange supernatural occurrences when a young boy goes missing.",
+            "release_date": "July 15, 2016",
+            "release_month": "July",
+            "genre": [
+                "Drama",
+                "Fantasy",
+                "Horror"
+            ],
+            "casts": [
+                "Millie Bobby Brown",
+                "Finn Wolfhard",
+                "Winona Ryder"
+            ],
+            "production": "Netflix",
+            "trailer_url": "https: //www.youtube.com/watch?v=XWxyRG_tckY",
+            "url": "https: //www.example.com/stranger-things",
+            "thumbnail": "https: //www.example.com/thumbnails/stranger-things.jpg",
+            "status": "Ongoing"
+        }
+    },
+    {
+        "movie": {
+            "name": "Avengers: Infinity War",
+            "year": 2010,
+            "duration": "2h 28min",
+            "rating": 8.8,
+            "description": "A thief who enters the dreams of others to steal their secrets gets a final task that will test his skills and push the limits of reality.",
+            "release_date": "July 16, 2010",
+            "release_month": "July",
+            "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+            ],
+            "casts": [
+                "Leonardo DiCaprio",
+                "Joseph Gordon-Levitt",
+                "Elliot Page"
+            ],
+            "production": "Warner Bros. Pictures",
+            "trailer_url": "https: //www.youtube.com/watch?v=d3A3-zSOBT4",
+            "url": "https: //www.example.com/inception",
+            "thumbnail": "https://ibb.co/wMGprgL",
+            "status": "Released"
+        },
+        "tv_show": {
+            "name": "Stranger Things",
+            "year": 2016,
+            "duration": "45min per episode",
+            "rating": 8.7,
+            "description": "A group of friends in a small town uncover a secret government experiment and strange supernatural occurrences when a young boy goes missing.",
+            "release_date": "July 15, 2016",
+            "release_month": "July",
+            "genre": [
+                "Drama",
+                "Fantasy",
+                "Horror"
+            ],
+            "casts": [
+                "Millie Bobby Brown",
+                "Finn Wolfhard",
+                "Winona Ryder"
+            ],
+            "production": "Netflix",
+            "trailer_url": "https: //www.youtube.com/watch?v=XWxyRG_tckY",
+            "url": "https: //www.example.com/stranger-things",
+            "thumbnail": "https: //www.example.com/thumbnails/stranger-things.jpg",
+            "status": "Ongoing"
+        }
+    },
+    {
+        "movie": {
+            "name": "12 Angry Men",
+            "year": 2010,
+            "duration": "2h 28min",
+            "rating": 8.8,
+            "description": "A thief who enters the dreams of others to steal their secrets gets a final task that will test his skills and push the limits of reality.",
+            "release_date": "July 16, 2010",
+            "release_month": "July",
+            "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+            ],
+            "casts": [
+                "Leonardo DiCaprio",
+                "Joseph Gordon-Levitt",
+                "Elliot Page"
+            ],
+            "production": "Warner Bros. Pictures",
+            "trailer_url": "https: //www.youtube.com/watch?v=d3A3-zSOBT4","url": "https: //wwexamplecom/inception",
+            "thumbnail": "https://ibb.co/kQdzRQt",
+            "status": "Released"
+        },
+        "tv_show": {
+            "name": "Stranger Things",
+            "year": 2016,
+            "duration": "45min per episode",
+            "rating": 8.7,
+            "description": "A group of friends in a small town uncover a secret government experiment and strange supernatural occurrences when a young boy goes missing.",
+            "release_date": "July 15, 2016",
+            "release_month": "July",
+            "genre": [
+                "Drama",
+                "Fantasy",
+                "Horror"
+            ],
+            "casts": [
+                "Millie Bobby Brown",
+                "Finn Wolfhard",
+                "Winona Ryder"
+            ],
+            "production": "Netflix",
+            "trailer_url": "https: //www.youtube.com/watch?v=XWxyRG_tckY",
+            "url": "https: //www.example.com/stranger-things",
+            "thumbnail": "https: //www.example.com/thumbnails/stranger-things.jpg",
+            "status": "Ongoing"
+        }
+    },
+    {
+        "movie": {
+            "name": "The Silence of the Lambs",
+            "year": 2010,
+            "duration": "2h 28min",
+            "rating": 8.8,
+            "description": "A thief who enters the dreams of others to steal their secrets gets a final task that will test his skills and push the limits of reality.",
+            "release_date": "July 16, 2010",
+            "release_month": "July",
+            "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+            ],
+            "casts": [
+                "Leonardo DiCaprio",
+                "Joseph Gordon-Levitt",
+                "Elliot Page"
+            ],
+            "production": "Warner Bros. Pictures",
+            "trailer_url": "https: //www.youtube.com/watch?v=d3A3-zSOBT4",
+            "url": "https: //www.example.com/inception",
+            "thumbnail": "https://ibb.co/WKD35WR",
+            "status": "Released"
+        },
+        "tv_show": {
+            "name": "Stranger Things",
+            "year": 2016,
+            "duration": "45min per episode",
+            "rating": 8.7,
+            "description": "A group of friends in a small town uncover a secret government experiment and strange supernatural occurrences when a young boy goes missing.",
+            "release_date": "July 15, 2016",
+            "release_month": "July",
+            "genre": [
+                "Drama",
+                "Fantasy",
+                "Horror"
+            ],
+            "casts": [
+                "Millie Bobby Brown",
+                "Finn Wolfhard",
+                "Winona Ryder"
+            ],
+            "production": "Netflix",
+            "trailer_url": "https: //www.youtube.com/watch?v=XWxyRG_tckY",
+            "url": "https: //www.example.com/stranger-things",
+            "thumbnail": "https: //www.example.com/thumbnails/stranger-things.jpg",
+            "status": "Ongoing"
+        }
+    }
+]
