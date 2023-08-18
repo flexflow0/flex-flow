@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
 import { FaCheckCircle } from 'react-icons/fa';
-import Navbar from "../../LandingPage/Shared/Navbar/Navbar";
 
 const ChooseThePlan = () => {
     return (
         <div>
-            <Navbar></Navbar>
             <div className="text-white  py-10  px-12">
 
                 <div className="pb-8">

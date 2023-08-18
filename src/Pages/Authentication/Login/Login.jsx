@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import './Login.css'
-import Navbar from "../../LandingPage/Shared/Navbar/Navbar";
 
 
 const Login = () => {
@@ -16,7 +15,6 @@ const Login = () => {
 
   return (
   <div>
-    <Navbar></Navbar>
       <div className="banner">
       <div className="hero min-h-screen ">
         <div className="hero-content flex-col lg:flex-row-reverse w-full">

@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import SingleMovie from "./SingleMovie";
 import MainBanner from "../../MainBanner/MainBanner";
-import MainNavbar from "../../MainNavbar/MainNavbar";
 
 
 const MoviesList = () => {
 
     const [movies, setMovies] = useState([]);
-
+console.log(movies)
 
 
     useEffect(() => {
@@ -18,8 +17,7 @@ const MoviesList = () => {
 
     return (
         <div>
-            <MainNavbar></MainNavbar>
-            <MainBanner></MainBanner>
+                <MainBanner></MainBanner>
 
             <div className="mx-auto mb-10 ">
                 <h2 className="text-center text-[#830FEA] font-bold text-4xl uppercase">Jamboree</h2>

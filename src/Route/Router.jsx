@@ -10,6 +10,7 @@ import MoviesList from "../Pages/Home/Movies/MoviesList/MoviesList";
 import Loading from "../Pages/Shared/Loading";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
+import Home from "../Pages/Home/Home/Home";
 
 export const router = createBrowserRouter([
   {
