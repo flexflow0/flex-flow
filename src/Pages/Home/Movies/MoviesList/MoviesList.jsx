@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import SingleMovie from "./SingleMovie";
-import MainBanner from "../../MainBanner/MainBanner";
-import MainNavbar from "../../MainNavbar/MainNavbar";
+
 
 
 const MoviesList = () => {
 
     const [movies, setMovies] = useState([]);
-
+    const liClasses = "hover:bg-[#8484c9] hover:text-white rounded-xl"
 
 
     useEffect(() => {
@@ -18,23 +17,44 @@ const MoviesList = () => {
 
     return (
         <div>
-            <MainNavbar></MainNavbar>
-            <MainBanner></MainBanner>
+
 
             <div className="mx-auto mb-10 ">
                 <h2 className="text-center text-[#830FEA] font-bold text-4xl uppercase">Jamboree</h2>
+                <hr className="w-[500px] mx-auto border-[#830FEA] border-1" />
                 <h3 className="text-center">Enchanting
+
                     <div className="dropdown">
-                        <label tabIndex={0} className="btn btn-ghost m-1 text-[#830FEA]">Month</label>
-                        <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow  bg-transparent bg-[#17203c] rounded-box w-52">
-                            <li><a>January</a></li>
-                            <li><a>Item 2</a></li>
+                        <ul className="menu menu-horizontal text-[#830FEA] bg-transparent bg-[#17203c] rounded-box ">
+
+                            <li tabIndex={0}>
+                                <details>
+                                    <summary>Month</summary>
+                                    <ul className="px-2">
+                                        <li className={liClasses}><a>January</a></li>
+                                        <li className={liClasses}><a>February</a></li>
+                                        <li className={liClasses}><a> March</a></li>
+                                        <li className={liClasses}><a>April</a></li>
+                                        <li className={liClasses}><a>May</a></li>
+                                        <li className={liClasses}><a>June</a></li>
+                                        <li className={liClasses}><a>July</a></li>
+                                        <li className={liClasses}><a>August</a></li>
+                                        <li className={liClasses}><a>September</a></li>
+                                        <li className={liClasses}><a>October</a></li>
+                                        <li className={liClasses}><a>November</a></li>
+                                        <li className={liClasses}><a>December</a></li>
+                                    </ul>
+                                </details>
+                            </li>
+
                         </ul>
                     </div>
                     Jamboree : Unveiling Unseen Beauty</h3>
+                <hr className="w-[500px] mx-auto border-[#830FEA] border-1" />
+
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 px-5">
+            <div className="container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:mx-auto gap-2 px-5 mb-10">
                 {
                     movies.map(movie => <SingleMovie
                         key={movie._id}
@@ -43,7 +63,8 @@ const MoviesList = () => {
                     </SingleMovie>)
                 }
             </div>
-
+            <button className="btn mx-auto text-purple-900 font-semibold border-[#830FEA] rounded-lg flex flex-col items-center uppercase mb-20">SHOW MORE</button>
+            <hr className="border-[#830FEA] mb-20" />
         </div>
     );
 };
