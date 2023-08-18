@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import SingleMovie from "./SingleMovie";
-
-
+import MainBanner from "../../MainBanner/MainBanner";
+import CompanyInfoBanner from "../../CompanyInfoBanner/CompanyInfoBanner";
 
 const MoviesList = () => {
 
     const [movies, setMovies] = useState([]);
-    const liClasses = "hover:bg-[#8484c9] hover:text-white rounded-xl"
 
+    const liClasses = "hover:bg-[#8484c9] hover:text-white rounded-xl"
+    console.log(movies)
 
     useEffect(() => {
         fetch('http://localhost:5000/movies')
@@ -17,8 +18,6 @@ const MoviesList = () => {
 
     return (
         <div>
-
-
             <div className="mx-auto mb-10 ">
                 <h2 className="text-center text-[#830FEA] font-bold text-4xl uppercase">Jamboree</h2>
                 <hr className="w-[500px] mx-auto border-[#830FEA] border-1" />
@@ -46,12 +45,10 @@ const MoviesList = () => {
                                     </ul>
                                 </details>
                             </li>
-
                         </ul>
                     </div>
                     Jamboree : Unveiling Unseen Beauty</h3>
                 <hr className="w-[500px] mx-auto border-[#830FEA] border-1" />
-
             </div>
 
             <div className="container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:mx-auto gap-2 px-5 mb-10">

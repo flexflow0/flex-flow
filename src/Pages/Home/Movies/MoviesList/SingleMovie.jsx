@@ -1,7 +1,7 @@
 
 
 const SingleMovie = ({ movie }) => {
-    console.log(movie.movie);
+    console.log(movie);
     // const { _id, name, release_date, year,thumbnail} = movie;
     return (
         <div>

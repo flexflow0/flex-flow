@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
 import { FaCheckCircle } from 'react-icons/fa';
-import Navbar from "../../LandingPage/Shared/Navbar/Navbar";
 
 const ChooseThePlan = () => {
     return (
         <div>
-            <Navbar></Navbar>
             <div className="text-white  py-10  px-12">
 
                 <div className="pb-8">
@@ -184,7 +182,7 @@ const ChooseThePlan = () => {
 
                 </div>
                 <div className="flex items-center justify-center ">
-                    <Link to='/choosepay'> <button className="btn text-white px-36 w-full rounded-lg bg-red-800 ">Next</button><br />
+                    <Link to='/choosepay'> <button className="btn text-white px-36 w-full rounded-lg bg-purple-800 ">Next</button><br />
                     </Link>
                 </div>
 
