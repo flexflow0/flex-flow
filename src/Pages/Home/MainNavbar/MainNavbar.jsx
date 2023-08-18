@@ -106,7 +106,7 @@ const MainNavbar = () => {
                     </label>
                     <ul
                         tabIndex={0}
-                        className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 mt-3 bg-[#0c1535ec]"
+                        className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 mt-3 bg-[#0b163bec]"
                     >
                         <li className={liClasses}>
                             <a className="hover:text-white uppercase">Profile Name</a>

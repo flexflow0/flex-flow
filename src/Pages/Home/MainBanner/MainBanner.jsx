@@ -4,13 +4,13 @@ import searchIcon from '../../../assets/Vector.svg'
 const MainBanner = () => {
     return (
         <div
-            className="w-full h-[60vh] text-white text-center flex flex-col justify-center space-y-8 blo rounded-sm mainbanner"
+            className="w-full h-[60vh] text-white text-center flex flex-col justify-center space-y-8 blo rounded-sm mainBanner"
         >
-            <h1 className='font-bold text-5xl'>
+            <h1 className='font-bold text-3xl md:text-5xl'>
                 Adventures Unveiled: <br />
                 Exploring Life&apos;s Wonders with
             </h1>
-            <h3 className='font-semibold text-2xl'>
+            <h3 className='font-semibold text-xl md:text-2xl'>
                 Watch anywhere. Cancel anytime. <br />
                 Ready to watch? Enter your email to create or restart your membership.
             </h3>
