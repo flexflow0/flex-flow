@@ -22,7 +22,7 @@ const Payment = () => {
             <Elements stripe={stripePromise}>
                 <CheckoutForm />
             </Elements>
-            <Link to='/movieslist'> <button className="btn text-white bg-purple-800 ">Next</button><br /> </Link>
+            <Link to='/home'> <button className="btn text-white bg-purple-800 ">Next</button><br /> </Link>
            </div>
             
         </div>
