@@ -4,7 +4,9 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from './CheckoutForm';
 
-const stripePromise = loadStripe(`${import.meta.env.VITE_PK}`);
+// const stripePromise = loadStripe(`${import.meta.env.VITE_PK}`);
+// TODO: secret this into .env.local ^^^^^^^^^^^^^^^^☝^^^^^^^^^^^
+const stripePromise = loadStripe(`pk_test_51NEwMYLtOU21zLJnTHK2UMaEImqC0NBzvy6bQuOUG2OmU5bAYHTnwQeKZVBooWJAf21OfHaduJ5wkYZsL8mScwQi00S21vf22c`);
 const Payment = () => {
     // const [cart] = useSelectedData()
     // const total = cart.reduce((sum, item) => item.price + sum, 0);
