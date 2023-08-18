@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import menuIcon from "../../../assets/menu-alt-2.svg"
 import './MainNavbar.css'
 
@@ -38,60 +38,67 @@ const MainNavbar = () => {
             <li className={liClasses}><a className="hover:text-white">Psychological</a></li>
         </ul>
 
+    const { pathname } = useLocation();
+    console.log(pathname);
+
     return (
         <div className="navbar bg-[#39134b] rounded-sm text-white sticky top-0 z-10">
             {/* Mobile Device */}
             <div className="navbar-start">
-                <div className="dropdown">
-                    <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                    </label>
-                    <ul tabIndex={0} className="menu dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-68 bg-[#091231ec]">
-                        <li>
-                            <details>
-                                <summary className="hover:text-white">Movies</summary>
-                                {MovieSector}
-                            </details>
-                        </li>
-                        <li>
-                            <details>
-                                <summary className="hover:text-white">Genres</summary>
-                                {MovieGenres}
-                            </details>
-                        </li>
-                        <li className="w-64"><a className="hover:text-white">Contact Us</a></li>
-                    </ul>
-                </div>
+                {
+                    (pathname == '/home' || pathname == '/movieslist') && <div className="dropdown">
+                        <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                        </label>
+                        <ul tabIndex={0} className="menu dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-68 bg-[#091231ec]">
+                            <li>
+                                <details>
+                                    <summary className="hover:text-white">Movies</summary>
+                                    {MovieSector}
+                                </details>
+                            </li>
+                            <li>
+                                <details>
+                                    <summary className="hover:text-white">Genres</summary>
+                                    {MovieGenres}
+                                </details>
+                            </li>
+                            <li className="w-64"><a className="hover:text-white">Contact Us</a></li>
+                        </ul>
+                    </div>
+                }
                 <div className="w-52">
-                    <Link to='/home'>
+                    <Link to='/'>
                         <img className="w-full" src="https://i.ibb.co/WpJvMk4/9270632-02.png" alt="" />
                     </Link>
                 </div>
             </div>
             {/* desktop device */}
-            <div className="navbar-center hidden lg:flex">
-                <div className=" dropdown dropdown-hover">
-                    <ul className="menu menu-horizontal px-1">
-                        {/* <li><Link to='/home' className="hover:text-white">Home</Link></li> */}
-                        <Link to='/home'>
-                            <li><a className="hover:text-white">Home</a></li>
-                        </Link>
-                        <li tabIndex={0}>
-                            <details>
-                                <summary className="hover:text-white">Movies</summary>
-                                {MovieSector}
-                            </details>
-                        </li>
-                        <li tabIndex={0}>
-                            <details>
-                                <summary className="hover:text-white">Genres</summary>
-                                {MovieGenres}
-                            </details>
-                        </li>
-                        <li><a className="hover:text-white">Contact Us</a></li>
-                    </ul>
+            {
+                (pathname == '/home' || pathname == '/movieslist') && <div className="navbar-center hidden lg:flex">
+                    <div className=" dropdown dropdown-hover">
+                        <ul className="menu menu-horizontal px-1">
+                            {/* <li><Link to='/home' className="hover:text-white">Home</Link></li> */}
+                            <Link to='/home'>
+                                <li><a className="hover:text-white">Home</a></li>
+                            </Link>
+                            <li tabIndex={0}>
+                                <details>
+                                    <summary className="hover:text-white">Movies</summary>
+                                    {MovieSector}
+                                </details>
+                            </li>
+                            <li tabIndex={0}>
+                                <details>
+                                    <summary className="hover:text-white">Genres</summary>
+                                    {MovieGenres}
+                                </details>
+                            </li>
+                            <li><a className="hover:text-white">Contact Us</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            }
             <div className="navbar-end">
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="">

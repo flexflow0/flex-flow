@@ -1,6 +1,7 @@
 import './MainBanner.css'
 import searchIcon from '../../../assets/Vector.svg'
 
+
 const MainBanner = () => {
     return (
         <div
@@ -16,10 +17,11 @@ const MainBanner = () => {
             </h3>
             <div className='relative mx-auto mb-20 w-full sm:w-96 md:w-[500px] '>
                 {/* Search Name */}
-                <input required className='pl-4 h-10 w-full sm:w-96 md:w-[500px] bg-transparent border-2 border-[#830fea] input rounded-full text-white' type="email" placeholder='Explore Your Desire Content...' />
+                <input required className='pl-4 h-10 w-full sm:w-96 md:w-[500px] bg-transparent border-2 bg-[#3E3E3E]  border-[#830fea] input rounded-full text-[#A1A1A1]' type="email" placeholder='Explore Your Desire Content...' />
                 {/* Search button */}
-                <img className="absolute top-3 right-3 drop-shadow-md transition-all duration-200 disabled" src={searchIcon} alt="search icon" />
+                <img className="absolute top-3 right-5 drop-shadow-md transition-all duration-200  disabled" height="20px" width="20px" src={searchIcon} alt="search icon" />
             </div>
+        
         </div>
     );
 };
