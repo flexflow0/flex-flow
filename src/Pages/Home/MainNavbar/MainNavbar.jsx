@@ -39,7 +39,7 @@ const MainNavbar = () => {
         </ul>
 
     const { pathname } = useLocation();
-    console.log(pathname);
+    // console.log(pathname);
 
     return (
         <div className="navbar bg-[#39134b] rounded-sm text-white sticky top-0 z-10">
