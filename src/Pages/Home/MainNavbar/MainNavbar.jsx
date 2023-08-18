@@ -39,7 +39,7 @@ const MainNavbar = () => {
         </ul>
 
     const { pathname } = useLocation();
-    console.log(pathname);
+    // console.log(pathname);
 
     return (
         <div className="navbar bg-[#39134b] rounded-sm text-white sticky top-0 z-10">
@@ -103,7 +103,7 @@ const MainNavbar = () => {
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="">
                         <div className="avatar flex items-center space-x-2 mr-5 p-1 rounded-full bg-[#c9c9c9]">
-                            <div className="w-8">
+                            <div className="w-6 opacity-40">
                                 <img className="w-full Icon" src={menuIcon} alt="menuIcon" />
                             </div>
                             <div className="w-10 rounded-full ring-2 ring-primary">
@@ -113,7 +113,7 @@ const MainNavbar = () => {
                     </label>
                     <ul
                         tabIndex={0}
-                        className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 mt-3 bg-[#0c1535ec]"
+                        className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 mt-3 bg-[#0b163bec]"
                     >
                         <li className={liClasses}>
                             <a className="hover:text-white uppercase">Profile Name</a>

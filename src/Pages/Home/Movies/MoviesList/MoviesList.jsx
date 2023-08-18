@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import SingleMovie from "./SingleMovie";
 import MainBanner from "../../MainBanner/MainBanner";
+import CompanyInfoBanner from "../../CompanyInfoBanner/CompanyInfoBanner";
 
 
 const MoviesList = () => {
 
     const [movies, setMovies] = useState([]);
-console.log(movies)
+    console.log(movies)
 
 
     useEffect(() => {
@@ -17,7 +18,7 @@ console.log(movies)
 
     return (
         <div>
-                <MainBanner></MainBanner>
+            <MainBanner></MainBanner>
 
             <div className="mx-auto mb-10 ">
                 <h2 className="text-center text-[#830FEA] font-bold text-4xl uppercase">Jamboree</h2>
@@ -42,6 +43,7 @@ console.log(movies)
                 }
             </div>
 
+            <CompanyInfoBanner></CompanyInfoBanner>
         </div>
     );
 };
