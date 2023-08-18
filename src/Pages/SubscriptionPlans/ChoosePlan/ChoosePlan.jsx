@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom";
 import { FaCheckCircle } from 'react-icons/fa';
 import { FaCheck } from 'react-icons/fa';
-import Navbar from "../../LandingPage/Shared/Navbar/Navbar";
 
 
 const ChoosePlan = () => {
     return (
        <div>
-        <Navbar></Navbar>
          <div className="text-white flex justify-center items-center py-12">
 
 

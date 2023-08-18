@@ -10,6 +10,7 @@ import MoviesList from "../Pages/Home/Movies/MoviesList/MoviesList";
 import Loading from "../Pages/Shared/Loading";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
+import Home from "../Pages/Home/Home/Home";
 
 export const router = createBrowserRouter([
   {
@@ -20,7 +21,7 @@ export const router = createBrowserRouter([
         path: '/',
         element: <LandingPage></LandingPage>
       },
-     
+
       {
         path: '/register',
         element: <Registration></Registration>
@@ -46,9 +47,13 @@ export const router = createBrowserRouter([
         element: <Payment></Payment>
       },
       {
-        path: '/movieslist',
-        element: <MoviesList></MoviesList>
+        path:'/home',
+        element:<Home></Home>
       }
+      // {
+      //   path: '/movieslist',
+      //   element: <MoviesList></MoviesList>
+      // }
 
     ]
   },

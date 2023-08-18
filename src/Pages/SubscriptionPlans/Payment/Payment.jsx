@@ -1,6 +1,5 @@
 
 import { Link } from "react-router-dom";
-import Navbar from "../../LandingPage/Shared/Navbar/Navbar";
 
 // import useSelectedData from '../../../../Hooks/useSelectedData';
 import { loadStripe } from '@stripe/stripe-js';
@@ -18,7 +17,6 @@ const Payment = () => {
 
     return (
       <div>
-           <Navbar></Navbar>
 
         <div className='w-[97%] md:w-[90%] mx-auto '>
             <Elements stripe={stripePromise}>
