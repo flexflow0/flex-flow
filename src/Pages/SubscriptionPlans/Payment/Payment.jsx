@@ -23,7 +23,7 @@ const Payment = () => {
                 </Elements>
                 <Link to='/home'> <button className="btn w-64 font-bold rounded mb-10 ml-[500px] text-white bg-purple-800 ">Next</button><br /> </Link>
             </div>
-            
+
 
         </div>
     );

@@ -1,4 +1,3 @@
-import React from 'react';
 import './CompanyInfoBanner.css'
 
 const CompanyInfoBanner = () => {
