@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import {
     useStripe,
@@ -7,9 +7,15 @@ import {
     CardElement,
 } from '@stripe/react-stripe-js';
 import axios from 'axios';
+import { AuthContext } from '../../Provider/AuthProvider';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 // import useAuth from '../../../../Hooks/useAuth';
 const CheckForm = () => {
+
+    const {loaginUser} =useContext(AuthContext)
+    const navigate = useNavigate();
+
     const stripe = useStripe();
     // const { user } = useAuth()
     const [processing, setProcessing] = useState(false)
@@ -121,6 +127,8 @@ const CheckForm = () => {
                 if (payment) {
                     setTransaction(paymentIntent.id)
                     toast.success('Payment successful')
+                    
+
 
                 }
 

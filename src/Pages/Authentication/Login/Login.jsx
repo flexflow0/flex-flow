@@ -2,7 +2,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import './Login.css'
 
-import Navbar from "../../LandingPage/Shared/Navbar/Navbar";
 import { useContext } from "react";
 import {  AuthContext } from "../../Provider/AuthProvider";
 
@@ -37,7 +36,6 @@ const Login = () => {
 
 
   return (
-    <div>
     
   <div>
 
