@@ -1,8 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import './Registration.css'
 import Navbar from "../../LandingPage/Shared/Navbar/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Registration = () => {
+
+    const { creatUser, updateUser } = useContext(AuthContext)
+    const navigate = useNavigate();
+    const loction = useLocation()
+    console.log(loction)
+    const from = loction?.state?.from?.pathname || '/chooseplan'
+
     const handelRegster = event => {
         event.preventDefault();
         const form = event.target;
@@ -11,6 +20,25 @@ const Registration = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, photo, password, email);
+        creatUser(email, password)
+            .then(result => {
+                console.log(result);
+                navigate(from, { replace: true })
+                updateUser(name, photo)
+                    .then(() => {
+                        navigate(from, { replace: true })
+
+                    })
+                    .catch(error => {
+                        alert(error.message)
+                    })
+
+            })
+            .catch(error => {
+                alert(error.message)
+            })
+
+
 
     }
 
