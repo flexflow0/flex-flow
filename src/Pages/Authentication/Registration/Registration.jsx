@@ -1,6 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import './Registration.css'
-import Navbar from "../../LandingPage/Shared/Navbar/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
@@ -44,7 +43,6 @@ const Registration = () => {
 
     return (
         <div>
-            <Navbar></Navbar>
             <div className="banner">
                 <div className="hero min-h-screen  ">
                     <div className="hero-content flex-col lg:flex-row-reverse w-full">
