@@ -22,10 +22,6 @@ export const router = createBrowserRouter([
         element: <LandingPage></LandingPage>
       },
       {
-        path: '/home',
-        element: <Home></Home>
-      },
-      {
         path: '/register',
         element: <Registration></Registration>
       },
@@ -50,9 +46,13 @@ export const router = createBrowserRouter([
         element: <Payment></Payment>
       },
       {
-        path: '/movieslist',
-        element: <MoviesList></MoviesList>
+        path:'/home',
+        element:<Home></Home>
       }
+      // {
+      //   path: '/movieslist',
+      //   element: <MoviesList></MoviesList>
+      // }
 
     ]
   },
