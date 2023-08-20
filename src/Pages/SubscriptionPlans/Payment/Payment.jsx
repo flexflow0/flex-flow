@@ -25,6 +25,13 @@ const Payment = () => {
             </div>
 
 
+        <div className='w-[97%] md:w-[90%] mx-auto '>
+            <Elements stripe={stripePromise}>
+                <CheckoutForm />
+            </Elements>
+            <Link to='/home'> <button className="btn text-white bg-purple-800 ">Next</button><br /> </Link>
+           </div>
+            
         </div>
     );
 };
