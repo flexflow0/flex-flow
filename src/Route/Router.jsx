@@ -5,12 +5,12 @@ import ChoosePlan from "../Pages/SubscriptionPlans/ChoosePlan/ChoosePlan";
 import ChooseThePlan from "../Pages/SubscriptionPlans/ChooseThePlan/ChooseThePlan";
 import ChoosePay from "../Pages/SubscriptionPlans/ChoosePay/ChoosePay";
 import Payment from "../Pages/SubscriptionPlans/Payment/Payment";
-import MoviesList from "../Pages/Home/Movies/MoviesList/MoviesList";
 
 import Loading from "../Pages/Shared/Loading";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
+import ShowAllMovies from "../Pages/ShowAllMovies/ShowAllMovies";
 
 export const router = createBrowserRouter([
   {
@@ -49,11 +49,11 @@ export const router = createBrowserRouter([
       {
         path:'/home',
         element:<Home></Home>
+      },
+      {
+        path: '/all_movies',
+        element: <ShowAllMovies></ShowAllMovies>
       }
-      // {
-      //   path: '/movieslist',
-      //   element: <MoviesList></MoviesList>
-      // }
 
     ]
   },
