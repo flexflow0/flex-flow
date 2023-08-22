@@ -1,7 +1,6 @@
 import './MovieCard.css'
 
 const MovieCard = ({ movie }) => {
-    // console.log(movie);
     return (
         <div
             className="rounded-md overflow-hidden relative container_card"
@@ -23,7 +22,6 @@ const MovieCard = ({ movie }) => {
                     <tr>
                         <th colSpan={3}></th>
                     </tr>
-                    
                     <tr>
                         <th className='text-sm '>Length</th>
                         <th className='text-sm '>Rating</th>
