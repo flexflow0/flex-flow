@@ -1,7 +1,7 @@
 
 const SectionMovieCard = ({ movie }) => {
     return (
-        <div className="">
+        <div>
             <div className="rounded-lg overflow-hidden">
                 <img className="h-[150px]" src={movie?.thumbnail} alt="" />
             </div>

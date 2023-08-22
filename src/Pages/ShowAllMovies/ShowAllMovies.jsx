@@ -6,7 +6,7 @@ const ShowAllMovies = () => {
     const movies = useMovies();
 
     return (
-        <div className="bg-[#111111]">
+        <div>
             <div className="grid grid-cols-6 gap-5 p-5">
                 {
                     movies.map(movie => <MovieCard
