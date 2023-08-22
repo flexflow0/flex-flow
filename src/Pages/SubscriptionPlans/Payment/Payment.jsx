@@ -15,9 +15,9 @@ const Payment = () => {
     // console.log(amount);
 
     return (
-        <div className="">
+        <div className=" rounded">
 
-            <div className='w-[97%] md:w-[90%] ml-10  border border-purple-800 '>
+            <div className='w-[97%] md:w-[90%] ml-10  border border-purple-800'>
                 <Elements stripe={stripePromise}>
                     <CheckoutForm />
                 </Elements>
@@ -29,7 +29,7 @@ const Payment = () => {
             <Elements stripe={stripePromise}>
                 <CheckoutForm />
             </Elements>
-            <Link to='/home'> <button className="btn text-white bg-purple-800 ">Next</button><br /> </Link>
+            <Link to='/home'> <button className="btn text-white bg-purple-800 font-bold rounded ml-[500px] w-64">Next</button><br /> </Link>
            </div>
             
         </div>
