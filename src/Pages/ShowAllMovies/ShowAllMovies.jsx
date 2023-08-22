@@ -4,7 +4,6 @@ import MovieCard from "../Shared/MovieCard/MovieCard";
 const ShowAllMovies = () => {
 
     const movies = useMovies();
-    console.log(movies.leanth);
 
     return (
         <div className="bg-[#111111]">

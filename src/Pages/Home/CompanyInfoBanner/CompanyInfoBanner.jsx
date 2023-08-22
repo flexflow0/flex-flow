@@ -2,7 +2,7 @@ import './CompanyInfoBanner.css'
 
 const CompanyInfoBanner = () => {
     return (
-        <div className='h-72 flex justify-center items-center mt-16'> 
+        <div className='h-72 flex justify-center items-center mt-28'> 
             <div className='bg w-[85%] grid grid-cols-3 rounded-[40px] px-24 py-24'>
                 <div className='col-span-2'>
                     <h2 className='text-5xl font-bold text-white'>Looking For Company Info ?</h2>

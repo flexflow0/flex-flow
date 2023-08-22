@@ -8,7 +8,7 @@ const useMovies = () => {
     useEffect(() => {
         fetch('http://localhost:5000/movies')
             .then(res => res.json())
-            .then(data => setMovies(data))
+            .then(data => setMovies(data.reverse()))
     }, []);
 
     return movies;
