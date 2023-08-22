@@ -12,7 +12,7 @@ const ChooseThePlan = () => {
                 </div>
                 <div >
 
-                    <div className="grid grid-cols-4 gap-2 ">
+                    <div className="lg:grid lg:grid-cols-4 grid grid-cols-1 lg:gap-2 gap-4">
 
                         <div className="card w-full  shadow-xl border border-gray-500 p-1 rounded-lg">
                             <div className="bg-gradient-to-r from-blue-900 to-red-800 rounded-lg text-left  px-4 pb-10 pt-3 w-full">
