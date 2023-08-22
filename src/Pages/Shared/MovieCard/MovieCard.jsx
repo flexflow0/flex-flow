@@ -4,7 +4,7 @@ import './MovieCard.css'
 const MovieCard = ({ movie }) => {
     return (
         <div
-            className="rounded-md overflow-hidden relative container_card w-50"
+            className="rounded-md overflow-hidden relative container_card w-50 bg-[#111111]"
         >
             <div
             >

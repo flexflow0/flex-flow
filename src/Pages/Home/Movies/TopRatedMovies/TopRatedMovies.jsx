@@ -1,19 +1,26 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import useMovies from "../../../../Hooks/useMovies/useMovies";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation, Pagination } from 'swiper/modules';
 import SectionMovieCard from '../../../Shared/SectionMovieCard/SectionMovieCard';
-import './NewReleasedMovies.css'
+// import './NewReleasedMovies.css'
+import useMovies from '../../../../Hooks/useMovies/useMovies';
 
-const NewReleasedMovies = () => {
+const TopRatedMovies = () => {
 
     const movies = useMovies();
-    const newMovies = movies.slice(0, 10);
+    const sortedByRating = movies.slice(0);
+    sortedByRating.sort(function (a, b) {
+        return b.IMDb_rating - a.IMDb_rating;
+    });
+    const topRatedMovies = sortedByRating.slice(0, 10);
+
+    console.log('by name:');
+    console.log(sortedByRating);
 
     return (
-       <div className='mx-24 mt-20'>
-            <h2 className='text-2xl font-semibold mb-5'>Recently Released : </h2>
+        <div className='mx-24 mt-20'>
+            <h2 className='text-2xl font-semibold mb-5'>Top rated : </h2>
             <Swiper
                 style={{
                     '--swiper-navigation-color': '#fff',
@@ -29,12 +36,12 @@ const NewReleasedMovies = () => {
                 className="mySwiper "
             >
                 {
-                    newMovies.map(movie => <SwiperSlide
+                    topRatedMovies.map(movie => <SwiperSlide
                         key={movie?._id}
                     >
                         <SectionMovieCard
                             movie={movie}
-                        ></SectionMovieCard> 
+                        ></SectionMovieCard>
                     </SwiperSlide>)
                 }
                 <SwiperSlide>
@@ -47,8 +54,8 @@ const NewReleasedMovies = () => {
                     </div>
                 </SwiperSlide>
             </Swiper>
-       </div>
+        </div>
     );
 };
 
-export default NewReleasedMovies;
+export default TopRatedMovies;
