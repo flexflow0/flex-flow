@@ -19,7 +19,7 @@ const TopRatedMovies = () => {
     console.log(sortedByRating);
 
     return (
-        <div className='mx-24 mt-20'>
+        <div className='mx-24 my-20'>
             <h2 className='text-2xl font-semibold mb-5'>Top rated : </h2>
             <Swiper
                 style={{
