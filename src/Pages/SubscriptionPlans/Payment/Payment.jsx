@@ -21,10 +21,12 @@ const Payment = () => {
                 <Elements stripe={stripePromise}>
                     <CheckoutForm />
                 </Elements>
-                <Link to='/home'>
-                    <button className="btn w-64 font-bold rounded mb-10 ml-[500px] text-white bg-purple-800 ">Next</button>
-                    <br />
-                </Link>
+
+                <div className="text-center">
+                    <Link to='/home' className="btn  w-64 font-bold rounded mb-10  text-white bg-purple-800 border hover:border-[#830FEA] ">Next</Link>
+                </div>
+                <br />
+
             </div>
         </div>
     );
