@@ -1,13 +1,25 @@
-import useMovies from "../../Hooks/useMovies/useMovies";
+import { useParams } from "react-router-dom";
 import MovieCard from "../Shared/MovieCard/MovieCard";
+import useMovies from "../../Hooks/useMovies/useMovies";
+import { all } from "axios";
 
 const ShowAllMovies = () => {
 
-    const movies = useMovies();
+    const allMovies = useMovies();
+    const sortedByRating = allMovies.slice(0);
+    sortedByRating.sort(function (a, b) {
+        return b.IMDb_rating - a.IMDb_rating;
+    });
+
+    const {keyword} = useParams();
+    // console.log(keyword);
+
+    const movies = (keyword === 'top_rated') ? sortedByRating : allMovies;
+    
 
     return (
         <div>
-            <div className="grid grid-cols-6 gap-5 p-5">
+            <div className="grid grid-cols-6 gap-5 p-5 my-20">
                 {
                     movies.map(movie => <MovieCard
                         key={movie._id}

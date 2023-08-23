@@ -51,7 +51,7 @@ export const router = createBrowserRouter([
         element:<Home></Home>
       },
       {
-        path: '/all_movies',
+        path: '/show_all_movies/:keyword',
         element: <ShowAllMovies></ShowAllMovies>
       }
 
