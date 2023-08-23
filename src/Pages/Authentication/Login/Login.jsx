@@ -7,12 +7,12 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 
 const Login = () => {
-  const { loaginUser, restpassword } = useContext(AuthContext)
+  const { loginUser, resetPassword } = useContext(AuthContext)
   const [show, setShow] = useState(false)
-  const emailref = useRef();
+  const emailRef = useRef();
   const navigate = useNavigate();
-  const loction = useLocation();
-  const from = loction?.state?.from?.pathname || '/chooseplan'
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || '/chooseplan'
 
   const handelLogin = event => {
     event.preventDefault();
@@ -20,10 +20,13 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(password, email);
-    loaginUser(email, password)
+    loginUser(email, password)
       .then(result => {
         const logUser = result.user
         console.log(logUser)
+        if(loginUser.emailVerified==='false'){
+          alert(' Please verify your email address fast')
+        }
         navigate(from, { replace: true })
       })
       .catch(error => {
@@ -32,12 +35,12 @@ const Login = () => {
   }
 
   const handelForget = () => {
-    const passwordReset = emailref.current.value
+    const passwordReset = emailRef.current.value
     if (!passwordReset) {
       alert('please add your email to the input field')
       return;
     }
-    restpassword(passwordReset)
+    resetPassword(passwordReset)
       .then(() => {
         alert('please check your email and reset your password')
       })
@@ -63,7 +66,7 @@ const Login = () => {
                     <label className="label">
                       <span className="label-text">Email</span>
                     </label>
-                    <input type="email" ref={emailref} placeholder="Enter Your Email" name="email" className="input input-bordered" />
+                    <input type="email" ref={emailRef} placeholder="Enter Your Email" name="email" className="input input-bordered" />
                   </div>
                   <div className="form-control">
 
