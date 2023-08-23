@@ -7,8 +7,6 @@ const Home = () => {
     return (
         <div>
             <MainBanner></MainBanner>
-            {/* <MoviesList></MoviesList> */}
-            {/* <PopularFlicks></PopularFlicks> */}
             <NewReleasedMovies></NewReleasedMovies>
             <TopRatedMovies></TopRatedMovies>
             <CompanyInfoBanner></CompanyInfoBanner>

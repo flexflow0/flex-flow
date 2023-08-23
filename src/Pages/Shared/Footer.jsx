@@ -3,7 +3,7 @@ const Footer = () => {
 
     return (
 
-        <div className='text-center pb-5  pt-32'>
+        <div className='text-center pb-5'>
             <hr className='border-[#830FEA]' />
             {/* Heading Started */}
             <h1 className='pt-[50px] font2 text-[#830FEA] text-5xl mb-16 fontB '>FlexFlow

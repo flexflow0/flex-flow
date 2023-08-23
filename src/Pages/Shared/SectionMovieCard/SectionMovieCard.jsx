@@ -12,7 +12,13 @@ const SectionMovieCard = ({ movie }) => {
                 </span>
                 <span>{movie?.release_year}</span>
             </p>
-            <pre className="text-md font-semibold overflow-hidden text-ellipsis px-3">{movie?.title}</pre>
+            <div className="flex justify-between px-3">
+                <pre className="text-md font-semibold overflow-hidden text-ellipsis w-[80%]">{movie?.title}</pre>
+                <p className="flex items-center">
+                    <i className="fa-solid fa-star text-sm mb-1 mr-1"></i>
+                    <span className="">{movie?.IMDb_rating}</span>
+                </p>
+            </div>
         </div>
     );
 };

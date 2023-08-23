@@ -4,14 +4,12 @@ import { FaCheckCircle } from 'react-icons/fa';
 const ChooseThePlan = () => {
     return (
         <div>
-            <div className="text-white  py-10  px-12">
-
+            <div className="text-white pb-20 pt-10 px-12">
                 <div className="pb-8">
                     <p className="text-xs">STEP 1 OF 3</p>
                     <p className="text-2xl font-bold pb-5 pt-1">Choose the plan thats right for you</p>
                 </div>
                 <div >
-
                     <div className="lg:grid lg:grid-cols-4 grid grid-cols-1 lg:gap-2 gap-4">
 
                         <div className="card w-full  shadow-xl border border-gray-500 p-1 rounded-lg">
