@@ -3,14 +3,14 @@ const Footer = () => {
 
     return (
 
-        <div className='text-center pb-5  pt-32 bg-[#000000] '>
+        <div className='text-center pb-5'>
             <hr className='border-[#830FEA]' />
             {/* Heading Started */}
             <h1 className='pt-[50px] font2 text-[#830FEA] text-5xl mb-16 fontB '>FlexFlow
             </h1>
             <div className='relative mb-16 '>
                 <hr className='w-72 -mt-12 border border-[#830FEA] mx-auto ' />
-                <p className='absolute -top-2  bg-black text-[#830FEA] left-1/2 -translate-x-1/2 text-7xl rotate-12  font1'>"</p>
+                <p className='absolute -top-2  text-[#830FEA] left-1/2 -translate-x-1/2 text-7xl rotate-12  font1'>"</p>
             </div>
             <p className='font1 text-lg mb-7  text-white'>Subscribe to our mailing list</p>
             {/* Heading Finish */}

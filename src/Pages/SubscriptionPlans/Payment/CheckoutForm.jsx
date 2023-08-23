@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import {
     useStripe,
@@ -7,9 +7,15 @@ import {
     CardElement,
 } from '@stripe/react-stripe-js';
 import axios from 'axios';
+import { AuthContext } from '../../Provider/AuthProvider';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 // import useAuth from '../../../../Hooks/useAuth';
 const CheckForm = () => {
+
+    const { loaginUser } = useContext(AuthContext)
+    const navigate = useNavigate();
+
     const stripe = useStripe();
     // const { user } = useAuth()
     const [processing, setProcessing] = useState(false)
@@ -122,6 +128,8 @@ const CheckForm = () => {
                     setTransaction(paymentIntent.id)
                     toast.success('Payment successful')
 
+
+
                 }
 
                 setProcessing(false)
@@ -131,11 +139,11 @@ const CheckForm = () => {
 
     return (
         <form onSubmit={handleSubmit} className='w-full flex flex-col h-[500px]  md:w-[60%] mx-auto'>
-            <CardElement className='bg-base-100  rounded-2xl my-auto shadow-2xl'
+            <CardElement className='bg-base-100 border border-[#830FEA] py-2 px-5 rounded-xl my-auto shadow-xl'
                 options={{
                     style: {
                         base: {
-                            fontSize: '18px',
+                            fontSize: '20px',
                             color: '#424770',
                             '::placeholder': {
                                 color: '#aab7c4',
@@ -155,7 +163,7 @@ const CheckForm = () => {
             </div>
             {/* Show error message to your customers */}
             {
-                transaction && <p className='mt-10 text-green-500'>Transaction is Successfully Done ,<br /> Transaction ID: <span className='text-[#9d2cfa]'>{transaction}</span></p>
+                transaction && <p className='mb-10 text-green-500'>Transaction is Successfully Done ,<br /> Transaction ID: <span className='text-[#9d2cfa]'>{transaction}</span></p>
             }
 
             <Toaster />

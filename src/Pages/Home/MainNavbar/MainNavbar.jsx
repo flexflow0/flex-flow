@@ -2,47 +2,44 @@ import { Link, useLocation } from "react-router-dom";
 import menuIcon from "../../../assets/menu-alt-2.svg"
 import './MainNavbar.css'
 
-
 const MainNavbar = () => {
+
+    const regionNames = ["DC, Marvel or Superhero", "Bollywood", "Hollywood", "Bangla", "Korean", "Spanish", "Chinese & Japanese"];
+    const genresNames = ["Animation & Cartoon", "Biography", "Documentary", "Horror", "Fantasy", "Drama", "Crime", "Comedy", "Romance", "Sports", "Mystery", "Sci-Fi", "War", "Western", "Thriller", "Psychological"];
 
     const liClasses = "hover:bg-[#8484c9] hover:text-white rounded-xl"
     const MovieSector =
-        <ul className="p-2 w-60 lg:bg-[#091231ec] bg-opacity-80">
-            <li className={liClasses}><a className="hover:text-white">DC, Marvel or Superhero</a></li>
-            <li className={liClasses}><a className="hover:text-white">Bollywood</a></li>
-            <li className={liClasses}><a className="hover:text-white">Hollywood</a></li>
-            <li className={liClasses}><a className="hover:text-white">Bangla</a></li>
-            <li className={liClasses}><a className="hover:text-white">Korean</a></li>
-            <li className={liClasses}><a className="hover:text-white">Spanish</a></li>
-            <li className={liClasses}><a className="hover:text-white">Chinese & Japanese</a></li>
-            <li className={liClasses}><a className="hover:text-white">TV & Web Series</a></li>
-            <li className={liClasses}><a className="hover:text-white">Others</a></li>
+        <ul className="p-2 w-60 lg:bg-[#091231ec] bg-opacity-80 z-30">
+            {
+                regionNames.map(region => <li
+                    key={region}
+                    className={liClasses}
+                >
+                    <Link to={`/regions/${region}`} className="hover:text-white">
+                        {region}
+                    </Link>
+                </li>)
+            }
         </ul>
     const MovieGenres =
-        <ul className="p-2 w-60 lg:bg-[#091231ec] bg-opacity-80">
-            <li className={liClasses}><a className="hover:text-white">Animation & Cartoon</a></li>
-            <li className={liClasses}><a className="hover:text-white">Biography</a></li>
-            <li className={liClasses}><a className="hover:text-white">Documentary</a></li>
-            <li className={liClasses}><a className="hover:text-white">Horror</a></li>
-            <li className={liClasses}><a className="hover:text-white">Fantasy</a></li>
-            <li className={liClasses}><a className="hover:text-white">Drama</a></li>
-            <li className={liClasses}><a className="hover:text-white">Crime</a></li>
-            <li className={liClasses}><a className="hover:text-white">Comedy</a></li>
-            <li className={liClasses}><a className="hover:text-white">Romance</a></li>
-            <li className={liClasses}><a className="hover:text-white">Sports</a></li>
-            <li className={liClasses}><a className="hover:text-white">Mystery</a></li>
-            <li className={liClasses}><a className="hover:text-white">Sci-Fi</a></li>
-            <li className={liClasses}><a className="hover:text-white">War</a></li>
-            <li className={liClasses}><a className="hover:text-white">Western</a></li>
-            <li className={liClasses}><a className="hover:text-white">Thriller</a></li>
-            <li className={liClasses}><a className="hover:text-white">Psychological</a></li>
+        <ul className="p-2 w-60 lg:bg-[#091231ec] bg-opacity-80 z-40">
+            {
+                genresNames.map(genre => <li
+                    key={genre}
+                    className={liClasses}
+                >
+                    <Link to={`/genres/${genre}`} className="hover:text-white">
+                        {genre}
+                    </Link>
+                </li>)
+            }
         </ul>
 
     const { pathname } = useLocation();
     // console.log(pathname);
 
     return (
-        <div className="navbar bg-[#39134b] rounded-sm text-white sticky top-0 z-10">
+        <div className="navbar bg-[#39134b] rounded-sm text-white">
             {/* Mobile Device */}
             <div className="navbar-start">
                 {
@@ -101,32 +98,40 @@ const MainNavbar = () => {
             }
             <div className="navbar-end">
                 <div className="dropdown dropdown-end">
-                    <label tabIndex={0} className="">
-                        <div className="avatar flex items-center space-x-2 mr-5 p-1 rounded-full bg-[#c9c9c9]">
-                            <div className="w-6 opacity-40">
-                                <img className="w-full Icon" src={menuIcon} alt="menuIcon" />
-                            </div>
-                            <div className="w-10 rounded-full ring-2 ring-primary">
-                                <img src="https://sb.kaleidousercontent.com/67418/1920x1545/c5f15ac173/samuel-raita-ridxdghg7pw-unsplash.jpg" />
-                            </div>
-                        </div>
-                    </label>
-                    <ul
-                        tabIndex={0}
-                        className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 mt-3 bg-[#0b163bec]"
-                    >
-                        <li className={liClasses}>
-                            <a className="hover:text-white uppercase">Profile Name</a>
-                        </li>
-                        <li className={`${liClasses} flex flex-row items-center justify-between px-4`}>
-                            <span className="hover:text-white ps-0"> Sign Up</span>
-                            <i className="fa-solid fa-user-plus hover:text-white"></i>
-                        </li>
-                        <li className={`${liClasses} flex flex-row items-center justify-between px-4`}>
-                            <span className="hover:text-white ps-0">Login</span>
-                            <img className="w-14" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABqUlEQVR4nO2WTS8DURSGuxUsNdRHgyb8F7ERhPQXVOsjQfwUJSESEUJrJX4ACwldkai1CEuUCEofuckrGY3p3Jnpooue5cw573PvuefecyKRpjWaAb3ACnAM3AFvwCtQ1Lc00FNPYB+wDXzjbWVgHYiFhU4BzxJ9B3aACSAOtACtwBAwDewBH/ItAaNBofNARUIHZucWMQNATjEmQxm/0HFBTfBsgEUvAl+Kt9s50K1UGZvzC62Co6PqsgnYVEAuKNShlZfWmo3zKnBf62oAJ0ABiHpoDargyiaTAdf/R/BcO7mygO/Ld6Ye4KignnAgKb+j0GAJdgCXEi26FZDuubGbWmKnBLeCi2a7/pcaDxwy1Z0ufsPyufYFaKjiAi5soFXXKWXzgDyY/lvD58zyAUlYPyDAhlaYj4Q04FBaWRvnmKMHL4SALknjya3w/gsaU1usBIEL+tsWR/wGZxyDgGnucYuYhCO9Bpr2u2jnQPDoGH12gUmgX6NPm+5pUlPKpyO9/nbqMl1uKXVeZqo3a32mPiaTZfMQALcab1/Mi6Rvqbr03KZF6mw/8SePh1dYTfYAAAAASUVORK5CYII=" />
-                        </li>
-                    </ul>
+                    {
+                        (pathname == '/home') ?
+                            <>
+                                <label tabIndex={0} className="">
+                                    <div className="avatar flex items-center space-x-2 mr-5 p-1 rounded-full bg-[#c9c9c9]">
+                                        <div className="w-6 opacity-40">
+                                            <img className="w-full Icon" src={menuIcon} alt="menuIcon" />
+                                        </div>
+                                        <div className="w-10 rounded-full ring-2 ring-primary">
+                                            <img src="https://sb.kaleidousercontent.com/67418/1920x1545/c5f15ac173/samuel-raita-ridxdghg7pw-unsplash.jpg" />
+                                        </div>
+                                    </div>
+                                </label>
+                                <ul
+                                    tabIndex={0}
+                                    className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 mt-3 bg-[#0b163bec]"
+                                >
+                                    <li className={liClasses}>
+                                        <a className="hover:text-white uppercase">Profile Name</a>
+                                    </li>
+                                    <li className={`${liClasses} flex flex-row items-center justify-between px-4`}>
+                                        <span className="hover:text-white ps-0"> Sign Up</span>
+                                        <i className="fa-solid fa-user-plus hover:text-white"></i>
+                                    </li>
+                                    <li className={`${liClasses} flex flex-row items-center justify-between px-4`}>
+                                        <span className="hover:text-white ps-0">Login</span>
+                                        <img className="w-14" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABqUlEQVR4nO2WTS8DURSGuxUsNdRHgyb8F7ERhPQXVOsjQfwUJSESEUJrJX4ACwldkai1CEuUCEofuckrGY3p3Jnpooue5cw573PvuefecyKRpjWaAb3ACnAM3AFvwCtQ1Lc00FNPYB+wDXzjbWVgHYiFhU4BzxJ9B3aACSAOtACtwBAwDewBH/ItAaNBofNARUIHZucWMQNATjEmQxm/0HFBTfBsgEUvAl+Kt9s50K1UGZvzC62Co6PqsgnYVEAuKNShlZfWmo3zKnBf62oAJ0ABiHpoDargyiaTAdf/R/BcO7mygO/Ld6Ye4KignnAgKb+j0GAJdgCXEi26FZDuubGbWmKnBLeCi2a7/pcaDxwy1Z0ufsPyufYFaKjiAi5soFXXKWXzgDyY/lvD58zyAUlYPyDAhlaYj4Q04FBaWRvnmKMHL4SALknjya3w/gsaU1usBIEL+tsWR/wGZxyDgGnucYuYhCO9Bpr2u2jnQPDoGH12gUmgX6NPm+5pUlPKpyO9/nbqMl1uKXVeZqo3a32mPiaTZfMQALcab1/Mi6Rvqbr03KZF6mw/8SePh1dYTfYAAAAASUVORK5CYII=" />
+                                    </li>
+                                </ul>
+                            </> :
+                            <Link to='/login'>
+                                <button className='uppercase bg-[#0a0a25] px-5 py-2 rounded-lg font-medium'>Login</button>
+                            </Link>
+                    }
                 </div>
 
             </div>

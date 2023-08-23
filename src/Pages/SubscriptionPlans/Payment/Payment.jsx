@@ -6,9 +6,8 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from './CheckoutForm';
 
-// const stripePromise = loadStripe(`${import.meta.env.VITE_PK}`);
-// TODO: secret this into .env.local ^^^^^^^^^^^^^^^^☝^^^^^^^^^^^
-const stripePromise = loadStripe(`pk_test_51NEwMYLtOU21zLJnTHK2UMaEImqC0NBzvy6bQuOUG2OmU5bAYHTnwQeKZVBooWJAf21OfHaduJ5wkYZsL8mScwQi00S21vf22c`);
+const stripePromise = loadStripe(`${import.meta.env.VITE_PK}`);
+
 const Payment = () => {
     // const [cart] = useSelectedData()
     // const total = cart.reduce((sum, item) => item.price + sum, 0);
@@ -16,15 +15,19 @@ const Payment = () => {
     // console.log(amount);
 
     return (
-      <div>
+        <div className=" rounded-lg py-12">
 
-        <div className='w-[97%] md:w-[90%] mx-auto '>
-            <Elements stripe={stripePromise}>
-                <CheckoutForm />
-            </Elements>
-            <Link to='/movieslist'> <button className="btn text-white bg-purple-800 ">Next</button><br /> </Link>
-           </div>
-            
+            <div className='w-[100%] md:w-[90%] mx-auto  border border-purple-800'>
+                <Elements stripe={stripePromise}>
+                    <CheckoutForm />
+                </Elements>
+
+                <div className="text-center">
+                    <Link to='/home' className="btn  w-64 font-bold rounded mb-10  text-white bg-purple-800 border hover:border-[#830FEA] ">Next</Link>
+                </div>
+                <br />
+
+            </div>
         </div>
     );
 };
