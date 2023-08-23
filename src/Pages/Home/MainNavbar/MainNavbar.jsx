@@ -2,40 +2,37 @@ import { Link, useLocation } from "react-router-dom";
 import menuIcon from "../../../assets/menu-alt-2.svg"
 import './MainNavbar.css'
 
-
 const MainNavbar = () => {
+
+    const regionNames = ["DC, Marvel or Superhero", "Bollywood", "Hollywood", "Bangla", "Korean", "Spanish", "Chinese & Japanese"];
+    const genresNames = ["Animation & Cartoon", "Biography", "Documentary", "Horror", "Fantasy", "Drama", "Crime", "Comedy", "Romance", "Sports", "Mystery", "Sci-Fi", "War", "Western", "Thriller", "Psychological"];
 
     const liClasses = "hover:bg-[#8484c9] hover:text-white rounded-xl"
     const MovieSector =
-        <ul className="p-2 w-60 lg:bg-[#091231ec] bg-opacity-80">
-            <li className={liClasses}><a className="hover:text-white">DC, Marvel or Superhero</a></li>
-            <li className={liClasses}><a className="hover:text-white">Bollywood</a></li>
-            <li className={liClasses}><a className="hover:text-white">Hollywood</a></li>
-            <li className={liClasses}><a className="hover:text-white">Bangla</a></li>
-            <li className={liClasses}><a className="hover:text-white">Korean</a></li>
-            <li className={liClasses}><a className="hover:text-white">Spanish</a></li>
-            <li className={liClasses}><a className="hover:text-white">Chinese & Japanese</a></li>
-            <li className={liClasses}><a className="hover:text-white">TV & Web Series</a></li>
-            <li className={liClasses}><a className="hover:text-white">Others</a></li>
+        <ul className="p-2 w-60 lg:bg-[#091231ec] bg-opacity-80 z-30">
+            {
+                regionNames.map(region => <li
+                    key={region}
+                    className={liClasses}
+                >
+                    <Link to={`/regions/${region}`} className="hover:text-white">
+                        {region}
+                    </Link>
+                </li>)
+            }
         </ul>
     const MovieGenres =
-        <ul className="p-2 w-60 lg:bg-[#091231ec] bg-opacity-80">
-            <li className={liClasses}><a className="hover:text-white">Animation & Cartoon</a></li>
-            <li className={liClasses}><a className="hover:text-white">Biography</a></li>
-            <li className={liClasses}><a className="hover:text-white">Documentary</a></li>
-            <li className={liClasses}><a className="hover:text-white">Horror</a></li>
-            <li className={liClasses}><a className="hover:text-white">Fantasy</a></li>
-            <li className={liClasses}><a className="hover:text-white">Drama</a></li>
-            <li className={liClasses}><a className="hover:text-white">Crime</a></li>
-            <li className={liClasses}><a className="hover:text-white">Comedy</a></li>
-            <li className={liClasses}><a className="hover:text-white">Romance</a></li>
-            <li className={liClasses}><a className="hover:text-white">Sports</a></li>
-            <li className={liClasses}><a className="hover:text-white">Mystery</a></li>
-            <li className={liClasses}><a className="hover:text-white">Sci-Fi</a></li>
-            <li className={liClasses}><a className="hover:text-white">War</a></li>
-            <li className={liClasses}><a className="hover:text-white">Western</a></li>
-            <li className={liClasses}><a className="hover:text-white">Thriller</a></li>
-            <li className={liClasses}><a className="hover:text-white">Psychological</a></li>
+        <ul className="p-2 w-60 lg:bg-[#091231ec] bg-opacity-80 z-40">
+            {
+                genresNames.map(genre => <li
+                    key={genre}
+                    className={liClasses}
+                >
+                    <Link to={`/genres/${genre}`} className="hover:text-white">
+                        {genre}
+                    </Link>
+                </li>)
+            }
         </ul>
 
     const { pathname } = useLocation();

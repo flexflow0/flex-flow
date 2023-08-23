@@ -5,6 +5,7 @@ import 'swiper/css/navigation';
 import { Navigation, Pagination } from 'swiper/modules';
 import SectionMovieCard from '../../../Shared/SectionMovieCard/SectionMovieCard';
 import './NewReleasedMovies.css'
+import { Link } from 'react-router-dom';
 
 const NewReleasedMovies = () => {
 
@@ -38,13 +39,13 @@ const NewReleasedMovies = () => {
                     </SwiperSlide>)
                 }
                 <SwiperSlide>
-                    <div>
+                    <Link to='/show_all_movies/all'>
                         <div className="rounded-lg overflow-hidden border border-[#918282] hover:bg-[#3b0764] hover:text-white">
                             <p className='h-[150px] flex justify-center items-center text-xl text-[#dfd1d1d7]'>See more
                                 <i className="fa-solid fa-circle-right ml-2 mt-1"></i>
                             </p>
                         </div>
-                    </div>
+                    </Link>
                 </SwiperSlide>
             </Swiper>
        </div>
