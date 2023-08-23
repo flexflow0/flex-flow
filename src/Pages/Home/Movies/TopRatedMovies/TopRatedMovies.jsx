@@ -16,8 +16,8 @@ const TopRatedMovies = () => {
     });
     const topRatedMovies = sortedByRating.slice(0, 10);
 
-    console.log('by name:');
-    console.log(sortedByRating);
+    // console.log('by name:');
+    // console.log(sortedByRating);
 
     return (
         <div className='mx-24 my-20'>

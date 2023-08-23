@@ -11,6 +11,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
 import ShowAllMovies from "../Pages/ShowAllMovies/ShowAllMovies";
+import MoviesByGenres from "../Pages/MoviesByGenres/MoviesByGenres";
+import MoviesByRegion from "../Pages/MoviesByRegion/MoviesByRegion";
 
 export const router = createBrowserRouter([
   {
@@ -47,14 +49,21 @@ export const router = createBrowserRouter([
         element: <Payment></Payment>
       },
       {
-        path:'/home',
-        element:<Home></Home>
+        path: '/home',
+        element: <Home></Home>
       },
       {
         path: '/show_all_movies/:keyword',
         element: <ShowAllMovies></ShowAllMovies>
+      },
+      {
+        path: '/genres/:genre',
+        element: <MoviesByGenres></MoviesByGenres>
+      },
+      {
+        path: '/regions/:region',
+        element: <MoviesByRegion></MoviesByRegion>
       }
-
     ]
   },
   {
