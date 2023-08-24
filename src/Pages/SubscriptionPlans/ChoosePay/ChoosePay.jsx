@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import useAuth from "../../../Hooks/useAuth/useAuth";
 
 const ChoosePay = () => {
+    const { price, plan } = useAuth()
+    console.log(price, plan);
     return (
         <div className="text-center pt-5 lg:px-20 px-5 mb-10 mt-5 text-white ">
             <div className="border-2 border-purple-900 p-5">

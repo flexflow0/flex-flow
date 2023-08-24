@@ -10,33 +10,27 @@ import axios from 'axios';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../../Shared/Loading';
+import useAuth from '../../../Hooks/useAuth/useAuth';
 
-// import useAuth from '../../../../Hooks/useAuth';
 const CheckForm = ({ setDisable }) => {
+    const { user, price, plan } = useAuth()
 
-    const { loaginUser } = useContext(AuthContext)
+    console.log(price);
+
     const navigate = useNavigate();
 
     const stripe = useStripe();
-    // const { user } = useAuth()
+
     const [processing, setProcessing] = useState(false)
     const [transaction, setTransaction] = useState('')
     const [clientSecret, setClientSecret] = useState()
 
     const element = useElements()
 
-    // TODO: user
-    const user = {
-        email: "s.atiqurrahman2003@gmail.com",
-        displayName: "Atiqur Rahman"
-    }
 
-    // todo: items price
-    // TODO: price
-    const totalPrice = 10
 
-    // const totalPrice = cart?.reduce((sum, item) => item.price + sum, 0);
-    if (totalPrice <= 0) {
+  
+    if (price <= 0) {
         toast.error('Make sure you have selected your course')
 
     }
@@ -45,8 +39,8 @@ const CheckForm = ({ setDisable }) => {
     // change this when content price is available
     const [repayment, setRepayment] = useState(false)
     useEffect(() => {
-        if (totalPrice > 0) {
-            axios('http://localhost:5000/create-payment-intent')
+        if (price > 0) {
+            axios.post('http://localhost:5000/create-payment-intent', { price })
                 .then(res => {
                     setClientSecret(res.data.clientSecret);
                     console.log(res.data.clientSecret);
@@ -55,7 +49,7 @@ const CheckForm = ({ setDisable }) => {
                     console.error("Error fetching client secret:", error);
                 });
         }
-    }, [repayment]);
+    }, [repayment, price]);
 
 
 
@@ -108,29 +102,27 @@ const CheckForm = ({ setDisable }) => {
                     email: user?.email,
                     name: user?.displayName,
                     transactionId: paymentIntent.id,
-                    // price: totalPrice,
-                    // status: 'Enrolled',
-                    // quantity: cart.length,
-                    // BookedId: cart.map(bookedID => bookedID.bookedClass),
-                    // LanguageNames: cart.map(bookedItem => bookedItem?.foreignLanguageName)
+                    price: price,
+                    plan: plan || "unknown",
+                    status: 'proceed', // expired, proceed, 
+                    paymentMethod: 'stripe', // stripe, SSLCommerz, 
+
                 }
                 console.log(payment);
-                // fetch('/payment', payment).then(res => res.json()).then(data => {
-                //     if (data.insertedId) {
-                //         toast.fire({
-                //             icon: 'success',
-                //             title: 'Payment successful'
-                //         })
+                fetch('http://localhost:5000/payment-stripe', {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payment)
 
-                //     }
+                }).then(res => res.json()).then(data => {
+                    if (data.insertedId) {
+                        toast.success('Payment successful')
 
-                // })
+                    }
+
+                })
                 if (payment) {
                     setTransaction(paymentIntent.id)
-                    toast.success('Payment successful')
-
-
-
                 }
 
                 setProcessing(false)
