@@ -5,7 +5,7 @@ import { FaCheck } from 'react-icons/fa';
 
 const ChoosePlan = () => {
     return (
-        <div>
+        <div >
             <div className="text-white flex justify-center items-center py-12">
                 <div className="lg:p-8 lg:w-[24%]">
                     <div className=" ">
