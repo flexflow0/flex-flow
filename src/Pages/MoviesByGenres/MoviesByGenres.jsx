@@ -5,18 +5,18 @@ import useMovies from "../../Hooks/useMovies/useMovies";
 const MoviesByGenres = () => {
 
     const {genre} = useParams();
+    console.log(genre);
 
     let queries = {
         genre: genre,
         region: undefined,
     }
 
-    const movies = useMovies(queries)
-    // console.log(genre);
+    const [movies] = useMovies(queries)
     
     return (
         <div>
-            <div className="grid grid-cols-6 gap-5 p-5 my-20">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-5 p-5 my-20">
                 {
                     movies.map(movie => <MovieCard
                         key={movie._id}

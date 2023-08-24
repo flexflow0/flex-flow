@@ -11,12 +11,12 @@ const MoviesByRegion = () => {
         region: region,
     }
 
-    const movies = useMovies(queries)
+    const [movies] = useMovies(queries)
     // console.log(region);
 
     return (
         <div>
-            <div className="grid grid-cols-6 gap-5 p-5 my-20">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-5 p-5 my-20">
                 {
                     movies.map(movie => <MovieCard
                         key={movie._id}

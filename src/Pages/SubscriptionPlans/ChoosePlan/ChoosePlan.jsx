@@ -20,10 +20,11 @@ const ChoosePlan = () => {
                         <p className="text-md flex gap-2 lg:items-center py-2"><FaCheck className="text-purple-800  lg:text-xl"></FaCheck>Everything on Flexflow for one  low price.</p>
                         <p className="text-md flex gap-2 lg:items-center"><FaCheck className="text-purple-800  lg:text-xl"></FaCheck>No adverts and no extra fees. Ever.</p>
                     </div>
-                    <Link to='/choosetheplan'> <button className="btn text-white w-full rounded-lg bg-purple-800 mt-8">Next</button><br />
+                    <Link to='/chooseThePlan'> <button className="btn text-white w-full rounded-lg bg-purple-800 mt-8">Next</button><br />
                     </Link>
                 </div>
             </div>
+            <hr className='border-[#830FEA]' />
         </div>
     );
 };

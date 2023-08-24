@@ -1,7 +1,6 @@
 import './MainBanner.css'
 import searchIcon from '../../../assets/Vector.svg'
 
-
 const MainBanner = () => {
     return (
         <div

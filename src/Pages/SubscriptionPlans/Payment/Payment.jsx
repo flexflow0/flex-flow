@@ -15,17 +15,19 @@ const Payment = () => {
     // console.log(amount);
 
     return (
-        <div className=" rounded-lg py-12">
-
-            <div className='w-[100%] md:w-[90%] mx-auto  border border-purple-800'>
-                <Elements stripe={stripePromise}>
-                    <CheckoutForm />
-                </Elements>
-                <Link to='/home'>
-                    <button className="btn w-64 font-bold rounded mb-10 ml-[500px] text-white bg-purple-800 ">Next</button>
-                    <br />
-                </Link>
+        <div>
+            <div className=" rounded-lg py-12">
+                <div className='w-[100%] md:w-[90%] mx-auto  border border-purple-800'>
+                    <Elements stripe={stripePromise}>
+                        <CheckoutForm />
+                    </Elements>
+                    <Link to='/home'>
+                        <button className="btn w-64 font-bold rounded mb-10 ml-[500px] text-white bg-purple-800 ">Next</button>
+                        <br />
+                    </Link>
+                </div>
             </div>
+            <hr className='border-[#830FEA]' />
         </div>
     );
 };

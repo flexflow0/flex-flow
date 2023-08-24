@@ -7,10 +7,10 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const Login = () => {
   const { loaginUser, restpassword } = useContext(AuthContext)
   const [show, setShow] = useState(false)
-  const emailref = useRef();
+  const emailRef = useRef();
   const navigate = useNavigate();
-  const loction = useLocation();
-  const from = loction?.state?.from?.pathname || '/chooseplan'
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || '/choosePlan'
 
   const handelLogin = event => {
     event.preventDefault();
@@ -30,7 +30,7 @@ const Login = () => {
   }
 
   const handelForget = () => {
-    const passwordReset = emailref.current.value
+    const passwordReset = emailRef.current.value
     if (!passwordReset) {
       alert('please add your email to the input field')
       return;
@@ -56,7 +56,7 @@ const Login = () => {
                     <label className="label">
                       <span className="label-text">Email</span>
                     </label>
-                    <input type="email" ref={emailref} placeholder="Enter Your Email" name="email" className="input input-bordered" />
+                    <input type="email" ref={emailRef} placeholder="Enter Your Email" name="email" className="input input-bordered" />
                   </div>
                   <div className="form-control">
                     <label className="label">

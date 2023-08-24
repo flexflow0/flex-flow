@@ -33,15 +33,15 @@ export const router = createBrowserRouter([
         element: <Login></Login>
       },
       {
-        path: '/chooseplan',
+        path: '/choosePlan',
         element: <ChoosePlan></ChoosePlan>
       },
       {
-        path: '/choosetheplan',
+        path: '/chooseThePlan',
         element: <ChooseThePlan></ChooseThePlan>
       },
       {
-        path: '/choosepay',
+        path: '/choosePay',
         element: <ChoosePay></ChoosePay>
       },
       {
