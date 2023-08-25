@@ -1,17 +1,21 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 const useMovies = (queries) => {
 
-    const [movies, setMovies] = useState([])
-    // console.log(queries?.genre, queries?.region)
-    console.log(movies)
-    useEffect(() => {
-        fetch(`http://localhost:5000/movies?genre=${queries?.genre}&region=${queries?.region}`)
-            .then(res => res.json())
-            .then(data => setMovies(data.reverse()))
-    }, [queries]);
+    // const { data: movies = [], refetch } = useQuery(['movies'], async () => {
+    //     const res = await fetch(`https://flex-flow-server.vercel.app/movies?genre=${queries?.genre}&region=${queries?.region}`)
+    //     return res.json();
+    // })
+    const { data: movies = [], refetch } = useQuery({
+        queryKey: [queries],
+        queryFn: () =>
+            axios
+                .get(`https://flex-flow-server.vercel.app/movies?genre=${queries?.genre}&region=${queries?.region}`)
+                .then((res) => res.data),
+    })
 
-    return movies;
+    return [movies, refetch]
 };
 
 export default useMovies;

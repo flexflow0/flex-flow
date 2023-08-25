@@ -8,7 +8,7 @@ const MovieCard = ({ movie }) => {
         >
             <div
             >
-                <div className="w-full h-[300px]">
+                <div className="w-full h-[550px] md:h-[400px] lg:h-[300px]">
                     <Link>
                         <img className="w-full h-full object-fill" src={movie?.poster} alt="" />
                     </Link>

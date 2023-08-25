@@ -7,12 +7,13 @@ const Registration = () => {
 
     const { createUser, updateUser, verificationEmail } = useContext(AuthContext)
     const navigate = useNavigate();
-    const loction = useLocation()
+
+    const location = useLocation()
     const [error,setError]=useState();
     const [show,setShow]= useState();
-    const from = loction?.state?.from?.pathname || '/chooseplan'
+    const from = location?.state?.from?.pathname || '/chooseplan'
 
-    const handelRegster = event => {
+    const handelRegister = event => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
@@ -81,7 +82,7 @@ const Registration = () => {
                     <div className="hero-content flex-col lg:flex-row-reverse w-full">
                         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 bg-opacity-90">
                             <div className="card-body">
-                                <form onSubmit={handelRegster}>
+                                <form onSubmit={handelRegister}>
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Name</span>
