@@ -14,22 +14,18 @@ import useAuth from '../../../Hooks/useAuth/useAuth';
 
 const CheckForm = ({ setDisable }) => {
     const { user, price, plan } = useAuth()
-
-    console.log(price);
-
     const navigate = useNavigate();
 
     const stripe = useStripe();
-
     const [processing, setProcessing] = useState(false)
     const [transaction, setTransaction] = useState('')
-    const [clientSecret, setClientSecret] = useState()
+    const [clientSecret, setClientSecret] = useState('')
 
     const element = useElements()
 
 
 
-  
+
     if (price <= 0) {
         toast.error('Make sure you have selected your course')
 

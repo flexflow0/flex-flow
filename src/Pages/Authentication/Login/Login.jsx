@@ -3,6 +3,7 @@ import { FaGoogle } from "react-icons/fa";
 import './Login.css'
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Toaster, toast } from "react-hot-toast";
 
 const Login = () => {
   const { loginUser, resetPassword } = useContext(AuthContext)
@@ -19,17 +20,19 @@ const Login = () => {
     const password = form.password.value;
     console.log(password, email);
     loginUser(email, password)
-      .then(result => {
-        const logUser = result.user
-        console.log(logUser)
-        if(loginUser.emailVerified==='false'){
-          alert(' Please verify your email address fast')
+      .then(() => {
+        if (loginUser.emailVerified === false) {
+          toast('Please verify your email address fast', {
+            icon: '🔐',
+          });
         }
         navigate(from, { replace: true })
       })
       .catch(error => {
-        alert(error.message)
+        toast.error(error.message)
+
       })
+
   }
 
   const handelForget = () => {
@@ -87,6 +90,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };
