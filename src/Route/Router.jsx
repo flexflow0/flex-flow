@@ -4,7 +4,6 @@ import Login from "../Pages/Authentication/Login/Login";
 import ChoosePlan from "../Pages/SubscriptionPlans/ChoosePlan/ChoosePlan";
 import ChooseThePlan from "../Pages/SubscriptionPlans/ChooseThePlan/ChooseThePlan";
 import ChoosePay from "../Pages/SubscriptionPlans/ChoosePay/ChoosePay";
-
 import Loading from "../Pages/Shared/Loading";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
