@@ -66,8 +66,13 @@ const TopRatedMovies = () => {
                 }
                 <SwiperSlide>
                     <Link to='/show_all_movies/top_rated'>
-                        <div className="rounded-lg overflow-hidden border border-[#918282] hover:bg-[#3b0764] hover:text-white aspect-ratio-container flex justify-center">
-                            <p className='flex justify-center items-center text-xl text-[#dfd1d1d7]'>See more
+                        <div
+                            className="rounded-lg overflow-hidden border border-[#918282] hover:bg-[#3b0764] hover:text-white aspect-ratio-container flex justify-center"
+                        >
+                            <p
+                                className='flex justify-center items-center text-xl text-[#dfd1d1d7]'
+                            >
+                                See more
                                 <i className="fa-solid fa-circle-right ml-2 mt-1"></i>
                             </p>
                         </div>

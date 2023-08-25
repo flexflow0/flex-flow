@@ -12,7 +12,6 @@ const MoviesByRegion = () => {
     }
 
     const [movies] = useMovies(queries)
-    // console.log(region);
 
     return (
         <div>

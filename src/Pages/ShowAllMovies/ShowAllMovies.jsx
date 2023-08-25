@@ -9,6 +9,18 @@ const ShowAllMovies = () => {
         region: undefined,
     }
 
+    const { keyword } = useParams();
+    const keyValues  = keyword.split('+');
+    // console.log(keyword, keyValues);
+
+    if (keyValues[0] === 'regions'){
+        queries.region = keyValues[1];
+    }
+    else if (keyValues[0] === 'genres'){
+        queries.genre = keyValues[1];
+    }
+    console.log(queries)
+
     const [movies] = useMovies(queries);
     const sortedByRating = movies.slice(0);
     sortedByRating.sort(function (a, b) {
@@ -16,9 +28,6 @@ const ShowAllMovies = () => {
     });
     const newMovies = movies.slice(0);
     newMovies.reverse();
-
-    const { keyword } = useParams();
-    console.log(keyword);
 
     const allMovies = (keyword === 'top_rated') ? sortedByRating : newMovies;
 

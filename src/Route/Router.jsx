@@ -55,15 +55,15 @@ export const router = createBrowserRouter([
       {
         path: '/show_all_movies/:keyword',
         element: <ShowAllMovies></ShowAllMovies>
-      },
-      {
-        path: '/genres/:genre',
-        element: <MoviesByGenres></MoviesByGenres>
-      },
-      {
-        path: '/regions/:region',
-        element: <MoviesByRegion></MoviesByRegion>
       }
+      // {
+      //   path: '/genres/:genre',
+      //   element: <MoviesByGenres></MoviesByGenres>
+      // },
+      // {
+      //   path: '/regions/:region',
+      //   element: <MoviesByRegion></MoviesByRegion>
+      // }
     ]
   },
   {

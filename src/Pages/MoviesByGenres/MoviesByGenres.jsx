@@ -5,7 +5,7 @@ import useMovies from "../../Hooks/useMovies/useMovies";
 const MoviesByGenres = () => {
 
     const {genre} = useParams();
-    console.log(genre);
+    // console.log(genre);
 
     let queries = {
         genre: genre,

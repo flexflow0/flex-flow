@@ -15,7 +15,7 @@ const MainNavbar = () => {
                     key={region}
                     className={liClasses}
                 >
-                    <Link to={`/regions/${region}`} className="hover:text-white">
+                    <Link to={`show_all_movies/regions+${region}`} className="hover:text-white">
                         {region}
                     </Link>
                 </li>)
@@ -28,7 +28,7 @@ const MainNavbar = () => {
                     key={genre}
                     className={liClasses}
                 >
-                    <Link to={`/genres/${genre}`} className="hover:text-white">
+                    <Link to={`show_all_movies/genres+${genre}`} className="hover:text-white">
                         {genre}
                     </Link>
                 </li>)
