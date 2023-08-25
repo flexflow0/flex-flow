@@ -9,11 +9,12 @@ import {
 import axios from 'axios';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Loading from '../../Shared/Loading';
 
 // import useAuth from '../../../../Hooks/useAuth';
-const CheckForm = () => {
+const CheckForm = ({ setDisable }) => {
 
-    const {loaginUser} =useContext(AuthContext)
+    const { loaginUser } = useContext(AuthContext)
     const navigate = useNavigate();
 
     const stripe = useStripe();
@@ -127,7 +128,7 @@ const CheckForm = () => {
                 if (payment) {
                     setTransaction(paymentIntent.id)
                     toast.success('Payment successful')
-                    
+
 
 
                 }
@@ -136,14 +137,17 @@ const CheckForm = () => {
             }
         }
     }
+    if (!processing && transaction) {
+        setDisable(false)
+    }
 
     return (
         <form onSubmit={handleSubmit} className='w-full flex flex-col h-[500px]  md:w-[60%] mx-auto'>
-            <CardElement className='bg-base-100  rounded-2xl my-auto shadow-2xl'
+            <CardElement className='bg-base-100 border border-[#830FEA] py-2 px-5 rounded-xl my-auto shadow-xl'
                 options={{
                     style: {
                         base: {
-                            fontSize: '18px',
+                            fontSize: '20px',
                             color: '#424770',
                             '::placeholder': {
                                 color: '#aab7c4',
@@ -157,13 +161,15 @@ const CheckForm = () => {
             />
             <div className='text-center mb-auto mt-5'>
 
-                <button onClick={() => setRepayment(!repayment)} type="submit" className='btn  border-2 border-[#8700f5] text-[#8700f5] mt-3 rounded-lg text-lg px-10 hover:bg-[#8700f5] shadow-inherit hover:text-white' disabled={!stripe || !element}>
-                    Confirm Payment
+                <button disabled={!stripe || !element || processing} onClick={() => setRepayment(!repayment)} type="submit" className='btn  border-2 border-[#8700f5] text-[#8700f5] mt-3 rounded-lg text-lg px-10 hover:bg-[#8700f5] shadow-inherit hover:text-white relative' >
+                    {processing ? <div className='h-10'>
+                        <Loading className="h-full my-auto" />
+                    </div> : 'Confirm Payment'}
                 </button>
             </div>
             {/* Show error message to your customers */}
             {
-                transaction && <p className='mt-10 text-green-500'>Transaction is Successfully Done ,<br /> Transaction ID: <span className='text-[#9d2cfa]'>{transaction}</span></p>
+                transaction && <p className='mb-10 text-green-500'>Transaction is Successfully Done ,<br /> Transaction ID: <span className='text-[#9d2cfa]'>{transaction}</span></p>
             }
 
             <Toaster />

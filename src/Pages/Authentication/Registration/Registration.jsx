@@ -1,15 +1,17 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import './Registration.css'
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Registration = () => {
 
-    const { creatUser, updateUser } = useContext(AuthContext)
+    const { createUser, updateUser, verificationEmail } = useContext(AuthContext)
     const navigate = useNavigate();
+
     const location = useLocation()
-    console.log(location)
-    const from = location?.state?.from?.pathname || '/choosePlan'
+    const [error,setError]=useState();
+    const [show,setShow]= useState();
+    const from = location?.state?.from?.pathname || '/chooseplan'
 
     const handelRegister = event => {
         event.preventDefault();
@@ -20,9 +22,35 @@ const Registration = () => {
         const birthDate = form.birthDate.value;
         const photo = form.photo.value;
         console.log(name, photo, password, email, birthDate);
-        creatUser(email, password)
+        
+        if(!/(?=.*[!@#$%^&*])/.test(password)){
+            setError(' Please add some characters')
+            return
+        }
+        else if(!/(?=.*[0-9])/.test(password)){
+            setError(' Please add some numbers')
+            return
+        }
+        else if(!/(?=.*[A-Z])/.test(password)){
+            setError(' Please add some capital letters')
+            return
+        }
+        else if(!/(?=.*[a-z])/.test(password)){
+            setError(' please add some small letters')
+            return
+        }
+        else if(password.length<8){
+            setError('munimum 8 leter add plese')
+            return
+        }
+        else if(password.length>20){
+            setError(' Maximum letter 20')
+            return
+        }
+        createUser(email, password)
             .then(result => {
-                console.log(result);
+                const loguser = result.user;
+                console.log(loguser);
                 navigate(from, { replace: true })
                 updateUser(name, photo)
                     .then(() => {
@@ -32,10 +60,18 @@ const Registration = () => {
                     .catch(error => {
                         alert(error.message)
                     })
+                emailVeri(result.user)
 
             })
             .catch(error => {
                 alert(error.message)
+            })
+
+    }
+    const emailVeri = () => {
+        verificationEmail()
+            .then(() => {
+                alert(' Please check your email')
             })
     }
 
@@ -64,7 +100,15 @@ const Registration = () => {
                                         <label className="label">
                                             <span className="label-text">Password</span>
                                         </label>
-                                        <input type="password" placeholder="Enter Your Password" name="password" className="input input-bordered" />
+                                        <div className="flex">
+                      <input type={show ? "text" : "Password"} placeholder="Enter Your Password" name="password" className="input input-bordered w-full" />
+
+                      <div className=" my-auto btn border-l-0" onClick={() => setShow(!show)}>
+                        {
+                          show ? <p className="flex "><span className="w-[30px]">Hide</span></p> : <p className="flex "> <span className="w-[30px]">Show</span></p>
+                        }
+                      </div>
+                    </div>
 
                                     </div>
                                     <div className="form-control">
@@ -76,6 +120,7 @@ const Registration = () => {
                                     <div className="form-control mt-5">
                                         <input type="file" name="photo" className="file-input file-input-bordered file-input-primary w-full max-w-xs" />
                                     </div>
+                                    <p className="text-red-600">{error}</p>
 
                                     <label className="label">
                                         <p> <span>if you have an account please  </span> <Link className="link-hover ml-10 text-xl text-purple-600" to='/login'>Login</Link></p>

@@ -1,8 +1,22 @@
 import { Link, useLocation } from "react-router-dom";
 import menuIcon from "../../../assets/menu-alt-2.svg"
 import './MainNavbar.css'
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const MainNavbar = () => {
+    const { user, logout } = useContext(AuthContext)
+
+    const handelLogout = () => {
+        logout()
+          .then(() => {
+            
+          })
+          .catch(error => {
+            alert(error.message)
+          })
+    
+      }
 
     const regionNames = ["DC, Marvel or Superhero", "Bollywood", "Hollywood", "Bangla", "Korean", "Spanish", "Chinese & Japanese"];
     const genresNames = ["Animation & Cartoon", "Biography", "Documentary", "Horror", "Fantasy", "Drama", "Crime", "Comedy", "Romance", "Sports", "Mystery", "Sci-Fi", "War", "Western", "Thriller", "Psychological"];
@@ -128,9 +142,14 @@ const MainNavbar = () => {
                                     </li>
                                 </ul>
                             </> :
-                            <Link to='/login'>
-                                <button className='uppercase bg-[#0a0a25] px-5 py-2 rounded-lg font-medium'>Login</button>
-                            </Link>
+                            <div className='mr-10'>
+                            {
+                              user?<><button onClick={handelLogout} className='uppercase bg-[#22225a] px-5 py-2 rounded-lg font-medium'>Log Out</button>
+                              </>:<><Link to='/login'><button className='uppercase bg-[#22225a] px-5 py-2 rounded-lg font-medium'>Login</button></Link>
+                              </>
+                              
+                            }
+                          </div>
                     }
                 </div>
 

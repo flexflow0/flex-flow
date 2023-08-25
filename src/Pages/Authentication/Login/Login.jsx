@@ -5,7 +5,7 @@ import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
-  const { loaginUser, restpassword } = useContext(AuthContext)
+  const { loginUser, resetPassword } = useContext(AuthContext)
   const [show, setShow] = useState(false)
   const emailRef = useRef();
   const navigate = useNavigate();
@@ -18,10 +18,13 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(password, email);
-    loaginUser(email, password)
+    loginUser(email, password)
       .then(result => {
         const logUser = result.user
         console.log(logUser)
+        if(loginUser.emailVerified==='false'){
+          alert(' Please verify your email address fast')
+        }
         navigate(from, { replace: true })
       })
       .catch(error => {
@@ -35,7 +38,7 @@ const Login = () => {
       alert('please add your email to the input field')
       return;
     }
-    restpassword(passwordReset)
+    resetPassword(passwordReset)
       .then(() => {
         alert('please check your email and reset your password')
       })
