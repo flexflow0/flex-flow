@@ -4,15 +4,11 @@ import Login from "../Pages/Authentication/Login/Login";
 import ChoosePlan from "../Pages/SubscriptionPlans/ChoosePlan/ChoosePlan";
 import ChooseThePlan from "../Pages/SubscriptionPlans/ChooseThePlan/ChooseThePlan";
 import ChoosePay from "../Pages/SubscriptionPlans/ChoosePay/ChoosePay";
-import Payment from "../Pages/SubscriptionPlans/Payment/Payment";
-
 import Loading from "../Pages/Shared/Loading";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
 import ShowAllMovies from "../Pages/ShowAllMovies/ShowAllMovies";
-import MoviesByGenres from "../Pages/MoviesByGenres/MoviesByGenres";
-import MoviesByRegion from "../Pages/MoviesByRegion/MoviesByRegion";
 import PaymentStripe from "../Pages/SubscriptionPlans/Payment/PaymentStripe";
 import SSLCommerzPay from "../Pages/SubscriptionPlans/Payment/SSLCommerzPay";
 
