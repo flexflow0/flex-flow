@@ -43,7 +43,7 @@ const MainNavbar = () => {
             {/* Mobile Device */}
             <div className="navbar-start">
                 {
-                    (pathname == '/' || pathname == '/register' || pathname == '/login' || pathname == '/choosePlan' || pathname == '/chooseThePlan' || pathname == '/choosePay' || pathname == '/payment') || <div className="dropdown">
+                    (pathname == '/' || pathname == '/register' || pathname == '/login' || pathname == '/chooseplan' || pathname == '/choosetheplan' || pathname == '/choosepay' || pathname == '/payment') || <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
@@ -72,7 +72,7 @@ const MainNavbar = () => {
             </div>
             {/* desktop device */}
             {
-                (pathname == '/' || pathname == '/register' || pathname == '/login' || pathname == '/choosePlan' || pathname == '/chooseThePlan' || pathname == '/choosePay' || pathname == '/payment') || <div className="navbar-center hidden lg:flex">
+                (pathname == '/' || pathname == '/register' || pathname == '/login' || pathname == '/chooseplan' || pathname == '/choosetheplan' || pathname == '/choosepay' || pathname == '/payment') || <div className="navbar-center hidden lg:flex">
                     <div className=" dropdown dropdown-hover">
                         <ul className="menu menu-horizontal px-1">
                             {/* <li><Link to='/home' className="hover:text-white">Home</Link></li> */}

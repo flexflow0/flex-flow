@@ -10,7 +10,7 @@ const Login = () => {
   const emailRef = useRef();
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location?.state?.from?.pathname || '/choosePlan'
+  const from = location?.state?.from?.pathname || '/chooseplan'
 
   const handelLogin = event => {
     event.preventDefault();

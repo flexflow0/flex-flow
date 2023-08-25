@@ -180,7 +180,7 @@ const ChooseThePlan = () => {
 
                 </div>
                 <div className="flex items-center justify-center ">
-                    <Link to='/choosePay'> <button className="btn text-white px-36 w-full rounded-lg bg-purple-800 ">Next</button><br />
+                    <Link to='/choosepay'> <button className="btn text-white px-36 w-full rounded-lg bg-purple-800 ">Next</button><br />
                     </Link>
                 </div>
             </div>
