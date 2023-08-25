@@ -35,8 +35,13 @@ const CheckForm = ({ setDisable }) => {
     // change this when content price is available
     const [repayment, setRepayment] = useState(false)
     useEffect(() => {
+<<<<<<< HEAD
         if (price > 0) {
             axios.post('http://localhost:5000/create-payment-intent', { price })
+=======
+        if (totalPrice > 0) {
+            axios('https://flex-flow-server.vercel.app/create-payment-intent')
+>>>>>>> 2de039ecbfd726acbfb2723fd68daa9d3d096207
                 .then(res => {
                     setClientSecret(res.data.clientSecret);
                     console.log(res.data.clientSecret);

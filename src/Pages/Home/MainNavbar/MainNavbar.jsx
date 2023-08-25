@@ -29,7 +29,7 @@ const MainNavbar = () => {
                     key={region}
                     className={liClasses}
                 >
-                    <Link to={`/regions/${region}`} className="hover:text-white">
+                    <Link to={`show_all_movies/regions+${region}`} className="hover:text-white">
                         {region}
                     </Link>
                 </li>)
@@ -42,7 +42,7 @@ const MainNavbar = () => {
                     key={genre}
                     className={liClasses}
                 >
-                    <Link to={`/genres/${genre}`} className="hover:text-white">
+                    <Link to={`show_all_movies/genres+${genre}`} className="hover:text-white">
                         {genre}
                     </Link>
                 </li>)
@@ -57,7 +57,7 @@ const MainNavbar = () => {
             {/* Mobile Device */}
             <div className="navbar-start">
                 {
-                    (pathname == '/home' || pathname == '/movieslist') && <div className="dropdown">
+                    (pathname == '/' || pathname == '/register' || pathname == '/login' || pathname == '/chooseplan' || pathname == '/choosetheplan' || pathname == '/choosepay' || pathname == '/payment') || <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
@@ -86,7 +86,7 @@ const MainNavbar = () => {
             </div>
             {/* desktop device */}
             {
-                (pathname == '/home' || pathname == '/movieslist') && <div className="navbar-center hidden lg:flex">
+                (pathname == '/' || pathname == '/register' || pathname == '/login' || pathname == '/chooseplan' || pathname == '/choosetheplan' || pathname == '/choosepay' || pathname == '/payment') || <div className="navbar-center hidden lg:flex">
                     <div className=" dropdown dropdown-hover">
                         <ul className="menu menu-horizontal px-1">
                             {/* <li><Link to='/home' className="hover:text-white">Home</Link></li> */}
@@ -127,17 +127,17 @@ const MainNavbar = () => {
                                 </label>
                                 <ul
                                     tabIndex={0}
-                                    className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 mt-3 bg-[#0b163bec]"
+                                    className="dropdown-content z-[1] menu p-2 shadow rounded-lg w-52 mt-3 bg-[#0d1334]"
                                 >
                                     <li className={liClasses}>
                                         <a className="hover:text-white uppercase">Profile Name</a>
                                     </li>
-                                    <li className={`${liClasses} flex flex-row items-center justify-between px-4`}>
+                                    {/* <li className={`${liClasses} flex flex-row items-center justify-between px-4`}>
                                         <span className="hover:text-white ps-0"> Sign Up</span>
                                         <i className="fa-solid fa-user-plus hover:text-white"></i>
-                                    </li>
+                                    </li> */}
                                     <li className={`${liClasses} flex flex-row items-center justify-between px-4`}>
-                                        <span className="hover:text-white ps-0">Login</span>
+                                        <span className="hover:text-white ps-0">Log Out</span>
                                         <img className="w-14" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABqUlEQVR4nO2WTS8DURSGuxUsNdRHgyb8F7ERhPQXVOsjQfwUJSESEUJrJX4ACwldkai1CEuUCEofuckrGY3p3Jnpooue5cw573PvuefecyKRpjWaAb3ACnAM3AFvwCtQ1Lc00FNPYB+wDXzjbWVgHYiFhU4BzxJ9B3aACSAOtACtwBAwDewBH/ItAaNBofNARUIHZucWMQNATjEmQxm/0HFBTfBsgEUvAl+Kt9s50K1UGZvzC62Co6PqsgnYVEAuKNShlZfWmo3zKnBf62oAJ0ABiHpoDargyiaTAdf/R/BcO7mygO/Ld6Ye4KignnAgKb+j0GAJdgCXEi26FZDuubGbWmKnBLeCi2a7/pcaDxwy1Z0ufsPyufYFaKjiAi5soFXXKWXzgDyY/lvD58zyAUlYPyDAhlaYj4Q04FBaWRvnmKMHL4SALknjya3w/gsaU1usBIEL+tsWR/wGZxyDgGnucYuYhCO9Bpr2u2jnQPDoGH12gUmgX6NPm+5pUlPKpyO9/nbqMl1uKXVeZqo3a32mPiaTZfMQALcab1/Mi6Rvqbr03KZF6mw/8SePh1dYTfYAAAAASUVORK5CYII=" />
                                     </li>
                                 </ul>

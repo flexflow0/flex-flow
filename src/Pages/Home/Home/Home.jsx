@@ -9,7 +9,9 @@ const Home = () => {
             <MainBanner></MainBanner>
             <NewReleasedMovies></NewReleasedMovies>
             <TopRatedMovies></TopRatedMovies>
+            <hr className='border-[#830FEA]' />
             <CompanyInfoBanner></CompanyInfoBanner>
+            <hr className='border-[#830FEA]' />
         </div>
     );
 };

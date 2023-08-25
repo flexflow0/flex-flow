@@ -5,10 +5,10 @@ import useAuth from "../../../Hooks/useAuth/useAuth";
 const ChooseThePlan = () => {
     const { setPrice, setPlan } = useAuth()
     return (
-        <div>
+        <div className=" border-2 border-purple-900 lg:m-12 m-4 rounded-lg">
             <div className="text-white pb-20 pt-10 px-12">
                 <div className="pb-8">
-                    <p className="text-xs">STEP 1 OF 3</p>
+                    <p className="text-sm">STEP 1 OF 3</p>
                     <p className="text-2xl font-bold pb-5 pt-1">Choose the plan thats right for you</p>
                 </div>
                 <div >
@@ -204,9 +204,8 @@ const ChooseThePlan = () => {
                     <Link to='/choosepay'> <button className="btn text-white px-36 w-full rounded-lg bg-purple-800 ">Next</button><br />
                     </Link>
                 </div>
-
-
             </div>
+            <hr className='border-[#830FEA]' />
         </div>
     );
 };
