@@ -10,6 +10,7 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true)
     const [price, setPrice] = useState(0)
     const [plan, setPlan] = useState("")
+    const [tempData, setTempData] = useState({})
     //user Register code
     const createUser = (email, password) => {
         setLoading(true)
@@ -68,7 +69,7 @@ const AuthProvider = ({ children }) => {
         resetPassword,
         verificationEmail,
 
-        price, setPrice, plan, setPlan
+        price, setPrice, plan, setPlan, tempData, setTempData
 
 
     }
