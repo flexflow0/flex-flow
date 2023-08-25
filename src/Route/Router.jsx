@@ -11,8 +11,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
 import ShowAllMovies from "../Pages/ShowAllMovies/ShowAllMovies";
-import MoviesByGenres from "../Pages/MoviesByGenres/MoviesByGenres";
-import MoviesByRegion from "../Pages/MoviesByRegion/MoviesByRegion";
 
 export const router = createBrowserRouter([
   {
