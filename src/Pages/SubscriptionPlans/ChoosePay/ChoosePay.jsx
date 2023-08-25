@@ -19,8 +19,8 @@ const ChoosePay = () => {
                 </div>
 
                 <Link to="../choosetheplan" className="btn mt-5 w-64 font-bold rounded mb-10  text-white bg-purple-800 border hover:border-[#830FEA]">Back</Link><br />
-
             </div>
+            <hr className='border-[#830FEA]' />
         </div>
     );
 };

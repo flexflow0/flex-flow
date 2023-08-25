@@ -4,7 +4,7 @@ import Login from "../Pages/Authentication/Login/Login";
 import ChoosePlan from "../Pages/SubscriptionPlans/ChoosePlan/ChoosePlan";
 import ChooseThePlan from "../Pages/SubscriptionPlans/ChooseThePlan/ChooseThePlan";
 import ChoosePay from "../Pages/SubscriptionPlans/ChoosePay/ChoosePay";
-// import MoviesList from "../Pages/Home/Movies/MoviesList/MoviesList";
+import Payment from "../Pages/SubscriptionPlans/Payment/Payment";
 
 import Loading from "../Pages/Shared/Loading";
 import { createBrowserRouter } from "react-router-dom";
@@ -61,15 +61,15 @@ export const router = createBrowserRouter([
       {
         path: '/show_all_movies/:keyword',
         element: <ShowAllMovies></ShowAllMovies>
-      },
-      {
-        path: '/genres/:genre',
-        element: <MoviesByGenres></MoviesByGenres>
-      },
-      {
-        path: '/regions/:region',
-        element: <MoviesByRegion></MoviesByRegion>
       }
+      // {
+      //   path: '/genres/:genre',
+      //   element: <MoviesByGenres></MoviesByGenres>
+      // },
+      // {
+      //   path: '/regions/:region',
+      //   element: <MoviesByRegion></MoviesByRegion>
+      // }
     ]
   },
   {

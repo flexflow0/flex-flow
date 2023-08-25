@@ -1,7 +1,25 @@
 .swiper-button-next {
-    top: 80px;
+    top: 40%;
 }
 
 .swiper-button-prev {
-    top: 80px;
+    top: 40%;
+}
+.aspect-ratio-container {
+    position: relative;
+    width: 100%;
+}
+
+.aspect-ratio-container::before {
+    content: "";
+    display: block;
+    padding-top: 55%;
+}
+
+.aspect-ratio-container> {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

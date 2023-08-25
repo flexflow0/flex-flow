@@ -1,10 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 const Footer = () => {
-
     return (
-
         <div className='text-center pb-5'>
-            <hr className='border-[#830FEA]' />
             {/* Heading Started */}
             <h1 className='pt-[50px] font2 text-[#830FEA] text-5xl mb-16 fontB '>FlexFlow
             </h1>
@@ -23,7 +20,7 @@ const Footer = () => {
             </div>
 
 
-            <div className='pb-[50px] MyContainer gap-5 max-w-7xl grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 text-white'>
+            <div className='pb-[50px] mx-auto MyContainer gap-5 max-w-7xl grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 text-white'>
                 <ul >
                     {/* <li className='text-xl fontB'>Popular Classes</li> */}
                     <li>FAQ</li>

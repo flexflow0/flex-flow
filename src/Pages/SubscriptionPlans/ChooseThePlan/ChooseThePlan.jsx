@@ -183,9 +183,8 @@ const ChooseThePlan = () => {
                     <Link to='/choosepay'> <button className="btn text-white px-36 w-full rounded-lg bg-purple-800 ">Next</button><br />
                     </Link>
                 </div>
-
-
             </div>
+            <hr className='border-[#830FEA]' />
         </div>
     );
 };

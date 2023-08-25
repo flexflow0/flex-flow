@@ -24,6 +24,7 @@ const ChoosePlan = () => {
                     </Link>
                 </div>
             </div>
+            <hr className='border-[#830FEA]' />
         </div>
     );
 };
