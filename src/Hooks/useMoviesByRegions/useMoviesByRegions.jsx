@@ -6,7 +6,7 @@ const useMoviesByRegions = (region) => {
     // console.log(region);
 
     useEffect(() => {
-        fetch(`https://flex-flow-server.vercel.app/movies?region=${region}`)
+        fetch(`http://localhost:5000movies?region=${region}`)
             .then(res => res.json())
             .then(data => setMovies(data.reverse()))
     }, [region]);
