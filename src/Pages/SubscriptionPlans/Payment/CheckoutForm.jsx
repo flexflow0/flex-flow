@@ -41,20 +41,18 @@ const CheckForm = ({ setDisable }) => {
                     console.log(res.data.clientSecret);
                 })
 
-        if (price > 0) {
-            axios.post('http://localhost:5000/create-payment-intent', { price }).then(res => {
+            if (price > 0) {
+                axios.post('http://localhost:5000/create-payment-intent', { price }).then(res => {
 
-                setClientSecret(res.data.clientSecret);
-                console.log(res.data.clientSecret);
-            })
-                .catch(error => {
-                    console.error("Error fetching client secret:", error);
-                });
-        }
-    }, [repayment, price]);
+                    setClientSecret(res.data.clientSecret);
+                    console.log(res.data.clientSecret);
+                })
+                    .catch(error => {
+                        console.error("Error fetching client secret:", error);
+                    });
+            }}
 
-
-
+        }, [repayment, price]);
     const handleSubmit = async (event) => {
         event.preventDefault();
 
