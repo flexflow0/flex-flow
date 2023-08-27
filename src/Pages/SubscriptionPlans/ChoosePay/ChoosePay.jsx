@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 const ChoosePay = () => {
+   
     return (
         <div className="text-center pt-5 lg:px-20 px-5 mb-10 mt-5 text-white ">
             <div className="border-2 rounded-lg border-purple-900 p-5">
