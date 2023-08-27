@@ -6,7 +6,7 @@ const useMoviesByCategory = (category) => {
     // console.log(movies);
 
     useEffect(() => {
-        fetch(`https://flex-flow-server.vercel.app/movies/${category}`)
+        fetch(`http://localhost:5000movies/${category}`)
             .then(res => res.json())
             .then(data => setMovies(data.reverse()))
     }, [category]);
