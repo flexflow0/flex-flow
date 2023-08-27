@@ -46,7 +46,7 @@ const CheckForm = ({ setDisable }) => {
     const [repayment, setRepayment] = useState(false)
     useEffect(() => {
         if (totalPrice > 0) {
-            axios('http://localhost:5000create-payment-intent')
+            axios('http://localhost:5000/create-payment-intent')
                 .then(res => {
                     setClientSecret(res.data.clientSecret);
                     console.log(res.data.clientSecret);
