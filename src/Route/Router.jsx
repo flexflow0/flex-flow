@@ -12,6 +12,8 @@ import ShowAllMovies from "../Pages/ShowAllMovies/ShowAllMovies";
 import PaymentStripe from "../Pages/SubscriptionPlans/Payment/PaymentStripe";
 import SSLCommerzPay from "../Pages/SubscriptionPlans/Payment/SSLCommerzPay";
 import SingleMoviePage from "../Pages/SingleMoviePage/SingleMoviePage";
+import SSLCommerzFailed from "../Pages/SubscriptionPlans/Payment/SSLCOMMERZ/SSLCommerzFailed";
+import SSLCommerzSuccess from "../Pages/SubscriptionPlans/Payment/SSLCOMMERZ/SSLCommerzSuccess";
 
 export const router = createBrowserRouter([
   {
@@ -49,6 +51,14 @@ export const router = createBrowserRouter([
       {
         path: '/paymentSSLCommerz',
         element: <SSLCommerzPay></SSLCommerzPay>
+      },
+      {
+        path: '/payment/success/:transactionID',
+        element: <SSLCommerzSuccess></SSLCommerzSuccess>
+      },
+      {
+        path: '/payment/failed/:transactionID',
+        element: <SSLCommerzFailed></SSLCommerzFailed>
       },
       {
         path: '/home',
