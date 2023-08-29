@@ -31,6 +31,7 @@ if(user){
     .then(data =>{
         // console.log(data.data.token)
         localStorage.setItem('access-token', data.data.token)
+        setLoading(false)
     })
 }
 else{
@@ -39,7 +40,7 @@ else{
 
 
 
-            setLoading(false)
+            // setLoading(false)
         })
         return () => {
             return unsubscribe();
