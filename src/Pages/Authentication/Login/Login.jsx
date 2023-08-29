@@ -62,14 +62,14 @@ const Login = () => {
                     <label className="label">
                       <span className="label-text">Email</span>
                     </label>
-                    <input type="email" ref={emailRef} placeholder="Enter Your Email" name="email" className="input input-bordered" />
+                    <input type="email" ref={emailRef} placeholder="Enter Your Email" name="email" className="input input-bordered" required />
                   </div>
                   <div className="form-control">
                     <label className="label">
                       <span className="label-text">Password</span>
                     </label>
                     <div className="flex">
-                      <input type={show ? "text" : "Password"} placeholder="Enter Your Password" name="password" className="input input-bordered w-full" />
+                      <input type={show ? "text" : "Password"} placeholder="Enter Your Password" name="password" className="input input-bordered w-full" required />
                       <div className=" my-auto btn border-l-0" onClick={() => setShow(!show)}>
                         {
                           show ? <p className="flex "><span className="w-[30px]">Hide</span></p> : <p className="flex "> <span className="w-[30px]">Show</span></p>
