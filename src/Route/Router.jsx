@@ -11,6 +11,7 @@ import Home from "../Pages/Home/Home/Home";
 import ShowAllMovies from "../Pages/ShowAllMovies/ShowAllMovies";
 import PaymentStripe from "../Pages/SubscriptionPlans/Payment/PaymentStripe";
 import SSLCommerzPay from "../Pages/SubscriptionPlans/Payment/SSLCommerzPay";
+import SingleMoviePage from "../Pages/SingleMoviePage/SingleMoviePage";
 
 export const router = createBrowserRouter([
   {
@@ -21,7 +22,6 @@ export const router = createBrowserRouter([
         path: '/',
         element: <LandingPage></LandingPage>
       },
-
       {
         path: '/register',
         element: <Registration></Registration>
@@ -57,6 +57,10 @@ export const router = createBrowserRouter([
       {
         path: '/show_all_movies/:keyword',
         element: <ShowAllMovies></ShowAllMovies>
+      },
+      {
+        path: '/movie_details',
+        element: <SingleMoviePage></SingleMoviePage>
       }
       // {
       //   path: '/genres/:genre',
