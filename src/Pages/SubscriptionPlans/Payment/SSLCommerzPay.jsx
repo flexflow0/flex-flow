@@ -29,7 +29,7 @@ const SSLCommerzPay = () => {
             setTempData(paymentInfo)
 
             if (paymentInfo) {
-                axios.post("http://localhost:5000/ssl-payment", paymentInfo).then(res => {
+                axios.post("http://localhost:5000//ssl-payment", paymentInfo).then(res => {
                     const url = res.data.url
                     console.log(res.data)
                 window.location.replace(url)

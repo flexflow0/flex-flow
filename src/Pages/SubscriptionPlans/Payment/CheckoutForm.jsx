@@ -34,8 +34,8 @@ const CheckForm = ({ setDisable }) => {
     // change this when content price is available
     const [repayment, setRepayment] = useState(false)
     useEffect(() => {
-        if (totalPrice > 0) {
-            axios('http://localhost:5000create-payment-intent')
+        if (repayment > 0) {
+            axios('http://localhost:5000/create-payment-intent')
                 .then(res => {
                     setClientSecret(res.data.clientSecret);
                     console.log(res.data.clientSecret);
@@ -50,7 +50,7 @@ const CheckForm = ({ setDisable }) => {
                 .catch(error => {
                     console.error("Error fetching client secret:", error);
                 });
-        }
+        }}
     }, [repayment, price]);
 
 
@@ -111,7 +111,7 @@ const CheckForm = ({ setDisable }) => {
 
                 }
                 console.log(payment);
-                fetch('http://localhost:5000/payment-stripe', {
+                fetch('http://localhost:5000//payment-stripe', {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payment)
