@@ -53,16 +53,16 @@ const CheckForm = ({ setDisable }) => {
                     console.error("Error fetching client secret:", error);
                 });
         }}
-    }, [repayment, price]);
+    // }, [repayment, price]);
 
                     setClientSecret(res.data.clientSecret);
                     console.log(res.data.clientSecret);
-                })
-                    .catch(error => {
-                        console.error("Error fetching client secret:", error);
-                    });
+                // })
+                    // .catch(error => {
+                    //     console.error("Error fetching client secret:", error);
+                    // });
             }
-        }
+        // }
 
 
     }, [repayment, price]);
