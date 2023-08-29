@@ -14,6 +14,7 @@ import SSLCommerzPay from "../Pages/SubscriptionPlans/Payment/SSLCommerzPay";
 import SingleMoviePage from "../Pages/SingleMoviePage/SingleMoviePage";
 import SSLCommerzFailed from "../Pages/SubscriptionPlans/Payment/SSLCOMMERZ/SSLCommerzFailed";
 import SSLCommerzSuccess from "../Pages/SubscriptionPlans/Payment/SSLCOMMERZ/SSLCommerzSuccess";
+import PageNotFound from "../Pages/PageNotFound/PageNotFound";
 
 export const router = createBrowserRouter([
   {
@@ -80,7 +81,8 @@ export const router = createBrowserRouter([
       //   path: '/regions/:region',
       //   element: <MoviesByRegion></MoviesByRegion>
       // }
-    ]
+    ],
+    errorElement: <PageNotFound></PageNotFound>
   },
   {
     path: '/loading',
