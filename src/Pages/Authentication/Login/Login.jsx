@@ -18,7 +18,6 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(password, email);
     loginUser(email, password)
       .then(() => {
         if (loginUser.emailVerified === false) {
