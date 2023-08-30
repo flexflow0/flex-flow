@@ -35,6 +35,18 @@ const CheckoutForm = ({ setDisable }) => {
         }
     }, [price]);
 
+        }}
+    // }, [repayment, price]);
+
+                    setClientSecret(res.data.clientSecret);
+                    console.log(res.data.clientSecret);
+                // })
+                    // .catch(error => {
+                    //     console.error("Error fetching client secret:", error);
+                    // });
+            }
+        // }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
