@@ -14,12 +14,14 @@ import SSLCommerzPay from "../Pages/SubscriptionPlans/Payment/SSLCommerzPay";
 import SingleMoviePage from "../Pages/SingleMoviePage/SingleMoviePage";
 import SSLCommerzFailed from "../Pages/SubscriptionPlans/Payment/SSLCOMMERZ/SSLCommerzFailed";
 import SSLCommerzSuccess from "../Pages/SubscriptionPlans/Payment/SSLCOMMERZ/SSLCommerzSuccess";
-import PageNotFound from "../Pages/PageNotFound/PageNotFound";
+// import PageNotFound from "../Pages/PageNotFound/PageNotFound";
+import Privacy from "../Pages/Privacy/Privacy";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+   // errorElement: <PageNotFound></PageNotFound>
     children: [
       {
         path: '/',
@@ -66,6 +68,10 @@ export const router = createBrowserRouter([
         element: <Home></Home>
       },
       {
+        path: '/privacy',
+        element: <Privacy />
+      },
+      {
         path: '/show_all_movies/:keyword',
         element: <ShowAllMovies></ShowAllMovies>
       },
@@ -82,7 +88,6 @@ export const router = createBrowserRouter([
       //   element: <MoviesByRegion></MoviesByRegion>
       // }
     ],
-    errorElement: <PageNotFound></PageNotFound>
   },
   {
     path: '/loading',
