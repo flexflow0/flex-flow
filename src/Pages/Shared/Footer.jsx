@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 /* eslint-disable react/no-unescaped-entities */
 const Footer = () => {
     return (
@@ -25,9 +27,11 @@ const Footer = () => {
                     {/* <li className='text-xl fontB'>Popular Classes</li> */}
                     <li>FAQ</li>
                     <li>Inventor Relations</li>
+                    <Link to="privacy">
                     <li>Privacy</li>
-                    <li>Speed Test</li>
-
+                    </Link>
+                     <li>Speed Test</li>
+                
                 </ul>
                 <ul >
                     {/* <li className='text-xl fontB'>Popular Instructors </li> */}
