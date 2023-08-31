@@ -3,39 +3,44 @@ import { FaGoogle } from "react-icons/fa";
 import './Login.css'
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Toaster, toast } from "react-hot-toast";
 
 const Login = () => {
-  const { loaginUser, restpassword } = useContext(AuthContext)
+  const { loginUser, resetPassword } = useContext(AuthContext)
   const [show, setShow] = useState(false)
-  const emailref = useRef();
+  const emailRef = useRef();
   const navigate = useNavigate();
-  const loction = useLocation();
-  const from = loction?.state?.from?.pathname || '/chooseplan'
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || '/chooseplan'
 
   const handelLogin = event => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(password, email);
-    loaginUser(email, password)
-      .then(result => {
-        const logUser = result.user
-        console.log(logUser)
+    loginUser(email, password)
+      .then(() => {
+        if (loginUser.emailVerified === false) {
+          toast('Please verify your email address fast', {
+            icon: '🔐',
+          });
+        }
         navigate(from, { replace: true })
       })
       .catch(error => {
-        alert(error.message)
+        toast.error(error.message)
+
       })
+
   }
 
   const handelForget = () => {
-    const passwordReset = emailref.current.value
+    const passwordReset = emailRef.current.value
     if (!passwordReset) {
       alert('please add your email to the input field')
       return;
     }
-    restpassword(passwordReset)
+    resetPassword(passwordReset)
       .then(() => {
         alert('please check your email and reset your password')
       })
@@ -56,14 +61,14 @@ const Login = () => {
                     <label className="label">
                       <span className="label-text">Email</span>
                     </label>
-                    <input type="email" ref={emailref} placeholder="Enter Your Email" name="email" className="input input-bordered" />
+                    <input type="email" ref={emailRef} placeholder="Enter Your Email" name="email" className="input input-bordered" required />
                   </div>
                   <div className="form-control">
                     <label className="label">
                       <span className="label-text">Password</span>
                     </label>
                     <div className="flex">
-                      <input type={show ? "text" : "Password"} placeholder="Enter Your Password" name="password" className="input input-bordered w-full" />
+                      <input type={show ? "text" : "Password"} placeholder="Enter Your Password" name="password" className="input input-bordered w-full" required />
                       <div className=" my-auto btn border-l-0" onClick={() => setShow(!show)}>
                         {
                           show ? <p className="flex "><span className="w-[30px]">Hide</span></p> : <p className="flex "> <span className="w-[30px]">Show</span></p>
@@ -84,6 +89,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };

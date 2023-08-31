@@ -1,10 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 const Footer = () => {
-
     return (
-
         <div className='text-center pb-5'>
-            <hr className='border-[#830FEA]' />
             {/* Heading Started */}
             <h1 className='pt-[50px] font2 text-[#830FEA] text-5xl mb-16 fontB '>FlexFlow
             </h1>
@@ -15,15 +12,15 @@ const Footer = () => {
             <p className='font1 text-lg mb-7  text-white'>Subscribe to our mailing list</p>
             {/* Heading Finish */}
 
-            <div className='relative mx-auto mb-20 w-full sm:w-96 md:w-[500px] '>
+            <div className='relative mx-auto px-5 mb-20 w-full sm:w-96 md:w-[500px] '>
                 {/* Subscribe Email */}
-                <input required className='pl-4 h-10 w-full sm:w-96 md:w-[500px] bg-transparent border-2 border-[#830FEA] input rounded-full text-white' type="email" placeholder='Enter Your Email' />
+                <input required className='pl-6 h-10 w-full sm:w-96 md:w-[500px] bg-transparent border-2 border-[#830FEA] input rounded-full text-white' type="email" placeholder='Enter Your Email' />
                 {/* Subscribe button */}
-                <button className='absolute -top-4  right-0 drop-shadow-md transition-all duration-200 border-2 border-[#830FEA] px-4 text-white sm:px-10 rounded-full text-lg font-bold py-1 mt-4 bg-[#830FEA] hover:bg-purple-950 ' type="submit">Subscribe</button>
+                <button className='absolute -top-4  lg:-right-5 right-5 drop-shadow-md transition-all duration-200 border-2 border-[#830FEA] px-4 text-white sm:px-10 rounded-full text-lg font-bold py-1 mt-4 bg-[#830FEA] hover:bg-purple-950 ' type="submit">Subscribe</button>
             </div>
 
 
-            <div className='pb-[50px] MyContainer gap-5 max-w-7xl grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 text-white'>
+            <div className='pb-[50px] mx-auto MyContainer gap-5 max-w-7xl grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 text-white'>
                 <ul >
                     {/* <li className='text-xl fontB'>Popular Classes</li> */}
                     <li>FAQ</li>
