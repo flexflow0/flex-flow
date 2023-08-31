@@ -3,6 +3,7 @@ import { FaGoogle } from "react-icons/fa";
 import './Login.css'
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Toaster, toast } from "react-hot-toast";
 
 const Login = () => {
   const { loginUser, resetPassword } = useContext(AuthContext)
@@ -17,19 +18,20 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(password, email);
     loginUser(email, password)
-      .then(result => {
-        const logUser = result.user
-        console.log(logUser)
-        if(loginUser.emailVerified==='false'){
-          alert(' Please verify your email address fast')
+      .then(() => {
+        if (loginUser.emailVerified === false) {
+          toast('Please verify your email address fast', {
+            icon: '🔐',
+          });
         }
         navigate(from, { replace: true })
       })
       .catch(error => {
-        alert(error.message)
+        toast.error(error.message)
+
       })
+
   }
 
   const handelForget = () => {
@@ -59,14 +61,14 @@ const Login = () => {
                     <label className="label">
                       <span className="label-text">Email</span>
                     </label>
-                    <input type="email" ref={emailRef} placeholder="Enter Your Email" name="email" className="input input-bordered" />
+                    <input type="email" ref={emailRef} placeholder="Enter Your Email" name="email" className="input input-bordered" required />
                   </div>
                   <div className="form-control">
                     <label className="label">
                       <span className="label-text">Password</span>
                     </label>
                     <div className="flex">
-                      <input type={show ? "text" : "Password"} placeholder="Enter Your Password" name="password" className="input input-bordered w-full" />
+                      <input type={show ? "text" : "Password"} placeholder="Enter Your Password" name="password" className="input input-bordered w-full" required />
                       <div className=" my-auto btn border-l-0" onClick={() => setShow(!show)}>
                         {
                           show ? <p className="flex "><span className="w-[30px]">Hide</span></p> : <p className="flex "> <span className="w-[30px]">Show</span></p>
@@ -87,6 +89,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };

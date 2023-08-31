@@ -7,36 +7,25 @@ import {
     CardElement,
 } from '@stripe/react-stripe-js';
 import axios from 'axios';
-import { AuthContext } from '../../Provider/AuthProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../../Shared/Loading';
+import useAuth from '../../../Hooks/useAuth/useAuth';
 
-// import useAuth from '../../../../Hooks/useAuth';
 const CheckForm = ({ setDisable }) => {
-
-    const { loaginUser } = useContext(AuthContext)
+    const { user, price, plan } = useAuth()
     const navigate = useNavigate();
 
     const stripe = useStripe();
-    // const { user } = useAuth()
     const [processing, setProcessing] = useState(false)
     const [transaction, setTransaction] = useState('')
-    const [clientSecret, setClientSecret] = useState()
+    const [clientSecret, setClientSecret] = useState('')
 
     const element = useElements()
 
-    // TODO: user
-    const user = {
-        email: "s.atiqurrahman2003@gmail.com",
-        displayName: "Atiqur Rahman"
-    }
 
-    // todo: items price
-    // TODO: price
-    const totalPrice = 10
 
-    // const totalPrice = cart?.reduce((sum, item) => item.price + sum, 0);
-    if (totalPrice <= 0) {
+
+    if (price <= 0) {
         toast.error('Make sure you have selected your course')
 
     }
@@ -45,20 +34,38 @@ const CheckForm = ({ setDisable }) => {
     // change this when content price is available
     const [repayment, setRepayment] = useState(false)
     useEffect(() => {
+        if (repayment > 0) {
+
         if (totalPrice > 0) {
             axios('http://localhost:5000/create-payment-intent')
                 .then(res => {
                     setClientSecret(res.data.clientSecret);
                     console.log(res.data.clientSecret);
                 })
+
+            if (price > 0) {
+                axios.post('http://localhost:5000/create-payment-intent', { price }).then(res => {
+
+                setClientSecret(res.data.clientSecret);
+                console.log(res.data.clientSecret);
+            })
                 .catch(error => {
                     console.error("Error fetching client secret:", error);
                 });
-        }
-    }, [repayment]);
+        }}
+    // }, [repayment, price]);
+
+                    setClientSecret(res.data.clientSecret);
+                    console.log(res.data.clientSecret);
+                // })
+                    // .catch(error => {
+                    //     console.error("Error fetching client secret:", error);
+                    // });
+            }
+        // }
 
 
-
+    }, [repayment, price]);
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -108,73 +115,72 @@ const CheckForm = ({ setDisable }) => {
                     email: user?.email,
                     name: user?.displayName,
                     transactionId: paymentIntent.id,
-                    // price: totalPrice,
-                    // status: 'Enrolled',
-                    // quantity: cart.length,
-                    // BookedId: cart.map(bookedID => bookedID.bookedClass),
-                    // LanguageNames: cart.map(bookedItem => bookedItem?.foreignLanguageName)
+                    price: price,
+                    plan: plan || "unknown",
+                    status: 'proceed', // expired, proceed, 
+                    paymentMethod: 'stripe', // stripe, SSLCommerz, 
+
                 }
                 console.log(payment);
-                // fetch('/payment', payment).then(res => res.json()).then(data => {
-                //     if (data.insertedId) {
-                //         toast.fire({
-                //             icon: 'success',
-                //             title: 'Payment successful'
-                //         })
+                fetch('http://localhost:5000//payment-stripe', {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payment)
 
-                //     }
+                }).then(res => res.json()).then(data => {
+                    if (data.insertedId) {
+                        toast.success('Payment successful')
 
-                // })
+                    }
+
+                })
                 if (payment) {
                     setTransaction(paymentIntent.id)
-                    toast.success('Payment successful')
-
-
-
                 }
 
                 setProcessing(false)
             }
         }
-    }
-    if (!processing && transaction) {
-        setDisable(false)
-    }
 
-    return (
-        <form onSubmit={handleSubmit} className='w-full flex flex-col h-[500px]  md:w-[60%] mx-auto'>
-            <CardElement className='bg-base-100 border border-[#830FEA] py-2 px-5 rounded-xl my-auto shadow-xl'
-                options={{
-                    style: {
-                        base: {
-                            fontSize: '20px',
-                            color: '#424770',
-                            '::placeholder': {
-                                color: '#aab7c4',
+        if (!processing && transaction) {
+            setDisable(false)
+        }
+
+        return (
+            <form onSubmit={handleSubmit} className='w-full flex flex-col h-[500px]  md:w-[60%] mx-auto'>
+                <CardElement className='bg-base-100 border border-[#830FEA] py-2 px-5 rounded-xl my-auto shadow-xl'
+                    options={{
+                        style: {
+                            base: {
+                                fontSize: '20px',
+                                color: '#424770',
+                                '::placeholder': {
+                                    color: '#aab7c4',
+                                },
+                            },
+                            invalid: {
+                                color: '#9e2146',
                             },
                         },
-                        invalid: {
-                            color: '#9e2146',
-                        },
-                    },
-                }}
-            />
-            <div className='text-center mb-auto mt-5'>
+                    }}
+                />
+                <div className='text-center mb-auto mt-5'>
 
-                <button disabled={!stripe || !element || processing} onClick={() => setRepayment(!repayment)} type="submit" className='btn  border-2 border-[#8700f5] text-[#8700f5] mt-3 rounded-lg text-lg px-10 hover:bg-[#8700f5] shadow-inherit hover:text-white relative' >
-                    {processing ? <div className='h-10'>
-                        <Loading className="h-full my-auto" />
-                    </div> : 'Confirm Payment'}
-                </button>
-            </div>
-            {/* Show error message to your customers */}
-            {
-                transaction && <p className='mb-10 text-green-500'>Transaction is Successfully Done ,<br /> Transaction ID: <span className='text-[#9d2cfa]'>{transaction}</span></p>
-            }
+                    <button disabled={!stripe || !element || processing} onClick={() => setRepayment(!repayment)} type="submit" className='btn  border-2 border-[#8700f5] text-[#8700f5] mt-3 rounded-lg text-lg px-10 hover:bg-[#8700f5] shadow-inherit hover:text-white relative' >
+                        {processing ? <div className='h-10'>
+                            <Loading className="h-full my-auto" />
+                        </div> : 'Confirm Payment'}
+                    </button>
+                </div>
+                {/* Show error message to your customers */}
+                {
+                    transaction && <p className='mb-10 text-green-500'>Transaction is Successfully Done ,<br /> Transaction ID: <span className='text-[#9d2cfa]'>{transaction}</span></p>
+                }
 
-            <Toaster />
-        </form>
-    );
+                <Toaster />
+            </form>
+        );
+    }
 };
 
 export default CheckForm;

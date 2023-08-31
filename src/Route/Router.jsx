@@ -12,6 +12,13 @@ import ShowAllMovies from "../Pages/ShowAllMovies/ShowAllMovies";
 import PaymentStripe from "../Pages/SubscriptionPlans/Payment/PaymentStripe";
 import SSLCommerzPay from "../Pages/SubscriptionPlans/Payment/SSLCommerzPay";
 import SingleMoviePage from "../Pages/SingleMoviePage/SingleMoviePage";
+import SSLCommerzFailed from "../Pages/SubscriptionPlans/Payment/SSLCOMMERZ/SSLCommerzFailed";
+import SSLCommerzSuccess from "../Pages/SubscriptionPlans/Payment/SSLCOMMERZ/SSLCommerzSuccess";
+import PageNotFound from "../Pages/PageNotFound/PageNotFound";
+import Dashboard from "../Layout/Dashboard";
+import UploadMovies from "../Pages/Dashboard/UploadMovies/UploadMovies";
+import UploadTvSeries from "../Pages/Dashboard/UploadTvSeries/UploadTvSeries";
+import UsersManagement from "../Pages/Dashboard/UsersManagement/UsersManagement";
 
 export const router = createBrowserRouter([
   {
@@ -51,6 +58,14 @@ export const router = createBrowserRouter([
         element: <SSLCommerzPay></SSLCommerzPay>
       },
       {
+        path: '/payment/success/:transactionID',
+        element: <SSLCommerzSuccess></SSLCommerzSuccess>
+      },
+      {
+        path: '/payment/failed/:transactionID',
+        element: <SSLCommerzFailed></SSLCommerzFailed>
+      },
+      {
         path: '/home',
         element: <Home></Home>
       },
@@ -70,8 +85,30 @@ export const router = createBrowserRouter([
       //   path: '/regions/:region',
       //   element: <MoviesByRegion></MoviesByRegion>
       // }
-    ]
+    ],
+    errorElement: <PageNotFound></PageNotFound>
   },
+  {
+    path: 'dashboard',
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path:'uploadmovies',
+        element: <UploadMovies></UploadMovies>
+      },
+      {
+        path:'uploadtvseries',
+        element: <UploadTvSeries></UploadTvSeries>
+      },
+      {
+        path: 'UsersManagement',
+        element: <UsersManagement></UsersManagement>
+
+      }
+    ]
+
+  },
+  
   {
     path: '/loading',
     element: <Loading />

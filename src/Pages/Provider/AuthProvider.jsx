@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, updateProfile, } from "firebase/auth";
 import { app } from "../Firebase/firebase.config";
+import axios from "axios";
 
 export const AuthContext = createContext()
 const auth = getAuth(app)
@@ -8,7 +9,9 @@ const auth = getAuth(app)
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
-
+    const [price, setPrice] = useState(0)
+    const [plan, setPlan] = useState("")
+    const [tempData, setTempData] = useState({})
     //user Register code
     const createUser = (email, password) => {
         setLoading(true)
@@ -17,15 +20,32 @@ const AuthProvider = ({ children }) => {
     }
 
     // Set user code
-    useEffect(()=>{
-        const unsubscribe = onAuthStateChanged(auth,user =>{
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, user => {
             setUser(user)
-            setLoading(false)
+
+
+// get and set token-------------
+if(user){
+    axios.post('http://localhost:5000/jwt', {email: user.email})
+    .then(data =>{
+        // console.log(data.data.token)
+        localStorage.setItem('access-token', data.data.token)
+        setLoading(false)
+    })
+}
+else{
+    localStorage.removeItem('access-token')
+}
+
+
+
+            // setLoading(false)
         })
-        return()=>{
+        return () => {
             return unsubscribe();
         }
-    },[])
+    }, [])
 
     // Login user code
     const loginUser = (email, password) => {
@@ -33,7 +53,7 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    // Updaet user code
+    // Update user code
     const updateUser = (name, photo) => {
         return updateProfile(auth.currentUser, {
             displayName: name, photoURL: photo
@@ -51,7 +71,7 @@ const AuthProvider = ({ children }) => {
 
     // Email Verification
 
-    const verificationEmail =()=>{
+    const verificationEmail = () => {
         return sendEmailVerification(auth.currentUser)
     }
 
@@ -65,7 +85,10 @@ const AuthProvider = ({ children }) => {
         updateUser,
         logout,
         resetPassword,
-        verificationEmail
+        verificationEmail,
+
+        price, setPrice, plan, setPlan, tempData, setTempData
+
 
     }
     return (
