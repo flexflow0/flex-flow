@@ -14,7 +14,7 @@ const MovieCard = ({ movie }) => {
                     </Link>
                 </div>
                 <div className="py-2 px-2 font-bold text-l flex justify-between border-b border-[#5a2323] rounded-b-lg">
-                    <Link className='w-[75%] '>
+                    <Link to={`/movie_details/${movie?._id}`} className='w-[75%] '>
                         <pre className="overflow-hidden text-ellipsis hover:underline">{movie?.title}</pre>
                     </Link>
                     <p className='flex items-center'><i className="fa-solid fa-star text-sm mb-1 mr-1"></i>{movie?.IMDb_rating}</p>

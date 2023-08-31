@@ -79,7 +79,7 @@ const MainNavbar = () => {
                     </div>
                 }
                 <div className="w-52">
-                    <Link to='/'>
+                    <Link to={`${(pathname == '/' || pathname == '/register' || pathname == '/login' || pathname == '/chooseplan' || pathname == '/choosetheplan' || pathname == '/choosepay' || pathname == '/payment') ? "/" : "/home"}`}>
                         <img className="w-full" src="https://i.ibb.co/WpJvMk4/9270632-02.png" alt="" />
                     </Link>
                 </div>

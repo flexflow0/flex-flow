@@ -59,7 +59,7 @@ export const router = createBrowserRouter([
         element: <ShowAllMovies></ShowAllMovies>
       },
       {
-        path: '/movie_details',
+        path: '/movie_details/:id',
         element: <SingleMoviePage></SingleMoviePage>
       }
       // {
