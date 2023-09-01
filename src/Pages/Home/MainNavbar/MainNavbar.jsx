@@ -79,7 +79,7 @@ const MainNavbar = () => {
                     </div>
                 }
                 <div className="w-52">
-                    <Link to='/'>
+                    <Link to={`${(pathname == '/' || pathname == '/register' || pathname == '/login' || pathname == '/chooseplan' || pathname == '/choosetheplan' || pathname == '/choosepay' || pathname == '/payment') ? "/" : "/home"}`}>
                         <img className="w-full" src="https://i.ibb.co/WpJvMk4/9270632-02.png" alt="" />
                     </Link>
                 </div>
@@ -130,7 +130,7 @@ const MainNavbar = () => {
                                     className="dropdown-content z-[1] menu p-2 shadow rounded-lg w-52 mt-3 bg-[#0d1334]"
                                 >
                                     <li className={liClasses}>
-                                        <a className="hover:text-white uppercase">Profile Name</a>
+                                        <Link to='/dashboard' className="hover:text-white uppercase">DashBoard</Link>
                                     </li>
                                     {/* <li className={`${liClasses} flex flex-row items-center justify-between px-4`}>
                                         <span className="hover:text-white ps-0"> Sign Up</span>
