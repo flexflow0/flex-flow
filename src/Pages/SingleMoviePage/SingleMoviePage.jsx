@@ -16,7 +16,17 @@ const SingleMoviePage = () => {
                 setLoading(false)
             })
     }, [id, setMovie])
-    // console.log(movie?.cast[0].director);
+    console.log(movie?.movie_url);
+
+    const showCast = (names) => names.map((name, index, array) => <span
+        key={index}
+        className='text-[#4c82c8]'
+    >
+        <span className='hover:underline'>
+            {name}
+        </span>
+        {index === array.length - 1 ? "" : <> &#10242; </>}
+    </span>);
 
     return (
         <div>
@@ -27,7 +37,7 @@ const SingleMoviePage = () => {
                     </div> :
                     <div>
                         <div
-                            className="relative bg-auto bg-no-repeat bg-center h-[calc(100vh)]"
+                            className="relative bg-cover bg-no-repeat bg-center h-[calc(100vh)]"
                             style={{ backgroundImage: `url(${movie?.thumbnail})` }}
                         >
                             <div
@@ -44,12 +54,12 @@ const SingleMoviePage = () => {
                                             <p className=' text-4xl'>{movie?.IMDb_rating}</p>
                                         </div>
                                         <div>
-                                            <p className="text-[#057fb2]">
+                                            <p className="text-[#c4b8b8]">
                                                 <span>
                                                     <i className="fa-regular fa-calendar-days text-[#c4b8b8] mr-1"></i>
                                                     {movie?.release_month} {movie?.release_year}
                                                 </span>
-                                                <span className='text-[#057fb2] mb-5'>
+                                                <span className='text-[#c4b8b8] mb-5'>
                                                     <i className="fa-solid fa-clock-rotate-left text-[#c4b8b8] ml-3 mr-1"></i>
                                                     {parseInt(movie?.length / 60)}h {movie?.length % 60}m
                                                 </span>
@@ -91,14 +101,14 @@ const SingleMoviePage = () => {
                                     <div className="flex space-x-4 mb-4">
                                         <a
                                             className="bg-[#39134b] text-white px-4 py-2 rounded hover:bg-transparent border-2 border-[#39134b] "
-                                            href={movie?.movie_url}
+                                            href='#full_movie'
                                         >
                                             <i className="fa-solid fa-play mr-1 text-xl"></i>
                                             Watch Now
                                         </a>
                                         <a
                                             className="border border-white text-[white] px-4 py-2 rounded hover:text-[#ff0000] hover:border-[#ff0000] flex items-center"
-                                            href={movie?.trailer_url}
+                                            onClick={() => window.my_modal_3.showModal()}
                                         >
                                             {/* <i className="fa-brands fa-youtube mr-1 hover:text-[#ff0000] text-xl"></i> */}
                                             {/* <img className='w-5 h-4 mr-1 mb-1' src={'https://i.ibb.co/L50vmPR/youtube-256x180.png'} alt="" /> */}
@@ -108,18 +118,25 @@ const SingleMoviePage = () => {
                                 </div>
                             </div>
                         </div>
+                        {/* Modal */}
+                        <dialog id="my_modal_3" className="modal w-3/4 mx-auto">
+                            <form method="dialog" className='modal-box   w-11/12 max-w-5xl'>
+                                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                <iframe width="100%" height="450" src={movie?.trailer_url} title={movie?.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen='true'></iframe>
+                            </form>
+                        </dialog>
+                        {/* video */}
+                        <div className='px-60 mx-auto mb-10 pt-5' id='full_movie'>
+                            <iframe width="100%" height="450" src={movie?.movie_url} title={movie?.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen='true'></iframe>
+                        </div>
+
+                        {/* Casts */}
                         <div className='px-60 mx-auto'>
                             <div className='grid grid-cols-6  gap-10 mb-5'>
                                 <h2 className='text-xl flex justify-between col-span-1'><span>Directors</span>:</h2>
                                 <div className='col-span-5 text-lg'>
                                     {
-                                        movie?.cast[0]?.director.map((directors, index) => <span
-                                            key={index}
-                                            className='text-[#4c82c8]'
-                                        >
-                                            <span className='hover:underline'>
-                                                {directors}
-                                            </span> &#10242; </span>)
+                                        showCast(movie?.cast[0]?.director)
                                     }
                                 </div>
                             </div>
@@ -127,13 +144,7 @@ const SingleMoviePage = () => {
                                 <h2 className='text-xl flex justify-between col-span-1'><span>Writers</span>:</h2>
                                 <div className='col-span-5 text-lg'>
                                     {
-                                        movie?.cast[0]?.writers.map((writer, index) => <span
-                                            key={index}
-                                            className='text-[#4c82c8] hover:underline'
-                                        >
-                                            <span className='hover:underline'>
-                                                {writer}
-                                            </span> &#10242; </span>)
+                                        showCast(movie?.cast[0]?.writers)
                                     }
                                 </div>
                             </div>
@@ -141,13 +152,7 @@ const SingleMoviePage = () => {
                                 <h2 className='text-xl flex justify-between col-span-1'><span>Stars</span>:</h2>
                                 <div className='col-span-5 text-lg'>
                                     {
-                                        movie?.cast[0]?.stars.map((star, index) => <span
-                                            key={index}
-                                            className='text-[#4c82c8] hover:underline'
-                                        >
-                                            <span className='hover:underline'>
-                                                {star}
-                                            </span> &#10242; </span>)
+                                        showCast(movie?.cast[0]?.stars)
                                     }
                                 </div>
                             </div>
@@ -155,15 +160,12 @@ const SingleMoviePage = () => {
                                 <h2 className='text-xl flex justify-between col-span-1'><span>Languages</span>:</h2>
                                 <div className='col-span-5 text-lg'>
                                     {
-                                        movie?.language.map((languages, index) => <span
-                                            key={index}
-                                            className='text-[#4c82c8] hover:underline'
-                                        >{languages} &#10242; </span>)
+                                        showCast(movie?.language)
                                     }
                                 </div>
                             </div>
                             <div className='mb-5'>
-                                <h2 className='text-xl'><span>Production Company</span> : <span className='text-[#4c82c8] hover:underline ms-7'>{movie?.production_company}</span></h2>
+                                <h2 className='text-lg'><span>Production Company</span> : <span className='text-[#4c82c8] hover:underline ms-7'>{movie?.production_company}</span></h2>
                             </div>
                         </div>
                     </div>
