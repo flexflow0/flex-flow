@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 function Privacy() {
   return (
     <div>
+      <div className='px-20'>
       <Link to="/">
         <h1 className='text-2xl text-red-600
       '> Back to Help Home</h1>
@@ -72,23 +73,23 @@ function Privacy() {
 
         </ul>
       </div>
-      <div>
+      <div className='mt-12'>
         <h1 className='text-3xl'>Security</h1>
         <p className='text-[20px]'>We use reasonable administrative, logical, physical and managerial measures to safeguard your personal information against loss, theft and unauthorized access, use and modification. These measures are designed to provide a level of security appropriate to the risks of processing your personal information.</p>
       </div>
-      <div>
+      <div className='mt-12'>
         <h1 className='text-3xl'>Other Websites, Platforms and Applications</h1>
         <p className='text-[20px]'>The flexflow service may be provided through and/or utilize features (such as the display of social media content, or the provision of voice controls) operated by third party platforms, or contain links to sites operated by third parties whose policies regarding the handling of information may differ from ours. For example, you may be able to access the flexflow service through platforms such as gaming systems, smart TVs, mobile devices, set top boxes and a number of other Internet connected devices. These websites and platforms have separate and independent privacy or data policies, privacy statements, notices and terms of use, which we recommend you read carefully. In addition, you may encounter third party applications that interact with the flexflow service.
 
         </p>
       </div>
-      <div>
+      <div className='mt-12'>
         <h1 className='text-3xl'>Children</h1>
         <p className='text-[20px]'> You must be at least 18 years of age or older to subscribe to the flexflow service. Minors may only use the service with the involvement, supervision, and approval of a parent or legal guardian.
 
         </p>
       </div>
-      <div>
+      <div className='mt-12'>
         <h1 className='text-3xl'>Changes to This Privacy Statement</h1>
         <p className='text[20px] mt-4'> We will update this Privacy Statement from time to time in response to changing legal, regulatory or operational requirements. We will provide notice of any such changes (including when they will take effect) in accordance with law. Your continued use of the flexflow service after any such updates take effect will constitute acknowledgement and (as applicable) acceptance of those changes. If you do not wish to acknowledge or accept any updates to this Privacy Statement, you may cancel your use of the flexflow service. To see when this Privacy Statement was last updated, please see the Last Updated section below.
 
@@ -97,7 +98,8 @@ function Privacy() {
         <p className='text[16px] mt-4'>To see the prior version of this document, please go to flexflow.com/privacyupdates </p>
 
       </div>
-      
+
+    </div>
     </div>
   )
 }

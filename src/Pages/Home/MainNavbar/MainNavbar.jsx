@@ -9,14 +9,14 @@ const MainNavbar = () => {
 
     const handelLogout = () => {
         logout()
-          .then(() => {
-            
-          })
-          .catch(error => {
-            alert(error.message)
-          })
-    
-      }
+            .then(() => {
+
+            })
+            .catch(error => {
+                alert(error.message)
+            })
+
+    }
 
     const regionNames = ["DC, Marvel or Superhero", "Bollywood", "Hollywood", "Bangla", "Korean", "Spanish", "Chinese & Japanese"];
     const genresNames = ["Animation & Cartoon", "Biography", "Documentary", "Horror", "Fantasy", "Drama", "Crime", "Comedy", "Romance", "Sports", "Mystery", "Sci-Fi", "War", "Western", "Thriller", "Psychological"];
@@ -74,7 +74,7 @@ const MainNavbar = () => {
                                     {MovieGenres}
                                 </details>
                             </li>
-                            <li className="w-64"><a className="hover:text-white">About Us</a></li>
+                            <li className="w-64"> <Link to='/aboutus'>About Us</Link><a className="hover:text-white"></a></li>
                         </ul>
                     </div>
                 }
@@ -105,8 +105,8 @@ const MainNavbar = () => {
                                     {MovieGenres}
                                 </details>
                             </li>
-                            <li><a className="hover:text-white">About Us</a></li>
-                        </ul>
+                            <li className="w-64"> <Link to='/aboutus'>About Us</Link><a className="hover:text-white"></a></li>                       
+                             </ul>
                     </div>
                 </div>
             }
@@ -143,13 +143,13 @@ const MainNavbar = () => {
                                 </ul>
                             </> :
                             <div className='mr-10'>
-                            {
-                              user?<><button onClick={handelLogout} className='uppercase bg-[#22225a] px-5 py-2 rounded-lg font-medium'>Log Out</button>
-                              </>:<><Link to='/login'><button className='uppercase bg-[#22225a] px-5 py-2 rounded-lg font-medium'>Login</button></Link>
-                              </>
-                              
-                            }
-                          </div>
+                                {
+                                    user ? <><button onClick={handelLogout} className='uppercase bg-[#22225a] px-5 py-2 rounded-lg font-medium'>Log Out</button>
+                                    </> : <><Link to='/login'><button className='uppercase bg-[#22225a] px-5 py-2 rounded-lg font-medium'>Login</button></Link>
+                                    </>
+
+                                }
+                            </div>
                     }
                 </div>
 
