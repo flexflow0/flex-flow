@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 
 function Privacy() {
@@ -36,7 +35,7 @@ function Privacy() {
             <p>your name, email address, payment method(s), telephone number, and other identifiers you might use (such as an in-game name). We collect this information in a number of ways, including when you enter it while using our service, interact with our customer service, or participate in surveys or marketing promotions;</p>
           </li>
           <li>
-            <p>information when you choose to provide ratings, taste preferences, account settings (including preferences set in the "Account" section of our website), or otherwise provide information to us through our service or elsewhere.
+            <p>information when you choose to provide ratings, taste preferences, account settings (including preferences set in the Account section of our website), or otherwise provide information to us through our service or elsewhere.
 </p>
           </li>
 
@@ -91,11 +90,11 @@ function Privacy() {
       </div>
       <div>
         <h1 className='text-3xl'>Changes to This Privacy Statement</h1>
-        <p className='text[20px] mt-4'> We will update this Privacy Statement from time to time in response to changing legal, regulatory or operational requirements. We will provide notice of any such changes (including when they will take effect) in accordance with law. Your continued use of the flexflow service after any such updates take effect will constitute acknowledgement and (as applicable) acceptance of those changes. If you do not wish to acknowledge or accept any updates to this Privacy Statement, you may cancel your use of the flexflow service. To see when this Privacy Statement was last updated, please see the "Last Updated" section below.   
+        <p className='text[20px] mt-4'> We will update this Privacy Statement from time to time in response to changing legal, regulatory or operational requirements. We will provide notice of any such changes (including when they will take effect) in accordance with law. Your continued use of the flexflow service after any such updates take effect will constitute acknowledgement and (as applicable) acceptance of those changes. If you do not wish to acknowledge or accept any updates to this Privacy Statement, you may cancel your use of the flexflow service. To see when this Privacy Statement was last updated, please see the Last Updated section below.   
 
 </p>
 
-<p className='text[16px] mt-4'>To see the prior version of this document, please go to flexflow.com/privacyupdates </p>
+<p className='text[16px] mt-4'>To see the prior version of this document, please go to flexflow.com/privacyupdates hdfsgjk </p>
  
       </div>
     </div>
