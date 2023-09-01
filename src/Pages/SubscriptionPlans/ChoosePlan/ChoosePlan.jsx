@@ -8,7 +8,7 @@ const ChoosePlan = () => {
         <div  >
             <div className="">
                 <div className="text-white flex justify-center items-center py-12">
-                    <div className="lg:p-8 p-4 lg:w-[24%] border-2 border-purple-800 rounded">
+                    <div className="lg:p-8 p-4 lg:w-[24%]  border-purple-800 rounded">
                         <div className=" ">
                             <div>
                                 <p className="flex justify-center items-center"><FaCheckCircle className="text-2xl text-purple-800  "></FaCheckCircle></p>

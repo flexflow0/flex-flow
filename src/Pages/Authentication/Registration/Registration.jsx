@@ -185,6 +185,12 @@ const Registration = () => {
                                     <label className="label">
                                         <p> <span>if you have an account please  </span> <Link className="link-hover ml-10 text-xl text-purple-600" to='/login'>Login</Link></p>
                                     </label>
+                                    <div className="mt-0">
+                                        <label className="label">
+                                            <input className="w-10 h-4" type="checkbox" required />
+                                    <p className="text-xs ">Accept Our<Link className="link-hover ml-2  text-purple-600" to='/privacy'>privacy policy</Link></p>
+                                    </label>
+                                    </div>
                                     <div className="form-control mt-6">
                                         <button className="btn text-white bg-purple-800 ">Regster</button><br />
                                     </div>
