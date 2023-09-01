@@ -19,6 +19,7 @@ import Dashboard from "../Layout/Dashboard";
 import UploadMovies from "../Pages/Dashboard/UploadMovies/UploadMovies";
 import UploadTvSeries from "../Pages/Dashboard/UploadTvSeries/UploadTvSeries";
 import UsersManagement from "../Pages/Dashboard/UsersManagement/UsersManagement";
+import Privacy from "../Pages/Privacy/Privacy";
 
 export const router = createBrowserRouter([
   {
@@ -76,6 +77,10 @@ export const router = createBrowserRouter([
       {
         path: '/movie_details/:id',
         element: <SingleMoviePage></SingleMoviePage>
+      },
+      {
+        path: '/privacy',
+        element: <Privacy />
       }
       // {
       //   path: '/genres/:genre',
