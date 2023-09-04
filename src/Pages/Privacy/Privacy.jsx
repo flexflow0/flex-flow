@@ -40,6 +40,39 @@ function Privacy() {
               </p>
 
            
+      </Link>
+      <div className='mt-12'>
+        <h1 className='text-5xl'>Privacy Statement</h1>
+        <p className='text-[24px] mt-6'>
+          This Privacy Statement explains our practices, including your choices, regarding the collection, use, and disclosure of certain information, <br />including your personal information in connection with the FlexFlow service.
+        </p>
+      </div>
+      <div className='mt-12'>
+        <h1 className='text-3xl'>Contacting Us</h1>
+        <p className='text-[18px] mt-6'>
+          If you have general questions about your account or how to contact customer service for assistance, please visit our online help center at help.flexflow.com. For questions specifically about this Privacy Statement, or our use of your personal information, cookies or similar technologies, please contact our Data Protection Officer/Privacy Office by email at privacy@flexflow.com.
+        </p>
+        <p className='text-[18px]'>
+          The data controller of your personal information is FlexFlow Pte. Ltd. Please note that if you contact us to assist you, for your safety and ours we may need to authenticate your identity before fulfilling your request.
+        </p>
+      </div>
+      <div className='mt-12'>
+        <h1 className='text-3xl'>Collection of Information</h1>
+        <p className='text-[18px] mt-6'>
+          We receive and store information about you such as:
+        </p>
+        <span className='text-3xl'>
+          Information you provide to us:
+        </span> <span className='text-[16px]'>We collect information you provide to us which includes:</span>
+        <ul className='ml-10 text-[18px] mt-4'>
+          <li>
+            <p>your name, email address, payment method(s), telephone number, and other identifiers you might use (such as an in-game name). We collect this information in a number of ways, including when you enter it while using our service, interact with our customer service, or participate in surveys or marketing promotions;</p>
+          </li>
+          <li>
+            <p>information when you choose to provide ratings, taste preferences, account settings (including preferences set in the Account section of our website), or otherwise provide information to us through our service or elsewhere.
+            </p>
+
+            {/* </p> */}
           </li>
 
         </ul>
@@ -96,12 +129,16 @@ function Privacy() {
         <p className='text[20px] mt-4'> We will update this Privacy Statement from time to time in response to changing legal, regulatory or operational requirements. We will provide notice of any such changes (including when they will take effect) in accordance with law. Your continued use of the flexflow service after any such updates take effect will constitute acknowledgement and (as applicable) acceptance of those changes. If you do not wish to acknowledge or accept any updates to this Privacy Statement, you may cancel your use of the flexflow service. To see when this Privacy Statement was last updated, please see the Last Updated section below.</p>
 
           <p className='text[20px] mt-4'> We will update this Privacy Statement from time to time in response to changing legal, regulatory or operational requirements. We will provide notice of any such changes (including when they will take effect) in accordance with law. Your continued use of the flexflow service after any such updates take effect will constitute acknowledgement and (as applicable) acceptance of those changes. If you do not wish to acknowledge or accept any updates to this Privacy Statement, you may cancel your use of the flexflow service. To see when this Privacy Statement was last updated, please see the Last Updated section below.
+        <p className='text[20px] mt-4'> We will update this Privacy Statement from time to time in response to changing legal, regulatory or operational requirements. We will provide notice of any such changes (including when they will take effect) in accordance with law. Your continued use of the flexflow service after any such updates take effect will constitute acknowledgement and (as applicable) acceptance of those changes. If you do not wish to acknowledge or accept any updates to this Privacy Statement, you may cancel your use of the flexflow service. To see when this Privacy Statement was last updated, please see the Last Updated section below.
+        </p>
+        <p className='text[20px] mt-4'> We will update this Privacy Statement from time to time in response to changing legal, regulatory or operational requirements. We will provide notice of any such changes (including when they will take effect) in accordance with law. Your continued use of the flexflow service after any such updates take effect will constitute acknowledgement and (as applicable) acceptance of those changes. If you do not wish to acknowledge or accept any updates to this Privacy Statement, you may cancel your use of the flexflow service. To see when this Privacy Statement was last updated, please see the Last Updated section below.
 
           </p>
 
           <p className='text[16px] mt-4'>To see the prior version of this document, please go to flexflow.com/privacyupdates </p>
 
           <p className='text[16px] mt-4'>To see the prior version of this document, please go to flexflow.com/privacyupdates hdfsgjk </p>
+        <p className='text[16px] mt-4'>To see the prior version of this document, please go to flexflow.com/privacyupdates hdfsgjk </p>
 
       </div>
 
