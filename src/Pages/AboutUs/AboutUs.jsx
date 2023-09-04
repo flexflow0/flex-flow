@@ -19,7 +19,7 @@ const AboutUs = () => {
 
                 <div className="bg-[#39134B]  w-full mx-auto px-5 py-5 rounded-3xl space-y-2 bg-opacity-50 scale-85 hover:scale-110 ease-in duration-500">
 
-                    <img src='https://i.ibb.co/kKcTFjh/masud-vai.jpg' className="rounded-full w-28 h-28 mx-auto" alt="" />
+                    <img src='https://i.ibb.co/0h6cJcH/masud-rana-removebg-preview-1-removebg-preview.png' className="rounded-full w-28 h-28 mx-auto" alt="" />
 
                     <h2 className="text-center">Masud Rana</h2>
                     <p>Team Leader and Developer</p>
