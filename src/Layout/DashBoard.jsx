@@ -5,10 +5,10 @@ import { useContext } from 'react';
 
 const Dashboard = () => {
 
-    const { user,} = useContext(AuthContext)
-    const isAdmin = true;
+    const { user, } = useContext(AuthContext)
+    const isAdmin = false;
 
-    
+
     return (
         <div>
 
@@ -38,12 +38,19 @@ const Dashboard = () => {
                                 {/* Admin DashBoard */}
                                 <li><NavLink to='/dashboard/uploadmovies'>Upload Movies</NavLink></li>
                                 <li><NavLink to='/dashboard/uploadtvseries'>Upload TV series </NavLink></li>
-                                <li><NavLink to='/dashboard/UsersManagement'>Manage Users</NavLink></li> </>
+                                <li><NavLink to='/dashboard/analytics'>View Analytics</NavLink></li>
+                                <li><NavLink to='/dashboard/usersManagement'>Manage Users</NavLink></li>
+                            </>
                                 : <>
-                                    {/* Student DashBoard */}
-                                    <li><NavLink to='/dashboard/'>My Selected Movies</NavLink></li>
-                                    <li><NavLink to='/dashboard/'> My Liked Movies</NavLink></li>
-                                    <li><NavLink to='/dashboard/'>Payment history</NavLink></li></>
+                                    {/*User DashBoard */}
+                                    <li><NavLink to='/dashboard/WatchLater'>Watch Later</NavLink></li>
+                                    <li><NavLink to='/dashboard/likedmovies'> My Liked Movies</NavLink></li>
+                                    <li><NavLink to='/dashboard/favourite'>My Favourite Movies
+                                    </NavLink></li>
+                                    <li><NavLink to='/dashboard/watchhistory'>Watch History
+                                    </NavLink></li>
+                                    <li><NavLink to='/dashboard/'>Payment history</NavLink></li>
+                                </>
 
 
 
