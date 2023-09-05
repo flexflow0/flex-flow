@@ -3,7 +3,12 @@ import './Registration.css'
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
+
+// const img_hosting = import.meta.env.VITE_img_upload_token;
+
 const Registration = () => {
+    // const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting}`
+
     const { createUser, updateUser, verificationEmail } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation()
@@ -21,7 +26,9 @@ const Registration = () => {
         const password = form.password.value;
         const birthDate = form.birthDate.value;
         const photo = form.photo.value;
-        // console.log(name, photo, password, email, birthDate);
+
+
+        console.log(name, photo, password, email, birthDate);
 
         if (!/(?=.*[!@#$%^&*])/.test(password)) {
             setError(' Please add some characters')
@@ -47,7 +54,6 @@ const Registration = () => {
             setError(' Maximum letter 20')
             return
         }
-
 
         createUser(email, password)
             .then(result => {
@@ -128,7 +134,6 @@ const Registration = () => {
 
     // Inside your component:
     const age = dob ? calculateAge(dob) : null;
-
 
 
     return (

@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import MovieCard from "../Shared/MovieCard/MovieCard";
 import useMovies from "../../Hooks/useMovies/useMovies";
+import { useState } from "react";
 
 const ShowAllMovies = () => {
 
@@ -10,13 +11,15 @@ const ShowAllMovies = () => {
     }
 
     const { keyword } = useParams();
-    const keyValues  = keyword.split('+');
+    const keyValues = keyword.split('+');
+    const [search, setSearch] = useState("");
+    console.log(search)
     // console.log(keyword, keyValues);
 
-    if (keyValues[0] === 'regions'){
+    if (keyValues[0] === 'regions') {
         queries.region = keyValues[1];
     }
-    else if (keyValues[0] === 'genres'){
+    else if (keyValues[0] === 'genres') {
         queries.genre = keyValues[1];
     }
     // console.log(queries);
@@ -31,11 +34,21 @@ const ShowAllMovies = () => {
 
     const allMovies = (keyword === 'top_rated') ? sortedByRating : newMovies;
 
+
+
+
+    console.log(movies)
     return (
         <div>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 p-5 my-20">
+           <div className="flex justify-center items-center pt-4 gap-4">
+            <p>Search Movies: </p>
+           <input className="py-2 px-8 border bg-purple-950 hover:bg-purple-800 border-purple-900 text-center  rounded" type="search" placeholder="Search Movies" onChange={(e) => setSearch(e.target.value)} />
+           </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-5 p-5 my-20">
                 {
-                    allMovies.map(movie => <MovieCard
+                    allMovies.filter((movie) => {
+                        return search.toLowerCase() === "" ? movie : movie.title.toLowerCase().includes(search);
+                    }).map(movie => <MovieCard
                         key={movie._id}
                         movie={movie}
                     ></MovieCard>)
