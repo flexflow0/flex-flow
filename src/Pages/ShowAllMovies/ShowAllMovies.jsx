@@ -19,7 +19,7 @@ const ShowAllMovies = () => {
     else if (keyValues[0] === 'genres'){
         queries.genre = keyValues[1];
     }
-    console.log(queries)
+    // console.log(queries);
 
     const [movies] = useMovies(queries);
     const sortedByRating = movies.slice(0);
@@ -33,7 +33,7 @@ const ShowAllMovies = () => {
 
     return (
         <div>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-5 p-5 my-20">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 p-5 my-20">
                 {
                     allMovies.map(movie => <MovieCard
                         key={movie._id}
