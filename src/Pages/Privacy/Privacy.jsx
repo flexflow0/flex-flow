@@ -36,10 +36,7 @@ function Privacy() {
             <p>your name, email address, payment method(s), telephone number, and other identifiers you might use (such as an in-game name). We collect this information in a number of ways, including when you enter it while using our service, interact with our customer service, or participate in surveys or marketing promotions;</p>
           </li>
           <li>
-            <p>information when you choose to provide ratings, taste preferences, account settings (including preferences set in the Account section of our website), or otherwise provide information to us through our service or elsewhere.
-</p>
-
-            </p>
+            <p>information when you choose to provide ratings, taste preferences, account settings (including preferences set in the Account section of our website), or otherwise provide information to us through our service or elsewhere.</p>
           </li>
 
         </ul>
@@ -105,6 +102,7 @@ function Privacy() {
  
       </div>
       
+    </div>
     </div>
   )
 }
