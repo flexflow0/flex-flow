@@ -22,7 +22,7 @@ const ShowAllMovies = () => {
     else if (keyValues[0] === 'genres') {
         queries.genre = keyValues[1];
     }
-    console.log(queries)
+    // console.log(queries);
 
     const [movies] = useMovies(queries);
     const sortedByRating = movies.slice(0);

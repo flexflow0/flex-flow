@@ -1,7 +1,7 @@
 
 const WatchOffline = () => {
     return (
-        <div className="border-y-2 py-4 border-purple-800">
+        <div className="border-b-2 py-4 border-purple-800">
             <div className="lg:flex lg:h-[450px] lg:px-20 px-12 gap-6 py-6 text-white">
                 <div className=" lg:ml-20  lg:mt-20">
                     <img className="lg:w-[400px] lg:h-[270px] w-[300px] h-[200px]" src="https://i.ibb.co/TPn5Qv1/download-video.gif" alt="" />
