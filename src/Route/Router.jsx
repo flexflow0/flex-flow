@@ -81,8 +81,9 @@ export const router = createBrowserRouter([
       },
       {
         path: '/aboutus',
-        element:<AboutUs></AboutUs>
-
+        element: <AboutUs></AboutUs>
+      }
+      , {
         path: '/privacy',
         element: <Privacy />
       }
@@ -102,11 +103,11 @@ export const router = createBrowserRouter([
     element: <Dashboard></Dashboard>,
     children: [
       {
-        path:'uploadmovies',
+        path: 'uploadmovies',
         element: <UploadMovies></UploadMovies>
       },
       {
-        path:'uploadtvseries',
+        path: 'uploadtvseries',
         element: <UploadTvSeries></UploadTvSeries>
       },
       {
@@ -117,7 +118,7 @@ export const router = createBrowserRouter([
     ]
 
   },
-  
+
   {
     path: '/loading',
     element: <Loading />
