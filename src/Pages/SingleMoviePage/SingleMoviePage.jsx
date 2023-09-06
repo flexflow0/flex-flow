@@ -115,7 +115,7 @@ const SingleMoviePage = () => {
                                     <p className='text-xs'>{movie?.description}</p>
                                 </div>
                                 <div className='mb-1 flex gap-2'>
-                                    <h2 className='text-sm'><span>Directors</span> : <span className='text-[#4c82c8] hover:underline'>{movie?.cast[0]?.director.map((director, index, array) => <span
+                                    <h2 className='text-sm'><span>Directors</span> : <span className='text-[#4c82c8] hover:underline'>{movie?.cast[0]?.directors.map((director, index, array) => <span
                                         key={index}
                                         className="hover:underline"
                                     >
