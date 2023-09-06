@@ -27,6 +27,7 @@ import WatchLater from "../Pages/Dashboard/UsersDashboard/WatchLater/WatchLater"
 import MyLikedMovies from "../Pages/Dashboard/UsersDashboard/MyLikedMovies/MyLikedMovies";
 import WatchHistory from "../Pages/Dashboard/UsersDashboard/WatchHistory/WatchHistory";
 import AboutFlexflow from "../Pages/AboutFlexflow/AboutFlexflow";
+import ShowAllTvSeries from "../Pages/Home/TvSeries/ShowAllTvSeries/ShowAllTvSeries";
 
 export const router = createBrowserRouter([
   {
@@ -80,6 +81,10 @@ export const router = createBrowserRouter([
       {
         path: '/show_all_movies/:keyword',
         element: <ShowAllMovies></ShowAllMovies>
+      },
+      {
+        path: '/show_all_tvSeries/:region',
+        element: <ShowAllTvSeries></ShowAllTvSeries>
       },
       {
         path: '/movie_details/:id',
