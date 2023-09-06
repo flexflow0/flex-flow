@@ -26,6 +26,8 @@ import MyFavaurite from "../Pages/Dashboard/UsersDashboard/MyFavourite/MyFavauri
 import WatchLater from "../Pages/Dashboard/UsersDashboard/WatchLater/WatchLater";
 import MyLikedMovies from "../Pages/Dashboard/UsersDashboard/MyLikedMovies/MyLikedMovies";
 import WatchHistory from "../Pages/Dashboard/UsersDashboard/WatchHistory/WatchHistory";
+import Blog from "../Pages/Home/Blog/Blog";
+import WriteaBlog from "../Pages/Dashboard/AdminDashboard/WriteaBlog/WriteaBlog";
 
 export const router = createBrowserRouter([
   {
@@ -86,11 +88,15 @@ export const router = createBrowserRouter([
       },
       {
         path: '/aboutus',
-        element:<AboutUs></AboutUs>
+        element: <AboutUs></AboutUs>
       },
       {
         path: '/privacy',
         element: <Privacy />
+      },
+      {
+        path: '/blog',
+        element: <Blog></Blog>
       }
 
       // {
@@ -123,6 +129,10 @@ export const router = createBrowserRouter([
       {
         path: 'analytics',
         element: <Analytics></Analytics>
+      },
+      {
+        path: 'writeablog',
+        element: <WriteaBlog></WriteaBlog>
       },
       // User Dashboard 
       {
