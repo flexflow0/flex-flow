@@ -4,9 +4,10 @@ import './Login.css'
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
+import axios from "axios";
 
 const Login = () => {
-  const { loginUser, resetPassword, googleLogin } = useContext(AuthContext)
+  const { user, loginUser, resetPassword, googleLogin } = useContext(AuthContext)
   const [show, setShow] = useState(false)
   const emailRef = useRef();
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ const Login = () => {
   const from = location?.state?.from?.pathname || '/chooseplan'
 
   const handelLogin = event => {
+
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
@@ -36,7 +38,54 @@ const Login = () => {
 
   // Atik -> Sign in with google
   const handleGoogleLogin = () => {
-    googleLogin().then(res => console.log(res)).catch(err => console.log(err))
+    googleLogin().then(res => {
+      console.log(res)
+      const userData = { name: res?.user?.displayName, email: res?.user?.email, photoURL: res?.user?.photoURL }
+
+      axios.post('http://localhost:5000/users', userData).then(res => {
+        console.log(res);
+        if (res?.data?.message === "user already exists") {
+          navigate(from, { replace: true })
+        }
+        if (res?.data?.insertedId) {
+          window.my_modal_3.showModal()
+        }
+
+      }
+      )
+    }
+    ).catch(err => {
+      console.log(err)
+      console.log(err.message);
+    }
+    )
+  }
+  const [enable, setEnable] = useState(false)
+  const handleAge = async (event) => {
+    event.preventDefault()
+    const age = event.target.age.value
+    const upData = {
+      age, email: user?.email
+    }
+
+
+    if (age > 2) {
+      axios.patch("http://localhost:5000/users", upData).then(res => {
+        if (res.data.modifiedCount > 0 && res.data.matchedCount > 0) {
+          toast.success("Your Age Successfully Created")
+        } else {
+          toast("Your Age Already Created", {
+            icon: "👤"
+          })
+        }
+      })
+
+      setEnable(true)
+      if (enable) {
+        toast.success(`Enabled ${age}`,)
+      }
+    }
+
   }
 
 
@@ -96,6 +145,29 @@ const Login = () => {
         </div>
       </div>
       <Toaster />
+
+      <dialog id="my_modal_3" className="modal">
+        <div className="modal-box">
+          {enable &&
+            <form method="dialog">
+              {/* if there is a button in form, it will close the modal */}
+              <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+            </form>}
+
+          <h3 className="font-bold text-lg">Hello! {user?.displayName}</h3>
+          {enable && <p className="py-4">Press ESC key or click on ✕ to close</p>}
+          <form onSubmit={handleAge} className="text-center">
+
+            <p className="py-4 text-center font-bold text-[#a846f8]">Please Enter Your Age !</p>
+            <input type="number" placeholder="Enter Your Age" name="age" className="input input-bordered w-full rounded-full border-[#8700f5] border-2" required />
+
+            <input type="submit" className="className='btn  border-2 border-[#8700f5] text-[#a846f8] mt-3 rounded-lg text-lg px-10 hover:bg-[#8700f5] shadow-inherit hover:text-white '" />
+          </form>
+
+        </div>
+
+      </dialog>
+
     </div>
   );
 };
