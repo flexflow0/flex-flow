@@ -6,7 +6,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
 
 const Login = () => {
-  const { loginUser, resetPassword } = useContext(AuthContext)
+  const { loginUser, resetPassword, googleLogin } = useContext(AuthContext)
   const [show, setShow] = useState(false)
   const emailRef = useRef();
   const navigate = useNavigate();
@@ -33,6 +33,12 @@ const Login = () => {
       })
 
   }
+
+  // Atik -> Sign in with google
+  const handleGoogleLogin = () => {
+    googleLogin().then(res => console.log(res)).catch(err => console.log(err))
+  }
+
 
   const handelForget = () => {
     const passwordReset = emailRef.current.value
@@ -82,7 +88,7 @@ const Login = () => {
                   <button onClick={handelForget} className="link-hover mx-auto text-purple-600 " >Forgotten password?</button>
                 </label>
                 <div className="divider text-xs my-0">OR</div>
-                <button className="btn text-white bg-purple-800  mt-2"> <FaGoogle></FaGoogle>Login With Google</button>
+                <button onClick={handleGoogleLogin} className="btn text-white bg-purple-800  mt-2"> <FaGoogle></FaGoogle>Login With Google</button>
                 <p> <span className="text-sm">You don,t have an account? </span> <Link className="link-hover ml-10 text-sm text-purple-600" to='/register' > Register Now </Link></p>
               </div>
             </div>
