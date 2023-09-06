@@ -26,9 +26,10 @@ import MyFavaurite from "../Pages/Dashboard/UsersDashboard/MyFavourite/MyFavauri
 import WatchLater from "../Pages/Dashboard/UsersDashboard/WatchLater/WatchLater";
 import MyLikedMovies from "../Pages/Dashboard/UsersDashboard/MyLikedMovies/MyLikedMovies";
 import WatchHistory from "../Pages/Dashboard/UsersDashboard/WatchHistory/WatchHistory";
+import Blog from "../Pages/Home/Blog/Blog";
+import WriteaBlog from "../Pages/Dashboard/AdminDashboard/WriteaBlog/WriteaBlog";
 import AboutFlexflow from "../Pages/AboutFlexflow/AboutFlexflow";
 import ShowAllTvSeries from "../Pages/Home/TvSeries/ShowAllTvSeries/ShowAllTvSeries";
-
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -97,11 +98,15 @@ export const router = createBrowserRouter([
       {
         path: '/privacy',
         element: <Privacy />
+      },
+      {
+        path: '/blog',
+        element: <Blog></Blog>
+
       }, 
       {
         path: '/aboutFlexflow',
-        element: <AboutFlexflow />
-      }
+        element: <AboutFlexflow />      }
 
       // {
       //   path: '/genres/:genre',
@@ -133,6 +138,10 @@ export const router = createBrowserRouter([
       {
         path: 'analytics',
         element: <Analytics></Analytics>
+      },
+      {
+        path: 'writeablog',
+        element: <WriteaBlog></WriteaBlog>
       },
       // User Dashboard 
       {
