@@ -28,10 +28,10 @@ function MainBanner() {
   };
 
   return (
-    <div className="relative">
+    <div className="relative swiper">
       <Slider {...settings}>
         {upcomingMovies.map(movie => (
-          <div key={movie._id} className="sliderImgHeight flex items-center justify-center h-300px">
+          <div key={movie._id} className="sliderImgHeight flex items-center justify-center h-300px swiper-slide">
             <img
               src={movie.movie_thum}
               alt={movie.movie_name}

@@ -26,6 +26,7 @@ import MyFavaurite from "../Pages/Dashboard/UsersDashboard/MyFavourite/MyFavauri
 import WatchLater from "../Pages/Dashboard/UsersDashboard/WatchLater/WatchLater";
 import MyLikedMovies from "../Pages/Dashboard/UsersDashboard/MyLikedMovies/MyLikedMovies";
 import WatchHistory from "../Pages/Dashboard/UsersDashboard/WatchHistory/WatchHistory";
+import AboutFlexflow from "../Pages/AboutFlexflow/AboutFlexflow";
 
 export const router = createBrowserRouter([
   {
@@ -91,6 +92,10 @@ export const router = createBrowserRouter([
       {
         path: '/privacy',
         element: <Privacy />
+      }, 
+      {
+        path: '/aboutFlexflow',
+        element: <AboutFlexflow />
       }
 
       // {
