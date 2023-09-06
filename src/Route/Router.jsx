@@ -92,7 +92,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/aboutus',
-        element:<AboutUs></AboutUs>
+        element: <AboutUs></AboutUs>
       },
       {
         path: '/privacy',
