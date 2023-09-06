@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './CompanyInfoBanner.css'
 
 const CompanyInfoBanner = () => {
@@ -14,7 +15,7 @@ const CompanyInfoBanner = () => {
                     </div>
                     <div className='flex justify-center items-center '>
                         <div>
-                            <button className='uppercase bg-[#9747ff] text-3xl font-semibold text-white px-8 py-4 rounded-2xl border-4 border-[#8a24f2] mt-10 lg:mt-0'>About FlexFlow</button>
+                            <button className='uppercase bg-[#9747ff] text-3xl font-semibold text-white px-8 py-4 rounded-2xl border-4 border-[#8a24f2] mt-10 lg:mt-0'><Link to="/aboutFlexflow">About FlexFlow</Link></button>
                         </div>  
                     </div>
                 </div>

@@ -28,7 +28,8 @@ import MyLikedMovies from "../Pages/Dashboard/UsersDashboard/MyLikedMovies/MyLik
 import WatchHistory from "../Pages/Dashboard/UsersDashboard/WatchHistory/WatchHistory";
 import Blog from "../Pages/Home/Blog/Blog";
 import WriteaBlog from "../Pages/Dashboard/AdminDashboard/WriteaBlog/WriteaBlog";
-
+import AboutFlexflow from "../Pages/AboutFlexflow/AboutFlexflow";
+import ShowAllTvSeries from "../Pages/Home/TvSeries/ShowAllTvSeries/ShowAllTvSeries";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -83,6 +84,10 @@ export const router = createBrowserRouter([
         element: <ShowAllMovies></ShowAllMovies>
       },
       {
+        path: '/show_all_tvSeries/:region',
+        element: <ShowAllTvSeries></ShowAllTvSeries>
+      },
+      {
         path: '/movie_details/:id',
         element: <SingleMoviePage></SingleMoviePage>
       },
@@ -97,7 +102,11 @@ export const router = createBrowserRouter([
       {
         path: '/blog',
         element: <Blog></Blog>
-      }
+
+      }, 
+      {
+        path: '/aboutFlexflow',
+        element: <AboutFlexflow />      }
 
       // {
       //   path: '/genres/:genre',

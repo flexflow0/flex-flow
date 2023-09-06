@@ -21,6 +21,9 @@ const MainNavbar = () => {
     const regionNames = ["DC, Marvel or Superhero", "Bollywood", "Hollywood", "Bangla", "Korean", "Spanish", "Chinese & Japanese"];
     const genresNames = ["Animation & Cartoon", "Biography", "Documentary", "Horror", "Fantasy", "Drama", "Crime", "Comedy", "Romance", "Sports", "Mystery", "Sci-Fi", "War", "Western", "Thriller", "Psychological"];
 
+    // ******** Masud rana ********* 
+    const tvSeries = ["Bollywood", "Hollywood", "Bangla", "Korean", "Spanish", "Chinese & Japanese"];
+    // ************
     const liClasses = "hover:bg-[#8484c9] hover:text-white rounded-xl"
     const MovieSector =
         <ul className="p-2 w-60 lg:bg-[#091231ec] bg-opacity-80 z-30">
@@ -48,6 +51,22 @@ const MainNavbar = () => {
                 </li>)
             }
         </ul>
+    // ******** Masud *********
+    const tvSeriesSector =
+        <ul className="p-2 w-60 lg:bg-[#091231ec] bg-opacity-80 z-30">
+            {
+                tvSeries.map(tvSeriesList => <li
+                    key={tvSeriesList}
+                    className={liClasses}>
+                    <Link to={`show_all_tvSeries/${tvSeriesList}`} className="hover:text-white">
+                        {tvSeriesList}
+                    </Link>
+
+                </li>)
+
+            }
+        </ul>
+    // ***************
 
     const { pathname } = useLocation();
     // console.log(pathname);
@@ -68,6 +87,16 @@ const MainNavbar = () => {
                                     {MovieSector}
                                 </details>
                             </li>
+                            {/* ******Masud****** */}
+                            <li>
+                                <details>
+                                    <summary  className="hover:text-white">Tv Series</summary>
+                                    {tvSeriesSector}
+
+                                </details>
+
+                            </li>
+                            {/* ************** */}
                             <li>
                                 <details>
                                     <summary className="hover:text-white">Genres</summary>
@@ -101,6 +130,15 @@ const MainNavbar = () => {
                                     {MovieSector}
                                 </details>
                             </li>
+                            {/* ***** Masud ********* */}
+                            <li tabIndex={0}>
+                                <details>
+                                    <summary className="hover:text-white">Tv Series</summary>
+                                    {tvSeriesSector}
+                                </details>
+
+                            </li>
+                            {/* **************** */}
                             <li tabIndex={0}>
                                 <details>
                                     <summary className="hover:text-white">Genres</summary>
@@ -116,6 +154,8 @@ const MainNavbar = () => {
                                 <li><a className="hover:text-white">Blog</a></li>
                             </Link>                  
                              </ul>
+                            <li className="w-64"> <Link to='/aboutus'>About Us</Link><a className="hover:text-white"></a></li>
+                        </ul>
                     </div>
                 </div>
             }

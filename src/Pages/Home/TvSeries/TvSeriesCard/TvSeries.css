@@ -1,0 +1,7 @@
+.container_card:hover .card_details {
+    display: block;
+}
+
+.container_card:hover img {
+    filter: brightness(30%);
+}

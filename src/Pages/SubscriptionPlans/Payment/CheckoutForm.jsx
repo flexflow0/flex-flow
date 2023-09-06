@@ -13,7 +13,6 @@ import useAuth from '../../../Hooks/useAuth/useAuth';
 
 const CheckForm = ({ setDisable }) => {
     const { user, price, plan } = useAuth()
-    const navigate = useNavigate();
 
     const stripe = useStripe();
     const [processing, setProcessing] = useState(false)
@@ -31,12 +30,9 @@ const CheckForm = ({ setDisable }) => {
     }
 
 
-    // change this when content price is available
-    const [repayment, setRepayment] = useState(false)
     useEffect(() => {
-        if (repayment > 0) {
 
-        if (totalPrice > 0) {
+        if (price > 0) {
             axios('http://localhost:5000/create-payment-intent')
                 .then(res => {
                     setClientSecret(res.data.clientSecret);
@@ -46,26 +42,19 @@ const CheckForm = ({ setDisable }) => {
             if (price > 0) {
                 axios.post('http://localhost:5000/create-payment-intent', { price }).then(res => {
 
-                setClientSecret(res.data.clientSecret);
-                console.log(res.data.clientSecret);
-            })
-                .catch(error => {
-                    console.error("Error fetching client secret:", error);
-                });
-        }}
-    // }, [repayment, price]);
-
                     setClientSecret(res.data.clientSecret);
                     console.log(res.data.clientSecret);
-                // })
-                    // .catch(error => {
-                    //     console.error("Error fetching client secret:", error);
-                    // });
+                })
+                    .catch(error => {
+                        console.error("Error fetching client secret:", error);
+                    });
             }
-        // }
+        }
 
 
-    }, [repayment, price]);
+    }, [price]);
+
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -146,41 +135,43 @@ const CheckForm = ({ setDisable }) => {
             setDisable(false)
         }
 
-        return (
-            <form onSubmit={handleSubmit} className='w-full flex flex-col h-[500px]  md:w-[60%] mx-auto'>
-                <CardElement className='bg-base-100 border border-[#830FEA] py-2 px-5 rounded-xl my-auto shadow-xl'
-                    options={{
-                        style: {
-                            base: {
-                                fontSize: '20px',
-                                color: '#424770',
-                                '::placeholder': {
-                                    color: '#aab7c4',
-                                },
-                            },
-                            invalid: {
-                                color: '#9e2146',
+
+    }
+
+    return (
+        <form onSubmit={handleSubmit} className='w-full flex flex-col h-[500px]  md:w-[60%] mx-auto'>
+            <CardElement className='bg-base-100 border border-[#830FEA] py-2 px-5 rounded-xl my-auto shadow-xl'
+                options={{
+                    style: {
+                        base: {
+                            fontSize: '20px',
+                            color: '#424770',
+                            '::placeholder': {
+                                color: '#aab7c4',
                             },
                         },
-                    }}
-                />
-                <div className='text-center mb-auto mt-5'>
+                        invalid: {
+                            color: '#9e2146',
+                        },
+                    },
+                }}
+            />
+            <div className='text-center mb-auto mt-5'>
 
-                    <button disabled={!stripe || !element || processing} onClick={() => setRepayment(!repayment)} type="submit" className='btn  border-2 border-[#8700f5] text-[#8700f5] mt-3 rounded-lg text-lg px-10 hover:bg-[#8700f5] shadow-inherit hover:text-white relative' >
-                        {processing ? <div className='h-10'>
-                            <Loading className="h-full my-auto" />
-                        </div> : 'Confirm Payment'}
-                    </button>
-                </div>
-                {/* Show error message to your customers */}
-                {
-                    transaction && <p className='mb-10 text-green-500'>Transaction is Successfully Done ,<br /> Transaction ID: <span className='text-[#9d2cfa]'>{transaction}</span></p>
-                }
+                <button disabled={!stripe || !element || processing} type="submit" className='btn  border-2 border-[#8700f5] text-[#8700f5] mt-3 rounded-lg text-lg px-10 hover:bg-[#8700f5] shadow-inherit hover:text-white relative' >
+                    {processing ? <div className='h-10'>
+                        <Loading className="h-full my-auto" />
+                    </div> : 'Confirm Payment'}
+                </button>
+            </div>
+            {/* Show error message to your customers */}
+            {
+                transaction && <p className='mb-10 text-green-500'>Transaction is Successfully Done ,<br /> Transaction ID: <span className='text-[#9d2cfa]'>{transaction}</span></p>
+            }
 
-                <Toaster />
-            </form>
-        );
-    }
+            <Toaster />
+        </form>
+    );
 };
 
 export default CheckForm;
