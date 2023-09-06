@@ -7,61 +7,39 @@ function Privacy() {
         <Link to="/">
           <h1 className=' btn text-2xl bg-purple-900 rounded mt-3
       '> Back to Help Home</h1>
-        </Link>
-        
-        
-        <div className='mt-12'>
-          
-        <div className='mt-12'>
-          <h1 className='text-5xl'>Privacy Statement</h1>
-          <p className='text-[24px] mt-6'>
-            This Privacy Statement explains our practices, including your choices, regarding the collection, use, and disclosure of certain information, <br />including your personal information in connection with the FlexFlow service.
-          </p>
-        </div>
-        <div className='mt-12'>
-          <h1 className='text-3xl'>Contacting Us</h1>
-          <p className='text-[18px] mt-6'>
-            If you have general questions about your account or how to contact customer service for assistance, please visit our online help center at help.flexflow.com. For questions specifically about this Privacy Statement, or our use of your personal information, cookies or similar technologies, please contact our Data Protection Officer/Privacy Office by email at privacy@flexflow.com.
-          </p>
-          <p className='text-[18px]'>
-            The data controller of your personal information is FlexFlow Pte. Ltd. Please note that if you contact us to assist you, for your safety and ours we may need to authenticate your identity before fulfilling your request.
-          </p>
-        </div>
-        <div className='mt-12'>
-          <h1 className='text-3xl'>Collection of Information</h1>
-          <p className='text-[18px] mt-6'>
-            We receive and store information about you such as:
-          </p>
-          <span className='text-3xl'>
-            Information you provide to us:
-          </span> <span className='text-[16px]'>We collect information you provide to us which includes:</span>
-          <ul className='ml-10 text-[18px] mt-4'>
-            <li>
-              <p>your name, email address, payment method(s), telephone number, and other identifiers you might use (such as an in-game name). We collect this information in a number of ways, including when you enter it while using our service, interact with our customer service, or participate in surveys or marketing promotions;</p>
-            </li>
-            <li>
-              <p>information when you choose to provide ratings, taste preferences, account settings (including preferences set in the Account section of our website), or otherwise provide information to us through our service or elsewhere.
-              </p>
 
-              {/* </p> */}
-            </li>
+      </Link>
+      <div className='mt-12'>
+        <h1 className='text-5xl'>Privacy Statement</h1>
+        <p className='text-[24px] mt-6'>
+          This Privacy Statement explains our practices, including your choices, regarding the collection, use, and disclosure of certain information, <br />including your personal information in connection with the FlexFlow service.
+        </p>
+      </div>
+      <div className='mt-12'>
+        <h1 className='text-3xl'>Contacting Us</h1>
+        <p className='text-[18px] mt-6'>
+          If you have general questions about your account or how to contact customer service for assistance, please visit our online help center at help.flexflow.com. For questions specifically about this Privacy Statement, or our use of your personal information, cookies or similar technologies, please contact our Data Protection Officer/Privacy Office by email at privacy@flexflow.com.
+        </p>
+        <p className='text-[18px]'>
+          The data controller of your personal information is FlexFlow Pte. Ltd. Please note that if you contact us to assist you, for your safety and ours we may need to authenticate your identity before fulfilling your request.
+        </p>
+      </div>
+      <div className='mt-12'>
+        <h1 className='text-3xl'>Collection of Information</h1>
+        <p className='text-[18px] mt-6'>
+          We receive and store information about you such as:
+        </p>
+        <span className='text-3xl'>
+          Information you provide to us:
+        </span> <span className='text-[16px]'>We collect information you provide to us which includes:</span>
+        <ul className='ml-10 text-[18px] mt-4'>
+          <li>
+            <p>your name, email address, payment method(s), telephone number, and other identifiers you might use (such as an in-game name). We collect this information in a number of ways, including when you enter it while using our service, interact with our customer service, or participate in surveys or marketing promotions;</p>
+          </li>
+          <li>
+            <p>information when you choose to provide ratings, taste preferences, account settings (including preferences set in the Account section of our website), or otherwise provide information to us through our service or elsewhere.</p>
+          </li>
 
-          </ul>
-        </div>
-        <div className='mt-12'>
-          <h1 className='text-3xl'>Information we collect automatically:</h1>
-          <p className='text-[18px] mt-6'>
-            We collect information about you and your use of our service, your interactions with us and our advertising, as well as information regarding your network, network devices, and your computer or other flexflow capable devices you might use to access our service (such as gaming systems, smart TVs, mobile devices, set top boxes, and other streaming media devices). This information includes:
-            your activity on the flexflow service, such as title selections, shows you have watched, search queries, and a
-          </p>
-          <span className='text-3xl'>
-            Information you provide to us:
-          </span> <span className='text-[16px]'>We collect information you provide to us which includes:</span>
-          <ul className='ml-10 text-[18px] mt-4'>
-            <li>
-              your activity on the flexflow service, such as title selections, shows you have watched, search queries, and activity in flexflow games;
-
-            </li>
             <li>
               your interactions with our emails and texts, and with our messages through push and online messaging channels;
 
@@ -113,10 +91,12 @@ function Privacy() {
 
         </div>
 
+<p className='text[16px] mt-4'>To see the prior version of this document, please go to flexflow.com/privacyupdates hdfsgjk </p>
+ 
       </div>
     </div >
-    </div>
+      
+    
   )
 }
-
 export default Privacy
