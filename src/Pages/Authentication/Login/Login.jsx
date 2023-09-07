@@ -61,6 +61,7 @@ const Login = () => {
     )
   }
   const [enable, setEnable] = useState(false)
+
   const handleAge = async (event) => {
     event.preventDefault()
     const age = event.target.age.value
@@ -72,9 +73,9 @@ const Login = () => {
     if (age > 2) {
       axios.patch("http://localhost:5000/users", upData).then(res => {
         if (res.data.modifiedCount > 0 && res.data.matchedCount > 0) {
-          toast.success("Your Age Successfully Created")
+          toast.success("Your Age Successfully updated")
         } else {
-          toast("Your Age Already Created", {
+          toast("Your Age Already updated", {
             icon: "👤"
           })
         }
@@ -82,12 +83,16 @@ const Login = () => {
 
       setEnable(true)
       if (enable) {
-        toast.success(`Enabled ${age}`,)
+        toast.success(`close button has Enabled`,)
       }
     }
 
   }
 
+
+  const handleClose = () => {
+    navigate(from, { replace: true })
+  }
 
   const handelForget = () => {
     const passwordReset = emailRef.current.value
@@ -151,7 +156,7 @@ const Login = () => {
           {enable &&
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}
-              <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+              <button onClick={handleClose} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
             </form>}
 
           <h3 className="font-bold text-lg">Hello! {user?.displayName}</h3>
