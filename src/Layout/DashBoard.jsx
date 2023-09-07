@@ -6,7 +6,7 @@ import { useContext } from 'react';
 const Dashboard = () => {
 
     const { user, } = useContext(AuthContext)
-    const isAdmin = false;
+    const isAdmin = true;
 
 
     return (
@@ -40,6 +40,8 @@ const Dashboard = () => {
                                 <li><NavLink to='/dashboard/uploadtvseries'>Upload TV series </NavLink></li>
                                 <li><NavLink to='/dashboard/analytics'>View Analytics</NavLink></li>
                                 <li><NavLink to='/dashboard/usersManagement'>Manage Users</NavLink></li>
+                                <li><NavLink to='/dashboard/writeablog'>Write a Blog</NavLink></li>
+                                
                             </>
                                 : <>
                                     {/*User DashBoard */}
