@@ -21,6 +21,7 @@ import UploadTvSeries from "../Pages/Dashboard/UploadTvSeries/UploadTvSeries";
 import UsersManagement from "../Pages/Dashboard/UsersManagement/UsersManagement";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import Privacy from "../Pages/Privacy/Privacy";
+import ContactUs from "../Pages/ContactUs/ContactUs";
 
 export const router = createBrowserRouter([
   {
@@ -86,6 +87,10 @@ export const router = createBrowserRouter([
       {
         path: '/privacy',
         element: <Privacy />
+      },
+      {
+        path: '/contactus',
+        element: <ContactUs></ContactUs>
       }
 
       // {

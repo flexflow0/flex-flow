@@ -12,6 +12,7 @@ function Privacy() {
         <p className='text-[24px] mt-6'>
           This Privacy Statement explains our practices, including your choices, regarding the collection, use, and disclosure of certain information, <br />including your personal information in connection with the FlexFlow service.
         </p>
+
       </div>
       <div className='mt-12'>
         <h1 className='text-3xl'>Contacting Us</h1>
@@ -22,6 +23,7 @@ function Privacy() {
           The data controller of your personal information is FlexFlow Pte. Ltd. Please note that if you contact us to assist you, for your safety and ours we may need to authenticate your identity before fulfilling your request.
         </p>
       </div>
+
       <div className='mt-12'>
         <h1 className='text-3xl'>Collection of Information</h1>
         <p className='text-[18px] mt-6'>
@@ -35,11 +37,10 @@ function Privacy() {
             <p>your name, email address, payment method(s), telephone number, and other identifiers you might use (such as an in-game name). We collect this information in a number of ways, including when you enter it while using our service, interact with our customer service, or participate in surveys or marketing promotions;</p>
           </li>
           <li>
-            <p>information when you choose to provide ratings, taste preferences, account settings (including preferences set in the Account section of our website), or otherwise provide information to us through our service or elsewhere.
+            <p>information when you choose to provide ratings, taste preferences, account settings including preferences set in the Account section of our website, or otherwise provide information to us through our service or elsewhere.
 </p>
 
-            </p>
-          </li>
+            </li>
 
         </ul>
       </div>
@@ -68,8 +69,6 @@ function Privacy() {
           </li>
           <li>
             device IDs or other unique identifiers, including for your network devices (such as your router), and devices that are flexflow capable on your network;
-
-
           </li>
 
         </ul>
@@ -92,7 +91,7 @@ function Privacy() {
       </div>
       <div>
         <h1 className='text-3xl'>Changes to This Privacy Statement</h1>
-        <p className='text[20px] mt-4'> We will update this Privacy Statement from time to time in response to changing legal, regulatory or operational requirements. We will provide notice of any such changes (including when they will take effect) in accordance with law. Your continued use of the flexflow service after any such updates take effect will constitute acknowledgement and (as applicable) acceptance of those changes. If you do not wish to acknowledge or accept any updates to this Privacy Statement, you may cancel your use of the flexflow service. To see when this Privacy Statement was last updated, please see the Last Updated section below.   
+        <p className='text[20px] mt-4'> We will update this Privacy Statement from time to time in response to changing legal, regulatory or operational requirements. We will provide notice of any such changes (including when they will take effect) in accordance with law. Your continued use of the flexflow service after any such updates take effect will constitute acknowledgement and (as applicable) acceptance of those changes. If you do not wish to acknowledge or accept any updates to this Privacy Statement, you may cancel your use of the flexflow service. To see when this Privacy Statement was last updated, please see the Last Updated section below.</p>
 
         <p className='text[20px] mt-4'> We will update this Privacy Statement from time to time in response to changing legal, regulatory or operational requirements. We will provide notice of any such changes (including when they will take effect) in accordance with law. Your continued use of the flexflow service after any such updates take effect will constitute acknowledgement and (as applicable) acceptance of those changes. If you do not wish to acknowledge or accept any updates to this Privacy Statement, you may cancel your use of the flexflow service. To see when this Privacy Statement was last updated, please see the Last Updated section below.
 
@@ -104,7 +103,7 @@ function Privacy() {
  
       </div>
       
-    </div>
+    </div >
   )
 }
 
