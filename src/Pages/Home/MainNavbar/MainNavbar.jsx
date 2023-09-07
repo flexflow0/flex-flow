@@ -154,7 +154,7 @@ const MainNavbar = () => {
                                 <li><a className="hover:text-white">Blog</a></li>
                             </Link>
 
-                        
+
                         </ul>
                     </div>
                 </div>
@@ -165,12 +165,13 @@ const MainNavbar = () => {
                         (pathname == '/home') ?
                             <>
                                 <label tabIndex={0} className="">
-                                    <div className="avatar flex items-center space-x-2 mr-5 p-1 rounded-full bg-[#c9c9c9]">
+                                    <div className="avatar flex items-center justify-between space-x-2 mr-5 pl-1 rounded-full h-10 bg-[#cd9ffb] border-2 border-[#8700f5]">
                                         <div className="w-6 opacity-40">
                                             <img className="w-full Icon" src={menuIcon} alt="menuIcon" />
                                         </div>
-                                        <div className="w-10 rounded-full ring-2 ring-primary">
-                                            <img src={user?.photoURL} />
+                                        <div className="w-10 rounded-full h-10 border-2 border-[#8700f5] ">
+                                            <img
+                                                src={user?.photoURL} />
                                         </div>
                                     </div>
                                 </label>
