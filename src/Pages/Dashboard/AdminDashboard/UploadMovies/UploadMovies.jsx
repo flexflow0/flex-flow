@@ -1,3 +1,4 @@
+import DashboardTop from "../../../../components/dashboardTop";
 
 const UploadMovies = () => {
 
@@ -10,7 +11,8 @@ const UploadMovies = () => {
     }
 
     return (
-        <div>
+        <div className="MyContainer">
+            <DashboardTop />
             <div className="p-10">
                 <form onSubmit={handelRegister}>
                     {/* ********** */}

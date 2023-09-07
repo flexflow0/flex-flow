@@ -1,8 +1,9 @@
+import DashboardTop from "../../../../components/dashboardTop";
 
 const Analytics = () => {
     return (
-        <div>
-            
+        <div className="MyContainer">
+            <DashboardTop />
         </div>
     );
 };

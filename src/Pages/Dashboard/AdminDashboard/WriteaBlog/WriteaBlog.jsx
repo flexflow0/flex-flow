@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure/useAxiosSecure";
+import DashboardTop from "../../../../components/dashboardTop";
 
 const img_hosting_token = import.meta.env.VITE_Image_Upload_Token;
 
@@ -21,14 +22,14 @@ const WriteaBlog = () => {
         })
             .then(res => res.json())
             .then(imgResponse => {
-               if(imgResponse.success){
-                const imgUrl = imgResponse.data.display_url;
-                const {author, content, thumbnail, title, date} = data;
-                const blogItem = {author, content, thumbnail:imgUrl, title, date}
-                console.log(blogItem);
+                if (imgResponse.success) {
+                    const imgUrl = imgResponse.data.display_url;
+                    const { author, content, thumbnail, title, date } = data;
+                    const blogItem = { author, content, thumbnail: imgUrl, title, date }
+                    console.log(blogItem);
 
-                axiosSecure.post('/blog', blogItem)
-               }
+                    axiosSecure.post('/blog', blogItem)
+                }
             })
         console.log(formData);
     }
@@ -36,7 +37,8 @@ const WriteaBlog = () => {
 
 
     return (
-        <div className="px-10">
+        <div className="MyContainer px-10">
+            <DashboardTop />
             <h2 className="text-center mt-5 text-3xl mb-2">Please Write a Blog</h2>
             <hr className='w-72  border border-[#830FEA] mx-auto ' />
 
