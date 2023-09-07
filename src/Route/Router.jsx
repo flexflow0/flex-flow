@@ -30,6 +30,7 @@ import Blog from "../Pages/Home/Blog/Blog";
 import WriteaBlog from "../Pages/Dashboard/AdminDashboard/WriteaBlog/WriteaBlog";
 import AboutFlexflow from "../Pages/AboutFlexflow/AboutFlexflow";
 import ShowAllTvSeries from "../Pages/Home/TvSeries/ShowAllTvSeries/ShowAllTvSeries";
+import ExpiredUsers from "../Pages/Dashboard/AdminDashboard/UsersManagement/ExpiredUsers";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -103,10 +104,11 @@ export const router = createBrowserRouter([
         path: '/blog',
         element: <Blog></Blog>
 
-      }, 
+      },
       {
         path: '/aboutFlexflow',
-        element: <AboutFlexflow />      }
+        element: <AboutFlexflow />
+      }
 
       // {
       //   path: '/genres/:genre',
@@ -136,6 +138,10 @@ export const router = createBrowserRouter([
         element: <UsersManagement></UsersManagement>
       },
       {
+        path: 'ExpiredUsers',
+        element: <ExpiredUsers></ExpiredUsers>
+      },
+      {
         path: 'analytics',
         element: <Analytics></Analytics>
       },
@@ -143,6 +149,9 @@ export const router = createBrowserRouter([
         path: 'writeablog',
         element: <WriteaBlog></WriteaBlog>
       },
+
+
+
       // User Dashboard 
       {
         path: 'favourite',
