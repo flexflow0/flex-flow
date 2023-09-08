@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -28,10 +28,10 @@ function MainBanner() {
   };
 
   return (
-    <div className="relative swiper">
+    <div className="relative swiper ">
       <Slider {...settings}>
         {upcomingMovies.map(movie => (
-          <div key={movie._id} className="sliderImgHeight flex items-center justify-center h-300px swiper-slide">
+          <div key={movie._id} className="sliderImgHeight flex items-center justify-center h-[600px] swiper-slide">
             <img
               src={movie.movie_thum}
               alt={movie.movie_name}
