@@ -2,7 +2,7 @@
   "name": "flexflow",
   "private": true,
   "version": "0.0.0",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "test": "jest",
@@ -25,10 +25,13 @@
     "react-hook-form": "^7.46.1",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.10.1",
+    "react-modal": "^3.16.1",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.14.2",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
     "sort-by": "^1.2.0",
+    "sweetalert2": "^11.7.27",
     "swiper": "^10.2.0"
   },
   "devDependencies": {

@@ -2,9 +2,8 @@ import { Link } from "react-router-dom";
 
 const TvSeriesCard = ({ series }) => {
 
-    console.log(series);
-    console.log(series?.seasons[0].length
-        );
+    // console.log(series);
+    // console.log(series?.seasons[0].length);
 
     return (
         <div>
@@ -18,7 +17,7 @@ const TvSeriesCard = ({ series }) => {
                         <img className="w-full h-full object-fill" src={series?.poster} alt="" />
                     </div>
                     <div className="py-2 px-2 font-bold text-l flex justify-between border-b border-[#5a2323] rounded-b-lg">
-                        <Link to={`/series_details/${series?._id}`} className='w-[75%] '>
+                        <Link to={`/tv_series_details/${series?._id}`} className='w-[75%] '>
                             <pre className="overflow-hidden text-ellipsis hover:underline">{series?.title}</pre>
                         </Link>
                         <p className='flex items-center'><i className="fa-solid fa-star text-sm mb-1 mr-1 text-yellow-600"></i>{series?.seasons[0].IMDB_rating}</p>
@@ -28,7 +27,7 @@ const TvSeriesCard = ({ series }) => {
                     <div
                         className='p-3 space-y-1 hidden absolute bottom-10 z-50 card_details w-full'
                     >
-                        <Link to={`/series_details/${series?._id}`}
+                        <Link to={`/tv_series_details/${series?._id}`}
                             className='flex justify-center'>
                             <i
                                 className="fa-regular fa-circle-play text-5xl mb-20 hover:text-[#e7bb68] hover:cursor-pointer"></i>

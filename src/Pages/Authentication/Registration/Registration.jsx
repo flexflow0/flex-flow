@@ -5,10 +5,8 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
 
 
-// const img_hosting = import.meta.env.VITE_img_upload_token;
 
 const Registration = () => {
-    // const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting}`
 
     const { createUser, updateUser, verificationEmail } = useContext(AuthContext)
     const navigate = useNavigate();

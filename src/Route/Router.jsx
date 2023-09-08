@@ -30,6 +30,9 @@ import Blog from "../Pages/Home/Blog/Blog";
 import WriteaBlog from "../Pages/Dashboard/AdminDashboard/WriteaBlog/WriteaBlog";
 import AboutFlexflow from "../Pages/AboutFlexflow/AboutFlexflow";
 import ShowAllTvSeries from "../Pages/Home/TvSeries/ShowAllTvSeries/ShowAllTvSeries";
+import TvSeriesDetails from "../Pages/Home/TvSeries/TvSeriesDetails/TvSeriesDetails";
+
+import ViewAllBlogs from "../Pages/Dashboard/AdminDashboard/ViewAllBlogs/ViewAllBlogs";
 import ExpiredUsers from "../Pages/Dashboard/AdminDashboard/UsersManagement/ExpiredUsers";
 export const router = createBrowserRouter([
   {
@@ -85,12 +88,17 @@ export const router = createBrowserRouter([
         element: <ShowAllMovies></ShowAllMovies>
       },
       {
+        path: '/movie_details/:id',
+        element: <SingleMoviePage></SingleMoviePage>
+      },
+      {
         path: '/show_all_tvSeries/:region',
         element: <ShowAllTvSeries></ShowAllTvSeries>
       },
       {
-        path: '/movie_details/:id',
-        element: <SingleMoviePage></SingleMoviePage>
+        path: '/tv_series_details/:id',
+        element: <TvSeriesDetails></TvSeriesDetails>
+
       },
       {
         path: '/aboutus',
@@ -168,6 +176,10 @@ export const router = createBrowserRouter([
       {
         path: 'watchhistory',
         element: <WatchHistory></WatchHistory>
+      },
+      {
+        path:'viewallblogs',
+        element: <ViewAllBlogs></ViewAllBlogs>
       }
     ]
 

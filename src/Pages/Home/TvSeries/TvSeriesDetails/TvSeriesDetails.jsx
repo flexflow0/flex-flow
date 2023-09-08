@@ -1,24 +1,22 @@
-import { useEffect, useState } from 'react';
-import './SingleMoviePage.css'
-import { useParams } from 'react-router-dom';
-import SimilarMovies from './SimilarMovies/SimilarMovies';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-const SingleMoviePage = () => {
-
-    const { id } = useParams();
+const TvSeriesDetails = () => {
+    const {id,} = useParams()
     const [loading, setLoading] = useState(true);
-    const [movie, setMovie] = useState([]);
-
+    const [tvSeries, setTvSeries] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/singleMovie/${id}`)
+        fetch(`http://localhost:5000/singleTvSeries/${id}`)
             .then(res => res.json())
             .then(data => {
-                setMovie(data)
+                setTvSeries(data)
                 console.log(data);
                 setLoading(false)
             })
-    }, [id, setMovie])
-    console.log(movie);
+    }, [id, setTvSeries])
+
+    console.log(id,tvSeries);
+    // console.log(tvSeries?.seasons[0].episodes[0].link);
 
     return (
         <div>
@@ -32,7 +30,7 @@ const SingleMoviePage = () => {
                         <dialog id="my_modal_3" className="modal w-3/4 mx-auto">
                             <form method="dialog" className='modal-box   w-11/12 max-w-5xl'>
                                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                                <iframe width="100%" height="450" src={movie?.trailer_url} title={movie?.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen='true'></iframe>
+                                <iframe width="100%" height="450" src={tvSeries?.trailer_url} title={tvSeries?.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen='true'></iframe>
                             </form>
                         </dialog>
                         {/* video */}
@@ -41,8 +39,8 @@ const SingleMoviePage = () => {
                                 <iframe
                                     width="100%"
                                     height="100%"
-                                    src={movie?.movie_url}
-                                    title={movie?.title}
+                                    src={tvSeries?.seasons[0].episodes[0].link                                    }
+                                    title={tvSeries?.title}
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                     allowfullscreen='true'
                                 ></iframe>
@@ -54,23 +52,23 @@ const SingleMoviePage = () => {
                                         <div className='rounded border-2 border-[#3d1164] h-20 grid grid-cols-3 overflow-hidden'>
                                             <div
                                                 className='bannerThumbnail bg-cover bg-center bg-no-repeat '
-                                                style={{ backgroundImage: `url(${movie?.thumbnail})` }}
+                                                style={{ backgroundImage: `url(${tvSeries?.thumbnail})` }}
                                             >
                                             </div>
                                             <div className='col-span-2 ps-2'>
-                                                <h2 className='text-lg font-semibold'>{movie?.title}</h2>
+                                                <h2 className='text-lg font-semibold'>{tvSeries?.title}</h2>
                                                 <p className='text-[10px]'>
-                                                    {movie?.rating}
+                                                    {tvSeries?.rating}
                                                     <span className='mx-1'>|</span>
-                                                    {
-                                                        movie?.Genres.map((genre, index, array) => <span
+                                                    {/* {
+                                                        tvSeries?.Genres.map((genre, index, array) => <span
                                                             key={index}
                                                             className=""
                                                         >
                                                             {genre}
                                                             {index === array.length - 1 ? "" : <> , </>}
                                                         </span>)
-                                                    }
+                                                    } */}
                                                 </p>
                                             </div>
                                         </div>
@@ -93,7 +91,7 @@ const SingleMoviePage = () => {
                                                 <i className="fa-solid fa-star mb-1 mr-1 text-2xl text-[#ecf842]"></i>
                                             </div>
                                             <div>
-                                                <p className='text-xs'>{movie?.IMDb_rating} / 10</p>
+                                                <p className='text-xs'>{tvSeries?.IMDb_rating} / 10</p>
                                                 <p className='text-xs'>821K</p>
                                             </div>
                                         </div>
@@ -113,10 +111,10 @@ const SingleMoviePage = () => {
                                 </div>
                                 <div className='mb-2'>
                                     <h2>Short Info</h2>
-                                    <p className='text-xs'>{movie?.description}</p>
+                                    <p className='text-xs'>{tvSeries?.description}</p>
                                 </div>
-                                <div className='mb-1 flex gap-2'>
-                                    <h2 className='text-sm'><span>Directors</span> : <span className='text-[#4c82c8] hover:underline'>{movie?.cast[0]?.directors.map((director, index, array) => <span
+                                {/* <div className='mb-1 flex gap-2'>
+                                    <h2 className='text-sm'><span>Directors</span> : <span className='text-[#4c82c8] hover:underline'>{tvSeries?.cast[0]?.directors.map((director, index, array) => <span
                                         key={index}
                                         className="hover:underline"
                                     >
@@ -124,9 +122,9 @@ const SingleMoviePage = () => {
                                         {index === array.length - 1 ? "" : <> , </>}
                                     </span>)
                                     }</span></h2>
-                                </div>
-                                <div className='mb-1 flex gap-2'>
-                                    <h2 className='text-sm'><span>Writers</span> : <span className='text-[#4c82c8] hover:underline'>{movie?.cast[0]?.writers.map((director, index, array) => <span
+                                </div> */}
+                                {/* <div className='mb-1 flex gap-2'>
+                                    <h2 className='text-sm'><span>Writers</span> : <span className='text-[#4c82c8] hover:underline'>{tvSeries?.cast[0]?.writers.map((director, index, array) => <span
                                         key={index}
                                         className='hover:underline'
                                     >
@@ -134,9 +132,9 @@ const SingleMoviePage = () => {
                                         {index === array.length - 1 ? "" : <> , </>}
                                     </span>)
                                     }</span></h2>
-                                </div>
-                                <div className='mb-2 flex gap-2'>
-                                    <h2 className='text-sm'><span>Stars</span> : <span className='text-[#4c82c8] '>{movie?.cast[0]?.stars.map((director, index, array) => <span
+                                </div> */}
+                                {/* <div className='mb-2 flex gap-2'>
+                                    <h2 className='text-sm'><span>Stars</span> : <span className='text-[#4c82c8] '>{tvSeries?.cast[0]?.stars.map((director, index, array) => <span
                                         key={index}
                                         className="hover:underline"
                                     >
@@ -144,7 +142,7 @@ const SingleMoviePage = () => {
                                         {index === array.length - 1 ? "" : <> , </>}
                                     </span>)
                                     }</span></h2>
-                                </div>
+                                </div> */}
                                 <div className='flex gap-2'>
                                     <button
                                         className="btn btn-sm rounded-lg grow btn-outline btn-primary text-white bg-[#5668cf] flex gap-1 align-middle"
@@ -184,16 +182,16 @@ const SingleMoviePage = () => {
                             </div>
                         </div>
                         {/* Similar Movies */}
-                        <div className='mx-20'>
+                        {/* <div className='mx-20'>
                             <h1 className='text-3xl mb-4'>Similar Movies</h1>
                             <SimilarMovies
                                 genres={movie?.Genres}
                             ></SimilarMovies>
-                        </div>
+                        </div> */}
                     </div>
             }
         </div>
     );
 };
 
-export default SingleMoviePage;
+export default TvSeriesDetails;
