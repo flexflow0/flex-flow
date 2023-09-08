@@ -41,6 +41,7 @@ const Dashboard = () => {
                                 <li><NavLink to='/dashboard/analytics'>View Analytics</NavLink></li>
                                 <li><NavLink to='/dashboard/usersManagement'>Manage Users</NavLink></li>
                                 <li><NavLink to='/dashboard/writeablog'>Write a Blog</NavLink></li>
+                                <li><NavLink to='/dashboard/viewallblogs'>View All Blogs</NavLink></li>
                                 
                             </>
                                 : <>

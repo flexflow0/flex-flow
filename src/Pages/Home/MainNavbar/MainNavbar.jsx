@@ -90,7 +90,7 @@ const MainNavbar = () => {
                             {/* ******Masud****** */}
                             <li>
                                 <details>
-                                    <summary  className="hover:text-white">Tv Series</summary>
+                                    <summary className="hover:text-white">Tv Series</summary>
                                     {tvSeriesSector}
 
                                 </details>
@@ -104,7 +104,7 @@ const MainNavbar = () => {
                                 </details>
                             </li>
                             <li className=""> <Link to='/aboutus'>About Us</Link><a className="hover:text-white"></a></li>
-                            
+
                             <li className="w-64"> <Link to='/blog'>Blog</Link><a className="hover:text-white"></a></li>
                         </ul>
                     </div>
@@ -116,8 +116,10 @@ const MainNavbar = () => {
                 </div>
             </div>
             {/* desktop device */}
+
             {
-                (pathname == '/' || pathname == '/register' || pathname == '/login' || pathname == '/chooseplan' || pathname == '/choosetheplan' || pathname == '/choosepay' || pathname == '/payment' || pathname == '/aboutus' || pathname == '/blog') || <div className="navbar-center hidden lg:flex">
+                (pathname == '/' || pathname == '/register' || pathname == '/login' || pathname == '/chooseplan' || pathname == '/choosetheplan' || pathname == '/choosepay' || pathname == '/payment' || pathname == '/aboutus' || pathname == '/blog') ||
+                <div className="navbar-center hidden lg:flex">
                     <div className=" dropdown dropdown-hover">
                         <ul className="menu menu-horizontal px-1">
                             {/* <li><Link to='/home' className="hover:text-white">Home</Link></li> */}
@@ -145,22 +147,24 @@ const MainNavbar = () => {
                                     {MovieGenres}
                                 </details>
                             </li>
-                            
-                              <Link to='/aboutus'>
-                                <li><a className="hover:text-white">About Us</a></li>
-                            </Link>  
 
-                              <Link to='/blog'>
+                            <Link to='/aboutus'>
+                                <li><a className="hover:text-white">About Us</a></li>
+                            </Link>
+
+                            <Link to='/blog'>
                                 <li><a className="hover:text-white">Blog</a></li>
-                            </Link>                  
-                             </ul>
-                            <li className="w-64"> <Link to='/aboutus'>About Us</Link><a className="hover:text-white"></a></li>
+                            </Link>
                         </ul>
+                        
+                        <li className="w-64"> <Link to='/aboutus'>About Us</Link><a className="hover:text-white"></a></li>
+
                     </div>
                 </div>
             }
+
             <div className="navbar-end">
-                <div className="dropdown dropdown-end">
+                <div className=" dropdown dropdown-end">
                     {
                         (pathname == '/home') ?
                             <>
