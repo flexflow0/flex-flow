@@ -26,10 +26,14 @@ import MyFavaurite from "../Pages/Dashboard/UsersDashboard/MyFavourite/MyFavauri
 import WatchLater from "../Pages/Dashboard/UsersDashboard/WatchLater/WatchLater";
 import MyLikedMovies from "../Pages/Dashboard/UsersDashboard/MyLikedMovies/MyLikedMovies";
 import WatchHistory from "../Pages/Dashboard/UsersDashboard/WatchHistory/WatchHistory";
+import Blog from "../Pages/Home/Blog/Blog";
+import WriteaBlog from "../Pages/Dashboard/AdminDashboard/WriteaBlog/WriteaBlog";
 import AboutFlexflow from "../Pages/AboutFlexflow/AboutFlexflow";
 import ShowAllTvSeries from "../Pages/Home/TvSeries/ShowAllTvSeries/ShowAllTvSeries";
 import TvSeriesDetails from "../Pages/Home/TvSeries/TvSeriesDetails/TvSeriesDetails";
 
+import ViewAllBlogs from "../Pages/Dashboard/AdminDashboard/ViewAllBlogs/ViewAllBlogs";
+import ExpiredUsers from "../Pages/Dashboard/AdminDashboard/UsersManagement/ExpiredUsers";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -103,7 +107,12 @@ export const router = createBrowserRouter([
       {
         path: '/privacy',
         element: <Privacy />
-      }, 
+      },
+      {
+        path: '/blog',
+        element: <Blog></Blog>
+
+      },
       {
         path: '/aboutFlexflow',
         element: <AboutFlexflow />
@@ -137,9 +146,20 @@ export const router = createBrowserRouter([
         element: <UsersManagement></UsersManagement>
       },
       {
+        path: 'ExpiredUsers',
+        element: <ExpiredUsers></ExpiredUsers>
+      },
+      {
         path: 'analytics',
         element: <Analytics></Analytics>
       },
+      {
+        path: 'writeablog',
+        element: <WriteaBlog></WriteaBlog>
+      },
+
+
+
       // User Dashboard 
       {
         path: 'favourite',
@@ -156,6 +176,10 @@ export const router = createBrowserRouter([
       {
         path: 'watchhistory',
         element: <WatchHistory></WatchHistory>
+      },
+      {
+        path:'viewallblogs',
+        element: <ViewAllBlogs></ViewAllBlogs>
       }
     ]
 

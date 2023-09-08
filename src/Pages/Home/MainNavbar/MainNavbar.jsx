@@ -72,15 +72,15 @@ const MainNavbar = () => {
     // console.log(pathname);
 
     return (
-        <div className="navbar bg-[#39134b] rounded-sm text-white">
+        <div className="navbar bg-[#39134b] h-10  rounded-sm text-white">
             {/* Mobile Device */}
             <div className="navbar-start">
                 {
-                    (pathname == '/' || pathname == '/register' || pathname == '/login' || pathname == '/chooseplan' || pathname == '/choosetheplan' || pathname == '/choosepay' || pathname == '/payment' || pathname == '/aboutus') || <div className="dropdown">
+                    (pathname == '/' || pathname == '/register' || pathname == '/login' || pathname == '/chooseplan' || pathname == '/choosetheplan' || pathname == '/choosepay' || pathname == '/payment' || pathname == '/aboutus' || pathname == '/blog') || <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
-                        <ul tabIndex={0} className="menu dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-68 bg-[#091231ec]">
+                        <ul tabIndex={0} className="menu dropdown-content mt-3 z-10 p-2 shadow rounded-box w-68 rounded-2xl bg-[#091231ec]">
                             <li>
                                 <details>
                                     <summary className="hover:text-white">Movies</summary>
@@ -90,7 +90,7 @@ const MainNavbar = () => {
                             {/* ******Masud****** */}
                             <li>
                                 <details>
-                                    <summary  className="hover:text-white">Tv Series</summary>
+                                    <summary className="hover:text-white">Tv Series</summary>
                                     {tvSeriesSector}
 
                                 </details>
@@ -103,7 +103,9 @@ const MainNavbar = () => {
                                     {MovieGenres}
                                 </details>
                             </li>
-                            <li className="w-64"> <Link to='/aboutus'>About Us</Link><a className="hover:text-white"></a></li>
+                            <li className=""> <Link to='/aboutus'>About Us</Link><a className="hover:text-white"></a></li>
+
+                            <li className="w-64"> <Link to='/blog'>Blog</Link><a className="hover:text-white"></a></li>
                         </ul>
                     </div>
                 }
@@ -114,11 +116,14 @@ const MainNavbar = () => {
                 </div>
             </div>
             {/* desktop device */}
+
             {
-                (pathname == '/' || pathname == '/register' || pathname == '/login' || pathname == '/chooseplan' || pathname == '/choosetheplan' || pathname == '/choosepay' || pathname == '/payment' || pathname == '/aboutus') || <div className="navbar-center hidden lg:flex">
+                (pathname == '/' || pathname == '/register' || pathname == '/login' || pathname == '/chooseplan' || pathname == '/choosetheplan' || pathname == '/choosepay' || pathname == '/payment' || pathname == '/aboutus' || pathname == '/blog') ||
+                <div className="navbar-center hidden lg:flex">
+                (pathname == '/' || pathname == '/register' || pathname == '/login' || pathname == '/chooseplan' || pathname == '/choosetheplan' || pathname == '/choosepay' || pathname == '/payment' || pathname == '/aboutus' || pathname == '/blog') || <div className="navbar-center hidden items-center lg:flex">
                     <div className=" dropdown dropdown-hover">
-                        <ul className="menu menu-horizontal px-1">
-                            {/* <li><Link to='/home' className="hover:text-white">Home</Link></li> */}
+                        <ul className="menu menu-horizontal items-center px-1">
+
                             <Link to='/home'>
                                 <li><a className="hover:text-white">Home</a></li>
                             </Link>
@@ -143,29 +148,42 @@ const MainNavbar = () => {
                                     {MovieGenres}
                                 </details>
                             </li>
-                            <li className="w-64"> <Link to='/aboutus'>About Us</Link><a className="hover:text-white"></a></li>
+
+                            <Link to='/aboutus'>
+                                <li><a className="hover:text-white">About Us</a></li>
+                            </Link>
+
+                            <Link to='/blog'>
+                                <li><a className="hover:text-white">Blog</a></li>
+                            </Link>
+
                         </ul>
+                        
+                        <li className="w-64"> <Link to='/aboutus'>About Us</Link><a className="hover:text-white"></a></li>
+
                     </div>
                 </div>
             }
+
             <div className="navbar-end">
-                <div className="dropdown dropdown-end">
+                <div className=" dropdown dropdown-end">
                     {
                         (pathname == '/home') ?
                             <>
                                 <label tabIndex={0} className="">
-                                    <div className="avatar flex items-center space-x-2 mr-5 p-1 rounded-full bg-[#c9c9c9]">
+                                    <div className="avatar flex items-center justify-between space-x-2 mr-5 pl-1 rounded-full h-10 bg-[#cd9ffb] border-2 border-[#8700f5]">
                                         <div className="w-6 opacity-40">
                                             <img className="w-full Icon" src={menuIcon} alt="menuIcon" />
                                         </div>
-                                        <div className="w-10 rounded-full ring-2 ring-primary">
-                                            <img src="https://sb.kaleidousercontent.com/67418/1920x1545/c5f15ac173/samuel-raita-ridxdghg7pw-unsplash.jpg" />
+                                        <div className="w-10 rounded-full h-10 border-2 border-[#8700f5] ">
+                                            <img
+                                                src={user?.photoURL} />
                                         </div>
                                     </div>
                                 </label>
                                 <ul
                                     tabIndex={0}
-                                    className="dropdown-content z-[1] menu p-2 shadow rounded-lg w-52 mt-3 bg-[#0d1334]"
+                                    className="dropdown-content z-10 menu p-2 shadow rounded-lg w-52 mt-3 bg-[#0d1334]"
                                 >
                                     <li className={liClasses}>
                                         <Link to='/dashboard' className="hover:text-white uppercase">DashBoard</Link>

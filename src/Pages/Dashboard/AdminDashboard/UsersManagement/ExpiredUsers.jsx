@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import DashboardTop from "../../../../components/dashboardTop";
 
-const UsersManagement = () => {
+const ExpiredUsers = () => {
     const [users, setUsers] = useState()
 
     useEffect(() => {
@@ -13,7 +13,7 @@ const UsersManagement = () => {
         <div className="MyContainer">
             <DashboardTop />
             {/* TODO: add search Icon */}
-            <div className="flex MyContainer  my-3">
+            <div className="flex MyContainer my-3">
                 <h1 className="w-full text-2xl font5">Total Users: {users?.length || 0}</h1>
 
                 <input type="text" placeholder="Search By Name or Email..." name="search" className="input input-bordered w-full max-w-[500px] rounded-full border-[#8700f5] border-2" required />
@@ -59,4 +59,4 @@ const UsersManagement = () => {
     );
 };
 
-export default UsersManagement;
+export default ExpiredUsers;
