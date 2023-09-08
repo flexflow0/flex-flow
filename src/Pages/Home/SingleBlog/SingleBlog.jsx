@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaStopwatch, FaCertificate, } from "react-icons/fa";
 
-const SingleBlog = ({ blog }) => {
+const SingleBlog = ({ blog}) =>  {
     console.log(blog);
     const { author, content, thumbnail, title, date } = blog;
 

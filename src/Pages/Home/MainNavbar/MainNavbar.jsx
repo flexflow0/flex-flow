@@ -116,7 +116,10 @@ const MainNavbar = () => {
                 </div>
             </div>
             {/* desktop device */}
+
             {
+                (pathname == '/' || pathname == '/register' || pathname == '/login' || pathname == '/chooseplan' || pathname == '/choosetheplan' || pathname == '/choosepay' || pathname == '/payment' || pathname == '/aboutus' || pathname == '/blog') ||
+                <div className="navbar-center hidden lg:flex">
                 (pathname == '/' || pathname == '/register' || pathname == '/login' || pathname == '/chooseplan' || pathname == '/choosetheplan' || pathname == '/choosepay' || pathname == '/payment' || pathname == '/aboutus' || pathname == '/blog') || <div className="navbar-center hidden items-center lg:flex">
                     <div className=" dropdown dropdown-hover">
                         <ul className="menu menu-horizontal items-center px-1">
@@ -154,13 +157,16 @@ const MainNavbar = () => {
                                 <li><a className="hover:text-white">Blog</a></li>
                             </Link>
 
-
                         </ul>
+                        
+                        <li className="w-64"> <Link to='/aboutus'>About Us</Link><a className="hover:text-white"></a></li>
+
                     </div>
                 </div>
             }
+
             <div className="navbar-end">
-                <div className="dropdown dropdown-end">
+                <div className=" dropdown dropdown-end">
                     {
                         (pathname == '/home') ?
                             <>
