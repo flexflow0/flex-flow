@@ -28,7 +28,7 @@ function MainBanner() {
   };
 
   return (
-    <div className="relative swiper">
+    <div className="relative swiper ">
       <Slider {...settings}>
         {upcomingMovies.map(movie => (
           <div key={movie._id} className="sliderImgHeight flex items-center justify-center h-300px swiper-slide">
