@@ -34,6 +34,7 @@ import TvSeriesDetails from "../Pages/Home/TvSeries/TvSeriesDetails/TvSeriesDeta
 
 import ViewAllBlogs from "../Pages/Dashboard/AdminDashboard/ViewAllBlogs/ViewAllBlogs";
 import ExpiredUsers from "../Pages/Dashboard/AdminDashboard/UsersManagement/ExpiredUsers";
+import PaymentHistory from "../Pages/Dashboard/UsersDashboard/PaymentHistory/PaymentHistory";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -180,6 +181,10 @@ export const router = createBrowserRouter([
       {
         path:'viewallblogs',
         element: <ViewAllBlogs></ViewAllBlogs>
+      },
+      {
+        path: 'paymenthistory',
+        element: <PaymentHistory></PaymentHistory>
       }
     ]
 
