@@ -6,10 +6,10 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 const MainNavbar = () => {
     const { user, logout } = useContext(AuthContext)
-
     const handelLogout = () => {
         logout()
             .then(() => {
+
 
             })
             .catch(error => {
