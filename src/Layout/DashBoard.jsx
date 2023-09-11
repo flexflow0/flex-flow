@@ -41,21 +41,15 @@ const Dashboard = () => {
 
                             isAdmin ? <div className='-mr-4'>
                                 {/* Admin DashBoard */}
-                                <li><NavLink to='/dashboard/uploadmovies'>Upload Movies</NavLink></li>
-                                <li><NavLink to='/dashboard/uploadtvseries'>Upload TV series </NavLink></li>
-                                <li><NavLink to='/dashboard/analytics'>View Analytics</NavLink></li>
-                                <li><NavLink to='/dashboard/usersManagement'>Manage Users</NavLink></li>
-                                <li><NavLink to='/dashboard/writeablog'>Write a Blog</NavLink></li>
-                                <li><NavLink to='/dashboard/viewallblogs'>View All Blogs</NavLink></li>
-                                
-                            </>
-                                : <>
+
+
                                 <li ><NavLink className='rounded-l-full font-semibold' to='/dashboard/uploadmovies'>Upload Movies</NavLink></li>
                                 <li><NavLink className='rounded-l-full font-semibold' to='/dashboard/uploadtvseries'>Upload TV series </NavLink></li>
                                 <li><NavLink className='rounded-l-full font-semibold' to='/dashboard/analytics'>View Analytics</NavLink></li>
 
                                 <li><NavLink className='rounded-l-full font-semibold' to='/dashboard/writeablog'>Write a Blog</NavLink></li>
 
+                                <li><NavLink className='rounded-l-full font-semibold' to='/dashboard/viewallblogs'>View All Blogs</NavLink></li>
                                 <li><NavLink className='rounded-l-full font-semibold' to='/dashboard/usersManagement'>Manage Users</NavLink></li>
                                 <li><NavLink className='rounded-l-full font-semibold' to='/dashboard/ExpiredUsers'>Expired Users</NavLink></li>
                             </div>
