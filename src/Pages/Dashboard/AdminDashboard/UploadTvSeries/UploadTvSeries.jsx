@@ -1,5 +1,6 @@
+import DashboardTop from "../../../../components/dashboardTop";
 
-const UploadMovies = () => {
+const UploadTvSeries = () => {
 
     const handelRegister = event => {
         event.preventDefault();
@@ -10,11 +11,12 @@ const UploadMovies = () => {
     }
 
     return (
-        <div>
-            <div className="p-10">
+        <div className="MyContainer">
+            <DashboardTop />
+             <div className="p-10">
                 <form onSubmit={handelRegister}>
                     {/* ********** */}
-                    <div className="grid grid-cols-2 gap-5">
+                    <div className="grid md:grid-cols-2  gap-5">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
@@ -30,7 +32,7 @@ const UploadMovies = () => {
                     </div>
                     {/* ********* */}
                     {/* ********** */}
-                    <div className="grid grid-cols-2 gap-5">
+                    <div className="grid md:grid-cols-2 gap-5">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
@@ -46,7 +48,7 @@ const UploadMovies = () => {
                     </div>
                     {/* ********* */}
                     {/* ********** */}
-                    <div className="grid grid-cols-2 gap-5">
+                    <div className="grid md:grid-cols-2 gap-5">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
@@ -88,13 +90,9 @@ const UploadMovies = () => {
                     </div>
                 </form>
             </div>
+            
         </div>
-
-
-
-
-
     );
 };
 
-export default UploadMovies;
+export default UploadTvSeries;

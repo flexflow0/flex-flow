@@ -1,3 +1,4 @@
+import ContactUs from "../../ContactUs/ContactUs";
 import Banner from "../Banner/Banner";
 import EnjoyTV from "../EnjoyTV/EnjoyTV";
 import FrequentlyAsked from "../FrequentlyAsked/FrequentlyAsked";
@@ -15,6 +16,7 @@ const LandingPage = () => {
             <WatchSector></WatchSector>
             <ProfilesKids></ProfilesKids>
             <FrequentlyAsked></FrequentlyAsked>
+            <ContactUs></ContactUs>
         </div>
     );
     

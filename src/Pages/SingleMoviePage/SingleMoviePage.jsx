@@ -1,123 +1,33 @@
 import { useEffect, useState } from 'react';
 import './SingleMoviePage.css'
 import { useParams } from 'react-router-dom';
+import SimilarMovies from './SimilarMovies/SimilarMovies';
 
 const SingleMoviePage = () => {
 
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
     const [movie, setMovie] = useState([]);
-    // console.log(id, movie);
+
     useEffect(() => {
         fetch(`http://localhost:5000/singleMovie/${id}`)
             .then(res => res.json())
             .then(data => {
                 setMovie(data)
+                console.log(data);
                 setLoading(false)
             })
     }, [id, setMovie])
-    console.log(movie?.movie_url);
-
-    const showCast = (names) => names.map((name, index, array) => <span
-        key={index}
-        className='text-[#4c82c8]'
-    >
-        <span className='hover:underline'>
-            {name}
-        </span>
-        {index === array.length - 1 ? "" : <> &#10242; </>}
-    </span>);
+    console.log(movie);
 
     return (
         <div>
             {
                 loading ?
-                    <div>
-
+                    <div className='h-screen flex align-middle justify-center'>
+                        <span className="loading loading-ring loading-lg mb-16"></span>
                     </div> :
                     <div>
-                        <div
-                            className="relative bg-cover bg-no-repeat bg-center h-[calc(100vh)]"
-                            style={{ backgroundImage: `url(${movie?.thumbnail})` }}
-                        >
-                            <div
-                                className="flex absolute inset-0 w-full h-[calc(100vh)] px-60 py-20 bannerThumbnail"
-                            >
-                                <div className="w-1/3 h-full py-5">
-                                    <img className="h-full rounded-xl shadow-md shadow-[#e27777] object-cover" src={movie?.poster} alt="The Enigma Chronicles Poster" />
-                                </div>
-                                <div className="w-2/3 pl-8 flex flex-col justify-center ps-16">
-                                    <h1 className="text-5xl font-semibold mb-4">{movie?.title}</h1>
-                                    <div className="mb-4 flex items-center">
-                                        <div className='mx-4 flex items-center'>
-                                            <i className="fa-solid fa-star mb-1 mr-1 text-2xl text-[#ecf842]"></i>
-                                            <p className=' text-4xl'>{movie?.IMDb_rating}</p>
-                                        </div>
-                                        <div>
-                                            <p className="text-[#c4b8b8]">
-                                                <span>
-                                                    <i className="fa-regular fa-calendar-days text-[#c4b8b8] mr-1"></i>
-                                                    {movie?.release_month} {movie?.release_year}
-                                                </span>
-                                                <span className='text-[#c4b8b8] mb-5'>
-                                                    <i className="fa-solid fa-clock-rotate-left text-[#c4b8b8] ml-3 mr-1"></i>
-                                                    {parseInt(movie?.length / 60)}h {movie?.length % 60}m
-                                                </span>
-                                            </p>
-                                            <p className='flex items-center justify-around'>
-                                                <span className='text-sm'>{movie?.rating}</span>
-                                                <span className='text-sm flex gap-1 items-center'>
-                                                    <i className="fa-solid fa-eye text-xs"></i>
-                                                    25
-                                                </span>
-                                                <span className='text-sm flex gap-1 items-center'>
-                                                    <i className="fa-solid fa-thumbs-up text-xs"></i>
-                                                    {movie?.likes}
-                                                </span>
-                                            </p>
-                                        </div>
-                                        <div className='ms-5 flex items-start align-top'>
-
-                                        </div>
-                                    </div>
-                                    <p>{movie?.description}</p>
-                                    <div className='my-4'>
-                                        {
-                                            movie?.Genres.map((genre, index) => <button
-                                                key={index}
-                                                className="btn btn-outline btn-sm btn-[white] hover:bg-transparent hover:text-white no-animation rounded-full capitalize mr-3 border-[]"
-                                            >{genre}</button>)
-                                        }
-                                    </div>
-                                    <p className='my-4 ms-2'>
-                                        <i className="fa-regular fa-heart mr-5 text-xl"></i>
-                                        <i className="fa-solid fa-heart mr-5 text-xl"></i>
-                                        <i className="fa-solid fa-share-nodes mr-5 text-xl"></i>
-                                        <i className="fa-regular fa-bookmark mr-5 text-xl"></i>
-                                        <i className="fa-solid fa-bookmark mr-5 text-xl"></i>
-                                        <i className="fa-regular fa-thumbs-up mr-5 text-xl"></i>
-                                        <i className="fa-solid fa-thumbs-up mr-5 text-xl"></i>
-                                    </p>
-                                    <div className="flex space-x-4 mb-4">
-                                        <a
-                                            className="bg-[#39134b] text-white px-4 py-2 rounded hover:bg-transparent border-2 border-[#39134b] "
-                                            href='#full_movie'
-                                        >
-                                            <i className="fa-solid fa-play mr-1 text-xl"></i>
-                                            Watch Now
-                                        </a>
-                                        <a
-                                            className="border border-white text-[white] px-4 py-2 rounded hover:text-[#ff0000] hover:border-[#ff0000] flex items-center"
-                                            onClick={() => window.my_modal_3.showModal()}
-                                        >
-                                            {/* <i className="fa-brands fa-youtube mr-1 hover:text-[#ff0000] text-xl"></i> */}
-                                            {/* <img className='w-5 h-4 mr-1 mb-1' src={'https://i.ibb.co/L50vmPR/youtube-256x180.png'} alt="" /> */}
-                                            Watch Trailer
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         {/* Modal */}
                         <dialog id="my_modal_3" className="modal w-3/4 mx-auto">
                             <form method="dialog" className='modal-box   w-11/12 max-w-5xl'>
@@ -126,47 +36,159 @@ const SingleMoviePage = () => {
                             </form>
                         </dialog>
                         {/* video */}
-                        <div className='px-60 mx-auto mb-10 pt-5' id='full_movie'>
-                            <iframe width="100%" height="450" src={movie?.movie_url} title={movie?.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen='true'></iframe>
+                        <div className='px-20 my-10 grid grid-cols-4 gap-5'>
+                            <div className='col-span-3 rounded-lg overflow-hidden' id='full_movie'>
+                                <iframe
+                                    width="100%"
+                                    height="100%"
+                                    src={movie?.movie_url}
+                                    title={movie?.title}
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen='true'
+                                ></iframe>
+                            </div>
+                            {/* details */}
+                            <div className='bg-[#1f1f1f] rounded-md p-4'>
+                                <div className='relative'>
+                                    <div>
+                                        <div className='rounded border-2 border-[#3d1164] h-20 grid grid-cols-3 overflow-hidden'>
+                                            <div
+                                                className='bannerThumbnail bg-cover bg-center bg-no-repeat '
+                                                style={{ backgroundImage: `url(${movie?.thumbnail})` }}
+                                            >
+                                            </div>
+                                            <div className='col-span-2 ps-2'>
+                                                <h2 className='text-lg font-semibold'>{movie?.title}</h2>
+                                                <p className='text-[10px]'>
+                                                    {movie?.rating}
+                                                    <span className='mx-1'>|</span>
+                                                    {
+                                                        movie?.Genres.map((genre, index, array) => <span
+                                                            key={index}
+                                                            className=""
+                                                        >
+                                                            {genre}
+                                                            {index === array.length - 1 ? "" : <> , </>}
+                                                        </span>)
+                                                    }
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button className='absolute bottom-[5%] right-[5%]'>
+                                        <i className="fa-regular fa-thumbs-up"></i>
+                                        {/* <i className="fa-solid fa-thumbs-up"></i> */}
+                                    </button>
+                                </div>
+                                <div className='my-2'>
+                                    <h2>Trailer</h2>
+                                    <p className='text-xs'>With not one, not two, but THREE Spider-Mans!</p>
+                                </div>
+                                <div className='my-2'>
+                                    <h2>IMDB Rating</h2>
+                                    <p className='text-xs'>The IMDB rating is weighted to help keep it reliable.</p>
+                                    <div className='flex mt-2'>
+                                        <div className='grow flex gap-2'>
+                                            <div>
+                                                <i className="fa-solid fa-star mb-1 mr-1 text-2xl text-[#ecf842]"></i>
+                                            </div>
+                                            <div>
+                                                <p className='text-xs'>{movie?.IMDb_rating} / 10</p>
+                                                <p className='text-xs'>821K</p>
+                                            </div>
+                                        </div>
+                                        <div className='grow flex gap-2'>
+                                            <div>
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M16.2856 6H23.1428V12.8571" stroke="#F24E1E" strokeLinecap="round" strokeLinejoin="round" />
+                                                    <path d="M23.1426 6L13.4569 15.6857C13.2967 15.8428 13.0813 15.9307 12.8569 15.9307C12.6326 15.9307 12.4172 15.8428 12.2569 15.6857L8.31408 11.7429C8.15385 11.5858 7.93844 11.4978 7.71408 11.4978C7.48972 11.4978 7.2743 11.5858 7.11408 11.7429L0.856934 18" stroke="#F24E1E" strokeLinecap="round" strokeLinejoin="round" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <p className='text-xs'>POPULARITY</p>
+                                                <p className='text-xs'>125/3</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='mb-2'>
+                                    <h2>Short Info</h2>
+                                    <p className='text-xs'>{movie?.description}</p>
+                                </div>
+                                <div className='mb-1 flex gap-2'>
+                                    <h2 className='text-sm'><span>Directors</span> : <span className='text-[#4c82c8] hover:underline'>{movie?.cast[0]?.directors.map((director, index, array) => <span
+                                        key={index}
+                                        className="hover:underline"
+                                    >
+                                        {director}
+                                        {index === array.length - 1 ? "" : <> , </>}
+                                    </span>)
+                                    }</span></h2>
+                                </div>
+                                <div className='mb-1 flex gap-2'>
+                                    <h2 className='text-sm'><span>Writers</span> : <span className='text-[#4c82c8] hover:underline'>{movie?.cast[0]?.writers.map((director, index, array) => <span
+                                        key={index}
+                                        className='hover:underline'
+                                    >
+                                        {director}
+                                        {index === array.length - 1 ? "" : <> , </>}
+                                    </span>)
+                                    }</span></h2>
+                                </div>
+                                <div className='mb-2 flex gap-2'>
+                                    <h2 className='text-sm'><span>Stars</span> : <span className='text-[#4c82c8] '>{movie?.cast[0]?.stars.map((director, index, array) => <span
+                                        key={index}
+                                        className="hover:underline"
+                                    >
+                                        {director}
+                                        {index === array.length - 1 ? "" : <> , </>}
+                                    </span>)
+                                    }</span></h2>
+                                </div>
+                                <div className='flex gap-2'>
+                                    <button
+                                        className="btn btn-sm rounded-lg grow btn-outline btn-primary text-white bg-[#5668cf] flex gap-1 align-middle"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="h-6 w-6 text-white"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        ><path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth="2"
+                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                                            />
+                                        </svg>
+                                        <span className='text-white capitalize'>Add favorite</span>
+                                    </button>
+                                    {/* <button
+                                        className="btn btn-sm rounded-lg grow btn-outline btn-primary text-white bg-[#5668cf] flex gap-1 align-middle"
+                                    >
+                                        <i className="fa-solid fa-plus text-white"></i>
+                                        <span className='text-white capitalize'>
+                                            Watch later
+                                            </span>
+                                    </button> */}
+                                    <button
+                                        className="btn btn-sm rounded-lg grow btn-outline btn-primary text-white bg-[#5668cf] flex gap-1 align-middle"
+                                    >
+                                        <i className="fa-solid fa-minus text-white"></i>
+                                        <span className='text-white capitalize'>
+                                            Remove
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-
-                        {/* Casts */}
-                        <div className='px-60 mx-auto'>
-                            <div className='grid grid-cols-6  gap-10 mb-5'>
-                                <h2 className='text-xl flex justify-between col-span-1'><span>Directors</span>:</h2>
-                                <div className='col-span-5 text-lg'>
-                                    {
-                                        showCast(movie?.cast[0]?.director)
-                                    }
-                                </div>
-                            </div>
-                            <div className='grid grid-cols-6 gap-10 mb-5'>
-                                <h2 className='text-xl flex justify-between col-span-1'><span>Writers</span>:</h2>
-                                <div className='col-span-5 text-lg'>
-                                    {
-                                        showCast(movie?.cast[0]?.writers)
-                                    }
-                                </div>
-                            </div>
-                            <div className='grid grid-cols-6  gap-10 mb-5'>
-                                <h2 className='text-xl flex justify-between col-span-1'><span>Stars</span>:</h2>
-                                <div className='col-span-5 text-lg'>
-                                    {
-                                        showCast(movie?.cast[0]?.stars)
-                                    }
-                                </div>
-                            </div>
-                            <div className='grid grid-cols-6  gap-10 mb-5'>
-                                <h2 className='text-xl flex justify-between col-span-1'><span>Languages</span>:</h2>
-                                <div className='col-span-5 text-lg'>
-                                    {
-                                        showCast(movie?.language)
-                                    }
-                                </div>
-                            </div>
-                            <div className='mb-5'>
-                                <h2 className='text-lg'><span>Production Company</span> : <span className='text-[#4c82c8] hover:underline ms-7'>{movie?.production_company}</span></h2>
-                            </div>
+                        {/* Similar Movies */}
+                        <div className='mx-20'>
+                            <h1 className='text-3xl mb-4'>Similar Movies</h1>
+                            <SimilarMovies
+                                genres={movie?.Genres}
+                            ></SimilarMovies>
                         </div>
                     </div>
             }

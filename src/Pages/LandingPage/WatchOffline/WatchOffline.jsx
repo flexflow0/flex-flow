@@ -1,18 +1,20 @@
-
+import Lottie from "lottie-react-web";
+import downloadAni from '../../../../public/downloadVideo.json';
 const WatchOffline = () => {
     return (
-        <div className="border-y-2 py-4 border-purple-800">
-            <div className="lg:flex lg:h-[450px] lg:px-20 px-12 gap-6 py-6 text-white">
-                <div className=" lg:ml-20  lg:mt-20">
-                    <img className="lg:w-[400px] lg:h-[270px] w-[300px] h-[200px]" src="https://i.ibb.co/TPn5Qv1/download-video.gif" alt="" />
-
+        <div className="border-y-2 border-purple-800">
+            <div className="flex MyContainer justify-between my-28 h-[450px] text-white">
+                <div className="w-full mt-20">
+                    <Lottie className="mr-auto"
+                        options={{
+                            animationData: downloadAni
+                        }}
+                    />
                 </div>
-                <div className=" my-auto ">
-                    <h1 className="lg:text-6xl text-4xl font-bold">Download your<br/> shows  to  watch<br/> offline</h1>
+                <div className=" my-auto w-full">
+                    <h1 className="text-6xl font-bold">Download your<br /> shows  to  watch<br /> offline</h1>
                     <p className="text-2xl mt-5">Save your favorites easily and always have
                         something to watch.</p>
-
-
                 </div>
 
 
