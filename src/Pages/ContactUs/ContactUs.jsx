@@ -1,5 +1,7 @@
 import { useRef } from "react";
 import emailjs from '@emailjs/browser';
+import Lottie from "lottie-react-web";
+import contact from '../../../public/contact.json'
 
 
 const ContactUs = () => {
@@ -21,13 +23,14 @@ const ContactUs = () => {
           <h2 className="lg:text-6xl text-4xl font-bold text-center text-white">Contact Us</h2>
 
       <div className="lg:flex lg:h-[450px] lg:px-20 px-12 my-10 gap-10 text-white justify-center">
-        <div className=" ">
-          <img
-            src="https://i.ibb.co/kSfGrZ9/4521608-2391944.jpg"
-            className="lg:max-w-xl rounded-md lg:h-[460px]"
-            alt=""
-          />
-        </div>
+      <div className="w-full mt-20 h-[500px]">
+                    <Lottie
+                        options={{
+                            animationData: contact
+                        }}
+                    />
+
+                </div>
         <div className="card flex-shrink-0 w-full max-w-xl shadow-md md:shadow-white">
           <div className="card-body">
             <form ref={form} onSubmit={sendEmail}>

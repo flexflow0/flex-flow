@@ -114,7 +114,7 @@ const Login = () => {
       <div className="banner">
         <div className="hero min-h-screen ">
           <div className="hero-content flex-col lg:flex-row-reverse w-full">
-            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 bg-opacity-90">
+            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100  bg-opacity-80 rounded-xl">
               <div className="card-body">
                 <form onSubmit={handelLogin}>
                   <div className="form-control">
