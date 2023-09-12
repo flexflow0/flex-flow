@@ -52,6 +52,7 @@ const Dashboard = () => {
                                 <li><NavLink className='rounded-l-full font-semibold' to='/dashboard/viewallblogs'>View All Blogs</NavLink></li>
                                 <li><NavLink className='rounded-l-full font-semibold' to='/dashboard/usersManagement'>Manage Users</NavLink></li>
                                 <li><NavLink className='rounded-l-full font-semibold' to='/dashboard/ExpiredUsers'>Expired Users</NavLink></li>
+                                <li><NavLink className='rounded-l-full font-semibold' to='/dashboard/subscribeuser'>Subscribtion Mail User</NavLink></li>
                             </div>
                                 : <div className='-mr-4'>
                                     {/*User DashBoard */}
@@ -61,7 +62,7 @@ const Dashboard = () => {
                                     </NavLink></li>
                                     <li><NavLink to='/dashboard/watchhistory'>Watch History
                                     </NavLink></li>
-                                    <li><NavLink to='/dashboard/'>Payment history</NavLink></li>
+                                    <li><NavLink to='/dashboard/paymenthistory'>Payment history</NavLink></li>
                                 </div>
 
 

@@ -15,8 +15,8 @@ const Blog = () => {
     }, [])
 
     return (
-        <div className='md:flex mx-auto max-w-screen-xl mt-10 gap-8'>
-            <div className='w-9/12'>
+        <div className='md:flex  max-w-screen-xl mt-10 gap-8'>
+            <div className='w-9/12 mx-3'>
                 {
                     blogs.map(blog => <SingleBlog
                         key={blog._id}
@@ -26,7 +26,7 @@ const Blog = () => {
                 }
             </div>
 
-            <div>
+            <div className="text-center">
                 <h1>This is latest feature content</h1>
             </div>
         </div>

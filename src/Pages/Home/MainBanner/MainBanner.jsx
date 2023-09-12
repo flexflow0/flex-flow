@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./MainBanner.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
-import { Link } from "react-router-dom";
+import { Carousel } from "react-responsive-carousel"; // Import React-modal
+ 
 import Modal from "react-modal"; // Import react-modal
 
 const MainBanner = () => {
@@ -61,21 +61,7 @@ const MainBanner = () => {
           ))}
         </Carousel>
       </div>
-      {/* <Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        contentLabel="Trailer Modal"
-      >
-        <button onClick={closeModal}>Close Modal</button>
-        <iframe
-          width="560"
-          height="315"
-          src={selectedMovieTrailerLink}
-          title="Movie Trailer"
-          
-        ></iframe>
-      </Modal> */}
-
+      
       <Modal
   isOpen={isModalOpen}
   onRequestClose={closeModal}
@@ -91,8 +77,8 @@ const MainBanner = () => {
       overflow: "hidden",// Hide the overflow
       zIndex: 999, // Set the z-index for the modal content
     },
-  }}
->
+  }}>
+
   <button onClick={closeModal} className="text-black">Close Modal</button>
   <iframe
     width="100%"
