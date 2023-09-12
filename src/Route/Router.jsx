@@ -20,9 +20,9 @@ import UploadTvSeries from "../Pages/Dashboard/AdminDashboard/UploadTvSeries/Upl
 import UsersManagement from "../Pages/Dashboard/AdminDashboard/UsersManagement/UsersManagement";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import Privacy from "../Pages/Privacy/Privacy";
-<<<<<<< HEAD
+
 import ContactUs from "../Pages/ContactUs/ContactUs";
-=======
+
 import Dashboard from "../Layout/DashBoard";
 import Analytics from "../Pages/Dashboard/AdminDashboard/Analytics/Analytics";
 import MyFavaurite from "../Pages/Dashboard/UsersDashboard/MyFavourite/MyFavaurite";
@@ -34,7 +34,6 @@ import WriteaBlog from "../Pages/Dashboard/AdminDashboard/WriteaBlog/WriteaBlog"
 import AboutFlexflow from "../Pages/AboutFlexflow/AboutFlexflow";
 import ShowAllTvSeries from "../Pages/Home/TvSeries/ShowAllTvSeries/ShowAllTvSeries";
 import TvSeriesDetails from "../Pages/Home/TvSeries/TvSeriesDetails/TvSeriesDetails";
->>>>>>> ebe565243f4d36ba85e2392a338ca232d12132b5
 
 import ViewAllBlogs from "../Pages/Dashboard/AdminDashboard/ViewAllBlogs/ViewAllBlogs";
 import ExpiredUsers from "../Pages/Dashboard/AdminDashboard/UsersManagement/ExpiredUsers";
@@ -114,18 +113,17 @@ export const router = createBrowserRouter([
         element: <Privacy />
       },
       {
-<<<<<<< HEAD
+
         path: '/contactus',
         element: <ContactUs></ContactUs>
-=======
+      },
+      {
         path: '/blog',
         element: <Blog></Blog>
-
       },
       {
         path: '/aboutFlexflow',
         element: <AboutFlexflow />
->>>>>>> ebe565243f4d36ba85e2392a338ca232d12132b5
       }
 
       // {
