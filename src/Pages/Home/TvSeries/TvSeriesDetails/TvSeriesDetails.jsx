@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const TvSeriesDetails = () => {
-    const {id,} = useParams()
+    const { id, } = useParams()
     const [loading, setLoading] = useState(true);
     const [tvSeries, setTvSeries] = useState([]);
     useEffect(() => {
@@ -15,7 +15,7 @@ const TvSeriesDetails = () => {
             })
     }, [id, setTvSeries])
 
-    console.log(id,tvSeries);
+    console.log(id, tvSeries);
     // console.log(tvSeries?.seasons[0].episodes[0].link);
 
     return (
@@ -34,19 +34,20 @@ const TvSeriesDetails = () => {
                             </form>
                         </dialog>
                         {/* video */}
-                        <div className='px-20 my-10 grid grid-cols-4 gap-5'>
+                        <div className='lg:px-20 md:px-10 px-5 my-10 grid lg:grid-cols-4 gap-5'>
                             <div className='col-span-3 rounded-lg overflow-hidden' id='full_movie'>
                                 <iframe
+                                className="lg:h-[500px] md:h-[400px] lg:w-full md:w-[700px] w-auto w-[280px]"
                                     width="100%"
                                     height="100%"
-                                    src={tvSeries?.seasons[0].episodes[0].link                                    }
+                                    src={tvSeries?.seasons[0].episodes[0].link}
                                     title={tvSeries?.title}
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                     allowfullscreen='true'
                                 ></iframe>
                             </div>
                             {/* details */}
-                            <div className='bg-[#1f1f1f] rounded-md p-4'>
+                            <div className='lg:w-[270px] md:w-[700px] w-[280px] bg-[#1f1f1f] rounded-md p-4'>
                                 <div className='relative'>
                                     <div>
                                         <div className='rounded border-2 border-[#3d1164] h-20 grid grid-cols-3 overflow-hidden'>
@@ -60,15 +61,7 @@ const TvSeriesDetails = () => {
                                                 <p className='text-[10px]'>
                                                     {tvSeries?.rating}
                                                     <span className='mx-1'>|</span>
-                                                    {/* {
-                                                        tvSeries?.Genres.map((genre, index, array) => <span
-                                                            key={index}
-                                                            className=""
-                                                        >
-                                                            {genre}
-                                                            {index === array.length - 1 ? "" : <> , </>}
-                                                        </span>)
-                                                    } */}
+                                                    
                                                 </p>
                                             </div>
                                         </div>
@@ -113,36 +106,6 @@ const TvSeriesDetails = () => {
                                     <h2>Short Info</h2>
                                     <p className='text-xs'>{tvSeries?.description}</p>
                                 </div>
-                                {/* <div className='mb-1 flex gap-2'>
-                                    <h2 className='text-sm'><span>Directors</span> : <span className='text-[#4c82c8] hover:underline'>{tvSeries?.cast[0]?.directors.map((director, index, array) => <span
-                                        key={index}
-                                        className="hover:underline"
-                                    >
-                                        {director}
-                                        {index === array.length - 1 ? "" : <> , </>}
-                                    </span>)
-                                    }</span></h2>
-                                </div> */}
-                                {/* <div className='mb-1 flex gap-2'>
-                                    <h2 className='text-sm'><span>Writers</span> : <span className='text-[#4c82c8] hover:underline'>{tvSeries?.cast[0]?.writers.map((director, index, array) => <span
-                                        key={index}
-                                        className='hover:underline'
-                                    >
-                                        {director}
-                                        {index === array.length - 1 ? "" : <> , </>}
-                                    </span>)
-                                    }</span></h2>
-                                </div> */}
-                                {/* <div className='mb-2 flex gap-2'>
-                                    <h2 className='text-sm'><span>Stars</span> : <span className='text-[#4c82c8] '>{tvSeries?.cast[0]?.stars.map((director, index, array) => <span
-                                        key={index}
-                                        className="hover:underline"
-                                    >
-                                        {director}
-                                        {index === array.length - 1 ? "" : <> , </>}
-                                    </span>)
-                                    }</span></h2>
-                                </div> */}
                                 <div className='flex gap-2'>
                                     <button
                                         className="btn btn-sm rounded-lg grow btn-outline btn-primary text-white bg-[#5668cf] flex gap-1 align-middle"
@@ -181,13 +144,7 @@ const TvSeriesDetails = () => {
                                 </div>
                             </div>
                         </div>
-                        {/* Similar Movies */}
-                        {/* <div className='mx-20'>
-                            <h1 className='text-3xl mb-4'>Similar Movies</h1>
-                            <SimilarMovies
-                                genres={movie?.Genres}
-                            ></SimilarMovies>
-                        </div> */}
+
                     </div>
             }
         </div>

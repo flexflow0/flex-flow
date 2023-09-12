@@ -3,7 +3,7 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 
 
-const SingleViewBlog = ({ allBlog, refetch, setRefetch }) => {
+const SingleViewBlog = ({ allBlog, setDeleteId }) => {
     const { author, content, thumbnail, title, date, _id } = allBlog
 
     const full = content;
@@ -28,7 +28,7 @@ const SingleViewBlog = ({ allBlog, refetch, setRefetch }) => {
                 .then(res => {
                     console.log(res);
                     if(res.deletedCount > 0){
-                        setRefetch(!refetch)
+                        setDeleteId(_id)
                         Swal.fire(
                             'Deleted!',
                             'Your file has been deleted.',
