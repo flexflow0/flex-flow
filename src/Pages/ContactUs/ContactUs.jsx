@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import emailjs from '@emailjs/browser';
-
+import Lottie from "lottie-react-web";
+import contactUs from "../../../public/Contact.json"
 
 const ContactUs = () => {
   const form = useRef();
@@ -10,25 +11,26 @@ const ContactUs = () => {
 
     emailjs.sendForm('service_37l9qzf', 'template_tpxsmlj', form.current, '0U470BXDY0_P44gkx')
       .then((result) => {
-          console.log(result.text);
+        console.log(result.text);
       }, (error) => {
-          console.log(error.text);
+        console.log(error.text);
       });
   };
 
   return (
     <div className="border-y-2 py-4 border-purple-800">
-          <h2 className="lg:text-6xl text-4xl font-bold text-center text-white">Contact Us</h2>
+      <h2 className="lg:text-6xl text-4xl font-bold text-center text-white">Contact Us</h2>
 
-      <div className="lg:flex lg:h-[450px] lg:px-20 px-12 my-10 gap-10 text-white justify-center">
-        <div className=" ">
-          <img
-            src="https://i.ibb.co/kSfGrZ9/4521608-2391944.jpg"
-            className="lg:max-w-xl rounded-md lg:h-[460px]"
-            alt=""
+      <div className="lg:flex lg:h-[450px] lg:px-20 px-12 my-10 gap-10 text-white justify-center items-center">
+        <div className="w-full mt-20 h-[500px]">
+          <Lottie
+            options={{
+              animationData: contactUs
+            }}
           />
+
         </div>
-        <div className="card flex-shrink-0 w-full max-w-xl shadow-md md:shadow-white">
+        <div className="card flex-shrink-0 w-full max-w-xl shadow-md border-2 border-[#8700f5] rounded-xl">
           <div className="card-body">
             <form ref={form} onSubmit={sendEmail}>
               <div className="form-control">
@@ -39,7 +41,7 @@ const ContactUs = () => {
                   type="text"
                   name="user_name"
                   placeholder="Your Name"
-                  className="input input-bordered rounded-md "
+                  className="input input-bordered rounded-xl border border-[#8700f5] "
                 />
               </div>
               <div className="form-control">
@@ -50,7 +52,7 @@ const ContactUs = () => {
                   type="email"
                   name="user_email"
                   placeholder="Your Email"
-                  className="input input-bordered rounded-md"
+                  className="input input-bordered rounded-xl border border-[#8700f5]"
                 />
                 <label className="label">
                   <span className="label-text">Message</span>
@@ -61,7 +63,7 @@ const ContactUs = () => {
                   placeholder="Write here...."
                   cols="30"
                   rows="5"
-                  className="input-bordered rounded-md to-black p-3"
+                  className="input-bordered rounded-xl border border-[#8700f5] to-black p-3"
                 ></textarea>
               </div>
               <div className="form-control">
