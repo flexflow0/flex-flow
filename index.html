@@ -1,32 +1,37 @@
-<!doctype html>
-<html data-theme="black">
-
-</html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="black">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/public/title logo.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlexFlow</title>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
 
-  <!-- google fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Poppins&family=Rochester&family=Style+Script&family=Timmana&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Poppins&family=Style+Script&display=swap"
     rel="stylesheet">
 
-
+  <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/a9cdeb15a4.js" crossorigin="anonymous"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- favicon and title -->
-  <link rel="icon" type="image/svg+xml" href="https://i.ibb.co/K9Nx4kp/unnamed.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FlexFlow</title>
 </head>
 
 <body class="bg-[#10141f]">
   <div id="root" class="max-w-[1600px] mx-auto"></div>
+
+  <!-- Your JavaScript files -->
   <script type="module" src="/src/main.jsx"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init("0U470BXDY0_P44gkx");
+    })();
+  </script>
 </body>
+
+</html>

@@ -61,7 +61,7 @@ const Dashboard = () => {
                                     </NavLink></li>
                                     <li><NavLink to='/dashboard/watchhistory'>Watch History
                                     </NavLink></li>
-                                    <li><NavLink to='/dashboard/'>Payment history</NavLink></li>
+                                    <li><NavLink to='/dashboard/paymenthistory'>Payment history</NavLink></li>
                                 </div>
 
 

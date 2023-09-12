@@ -7,6 +7,9 @@
     display: block;
     width: 100%;
 }
+.carousel *{
+    margin-top: -38px;
+}
 
 .posterImage__overlay {
     position: absolute;
