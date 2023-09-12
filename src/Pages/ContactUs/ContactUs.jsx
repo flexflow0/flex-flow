@@ -21,6 +21,7 @@ const ContactUs = () => {
     <div className="border-y-2 py-4 border-purple-800">
       <h2 className="lg:text-6xl text-4xl font-bold text-center text-white">Contact Us</h2>
 
+
       <div className="lg:flex lg:h-[450px] lg:px-20 px-12 my-10 gap-10 text-white justify-center items-center">
         <div className="w-full mt-20 h-[500px]">
           <Lottie
