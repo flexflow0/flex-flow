@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./MainBanner.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel"; // Import React-modal
- 
+import { Carousel } from "react-responsive-carousel"; 
 import Modal from "react-modal"; // Import react-modal
 
 const MainBanner = () => {
@@ -61,6 +60,8 @@ const MainBanner = () => {
           ))}
         </Carousel>
       </div>
+
+   
       
       <Modal
   isOpen={isModalOpen}
