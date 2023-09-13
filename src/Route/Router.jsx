@@ -37,7 +37,11 @@ import ViewAllBlogs from "../Pages/Dashboard/AdminDashboard/ViewAllBlogs/ViewAll
 import ExpiredUsers from "../Pages/Dashboard/AdminDashboard/UsersManagement/ExpiredUsers";
 import PaymentHistory from "../Pages/Dashboard/UsersDashboard/PaymentHistory/PaymentHistory";
 import SubscribeUser from "../Pages/Dashboard/AdminDashboard/SubscribeUser/SubscribeUser";
+
 import UpdateBlog from "../Pages/Dashboard/AdminDashboard/ViewAllBlogs/UpdateBlog";
+
+import PrivateRoute from "./PrivateRoute";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -139,7 +143,7 @@ export const router = createBrowserRouter([
   },
   {
     path: 'dashboard',
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
         path: 'uploadmovies',
