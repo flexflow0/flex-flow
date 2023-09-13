@@ -13,6 +13,7 @@ const Registration = () => {
     const location = useLocation()
     const [dob, setDob] = useState('');
     const [error, setError] = useState();
+    const [ageerror, setAgeError] = useState();
     const [show, setShow] = useState();
     const from = location?.state?.from?.pathname || '/chooseplan'
 
@@ -73,6 +74,7 @@ const Registration = () => {
 
                                     .then(() => {
                                         const userData = { name, email, photoURL: image, birthDate: age }
+                                       
                                         fetch('http://localhost:5000/users', {
                                             method: 'POST',
                                             headers: {
@@ -122,6 +124,10 @@ const Registration = () => {
     }
     const handleDateChange = (event) => {
         setDob(event.target.value);
+        if(age <7){
+            setAgeError('You must be over 7 years old')
+             return
+         }
     };
 
     const calculateAge = (dob) => {
@@ -129,6 +135,7 @@ const Registration = () => {
         const birthDate = new Date(dob);
         const age = today.getFullYear() - birthDate.getFullYear();
         const monthDiff = today.getMonth() - birthDate.getMonth();
+        
 
         if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
             return age - 1;
@@ -184,6 +191,9 @@ const Registration = () => {
                                             <span className="label-text">Birth Date</span>
                                         </label>
                                         <input type="date" placeholder="Enter Your Birth Date" name="birthDate" value={dob} onChange={handleDateChange} className="input input-bordered" required />
+                                        <p className="text-red-600">{ageerror}</p>
+
+                                      
 
 
                                     </div>
