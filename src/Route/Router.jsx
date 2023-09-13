@@ -20,9 +20,7 @@ import UploadTvSeries from "../Pages/Dashboard/AdminDashboard/UploadTvSeries/Upl
 import UsersManagement from "../Pages/Dashboard/AdminDashboard/UsersManagement/UsersManagement";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import Privacy from "../Pages/Privacy/Privacy";
-
 import ContactUs from "../Pages/ContactUs/ContactUs";
-
 import Dashboard from "../Layout/DashBoard";
 import Analytics from "../Pages/Dashboard/AdminDashboard/Analytics/Analytics";
 import MyFavaurite from "../Pages/Dashboard/UsersDashboard/MyFavourite/MyFavaurite";
@@ -113,7 +111,6 @@ export const router = createBrowserRouter([
         element: <Privacy />
       },
       {
-
         path: '/contactus',
         element: <ContactUs></ContactUs>
       },
