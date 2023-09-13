@@ -36,6 +36,8 @@ import TvSeriesDetails from "../Pages/Home/TvSeries/TvSeriesDetails/TvSeriesDeta
 import ViewAllBlogs from "../Pages/Dashboard/AdminDashboard/ViewAllBlogs/ViewAllBlogs";
 import ExpiredUsers from "../Pages/Dashboard/AdminDashboard/UsersManagement/ExpiredUsers";
 import PaymentHistory from "../Pages/Dashboard/UsersDashboard/PaymentHistory/PaymentHistory";
+import SubscribeUser from "../Pages/Dashboard/AdminDashboard/SubscribeUser/SubscribeUser";
+import PrivateRoute from "./PrivateRoute";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -137,7 +139,7 @@ export const router = createBrowserRouter([
   },
   {
     path: 'dashboard',
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
         path: 'uploadmovies',
@@ -162,6 +164,10 @@ export const router = createBrowserRouter([
       {
         path: 'writeablog',
         element: <WriteaBlog></WriteaBlog>
+      },
+      {
+        path:'subscribeuser',
+        element: <SubscribeUser></SubscribeUser>
       },
 
 

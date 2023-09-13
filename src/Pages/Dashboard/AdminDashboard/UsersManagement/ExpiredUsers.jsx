@@ -36,7 +36,7 @@ const ExpiredUsers = () => {
                         {/* row */}
 
                         {
-                            users?.map(({ name, _id, email, photoURL, birthDate }, idx) => <tr key={_id}
+                            users?.map(({ name, _id, email, photoURL, birthDate }, idx) => <tr key = {_id}
                                 className="hover"
                             >
                                 <th>{idx + 1}</th>
