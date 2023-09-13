@@ -3,7 +3,8 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 
 
-const SingleViewBlog = ({ allBlog, setDeleteId }) => {
+const SingleViewBlog = ({ allBlog, refetch }) => {
+    
     const { author, content, thumbnail, title, date, _id } = allBlog
 
     const full = content;
@@ -27,6 +28,7 @@ const SingleViewBlog = ({ allBlog, setDeleteId }) => {
                 axios.delete(`http://localhost:5000/blog?id=${_id}`)
                 .then(res => {
                     console.log(res);
+                    refetch()
                     if(res.deletedCount > 0){
                         setDeleteId(_id)
                         Swal.fire(
@@ -43,7 +45,7 @@ const SingleViewBlog = ({ allBlog, setDeleteId }) => {
         <div>
 
             <div className="border border-purple-950 p-10 mb-3 rounded-lg  ">
-                <div className="flex gap-5">
+                <div className="md:flex gap-5">
                     <img className="w-72 rounded-lg" src={thumbnail} alt="" />
                     <p> {
 
