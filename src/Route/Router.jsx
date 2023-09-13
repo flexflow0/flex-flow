@@ -37,11 +37,7 @@ import ViewAllBlogs from "../Pages/Dashboard/AdminDashboard/ViewAllBlogs/ViewAll
 import ExpiredUsers from "../Pages/Dashboard/AdminDashboard/UsersManagement/ExpiredUsers";
 import PaymentHistory from "../Pages/Dashboard/UsersDashboard/PaymentHistory/PaymentHistory";
 import SubscribeUser from "../Pages/Dashboard/AdminDashboard/SubscribeUser/SubscribeUser";
-
-import UpdateBlog from "../Pages/Dashboard/AdminDashboard/ViewAllBlogs/UpdateBlog";
-
 import PrivateRoute from "./PrivateRoute";
-
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -173,14 +169,6 @@ export const router = createBrowserRouter([
         path:'subscribeuser',
         element: <SubscribeUser></SubscribeUser>
       },
-      {
-        path: 'viewallblogs/updateblog/:id',
-        element: <UpdateBlog></UpdateBlog>
-      },
-      {
-        path:'viewallblogs',
-        element: <ViewAllBlogs></ViewAllBlogs>
-      },
 
 
 
@@ -202,6 +190,10 @@ export const router = createBrowserRouter([
         element: <WatchHistory></WatchHistory>
       },
       {
+        path:'viewallblogs',
+        element: <ViewAllBlogs></ViewAllBlogs>
+      },
+      {
         path: 'paymenthistory',
         element: <PaymentHistory></PaymentHistory>
       }
@@ -214,3 +206,4 @@ export const router = createBrowserRouter([
     element: <Loading />
   }
 ]);
+
