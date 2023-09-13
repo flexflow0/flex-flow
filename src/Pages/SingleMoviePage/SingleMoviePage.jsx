@@ -14,9 +14,7 @@ const SingleMoviePage = () => {
     const [movie, setMovie] = useState([]);
     const { user } = useContext(AuthContext)
     const [userData, refetch] = useUser(user?.email);
-
-    // console.log(movie?._id ,userData?.likes);
-
+    // console.log(user, userData);
     useEffect(() => {
         fetch(`http://localhost:5000/singleMovie/${id}`)
             .then(res => res.json())
@@ -26,18 +24,6 @@ const SingleMoviePage = () => {
                 setLoading(false)
             })
     }, [id, setMovie, setLoading])
-    // const { data: movie = [], refetch } = useQuery(['singleMovie'], async () => {
-    //     const res = await fetch(`http://localhost:5000/singleMovie/${id}`)
-    //     return res.json();
-    // })
-    // console.log(movie);
-
-    // if (userData?.likes && movie){
-    //     setLoading(false)
-    // }
-    // if (movie){
-    //     setLoading(false)
-    // }
 
     if (loading) {
         return (
@@ -46,12 +32,6 @@ const SingleMoviePage = () => {
             </div>
         )
     }
-
-    // if (userData?.likes.includes(movie?._id)) {
-    //     isLike = true;
-    // }
-
-    }, [id, setMovie])
 
     return (
         <div>
@@ -63,15 +43,20 @@ const SingleMoviePage = () => {
                 </form>
             </dialog>
             <div className='px-5 lg:px-20 my-10 grid grid-cols-1 lg:grid-cols-4 gap-0 lg:gap-4'>
-                <PlayVideo
-                    movie={movie}
-                    refetch={refetch}
-                    userData={userData}
-                ></PlayVideo>
+                <div className='col-span-3 flex flex-col border-b rounded-lg shadow-md border-[#222224]'>
+                    <PlayVideo
+                        movie={movie}
+                        refetch={refetch}
+                        userData={userData}
+                    ></PlayVideo>
+                </div >
+
                 {/* details */}
+                <div className=' mt-5 lg:mt-0'>
                 <ShowDetails
                     movie={movie}
                 ></ShowDetails>
+        </div>
             </div>
             {/* Similar Movies */}
             <div className='mx-5 lg:mx-20'>
