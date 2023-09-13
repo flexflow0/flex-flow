@@ -9,8 +9,6 @@ const MainNavbar = () => {
     const handelLogout = () => {
         logout()
             .then(() => {
-
-
             })
             .catch(error => {
                 alert(error.message)
@@ -145,7 +143,6 @@ const MainNavbar = () => {
                                     {MovieGenres}
                                 </details>
                             </li>
-
                             <Link to='/aboutus'>
                                 <li><a className="hover:text-white">About Us</a></li>
                             </Link>
@@ -153,8 +150,6 @@ const MainNavbar = () => {
                             <Link to='/blog'>
                                 <li><a className="hover:text-white">Blog</a></li>
                             </Link>
-
-
                         </ul>
                     </div>
                 </div>
@@ -177,7 +172,7 @@ const MainNavbar = () => {
                                 </label>
                                 <ul
                                     tabIndex={0}
-                                    className="dropdown-content z-10 menu p-2 shadow rounded-lg w-52 mt-3 bg-[#0d1334]"
+                                    className="dropdown-content z-40 menu p-2 shadow rounded-lg w-52 mt-3 bg-[#0d1334]"
                                 >
                                     <li className={liClasses}>
                                         <Link to='/dashboard' className="hover:text-white uppercase">DashBoard</Link>
@@ -194,10 +189,18 @@ const MainNavbar = () => {
                             </> :
                             <div className='mr-10'>
                                 {
-                                    user ? <><button onClick={handelLogout} className='uppercase bg-[#22225a] px-5 py-2 rounded-lg font-medium'>Log Out</button>
-                                    </> : <><Link to='/login'><button className='uppercase bg-[#22225a] px-5 py-2 rounded-lg font-medium'>Login</button></Link>
-                                    </>
-
+                                    user ?
+                                        <><button
+                                            onClick={handelLogout}
+                                            className='uppercase bg-[#22225a] px-5 py-2 rounded-lg font-medium no-animation'
+                                        >Log Out</button>
+                                        </> :
+                                        <><Link to='/login'>
+                                            <button
+                                                className='uppercase bg-[#22225a] px-5 py-2 rounded-lg font-medium no-animation'
+                                            >Login</button>
+                                        </Link>
+                                        </>
                                 }
                             </div>
                     }

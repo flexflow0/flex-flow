@@ -52,6 +52,36 @@ const Registration = () => {
             return
         }
 
+        createUser(email, password)
+            .then(result => {
+                const loguser = result.user
+                console.log(loguser);
+                // console.log(loguser);
+                navigate(from, { replace: true })
+                updateUser(name, photo, birthDate)
+
+                    .then(() => {
+                        const userData = { name: name, email: email, photoURL: photo, birthDate: age, likes: [], favorites: [], WatchList: [], recentlyViewed: [] }
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(userData)
+
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    // Swal.fire({
+                                    //     position: 'top-end',
+                                    //     icon: 'success',
+                                    //     title: 'Your Acount  has been Creatd',
+                                    //     showConfirmButton: false,
+                                    //     timer: 1500
+                                    // })
+                                    navigate(from, { replace: true });
+                                }
         if (photo.length > 0) {
             const formData = new FormData()
             formData.append('image', photo[0])

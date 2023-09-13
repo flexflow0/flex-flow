@@ -44,7 +44,7 @@ const ShowAllMovies = () => {
             <p className="text-slate-300">Search Movies: </p>
            <input className="py-2 px-8 border bg-[#111111] hover:border-purple-700  border-purple-900 text-center  rounded-full w-1/2" type="search" placeholder="Search Movies" onChange={(e) => setSearch(e.target.value)} />
            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-5 p-5 my-20">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 p-5 my-20">
                 {
                     allMovies.filter((movie) => {
                         return search.toLowerCase() === "" ? movie : movie.title.toLowerCase().includes(search);
