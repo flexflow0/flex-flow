@@ -1,4 +1,4 @@
-// import { useEffect, useState } from "react";
+
 import SingleViewBlog from "./SingleViewBlog";
 import DashboardTop from "../../../../components/dashboardTop";
 import useBlog from "../../../../Hooks/useBlog/useBlog";
@@ -6,29 +6,8 @@ import useBlog from "../../../../Hooks/useBlog/useBlog";
 
 const ViewAllBlogs = () => {
 
-    // const [allBlogs, setAllBlogs] = useState([]);
-
-    // const [deleteId, setDeleteId] = useState('')
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/blog')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setAllBlogs(data)
-    //             if (deleteId) {
-    //                 const remainBlogs = allBlogs.filter(blogs !== blogs._id )
-    //                 setAllBlogs(remainBlogs)
-    //              }
-    //         })
-    // }, [deleteId])
-
     const [blog, refetch ]= useBlog();
     
-
-    // if (deleteId) {
-    //     const remainBlogs = allBlogs.filter(blogs !== blogs._id )
-    //     setAllBlogs(remainBlogs)
-    //  }
-
     return (
         <div className="px-10">
 
@@ -41,9 +20,7 @@ const ViewAllBlogs = () => {
                     blog.map(allblog => <SingleViewBlog
                         key={allblog._id}
                         allBlog={allblog}
-                        // setDeleteId={setDeleteId}
                         refetch = {refetch}
-                        // blog = {blog}
                     ></SingleViewBlog>)
                 }
             </div>

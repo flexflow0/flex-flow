@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
 const SingleViewBlog = ({ allBlog, refetch }) => {
-    
+
     const { author, content, thumbnail, title, date, _id } = allBlog
 
     const full = content;
@@ -12,7 +13,7 @@ const SingleViewBlog = ({ allBlog, refetch }) => {
 
     const [show, setShow] = useState(false);
 
-    const  handleDelete = (id) =>{
+    const handleDelete = (id) => {
         Swal.fire({
             title: 'Are you sure?',
             text: "You want to delete this!",
@@ -22,24 +23,24 @@ const SingleViewBlog = ({ allBlog, refetch }) => {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
         })
-        .then(result => {
-            if(result.isConfirmed){
-                console.log('delete', id);
-                axios.delete(`http://localhost:5000/blog?id=${_id}`)
-                .then(res => {
-                    console.log(res);
-                    refetch()
-                    if(res.deletedCount > 0){
-                        setDeleteId(_id)
-                        Swal.fire(
-                            'Deleted!',
-                            'Your file has been deleted.',
-                            'success'
-                          )
-                    }
-                })
-            }
-        })
+            .then(result => {
+                if (result.isConfirmed) {
+                    console.log('delete', id);
+                    axios.delete(`http://localhost:5000/blog?id=${_id}`)
+                        .then(res => {
+                            console.log(res);
+                            refetch()
+                            if (res.deletedCount > 0) {
+                                setDeleteId(_id)
+                                Swal.fire(
+                                    'Deleted!',
+                                    'Your file has been deleted.',
+                                    'success'
+                                )
+                            }
+                        })
+                }
+            })
     }
     return (
         <div>
@@ -59,7 +60,9 @@ const SingleViewBlog = ({ allBlog, refetch }) => {
                     </div>
 
                     <div>
-                        <input type="submit" value='Update' className="uppercase bg-[#22225a] px-5 py-2 rounded-lg font-medium mt-8 flex  mx-auto" />
+                        <Link to={`updateblog/${_id}`}>
+                            <input type="submit" value='Update' className="uppercase bg-[#22225a] px-5 py-2 rounded-lg font-medium mt-8 flex  mx-auto" />
+                        </Link>
                     </div>
                 </div>
             </div>
