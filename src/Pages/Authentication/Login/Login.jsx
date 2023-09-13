@@ -5,9 +5,12 @@ import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
 import axios from "axios";
+import { useSetUserMutation } from "../../../Redux/Features/API/baseApi";
+import Loading from "../../Shared/Loading";
 
 const Login = () => {
   const { user, loginUser, resetPassword, googleLogin } = useContext(AuthContext)
+  const [setUser, { data: getUserUpData, isLoading, isError, error }] = useSetUserMutation()
   const [show, setShow] = useState(false)
   const emailRef = useRef();
   const navigate = useNavigate();
@@ -41,18 +44,26 @@ const Login = () => {
     googleLogin().then(res => {
       console.log(res)
       const userData = { name: res?.user?.displayName, email: res?.user?.email, photoURL: res?.user?.photoURL }
-
-      axios.post('http://localhost:5000/users', userData).then(res => {
-        console.log(res);
-        if (res?.data?.message === "user already exists") {
-          navigate(from, { replace: true })
+      setUser(userData)
+      if (!isLoading) {
+        console.log(getUserUpData);
+        if (getUserUpData?.message === "user already exists") {
+          toast.success(`Login Successful`,)
+          setTimeout(() => {
+            navigate(from, { replace: true })
+          }, 1000);
         }
-        if (res?.data?.insertedId) {
+        if (getUserUpData?.insertedId) {
           window.my_modal_3.showModal()
         }
-
       }
-      )
+
+
+      if (isError) {
+        toast.error(Error)
+      }
+
+
     }
     ).catch(err => {
       console.log(err)
@@ -91,7 +102,7 @@ const Login = () => {
 
 
   const handleClose = () => {
-    navigate(from, {replace:true})
+    navigate(from, { replace: true })
   }
 
   const handelForget = () => {
@@ -142,7 +153,9 @@ const Login = () => {
                   <button onClick={handelForget} className="link-hover mx-auto text-purple-600 " >Forgotten password?</button>
                 </label>
                 <div className="divider text-xs my-0">OR</div>
-                <button onClick={handleGoogleLogin} className="btn text-white bg-purple-800  mt-2"> <FaGoogle></FaGoogle>Login With Google</button>
+                <button onClick={handleGoogleLogin} className="btn text-white bg-purple-800  mt-2"> {isLoading ? <Loading /> : <>
+                  <FaGoogle></FaGoogle>Login With Google</>}
+                </button>
                 <p> <span className="text-sm">You don,t have an account? </span> <Link className="link-hover ml-10 text-sm text-purple-600" to='/register' > Register Now </Link></p>
               </div>
             </div>
@@ -156,7 +169,7 @@ const Login = () => {
           {enable &&
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}
-              <button onClick={handleClose}  className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+              <button onClick={handleClose} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
             </form>}
 
           <h3 className="font-bold text-lg">Hello! {user?.displayName}</h3>

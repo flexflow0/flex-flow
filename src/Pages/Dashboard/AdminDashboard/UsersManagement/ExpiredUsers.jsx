@@ -1,13 +1,20 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import DashboardTop from "../../../../components/dashboardTop";
+import { useSelector } from "react-redux";
+import { useGetUsersQuery } from "../../../../Redux/Features/API/baseApi";
+import Loading from "../../../Shared/Loading";
 
 const ExpiredUsers = () => {
-    const [users, setUsers] = useState()
+    const { data: users, isLoading } = useGetUsersQuery()
+    if (isLoading) {
+        return <div className="h-full w-full flex items-center justify-center">
+            <div className="h-[200px]">
+                <Loading />
+            </div>
 
-    useEffect(() => {
-        axios('http://localhost:5000/users').then(res => setUsers(res.data))
-    }, [])
+        </div>
+    }
     console.log(users);
     return (
         <div className="MyContainer">
