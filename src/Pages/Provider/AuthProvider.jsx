@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, updateProfile, } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile, } from "firebase/auth";
 import { app } from "../Firebase/firebase.config";
 import axios from "axios";
 
@@ -12,6 +12,9 @@ const AuthProvider = ({ children }) => {
     const [price, setPrice] = useState(0)
     const [plan, setPlan] = useState("")
     const [tempData, setTempData] = useState({})
+    // google auth provider
+    const authProvider = new GoogleAuthProvider()
+
     //user Register code
     const createUser = (email, password) => {
         setLoading(true)
@@ -25,21 +28,21 @@ const AuthProvider = ({ children }) => {
             setUser(user)
 
 
-// get and set token-------------
-if(user){
-    axios.post('http://localhost:5000/jwt', {email: user.email})
-    .then(data =>{
-        // console.log(data.data.token)
-        localStorage.setItem('access-token', data.data.token)
-        setLoading(false)
-    })
-}
-else{
-    localStorage.removeItem('access-token')
-}
+            // get and set token-------------
+            if (user) {
+                axios.post('http://localhost:5000/jwt', { email: user.email })
+                    .then(data => {
+                        // console.log(data.data.token)
+                        localStorage.setItem('access-token', data.data.token)
+                        setLoading(false)
+                    })
+            }
+            else {
+                localStorage.removeItem('access-token')
+            }
 
 
-
+ 
             // setLoading(false)
         })
         return () => {
@@ -51,6 +54,11 @@ else{
     const loginUser = (email, password) => {
         setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
+    }
+
+    // Atik -> Sign in with google
+    const googleLogin = () => {
+        return signInWithPopup(auth, authProvider)
     }
 
     // Update user code
@@ -86,6 +94,7 @@ else{
         logout,
         resetPassword,
         verificationEmail,
+        googleLogin,
 
         price, setPrice, plan, setPlan, tempData, setTempData
 

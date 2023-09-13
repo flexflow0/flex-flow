@@ -2,12 +2,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import './Registration.css'
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Toaster, toast } from "react-hot-toast";
 
 
-// const img_hosting = import.meta.env.VITE_img_upload_token;
 
 const Registration = () => {
-    // const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting}`
 
     const { createUser, updateUser, verificationEmail } = useContext(AuthContext)
     const navigate = useNavigate();
@@ -18,17 +17,15 @@ const Registration = () => {
     const from = location?.state?.from?.pathname || '/chooseplan'
 
 
-    const handelRegister = event => {
+    const handelRegister = async (event) => {
         event.preventDefault();
+
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
         const birthDate = form.birthDate.value;
-        const photo = form.photo.value;
-
-
-        console.log(name, photo, password, email, birthDate);
+        const photo = form.photo.files;
 
         if (!/(?=.*[!@#$%^&*])/.test(password)) {
             setError(' Please add some characters')
@@ -85,34 +82,72 @@ const Registration = () => {
                                     // })
                                     navigate(from, { replace: true });
                                 }
+        if (photo.length > 0) {
+            const formData = new FormData()
+            formData.append('image', photo[0])
+
+            const api = import.meta.env.VITE_imgbbApiKey
+            console.log(photo);
+            if (photo[0]) {
+
+                await fetch(`https://api.imgbb.com/1/upload?key=${api}`, { method: 'POST', body: formData }).then(res => res.json()).then(imgData => {
+                    const image = imgData.data.display_url
+                    console.log(image)
+                    if (imgData.data.display_url) {
+                        createUser(email, password)
+                            .then(result => {
+                                const loguser = result.user
+                                console.log(loguser);
+
+                                updateUser(name, image, birthDate)
+
+                                    .then(() => {
+                                        const userData = { name, email, photoURL: image, birthDate: age }
+                                        fetch('http://localhost:5000/users', {
+                                            method: 'POST',
+                                            headers: {
+                                                'content-type': 'application/json'
+                                            },
+                                            body: JSON.stringify(userData)
+
+                                        })
+                                            .then(res => res.json())
+                                            .then(data => {
+                                                console.log(data);
+                                                if (data.insertedId) {
+                                                    toast.success("Your Account  has been Created")
+                                                    setTimeout(() => {
+                                                        navigate(from, { replace: true });
+                                                    }, 1500);
+                                                }
+                                            })
+
+
+                                    })
+                                    .catch(error => {
+                                        console.log(error.message);
+                                        toast.error(error.message)
+                                    })
+                                emailVeri(result.user)
                             })
+                            .catch(error => {
+                                toast.error(error.message)
+                            })
+                    }
+                })
+            }
+
+        }
 
 
-                    })
-                    .catch(error => {
-                        console.log(error.message);
-                        // Swal.fire({
-                        //     icon: 'error',
-                        //     title: 'Oops...',
-                        //     text: `${error.message}`,
-                        // })
-                    })
-                emailVeri(result.user)
-            })
-            .catch(error => {
-                // Swal.fire({
-                //     icon: 'error',
-                //     title: 'Oops...',
-                //     text: `${error.message}`,
-                // })
-                alert(error.message)
-            })
 
     }
     const emailVeri = () => {
         verificationEmail()
             .then(() => {
-                alert(' Please check your email')
+                toast('Please check your email', {
+                    icon: '📬',
+                });
             })
     }
     const handleDateChange = (event) => {
@@ -124,7 +159,7 @@ const Registration = () => {
         const birthDate = new Date(dob);
         const age = today.getFullYear() - birthDate.getFullYear();
         const monthDiff = today.getMonth() - birthDate.getMonth();
-        
+
         if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
             return age - 1;
         }
@@ -143,7 +178,7 @@ const Registration = () => {
             <div className="banner">
                 <div className="hero min-h-screen  ">
                     <div className="hero-content flex-col lg:flex-row-reverse w-full">
-                        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 bg-opacity-90">
+                        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 bg-opacity-80 rounded-xl">
                             <div className="card-body">
                                 <form onSubmit={handelRegister}>
                                     <div className="form-control">
@@ -183,7 +218,7 @@ const Registration = () => {
 
                                     </div>
                                     <div className="form-control mt-5">
-                                        <input type="file" name="photo" className="file-input file-input-bordered file-input-primary w-full max-w-xs"  required/>
+                                        <input type="file" name="photo" className="file-input file-input-bordered file-input-primary w-full max-w-xs" required />
                                     </div>
                                     <p className="text-red-600">{error}</p>
 
@@ -193,11 +228,11 @@ const Registration = () => {
                                     <div className="mt-0">
                                         <label className="label">
                                             <input className="w-10 h-4" type="checkbox" required />
-                                    <p className="text-xs ">Accept Our<Link className="link-hover ml-2  text-purple-600" to='/privacy'>privacy policy</Link></p>
-                                    </label>
+                                            <p className="text-xs ">Accept Our<Link className="link-hover ml-2  text-purple-600" to='/privacy'>privacy policy</Link></p>
+                                        </label>
                                     </div>
                                     <div className="form-control mt-6">
-                                        <button className="btn text-white bg-purple-800 ">Regster</button><br />
+                                        <button className="btn text-white bg-purple-800 ">Register</button><br />
                                     </div>
                                 </form>
 
@@ -205,7 +240,7 @@ const Registration = () => {
                         </div>
                     </div>
                 </div>
-
+                <Toaster />
             </div>
         </div>
     );

@@ -32,8 +32,6 @@ const SingleMoviePage = () => {
     // })
     // console.log(movie);
 
-
-
     // if (userData?.likes && movie){
     //     setLoading(false)
     // }
@@ -52,6 +50,8 @@ const SingleMoviePage = () => {
     // if (userData?.likes.includes(movie?._id)) {
     //     isLike = true;
     // }
+
+    }, [id, setMovie])
 
     return (
         <div>
