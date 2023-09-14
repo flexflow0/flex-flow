@@ -54,6 +54,8 @@ const SingleMoviePage = () => {
     //     isLike = true;
     // }
 
+    // }, [id, setMovie])
+
      [id, setMovie]
 
     // --------------------------------
