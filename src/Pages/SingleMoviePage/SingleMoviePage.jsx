@@ -33,6 +33,13 @@ const SingleMoviePage = () => {
         )
     }
 
+
+    // if (userData?.likes.includes(movie?._id)) {
+    //     isLike = true;
+    // }
+
+     [id, setMovie]
+
     return (
         <div>
             {/* Modal */}
