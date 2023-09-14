@@ -1,20 +1,12 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import menuIcon from "../../../assets/menu-alt-2.svg"
 import './MainNavbar.css'
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-
+import { BiLogOut, BiSolidDashboard } from 'react-icons/bi';
 const MainNavbar = () => {
     const { user, logout } = useContext(AuthContext)
-    const handelLogout = () => {
-        logout()
-            .then(() => {
-            })
-            .catch(error => {
-                alert(error.message)
-            })
-
-    }
+    const navigate = useNavigate()
 
     const regionNames = ["DC, Marvel or Superhero", "Bollywood", "Hollywood", "Bangla", "Korean", "Spanish", "Chinese & Japanese"];
     const genresNames = ["Animation & Cartoon", "Biography", "Documentary", "Horror", "Fantasy", "Drama", "Crime", "Comedy", "Romance", "Sports", "Mystery", "Sci-Fi", "War", "Western", "Thriller", "Psychological"];
@@ -68,6 +60,17 @@ const MainNavbar = () => {
 
     const { pathname } = useLocation();
     // console.log(pathname);
+
+
+
+
+    const handleLogOut = () => {
+        logout()
+        navigate('/login')
+    }
+
+
+
 
     return (
         <div className="navbar bg-[#39134b] h-10  rounded-sm text-white">
@@ -143,6 +146,7 @@ const MainNavbar = () => {
                                     {MovieGenres}
                                 </details>
                             </li>
+
                             <Link to='/aboutus'>
                                 <li><a className="hover:text-white">About Us</a></li>
                             </Link>
@@ -150,6 +154,8 @@ const MainNavbar = () => {
                             <Link to='/blog'>
                                 <li><a className="hover:text-white">Blog</a></li>
                             </Link>
+
+
                         </ul>
                     </div>
                 </div>
@@ -172,42 +178,39 @@ const MainNavbar = () => {
                                 </label>
                                 <ul
                                     tabIndex={0}
-                                    className="dropdown-content z-40 menu p-2 shadow rounded-lg w-52 mt-3 bg-[#0d1334]"
+                                    className="dropdown-content z-10 menu p-2 shadow rounded-lg w-52 mt-3 bg-[#0d1334]"
                                 >
-                                    <li className={liClasses}>
-                                        <Link to='/dashboard' className="hover:text-white uppercase">DashBoard</Link>
+                                    <li>
+                                        <NavLink className="text-center rounded-lg uppercase" to='/dashboard'>
+                                            {user?.displayName}</NavLink>
                                     </li>
-                                    {/* <li className={`${liClasses} flex flex-row items-center justify-between px-4`}>
-                                        <span className="hover:text-white ps-0"> Sign Up</span>
-                                        <i className="fa-solid fa-user-plus hover:text-white"></i>
-                                    </li> */}
-                                    <li className={`${liClasses} flex flex-row items-center justify-between px-4`}>
-                                        <span className="hover:text-white ps-0">Log Out</span>
-                                        <img className="w-14" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABqUlEQVR4nO2WTS8DURSGuxUsNdRHgyb8F7ERhPQXVOsjQfwUJSESEUJrJX4ACwldkai1CEuUCEofuckrGY3p3Jnpooue5cw573PvuefecyKRpjWaAb3ACnAM3AFvwCtQ1Lc00FNPYB+wDXzjbWVgHYiFhU4BzxJ9B3aACSAOtACtwBAwDewBH/ItAaNBofNARUIHZucWMQNATjEmQxm/0HFBTfBsgEUvAl+Kt9s50K1UGZvzC62Co6PqsgnYVEAuKNShlZfWmo3zKnBf62oAJ0ABiHpoDargyiaTAdf/R/BcO7mygO/Ld6Ye4KignnAgKb+j0GAJdgCXEi26FZDuubGbWmKnBLeCi2a7/pcaDxwy1Z0ufsPyufYFaKjiAi5soFXXKWXzgDyY/lvD58zyAUlYPyDAhlaYj4Q04FBaWRvnmKMHL4SALknjya3w/gsaU1usBIEL+tsWR/wGZxyDgGnucYuYhCO9Bpr2u2jnQPDoGH12gUmgX6NPm+5pUlPKpyO9/nbqMl1uKXVeZqo3a32mPiaTZfMQALcab1/Mi6Rvqbr03KZF6mw/8SePh1dYTfYAAAAASUVORK5CYII=" />
+                                    <li >
+                                        <NavLink className="rounded-lg uppercase" to='/dashboard'>
+                                            <BiSolidDashboard />
+                                            DashBoard</NavLink>
                                     </li>
+
+                                    <li onClick={() => logout()} >
+                                        <Link to='/login'
+                                            className="rounded-lg uppercase" >
+                                            <BiLogOut />  Log Out
+                                        </Link></li>
+
                                 </ul>
                             </> :
                             <div className='mr-10'>
                                 {
-                                    user ?
-                                        <><button
-                                            onClick={handelLogout}
-                                            className='uppercase bg-[#22225a] px-5 py-2 rounded-lg font-medium no-animation'
-                                        >Log Out</button>
-                                        </> :
-                                        <><Link to='/login'>
-                                            <button
-                                                className='uppercase bg-[#22225a] px-5 py-2 rounded-lg font-medium no-animation'
-                                            >Login</button>
-                                        </Link>
-                                        </>
+                                    user ? <><button onClick={() => logout()} className='uppercase bg-[#22225a] px-5 py-2 rounded-lg font-medium'>Log Out</button>
+                                    </> : <><Link to='/login'><button className='uppercase bg-[#22225a] px-5 py-2 rounded-lg font-medium'>Login</button></Link>
+                                    </>
+
                                 }
                             </div>
                     }
                 </div>
 
             </div>
-        </div>
+        </div >
     );
 };
 

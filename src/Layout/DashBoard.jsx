@@ -6,11 +6,13 @@ import { RiContactsBookUploadFill, RiUploadCloud2Fill } from 'react-icons/ri';
 import { SiGoogleanalytics } from 'react-icons/si';
 import { ImBlog } from 'react-icons/im';
 import { MdPayment, MdWorkHistory, MdFavorite, MdWatchLater } from 'react-icons/md';
-import { BiSolidObjectsHorizontalLeft, BiSolidLike } from 'react-icons/bi';
+import { BiSolidObjectsHorizontalLeft, BiSolidLike,BiLogOut } from 'react-icons/bi';
 import { FaUsersCog, FaUsersSlash } from 'react-icons/fa';
 const Dashboard = () => {
 
-    const { user, } = useContext(AuthContext)
+
+
+    const { user, logout } = useContext(AuthContext)
     const isAdmin = true;
 
 
@@ -106,6 +108,11 @@ const Dashboard = () => {
                         <li><Link
                             className='rounded-full font-semibold'
                             to='/'><FaHome></FaHome>Main Home</Link></li>
+                        <li
+                            onClick={() => logout()}
+                        ><Link
+                            className='rounded-full font-semibold'
+                            to='../login'><BiLogOut/>Logout</Link></li>
 
                     </ul>
 
