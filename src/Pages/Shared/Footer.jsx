@@ -1,9 +1,39 @@
+import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 /* eslint-disable react/no-unescaped-entities */
 const Footer = () => {
+
+    const { register, handleSubmit, reset, } = useForm();
+    const onSubmit = (data) => {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your mail successfully added in the mailing list',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        console.log(data);
+        reset()
+        const addEmail = { email: data.email }
+
+        fetch('http://localhost:5000/subscribe', {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(addEmail)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+            
+    }
     return (
         <div className='text-center pb-5'>
             {/* Heading Started */}
-            <h1 className='pt-[50px] font2 text-[#830FEA] text-5xl mb-16 fontB '>FlexFlow
+            <h1 className='pt-[50px] font2 text-[#830FEA] text-5xl mb-16 fontB'>FlexFlow
             </h1>
             <div className='relative mb-16 '>
                 <hr className='w-72 -mt-12 border border-[#830FEA] mx-auto ' />
@@ -12,12 +42,14 @@ const Footer = () => {
             <p className='font1 text-lg mb-7  text-white'>Subscribe to our mailing list</p>
             {/* Heading Finish */}
 
-            <div className='relative mx-auto px-5 mb-20 w-full sm:w-96 md:w-[500px] '>
+            <form onSubmit={handleSubmit(onSubmit)} className='relative mx-auto px-5 mb-20 w-full sm:w-96 md:w-[500px] '>
                 {/* Subscribe Email */}
-                <input required className='pl-6 h-10 w-full sm:w-96 md:w-[500px] bg-transparent border-2 border-[#830FEA] input rounded-full text-white' type="email" placeholder='Enter Your Email' />
+                <input className='pl-6 h-10 w-full sm:w-96 md:w-[500px] bg-transparent border-2 border-[#830FEA] input rounded-full text-white' type="email"
+                    {...register("email", { required: true })}
+                    placeholder='Enter Your Email' />
                 {/* Subscribe button */}
-                <button className='absolute -top-4  lg:-right-5 right-5 drop-shadow-md transition-all duration-200 border-2 border-[#830FEA] px-4 text-white sm:px-10 rounded-full text-lg font-bold py-1 mt-4 bg-[#830FEA] hover:bg-purple-950 ' type="submit">Subscribe</button>
-            </div>
+                <button className='absolute -top-4 right-5 md:-right-5 drop-shadow-md transition-all duration-200 border-2 border-[#830FEA] px-4 text-white sm:px-10 rounded-full text-lg font-bold py-1 mt-4 bg-[#830FEA] hover:bg-purple-950 ' type="submit">Subscription</button>
+            </form>
 
 
             <div className='pb-[50px] mx-auto MyContainer gap-5 max-w-7xl grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 text-white'>
@@ -25,7 +57,9 @@ const Footer = () => {
                     {/* <li className='text-xl fontB'>Popular Classes</li> */}
                     <li>FAQ</li>
                     <li>Inventor Relations</li>
-                    <li>Privacy</li>
+                    <Link to="privacy">
+                        <li>Privacy</li>
+                    </Link>
                     <li>Speed Test</li>
 
                 </ul>

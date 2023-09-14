@@ -1,64 +1,87 @@
+import { useContext, useEffect, useState } from 'react';
 import './SingleMoviePage.css'
+import { useParams } from 'react-router-dom';
+import SimilarMovies from './SimilarMovies/SimilarMovies';
+import PlayVideo from './PlayVideo/PlayVideo';
+import ShowDetails from './ShowDetails/ShowDetails';
+import useUser from '../../Hooks/useUser/useUser';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const SingleMoviePage = () => {
+
+    const { id } = useParams();
+    const [loading, setLoading] = useState(true);
+    const [movie, setMovie] = useState([]);
+    const { user } = useContext(AuthContext)
+    const [userData, refetch] = useUser(user?.email);
+
+    // console.log(movie?._id ,userData?.likes);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/singleMovie/${id}`)
+            .then(res => res.json())
+            .then(movie => {
+                setMovie(movie)
+                // console.log(movie);
+                setLoading(false)
+            })
+    }, [id, setMovie, setLoading])
+    // const { data: movie = [], refetch } = useQuery(['singleMovie'], async () => {
+    //     const res = await fetch(`http://localhost:5000/singleMovie/${id}`)
+    //     return res.json();
+    // })
+    // console.log(movie);
+
+    // if (userData?.likes && movie){
+    //     setLoading(false)
+    // }
+    // if (movie){
+    //     setLoading(false)
+    // }
+
+    if (loading) {
+        return (
+            <div className='h-screen flex align-middle justify-center'>
+                <span className="loading loading-ring loading-lg mb-16"></span>
+            </div>
+        )
+    }
+
+    // if (userData?.likes.includes(movie?._id)) {
+    //     isLike = true;
+    // }
+
+     [id, setMovie]
+
     return (
-        <div
-            className="relative bg-auto bg-no-repeat bg-center h-[calc(100vh)]"
-            style={{ backgroundImage: 'url(https://i.ibb.co/N7cNWfh/wallpaperflare-com-wallpaper.jpg)' }}
-        >
-            <div
-                className="flex absolute inset-0 w-full h-[calc(100vh)] px-60 pt-24 pb-16 bannerThumbnail"
-            >
-                <div className="w-1/3 h-full py-5">
-                    <img className="h-full rounded-xl shadow-md shadow-[#e27777] object-cover" src="https://i.ibb.co/X83d3CW/xl-oppenheimer-movie-poster-a83f1cbb.jpg" alt="The Enigma Chronicles Poster" />
-                </div>
-                <div className="w-2/3 pl-8 flex flex-col justify-center ps-16">
-                    <h1 className="text-5xl font-semibold mb-4">The Enigma Chronicles</h1>
-                    <div className="mb-4 flex items-center">
-                        <div className='mx-4 flex items-center'>
-                            <i className="fa-solid fa-star mb-1 mr-1 text-2xl text-[#ecf842]"></i>
-                            <p className=' text-4xl'>7.8</p>
-                        </div>
-                        <div>
-                            <p className="text-[#057fb2]"><span>Released: </span>July 2023</p>
-                            <p className='flex items-center justify-between'>
-                                <span className='text-sm'>PG-13</span>
-                                <span className='text-sm flex gap-1 items-center'>
-                                    <i className="fa-solid fa-eye text-xs"></i>
-                                    25
-                                </span>
-                                <span className='text-sm flex gap-1 items-center'>
-                                    <i className="fa-solid fa-thumbs-up text-xs"></i>
-                                    12
-                                </span>
-                            </p>
-                            <p></p>
-                        </div>
-                    </div>
-                    <p className="mb-4">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis quos maxime voluptates vero non exercitationem libero at ipsa, quam aut explicabo. Pariatur suscipit impedit debitis eos officiis commodi assumenda
-                    </p>
-                    <div className="flex space-x-4 mb-4">
-                        <a
-                            className="bg-[#39134b] text-white px-4 py-2 rounded hover:bg-transparent border-2 border-[#39134b] "
-                            href="[YourMovieStreamPlatform]"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Watch Now
-                        </a>
-                        <a
-                            className="border-2 border-[#39134b] text-[white] px-4 py-2 rounded hover:bg-[#39134b] hover:text-white"
-                            href="[Link to Official Trailer]"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Watch Trailer
-                        </a>
-                    </div>
-                </div>
+        <div>
+            {/* Modal */}
+            <dialog id="my_modal_3" className="modal w-3/4 mx-auto">
+                <form method="dialog" className='modal-box   w-11/12 max-w-5xl'>
+                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                    <iframe width="100%" height="450" src={movie?.trailer_url} title={movie?.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen='true'></iframe>
+                </form>
+            </dialog>
+            <div className='px-5 lg:px-20 my-10 grid grid-cols-1 lg:grid-cols-4 gap-0 lg:gap-4'>
+                <PlayVideo
+                    movie={movie}
+                    refetch={refetch}
+                    userData={userData}
+                ></PlayVideo>
+                {/* details */}
+                <ShowDetails
+                    movie={movie}
+                ></ShowDetails>
+            </div>
+            {/* Similar Movies */}
+            <div className='mx-5 lg:mx-20'>
+                <h1 className='text-3xl mb-4'>Similar Movies</h1>
+                <SimilarMovies
+                    genres={movie?.Genres}
+                ></SimilarMovies>
             </div>
         </div>
+
     );
 };
 

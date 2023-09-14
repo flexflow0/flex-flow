@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import './Registration.css'
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Toaster, toast } from "react-hot-toast";
 
 const Registration = () => {
     const { createUser, updateUser, verificationEmail } = useContext(AuthContext)
@@ -10,18 +11,18 @@ const Registration = () => {
     const [dob, setDob] = useState('');
     const [error, setError] = useState();
     const [show, setShow] = useState();
-    const from = location?.state?.from?.pathname || '/chooseplan'
+    const from = location?.state?.from?.pathname || '/home'
 
 
-    const handelRegister = event => {
+    const handelRegister = async (event) => {
         event.preventDefault();
+
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
         const birthDate = form.birthDate.value;
-        const photo = form.photo.value;
-        // console.log(name, photo, password, email, birthDate);
+        const photo = form.photo.files;
 
         if (!/(?=.*[!@#$%^&*])/.test(password)) {
             setError(' Please add some characters')
@@ -48,69 +49,71 @@ const Registration = () => {
             return
         }
 
+        if (photo.length > 0) {
+            const formData = new FormData()
+            formData.append('image', photo[0])
+            const api = import.meta.env.VITE_imgbbApiKey
+            console.log(photo);
+            if (photo[0]) {
 
-        createUser(email, password)
-            .then(result => {
-                const loguser = result.user
-                console.log(loguser);
-                // console.log(loguser);
-                navigate(from, { replace: true })
-                updateUser(name, photo, birthDate)
-
-                    .then(() => {
-                        const userData = { name: name, email: email, photoURL: photo, birthDate: age }
-                        fetch('http://localhost:5000/users', {
-                            method: 'POST',
-                            headers: {
-                                'content-type': 'application/json'
-                            },
-                            body: JSON.stringify(userData)
-
-                        })
-                            .then(res => res.json())
-                            .then(data => {
-                                if (data.insertedId) {
-                                    // Swal.fire({
-                                    //     position: 'top-end',
-                                    //     icon: 'success',
-                                    //     title: 'Your Acount  has been Creatd',
-                                    //     showConfirmButton: false,
-                                    //     timer: 1500
-                                    // })
-                                    navigate(from, { replace: true });
-                                }
+                await fetch(`https://api.imgbb.com/1/upload?key=${api}`, { method: 'POST', body: formData }).then(res => res.json()).then(imgData => {
+                    const image = imgData.data.display_url
+                    console.log(image)
+                    if (imgData.data.display_url) {
+                        createUser(email, password)
+                            .then(result => {
+                                const loguser = result.user
+                                console.log(loguser);
+                                updateUser(name, image, birthDate)
+                                    .then(() => {
+                                        // const userData = { name, email, role:'user', photoURL: image, birthDate: age }
+                                        const userData = { name: name, email: email, photoURL: photo, role:'user', birthDate: age, likes: [], favorites: [], WatchList: [], recentlyViewed: [] }
+                                        fetch('http://localhost:5000/users', {
+                                            method: 'POST',
+                                            headers: {
+                                                'content-type': 'application/json'
+                                            },
+                                            body: JSON.stringify(userData)
+                                        })
+                                            .then(res => res.json())
+                                            .then(data => {
+                                                console.log(data);
+                                                if (data.insertedId) {
+                                                    toast.success("Your Account  has been Created")
+                                                    setTimeout(() => {
+                                                        navigate(from, { replace: true });
+                                                    }, 1500);
+                                                }
+                                            })
+                                    })
+                                    .catch(error => {
+                                        console.log(error.message);
+                                        toast.error(error.message)
+                                    })
+                                emailVeri(result.user)
                             })
-
-
-                    })
-                    .catch(error => {
-                        console.log(error.message);
-                        // Swal.fire({
-                        //     icon: 'error',
-                        //     title: 'Oops...',
-                        //     text: `${error.message}`,
-                        // })
-                    })
-                emailVeri(result.user)
-            })
-            .catch(error => {
-                // Swal.fire({
-                //     icon: 'error',
-                //     title: 'Oops...',
-                //     text: `${error.message}`,
-                // })
-                alert(error.message)
-            })
-
+                            .catch(error => {
+                                toast.error(error.message)
+                            })
+                    }
+                })
+            }
+        }
     }
     const emailVeri = () => {
         verificationEmail()
             .then(() => {
-                alert(' Please check your email')
+                toast('Please check your email', {
+                    icon: '📬',
+                });
             })
     }
     const handleDateChange = (event) => {
         setDob(event.target.value);
+        if(age <7){
+            setError('You must be over 7 years old')
+             return
+         }
     };
 
     const calculateAge = (dob) => {
@@ -118,7 +121,7 @@ const Registration = () => {
         const birthDate = new Date(dob);
         const age = today.getFullYear() - birthDate.getFullYear();
         const monthDiff = today.getMonth() - birthDate.getMonth();
-        
+
         if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
             return age - 1;
         }
@@ -128,7 +131,6 @@ const Registration = () => {
 
     // Inside your component:
     const age = dob ? calculateAge(dob) : null;
-
 
 
     return (
@@ -178,15 +180,21 @@ const Registration = () => {
 
                                     </div>
                                     <div className="form-control mt-5">
-                                        <input type="file" name="photo" className="file-input file-input-bordered file-input-primary w-full max-w-xs"  required/>
+                                        <input type="file" name="photo" className="file-input file-input-bordered file-input-primary w-full max-w-xs" required />
                                     </div>
                                     <p className="text-red-600">{error}</p>
 
                                     <label className="label">
                                         <p> <span>if you have an account please  </span> <Link className="link-hover ml-10 text-xl text-purple-600" to='/login'>Login</Link></p>
                                     </label>
+                                    <div className="mt-0">
+                                        <label className="label">
+                                            <input className="w-10 h-4" type="checkbox" required />
+                                            <p className="text-xs ">Accept Our<Link className="link-hover ml-2  text-purple-600" to='/privacy'>privacy policy</Link></p>
+                                        </label>
+                                    </div>
                                     <div className="form-control mt-6">
-                                        <button className="btn text-white bg-purple-800 ">Regster</button><br />
+                                        <button className="btn text-white bg-purple-800 ">Register</button><br />
                                     </div>
                                 </form>
 
@@ -194,7 +202,7 @@ const Registration = () => {
                         </div>
                     </div>
                 </div>
-
+                <Toaster />
             </div>
         </div>
     );

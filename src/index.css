@@ -6,3 +6,28 @@ body {
     font-family: 'Roboto', sans-serif;
     overscroll-behavior: smooth;
 }
+
+
+.font1 {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.font2 {
+    font-family: 'Poppins', sans-serif;
+}
+
+.font3 {
+    font-family: 'Rochester', cursive;
+}
+
+.font4 {
+    font-family: 'Style Script', cursive;
+}
+
+.font5 {
+    font-family: 'Timmana', sans-serif;
+}
+
+.MyContainer {
+        @apply lg:max-w-[1400px] md:max-w-[90%] max-w-[97%] mx-auto px-2
+    }

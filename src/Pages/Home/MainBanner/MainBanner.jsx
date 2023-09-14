@@ -1,28 +1,97 @@
-import './MainBanner.css'
-import searchIcon from '../../../assets/Vector.svg'
+import React, { useEffect, useState } from "react";
+import "./MainBanner.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel"; 
+import Modal from "react-modal"; // Import react-modal
 
 const MainBanner = () => {
-    return (
-        <div
-            className="w-full h-[60vh] text-white text-center flex flex-col justify-center space-y-8 blo rounded-sm mainBanner"
+  const [popularMovies, setPopularMovies] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedMovieTrailerLink, setSelectedMovieTrailerLink] = useState(""); // State variable for trailer link
+
+  useEffect(() => {
+    fetch("http://localhost:5000/upcomingmovies")
+      .then((res) => res.json())
+      .then((data) => setPopularMovies(data));
+  }, []);
+
+  const openModal = (trailerLink) => {
+    setSelectedMovieTrailerLink(trailerLink);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  return (
+    <>
+      <div className="poster">
+        <Carousel
+          showThumbs={false}
+          autoPlay={true}
+          transitionTime={3}
+          infiniteLoop={true}
+          showStatus={false}
         >
-            <h1 className='font-bold text-3xl md:text-5xl'>
-                Adventures Unveiled: <br />
-                Exploring Life&apos;s Wonders with
-            </h1>
-            <h3 className='font-semibold text-xl md:text-2xl'>
-                Watch anywhere. Cancel anytime. <br />
-                Ready to watch? Enter your email to create or restart your membership.
-            </h3>
-            <div className='relative mx-auto mb-20 w-full sm:w-96 md:w-[500px] '>
-                {/* Search Name */}
-                <input required className='pl-4 h-10 w-full sm:w-96 md:w-[500px] bg-transparent border-2 bg-[#3E3E3E]  border-[#830fea] input rounded-full text-[#A1A1A1]' type="email" placeholder='Explore Your Desire Content...' />
-                {/* Search button */}
-                <img className="absolute top-3 right-5 drop-shadow-md transition-all duration-200  disabled" height="20px" width="20px" src={searchIcon} alt="search icon" />
+          {popularMovies.map((movie) => (
+            <div key={movie._id} className="posterImage">
+              <img src={movie.movie_thum} alt={movie.movie_name} />
+              <div className="posterImage__overlay">
+                <div className="posterImage__title">{movie.movie_name}</div>
+                <div className="posterImage__runtime">
+                  {movie ? movie.release_date : ""}
+                  <span className="posterImage__rating">
+                    {movie ? movie.vote_average : ""}
+                    <i className="fas fa-star" />{" "}
+                  </span>
+                </div>
+                <div className="posterImage__description">
+                  {movie ? movie.movie_details : ""}
+                </div>
+                <button
+                  onClick={() => openModal(movie.trailer_link)}
+                  style={{ textDecoration: "none", color: "white" }}
+                >
+                  Watch Trailer
+                </button>
+              </div>
             </div>
-        
-        </div>
-    );
+          ))}
+        </Carousel>
+      </div>
+
+   
+      
+      <Modal
+  isOpen={isModalOpen}
+  onRequestClose={closeModal}
+  contentLabel="Trailer Modal"
+  style={{
+    overlay: {
+      backgroundColor: "rgba(0, 0, 0, 0.5)", // Background color of the modal overlay
+    },
+    content: {
+      width: "500px",  // Set the width of the modal content
+      height: "400px", // Set the height of the modal content
+      margin: "auto",  // Center the modal horizontally
+      overflow: "hidden",// Hide the overflow
+      zIndex: 999, // Set the z-index for the modal content
+    },
+  }}>
+
+  <button onClick={closeModal} className="text-black">Close Modal</button>
+  <iframe
+    width="100%"
+    height="100%"
+    src={selectedMovieTrailerLink}
+    title="Movie Trailer"
+    frameBorder="0"
+    allowFullScreen
+  ></iframe>
+</Modal>
+    </>
+  );
 };
 
 export default MainBanner;
