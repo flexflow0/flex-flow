@@ -4,8 +4,6 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
 
-
-
 const Registration = () => {
 
     const { createUser, updateUser, verificationEmail } = useContext(AuthContext)
@@ -16,7 +14,6 @@ const Registration = () => {
     const [ageerror, setAgeError] = useState();
     const [show, setShow] = useState();
     const from = location?.state?.from?.pathname || '/chooseplan'
-
 
     const handelRegister = async (event) => {
         event.preventDefault();
@@ -92,6 +89,7 @@ const Registration = () => {
                             console.log(photo);
                             if (photo[0]) {
 
+
                                  fetch(`https://api.imgbb.com/1/upload?key=${api}`, { method: 'POST', body: formData }).then(res => res.json()).then(imgData => {
                                     const image = imgData.data.display_url
                                     console.log(image)
@@ -100,6 +98,7 @@ const Registration = () => {
                                             .then(result => {
                                                 const loguser = result.user
                                                 console.log(loguser);
+
 
                                                 updateUser(name, image, birthDate)
 
@@ -124,7 +123,6 @@ const Registration = () => {
                                                                     }, 1500);
                                                                 }
                                                             })
-
 
                                                     })
                                                     .catch(error => {
@@ -254,6 +252,7 @@ const Registration = () => {
                             <Toaster />
                         </div>
                     </div>
+
                 );
             };
         }
