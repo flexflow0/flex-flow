@@ -11,7 +11,7 @@ import { FaUsersCog, FaUsersSlash } from 'react-icons/fa';
 const Dashboard = () => {
 
     const { user, } = useContext(AuthContext)
-    const isAdmin = false;
+    const isAdmin = true;
 
 
     return (
