@@ -9,6 +9,7 @@ function Privacy() {
       '> Back to Help Home</h1>
 
       </Link>
+
       <div className='mt-12'>
         <h1 className='text-5xl'>Privacy Statement</h1>
         <p className='text-[24px] mt-6'>

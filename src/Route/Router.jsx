@@ -119,7 +119,6 @@ export const router = createBrowserRouter([
       {
         path: '/blog',
         element: <Blog></Blog>
-
       },
       {
         path: '/aboutFlexflow',
