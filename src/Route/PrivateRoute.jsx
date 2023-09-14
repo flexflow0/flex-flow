@@ -1,26 +1,23 @@
 
 import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../Hooks/useAuth/useAuth";
+import Loading from "../Pages/Shared/Loading";
 
 const PrivateRoute = ({children}) => {
     const {user,loading}= useAuth()
     const location  = useLocation()
     
         if(loading){
-            return <>
-            <progress className="progress progress-primary w-56" value="0" max="100"></progress><br/>
-            <progress className="progress progress-primary w-56" value="10" max="100"></progress><br/>
-            <progress className="progress progress-primary w-56" value="40" max="100"></progress><br/>
-            <progress className="progress progress-primary w-56" value="70" max="100"></progress><br/>
-            <progress className="progress progress-primary w-56" value="100" max="100"></progress>
-            </>
+            return <div className="h-screen w-full flex items-center justify-center">
+            <div className="h-[200px]">
+                <Loading />
+            </div>
+
+        </div>
         }
-        
         if(user){
             return children
         }
-
-      
         return <Navigate to='/login'state={{from: location}} replace></Navigate>
 
        
