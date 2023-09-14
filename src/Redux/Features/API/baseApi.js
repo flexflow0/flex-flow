@@ -15,11 +15,21 @@ export const baseApi = createApi({
                 body: user
             })
         }),
+        updateUser: builder.mutation({
+            query: (upData) => ({
+                url: "/user/update",
+                method: "PATCH",
+                body: upData
+            })
+        }),
         getPaymentHistory: builder.query({
             query: (email) => `/payment-history?email=${email}`
+        }),
+        getAdmin: builder.query({
+            query: (email) => `/users/admin/${email}`
         })
     })
 
 })
 
-export const { useGetUsersQuery, useSetUserMutation, useGetPaymentHistoryQuery } = baseApi
+export const { useGetUsersQuery, useSetUserMutation, useUpdateUserMutation, useGetPaymentHistoryQuery, useGetAdminQuery } = baseApi

@@ -1,17 +1,31 @@
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import { FaHome } from 'react-icons/fa';
 import { AuthContext } from '../Pages/Provider/AuthProvider';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { RiContactsBookUploadFill, RiUploadCloud2Fill } from 'react-icons/ri';
 import { SiGoogleanalytics } from 'react-icons/si';
 import { ImBlog } from 'react-icons/im';
 import { MdPayment, MdWorkHistory, MdFavorite, MdWatchLater } from 'react-icons/md';
-import { BiSolidObjectsHorizontalLeft, BiSolidLike } from 'react-icons/bi';
+import { BiSolidObjectsHorizontalLeft, BiSolidLike, BiLogOut } from 'react-icons/bi';
 import { FaUsersCog, FaUsersSlash } from 'react-icons/fa';
+import Loading from '../Pages/Shared/Loading';
+import { useGetAdminQuery } from '../Redux/Features/API/baseApi';
 const Dashboard = () => {
 
-    const { user, } = useContext(AuthContext)
-    const isAdmin = false;
+    const { user, logout } = useContext(AuthContext)
+
+
+    const { isLoading, data: isAdmin } = useGetAdminQuery(user?.email)
+    if (isLoading) {
+        return <div className="h-screen w-full flex items-center justify-center">
+            <div className="h-[200px]">
+                <Loading />
+            </div>
+        </div>
+    }
+
+
+
 
 
     return (
@@ -106,6 +120,11 @@ const Dashboard = () => {
                         <li><Link
                             className='rounded-full font-semibold'
                             to='/'><FaHome></FaHome>Main Home</Link></li>
+                        <li
+                            onClick={() => logout()}
+                        ><Link
+                            className='rounded-full font-semibold'
+                            to='../login'><BiLogOut />Logout</Link></li>
 
                     </ul>
 

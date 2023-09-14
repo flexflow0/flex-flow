@@ -1,16 +1,19 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import './Login.css'
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
 import axios from "axios";
-import { useSetUserMutation } from "../../../Redux/Features/API/baseApi";
+import { useSetUserMutation, useUpdateUserMutation } from "../../../Redux/Features/API/baseApi";
 import Loading from "../../Shared/Loading";
 
 const Login = () => {
   const { user, loginUser, resetPassword, googleLogin } = useContext(AuthContext)
-  const [setUser, { data: getUserUpData, isLoading, isError, error }] = useSetUserMutation()
+  const [setUser, { data: getUserUpData, isLoading, }] = useSetUserMutation()
+
+  const [updateUser, { data: UserUpdateData }] = useUpdateUserMutation()
+
   const [show, setShow] = useState(false)
   const emailRef = useRef();
   const navigate = useNavigate();
@@ -43,27 +46,8 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleLogin().then(res => {
       console.log(res)
-      const userData = { name: res?.user?.displayName, email: res?.user?.email, photoURL: res?.user?.photoURL }
+      const userData = { name: res?.user?.displayName, email: res?.user?.email, photoURL: res?.user?.photoURL, }
       setUser(userData)
-      if (!isLoading) {
-        console.log(getUserUpData);
-        if (getUserUpData?.message === "user already exists") {
-          toast.success(`Login Successful`,)
-          setTimeout(() => {
-            navigate(from, { replace: true })
-          }, 1000);
-        }
-        if (getUserUpData?.insertedId) {
-          window.my_modal_3.showModal()
-        }
-      }
-
-
-      if (isError) {
-        toast.error(Error)
-      }
-
-
     }
     ).catch(err => {
       console.log(err)
@@ -71,35 +55,57 @@ const Login = () => {
     }
     )
   }
+
+
+  // handle user about inserted data 
+
+  if (!isLoading && getUserUpData) {
+    console.log(getUserUpData);
+    if (getUserUpData?.message === "user already exists") {
+      toast.success(`Login Successful`,)
+      setTimeout(() => {
+        navigate(from, { replace: true })
+      }, 1000);
+    }
+    if (getUserUpData?.insertedId) {
+      window.my_modal_3.showModal()
+    }
+  }
+
+
   const [enable, setEnable] = useState(false)
 
   const handleAge = async (event) => {
     event.preventDefault()
     const age = event.target.age.value
     const upData = {
-      age, email: user?.email
+      age, email: user?.email,
     }
 
 
     if (age > 2) {
-      axios.patch("http://localhost:5000/users", upData).then(res => {
-        if (res.data.modifiedCount > 0 && res.data.matchedCount > 0) {
-          toast.success("Your Age Successfully updated")
-        } else {
-          toast("Your Age Already updated", {
-            icon: "👤"
-          })
-        }
-      })
+      updateUser(upData)
 
-      setEnable(true)
-      if (enable) {
-        toast.success(`close button has Enabled`,)
-      }
     }
 
   }
 
+  useEffect(() => {
+
+    if (UserUpdateData?.modifiedCount > 0 && UserUpdateData?.matchedCount > 0) {
+      toast.success("Your Age Successfully updated")
+      setEnable(true)
+    } else if (getUserUpData?.insertedId) {
+      toast("User Successfully Created", {
+        icon: `${user?.photoURL}`
+      })
+      setEnable(true)
+    }
+
+    if (enable) {
+      toast.success(`close button has Enabled`,)
+    }
+  }, [UserUpdateData])
 
   const handleClose = () => {
     navigate(from, { replace: true })
