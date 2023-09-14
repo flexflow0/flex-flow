@@ -34,10 +34,10 @@ const TvSeriesDetails = () => {
                             </form>
                         </dialog>
                         {/* video */}
-                        <div className='lg:px-20 md:px-10 px-5 my-10 grid lg:grid-cols-4 gap-5'>
+                        <div className='px-5 lg:px-20 my-10 grid grid-cols-1 lg:grid-cols-4 gap-0 lg:gap-4'>
                             <div className='col-span-3 rounded-lg overflow-hidden' id='full_movie'>
                                 <iframe
-                                className="lg:h-[500px] md:h-[400px] lg:w-full md:w-[700px] w-auto w-[280px]"
+                                className="lg:h-[500px] md:h-[400px] "
                                     width="100%"
                                     height="100%"
                                     src={tvSeries?.seasons[0].episodes[0].link}
@@ -47,7 +47,7 @@ const TvSeriesDetails = () => {
                                 ></iframe>
                             </div>
                             {/* details */}
-                            <div className='lg:w-[270px] md:w-[700px] w-[280px] bg-[#1f1f1f] rounded-md p-4'>
+                            <div className='md:mt-5 lg:mt-0 mt-5 bg-[#1f1f1f] rounded-md p-4'>
                                 <div className='relative'>
                                     <div>
                                         <div className='rounded border-2 border-[#3d1164] h-20 grid grid-cols-3 overflow-hidden'>
