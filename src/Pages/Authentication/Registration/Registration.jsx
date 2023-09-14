@@ -53,7 +53,7 @@ const Registration = () => {
             const formData = new FormData()
             formData.append('image', photo[0])
             const api = import.meta.env.VITE_imgbbApiKey
-            console.log(photo);
+            console.log(api);
             if (photo[0]) {
 
                 await fetch(`https://api.imgbb.com/1/upload?key=${api}`, { method: 'POST', body: formData }).then(res => res.json()).then(imgData => {

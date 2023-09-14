@@ -41,12 +41,11 @@ const PlayVideo = ({ movie, refetch, userData }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 refetch();
                 isLike = like;
             })
     }
-
     const handleFavorite = (favorite) => {
         const data = {
             id: movie?._id,
@@ -63,7 +62,7 @@ const PlayVideo = ({ movie, refetch, userData }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 refetch();
                 isFavorite = favorite;
             })
@@ -85,7 +84,7 @@ const PlayVideo = ({ movie, refetch, userData }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 refetch();
                 isFavorite = watchList;
             })
