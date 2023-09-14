@@ -12,7 +12,7 @@ const PlayVideo = ({ movie, refetch, userData }) => {
 
     if (loading) {
         return (
-            <div className='h-screen flex align-middle justify-center'>
+            <div className='flex justify-center my-auto'>
                 <span className="loading loading-ring loading-lg mb-16"></span>
             </div>
         )
