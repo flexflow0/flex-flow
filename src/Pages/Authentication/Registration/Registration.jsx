@@ -66,7 +66,7 @@ const Registration = () => {
                                 console.log(loguser);
                                 updateUser(name, image, birthDate)
                                     .then(() => {
-                                        // const userData = { name, email, role:'user', photoURL: image, birthDate: age }
+                                      
                                         const userData = { name: name, email: email, photoURL: photo, role:'user', birthDate: age, likes: [], favorites: [], WatchList: [], recentlyViewed: [] }
                                         fetch('http://localhost:5000/users', {
                                             method: 'POST',
