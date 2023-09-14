@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import './SingleMoviePage.css'
 import { useParams } from 'react-router-dom';
 import SimilarMovies from './SimilarMovies/SimilarMovies';
+import Swal from 'sweetalert2';
+import useAuth from '../../Hooks/useAuth/useAuth';
 
 const SingleMoviePage = () => {
 
@@ -19,6 +21,44 @@ const SingleMoviePage = () => {
             })
     }, [id, setMovie])
     console.log(movie);
+
+    // --------------------------------
+    const {title,thumbnail,movie_url} = movie;
+
+    const handleWatchLater = data => {
+        console.log('Movies', data)
+        
+        const watchLater = {
+            title,
+            thumbnail,
+            movie_url
+        }
+    
+        // console.log('new class', classes)
+    
+        fetch('http://localhost:5000/watchLaterMovies/', {
+          method: 'POST',
+          headers: {
+           
+         'content-type': 'application/json'
+          },
+          body: JSON.stringify(watchLater)
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data)
+          if(data.insertedId){
+            Swal.fire({
+              title: 'success!',
+              text: 'Watch later movie Added Successfully',
+              icon: 'success',
+              confirmButtonText: 'Cool'
+            })
+           }
+      
+        })
+    
+      }
 
     return (
         <div>
@@ -145,6 +185,27 @@ const SingleMoviePage = () => {
                                     </span>)
                                     }</span></h2>
                                 </div>
+
+                                {/* ----------------------------------------- */}
+
+                                <button button onClick={() => handleWatchLater(movie)}
+                                        className="btn btn-sm rounded-lg grow btn-outline btn-primary text-white bg-[#5668cf] flex gap-1 align-middle"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="h-6 w-6 text-white"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        ><path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth="2"
+                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                                            />
+                                        </svg>
+                                        <span className='text-white capitalize'>Watch later</span>
+                                    </button>
                                 <div className='flex gap-2'>
                                     <button
                                         className="btn btn-sm rounded-lg grow btn-outline btn-primary text-white bg-[#5668cf] flex gap-1 align-middle"

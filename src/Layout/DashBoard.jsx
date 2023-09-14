@@ -6,7 +6,7 @@ import { useContext } from 'react';
 const Dashboard = () => {
 
     const { user, } = useContext(AuthContext)
-    const isAdmin = true;
+    const isAdmin = false;
 
 
     return (
