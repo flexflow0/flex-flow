@@ -4,17 +4,14 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
 
-
-
 const Registration = () => {
-
     const { createUser, updateUser, verificationEmail } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation()
     const [dob, setDob] = useState('');
     const [error, setError] = useState();
     const [show, setShow] = useState();
-    const from = location?.state?.from?.pathname || '/chooseplan'
+    const from = location?.state?.from?.pathname || '/home'
 
 
     const handelRegister = async (event) => {
@@ -55,7 +52,6 @@ const Registration = () => {
         if (photo.length > 0) {
             const formData = new FormData()
             formData.append('image', photo[0])
-
             const api = import.meta.env.VITE_imgbbApiKey
             console.log(photo);
             if (photo[0]) {
@@ -68,18 +64,16 @@ const Registration = () => {
                             .then(result => {
                                 const loguser = result.user
                                 console.log(loguser);
-
                                 updateUser(name, image, birthDate)
-
                                     .then(() => {
-                                        const userData = { name, email, photoURL: image, birthDate: age }
+                                        // const userData = { name, email, role:'user', photoURL: image, birthDate: age }
+                                        const userData = { name: name, email: email, photoURL: photo, role:'user', birthDate: age, likes: [], favorites: [], WatchList: [], recentlyViewed: [] }
                                         fetch('http://localhost:5000/users', {
                                             method: 'POST',
                                             headers: {
                                                 'content-type': 'application/json'
                                             },
                                             body: JSON.stringify(userData)
-
                                         })
                                             .then(res => res.json())
                                             .then(data => {
@@ -91,8 +85,6 @@ const Registration = () => {
                                                     }, 1500);
                                                 }
                                             })
-
-
                                     })
                                     .catch(error => {
                                         console.log(error.message);
@@ -106,11 +98,7 @@ const Registration = () => {
                     }
                 })
             }
-
         }
-
-
-
     }
     const emailVeri = () => {
         verificationEmail()
@@ -122,6 +110,10 @@ const Registration = () => {
     }
     const handleDateChange = (event) => {
         setDob(event.target.value);
+        if(age <7){
+            setError('You must be over 7 years old')
+             return
+         }
     };
 
     const calculateAge = (dob) => {
@@ -148,7 +140,7 @@ const Registration = () => {
             <div className="banner">
                 <div className="hero min-h-screen  ">
                     <div className="hero-content flex-col lg:flex-row-reverse w-full">
-                        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 bg-opacity-80 rounded-xl">
+                        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 bg-opacity-90">
                             <div className="card-body">
                                 <form onSubmit={handelRegister}>
                                     <div className="form-control">
