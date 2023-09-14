@@ -51,7 +51,7 @@ const SingleMoviePage = () => {
     //     isLike = true;
     // }
 
-    }, [id, setMovie])
+     [id, setMovie]
 
     return (
         <div>
