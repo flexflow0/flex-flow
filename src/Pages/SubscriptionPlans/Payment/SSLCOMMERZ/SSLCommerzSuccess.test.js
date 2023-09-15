@@ -9,6 +9,6 @@ describe('SSLCommerz Testing', () => {
     it('Payment Success ', () => {
         const wrapper = shallow(<SSLCommerzSuccess />)
         // console.log(wrapper.debug());
-        expect(wrapper.exists('.text-center')).toEqual(true)
+        expect(wrapper).toBe(true)
     });
 });
