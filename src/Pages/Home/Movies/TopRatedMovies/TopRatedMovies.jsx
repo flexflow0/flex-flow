@@ -31,9 +31,6 @@ const TopRatedMovies = () => {
                 slidesPerView={1}
                 spaceBetween={0}
                 navigation={true}
-                pagination={{
-                    clickable: true,
-                }}
                 breakpoints={{
                     550: {
                         slidesPerView: 2,
