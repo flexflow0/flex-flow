@@ -38,6 +38,7 @@ import ExpiredUsers from "../Pages/Dashboard/AdminDashboard/UsersManagement/Expi
 import PaymentHistory from "../Pages/Dashboard/UsersDashboard/PaymentHistory/PaymentHistory";
 import SubscribeUser from "../Pages/Dashboard/AdminDashboard/SubscribeUser/SubscribeUser";
 import PrivateRoute from "./PrivateRoute";
+import UpdateBlog from "../Pages/Dashboard/AdminDashboard/ViewAllBlogs/UpdateBlog";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -85,7 +86,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/home',
-        element: <Home></Home>
+        element: <PrivateRoute><Home></Home></PrivateRoute>
       },
       {
         path: '/show_all_movies/:keyword',
@@ -119,7 +120,6 @@ export const router = createBrowserRouter([
       {
         path: '/blog',
         element: <Blog></Blog>
-
       },
       {
         path: '/aboutFlexflow',
@@ -169,6 +169,14 @@ export const router = createBrowserRouter([
         path:'subscribeuser',
         element: <SubscribeUser></SubscribeUser>
       },
+      {
+        path:'viewallblogs',
+        element: <ViewAllBlogs></ViewAllBlogs>
+      },
+      {
+        path:'viewallblogs/updateblog/:id',
+        element: <UpdateBlog></UpdateBlog>
+      },
 
 
 
@@ -189,10 +197,7 @@ export const router = createBrowserRouter([
         path: 'watchhistory',
         element: <WatchHistory></WatchHistory>
       },
-      {
-        path:'viewallblogs',
-        element: <ViewAllBlogs></ViewAllBlogs>
-      },
+     
       {
         path: 'paymenthistory',
         element: <PaymentHistory></PaymentHistory>

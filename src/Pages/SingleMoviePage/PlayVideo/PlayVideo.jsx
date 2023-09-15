@@ -95,6 +95,7 @@ const PlayVideo = ({ movie, refetch, userData }) => {
         <>
             <div className="grow rounded-lg overflow-hidden">
                 <iframe
+                className="lg:h-[500px] md:h-[400px] "
                     width="100%"
                     height="100%"
                     src={movie?.movie_url}
