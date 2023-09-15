@@ -4,6 +4,14 @@ import axios from "axios";
 
 const Analytics = () => {
     const [data ,setData] = useState([])
+    const [datas ,setDatas] = useState([])
+    
+    useEffect(() => {
+        fetch(`http://localhost:5000/users`)
+            .then(res => res.json())
+            .then(data => setDatas(data) )
+        
+    }, [])
 
     useEffect(() => {
         fetch(`http://localhost:5000/users`)
@@ -15,6 +23,8 @@ const Analytics = () => {
     return (
         <div className="MyContainer">
             <DashboardTop />
+
+            <h1 className="  font-bold text-center text-4xl mt-5 text-purple-600 "> Recently added user </h1>
             
             <div className="overflow-x-auto">
                 <table className="table">
@@ -50,6 +60,18 @@ const Analytics = () => {
                     </tbody>
                 </table>
             </div>
+            {/*  */}
+            <div className="grid grid-cols-2 mt-10 p-10 gap-5 text-purple-600">
+                <div className=" border-2 border-purple-800 h-[200px]">
+                <h1 className="w-full text-4xl font5 p-5">Total Users: {datas?.length}</h1>
+                </div>
+                <div className=" border-2 border-purple-800 h-[200px]">
+                    <h1 className="text-4xl p-5">Total Video = 60+</h1>
+
+                </div>
+
+            </div>
+            {/*  */}
         </div>
     );
 };
