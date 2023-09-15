@@ -12,7 +12,7 @@ const Login = () => {
   const emailRef = useRef();
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location?.state?.from?.pathname || '/chooseplan'
+  const from = location?.state?.from?.pathname || '/home'
 
   const handelLogin = event => {
 
