@@ -86,7 +86,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/home',
-        element: <Home></Home>
+        element: <PrivateRoute><Home></Home></PrivateRoute>
       },
       {
         path: '/show_all_movies/:keyword',

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./MainBanner.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel"; 
+import { Carousel } from "react-responsive-carousel";
 import Modal from "react-modal"; // Import react-modal
 
 const MainBanner = () => {
@@ -61,35 +61,33 @@ const MainBanner = () => {
         </Carousel>
       </div>
 
-   
-      
       <Modal
-  isOpen={isModalOpen}
-  onRequestClose={closeModal}
-  contentLabel="Trailer Modal"
-  style={{
-    overlay: {
-      backgroundColor: "rgba(0, 0, 0, 0.5)", // Background color of the modal overlay
-    },
-    content: {
-      width: "500px",  // Set the width of the modal content
-      height: "400px", // Set the height of the modal content
-      margin: "auto",  // Center the modal horizontally
-      overflow: "hidden",// Hide the overflow
-      zIndex: 999, // Set the z-index for the modal content
-    },
-  }}>
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        contentLabel="Trailer Modal"
+        style={{
+          overlay: {
+            backgroundColor: "rgba(0, 0, 0, 0.5)", // Background color of the modal overlay
+          },
+          content: {
+            width: "500px",  // Set the width of the modal content
+            height: "400px", // Set the height of the modal content
+            margin: "auto",  // Center the modal horizontally
+            overflow: "hidden",// Hide the overflow
+            zIndex: 999, // Set the z-index for the modal content
+          },
+        }}>
 
-  <button onClick={closeModal} className="text-black">Close Modal</button>
-  <iframe
-    width="100%"
-    height="100%"
-    src={selectedMovieTrailerLink}
-    title="Movie Trailer"
-    frameBorder="0"
-    allowFullScreen
-  ></iframe>
-</Modal>
+        <button onClick={closeModal} className="text-black">Close Modal</button>
+        <iframe
+          width="100%"
+          height="100%"
+          src={selectedMovieTrailerLink}
+          title="Movie Trailer"
+          frameBorder="0"
+          allowFullScreen
+        ></iframe>
+      </Modal>
     </>
   );
 };

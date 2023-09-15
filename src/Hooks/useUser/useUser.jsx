@@ -3,7 +3,6 @@ import axios from "axios";
 
 const useUser = (email) => {
     const { data: userData = [], refetch } = useQuery({
-        queryKey: [email],
         queryFn: () =>
             axios
                 .get(`http://localhost:5000/user/${email}`)
