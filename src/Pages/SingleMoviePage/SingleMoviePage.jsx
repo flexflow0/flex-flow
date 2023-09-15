@@ -2,13 +2,15 @@ import { useEffect, useState } from 'react';
 import './SingleMoviePage.css'
 import { useParams } from 'react-router-dom';
 import SimilarMovies from './SimilarMovies/SimilarMovies';
+import useAuth from '../../Hooks/useAuth/useAuth';
+import { useSetWatchHistoryMutation } from '../../Redux/Features/API/baseApi';
 
 const SingleMoviePage = () => {
-
+    const { user } = useAuth()
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
     const [movie, setMovie] = useState([]);
-
+    const [setWatchHistory, { isLoading: watchDataLoading, data: watchData }] = useSetWatchHistoryMutation()
     useEffect(() => {
         fetch(`http://localhost:5000/singleMovie/${id}`)
             .then(res => res.json())
@@ -18,8 +20,19 @@ const SingleMoviePage = () => {
                 setLoading(false)
             })
     }, [id, setMovie])
-    console.log(movie);
+    console.log(watchData);
 
+    useEffect(() => {
+
+        if (id && user) {
+            console.log("movie id ", id);
+            const watchDoc = {
+                email: user?.email,
+                movieID: id
+            }
+            setWatchHistory(watchDoc)
+        }
+    }, [id, user])
     return (
         <div>
             {

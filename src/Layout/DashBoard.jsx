@@ -119,7 +119,7 @@ const Dashboard = () => {
                         <div className="divider"></div>
                         <li><Link
                             className='rounded-full font-semibold'
-                            to='/'><FaHome></FaHome>Main Home</Link></li>
+                            to='../home'><FaHome></FaHome>Main Home</Link></li>
                         <li
                             onClick={() => logout()}
                         ><Link

@@ -27,9 +27,19 @@ export const baseApi = createApi({
         }),
         getAdmin: builder.query({
             query: (email) => `/users/admin/${email}`
+        }),
+        setWatchHistory: builder.mutation({
+            query: (watchData) => ({
+                url: "watch-history",
+                method: "PATCH",
+                body: watchData
+            })
+        }),
+        getWatchHistory: builder.query({
+            query: (email) =>  `/watch-history/${email}`
         })
     })
 
 })
 
-export const { useGetUsersQuery, useSetUserMutation, useUpdateUserMutation, useGetPaymentHistoryQuery, useGetAdminQuery } = baseApi
+export const { useGetUsersQuery, useSetUserMutation, useUpdateUserMutation, useGetPaymentHistoryQuery, useGetAdminQuery, useSetWatchHistoryMutation, useGetWatchHistoryQuery } = baseApi
