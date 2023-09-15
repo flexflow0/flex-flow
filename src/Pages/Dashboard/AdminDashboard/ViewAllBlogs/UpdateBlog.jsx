@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 const UpdateBlog = () => {
 
     const {id} = useParams()
-    console.log(id);
+
 
     const [preBlog, setPreBlog] = useState()
     const [loading, setLoading] = useState(true)
@@ -21,7 +21,7 @@ const UpdateBlog = () => {
                 setLoading(false)
             })
     }, [])
-    console.log(preBlog);
+    
 
     const [axiosSecure] = useAxiosSecure();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
