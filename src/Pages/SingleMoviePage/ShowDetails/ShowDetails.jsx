@@ -1,7 +1,23 @@
+import { useState } from "react";
 
-const ShowDetails = ({movie}) => {
+const ShowDetails = ({ movie }) => {
+
+    const [loading, setLoading] = useState(true);
+
+    if (loading && movie) {
+        setLoading(false)
+    }
+
+    if (loading) {
+        return (
+            <div className='h-screen flex align-middle justify-center'>
+                <span className="loading loading-ring loading-lg mb-16"></span>
+            </div>
+        )
+    }
+
     return (
-        <div className='bg-[#1f1f1f] rounded-md p-4 mt-5 lg:mt-0'>
+        <div className="bg-[#1f1f1f] rounded-md p-4">
             <div className='relative'>
                 <div>
                     <div className='rounded border-2 border-[#3d1164] h-20 grid grid-cols-3 overflow-visible'>
@@ -11,7 +27,7 @@ const ShowDetails = ({movie}) => {
                         >
                         </div>
                         <div className='col-span-2 ps-2'>
-                            <pre className='text-lg font-semibold overflow-hidden text-ellipsis hover:overflow-visible bg-[#1f1f1f]'>{movie?.title}</pre>
+                            <pre className='text-lg font-semibold overflow-hidden text-ellipsis hover:overflow-visible'>{movie?.title}</pre>
                             <p className='text-[10px]'>
                                 {movie?.rating}
                                 <span className='mx-1'>|</span>
@@ -94,7 +110,6 @@ const ShowDetails = ({movie}) => {
                 </span>)
                 }</span></h2>
             </div>
-
         </div>
     );
 };
