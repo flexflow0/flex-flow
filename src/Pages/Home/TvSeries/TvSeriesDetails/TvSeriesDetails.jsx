@@ -16,7 +16,7 @@ const TvSeriesDetails = () => {
     }, [id, setTvSeries])
 
     console.log(id, tvSeries);
-    // console.log(tvSeries?.seasons[0].episodes[0].link);
+    console.log(tvSeries.poster);
 
     return (
         <div>
@@ -53,7 +53,7 @@ const TvSeriesDetails = () => {
                                         <div className='rounded border-2 border-[#3d1164] h-20 grid grid-cols-3 overflow-hidden'>
                                             <div
                                                 className='bannerThumbnail bg-cover bg-center bg-no-repeat '
-                                                style={{ backgroundImage: `url(${tvSeries?.thumbnail})` }}
+                                                style={{ backgroundImage: `url(${tvSeries?.poster})` }}
                                             >
                                             </div>
                                             <div className='col-span-2 ps-2'>
