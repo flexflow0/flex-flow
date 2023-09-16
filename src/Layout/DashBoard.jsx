@@ -17,7 +17,6 @@ const Dashboard = () => {
 
     const { user, logout } = useContext(AuthContext)
 
-
     const { isLoading, data: isAdmin } = useGetAdminQuery(user?.email)
     if (isLoading) {
         return <div className="h-screen w-full flex items-center justify-center">
