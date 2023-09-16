@@ -58,23 +58,23 @@ export const router = createBrowserRouter([
       },
       {
         path: '/chooseplan',
-        element: <ChoosePlan></ChoosePlan>
+        element: <PrivateRoute><ChoosePlan></ChoosePlan></PrivateRoute>
       },
       {
         path: '/choosetheplan',
-        element: <ChooseThePlan></ChooseThePlan>
+        element: <PrivateRoute><ChooseThePlan></ChooseThePlan></PrivateRoute>
       },
       {
         path: '/choosepay',
-        element: <ChoosePay></ChoosePay>
+        element: <PrivateRoute><ChoosePay></ChoosePay></PrivateRoute>
       },
       {
         path: '/paymentStripe',
-        element: <PaymentStripe></PaymentStripe>
+        element: <PrivateRoute><PaymentStripe></PaymentStripe></PrivateRoute>
       },
       {
         path: '/paymentSSLCommerz',
-        element: <SSLCommerzPay></SSLCommerzPay>
+        element: <PrivateRoute><SSLCommerzPay></SSLCommerzPay></PrivateRoute>
       },
       {
         path: '/payment/success/:transactionID',
@@ -90,24 +90,24 @@ export const router = createBrowserRouter([
       },
       {
         path: '/show_all_movies/:keyword',
-        element: <ShowAllMovies></ShowAllMovies>
+        element: <PrivateRoute><ShowAllMovies></ShowAllMovies></PrivateRoute>
       },
       {
         path: '/movie_details/:id',
-        element: <SingleMoviePage></SingleMoviePage>
+        element: <PrivateRoute><SingleMoviePage></SingleMoviePage></PrivateRoute>
       },
       {
         path: '/show_all_tvSeries/:region',
-        element: <ShowAllTvSeries></ShowAllTvSeries>
+        element: <PrivateRoute><ShowAllTvSeries></ShowAllTvSeries></PrivateRoute>
       },
       {
         path: '/tv_series_details/:id',
-        element: <TvSeriesDetails></TvSeriesDetails>
+        element: <PrivateRoute><TvSeriesDetails></TvSeriesDetails></PrivateRoute>
 
       },
       {
         path: '/aboutus',
-        element: <AboutUs></AboutUs>
+        element: <PrivateRoute><AboutUs></AboutUs></PrivateRoute>
       },
       {
         path: '/privacy',
