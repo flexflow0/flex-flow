@@ -23,7 +23,6 @@ import Privacy from "../Pages/Privacy/Privacy";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import Dashboard from "../Layout/DashBoard";
 import Analytics from "../Pages/Dashboard/AdminDashboard/Analytics/Analytics";
-import MyFavaurite from "../Pages/Dashboard/UsersDashboard/MyFavourite/MyFavaurite";
 import WatchLater from "../Pages/Dashboard/UsersDashboard/WatchLater/WatchLater";
 import MyLikedMovies from "../Pages/Dashboard/UsersDashboard/MyLikedMovies/MyLikedMovies";
 import WatchHistory from "../Pages/Dashboard/UsersDashboard/WatchHistory/WatchHistory";
@@ -38,6 +37,7 @@ import ExpiredUsers from "../Pages/Dashboard/AdminDashboard/UsersManagement/Expi
 import PaymentHistory from "../Pages/Dashboard/UsersDashboard/PaymentHistory/PaymentHistory";
 import SubscribeUser from "../Pages/Dashboard/AdminDashboard/SubscribeUser/SubscribeUser";
 import PrivateRoute from "./PrivateRoute";
+import MyFavorites from "../Pages/Dashboard/UsersDashboard/MyFavorites/MyFavorites";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -174,8 +174,8 @@ export const router = createBrowserRouter([
 
       // User Dashboard 
       {
-        path: 'favourite',
-        element: <MyFavaurite></MyFavaurite>
+        path: 'favorites',
+        element: <MyFavorites></MyFavorites>
       },
       {
         path: 'watchLater',

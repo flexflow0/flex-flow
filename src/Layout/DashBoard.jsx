@@ -13,10 +13,8 @@ const Dashboard = () => {
     const { user, logout } = useContext(AuthContext)
     const isAdmin = true;
 
-
     return (
         <div>
-
             <div className="drawer drawer-mobile  lg:drawer-open">
                 <h1>{user?.name}</h1>
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
