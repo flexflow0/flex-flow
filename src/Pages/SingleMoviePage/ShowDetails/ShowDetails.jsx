@@ -1,14 +1,14 @@
 import { useState } from "react";
 
-const ShowDetails = ({ movie }) => {
+const ShowDetails = ({ movie, loading }) => {
 
-    const [loading, setLoading] = useState(true);
+    const [showDetailsLoading, setShowDetailsLoading] = useState(true);
 
-    if (loading && movie) {
-        setLoading(false)
+    if (showDetailsLoading && movie) {
+        setShowDetailsLoading(false)
     }
 
-    if (loading) {
+    if (showDetailsLoading || loading) {
         return (
             <div className='h-screen flex align-middle justify-center'>
                 <span className="loading loading-ring loading-lg mb-16"></span>
