@@ -23,6 +23,7 @@ const PlayVideo = ({ movie, isLoading }) => {
             <AddRemoveToList
                 movie={movie}
             ></AddRemoveToList>
+
         </>
     );
 };
