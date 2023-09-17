@@ -39,6 +39,7 @@ import PaymentHistory from "../Pages/Dashboard/UsersDashboard/PaymentHistory/Pay
 import SubscribeUser from "../Pages/Dashboard/AdminDashboard/SubscribeUser/SubscribeUser";
 import PrivateRoute from "./PrivateRoute";
 import UpdateBlog from "../Pages/Dashboard/AdminDashboard/ViewAllBlogs/UpdateBlog";
+import ShortVideos from "../Pages/Shared/ShortVideos/ShortVideos";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -124,6 +125,10 @@ export const router = createBrowserRouter([
       {
         path: '/aboutFlexflow',
         element: <AboutFlexflow />
+      },
+      {
+        path:'/shortvideos',
+        element:<ShortVideos></ShortVideos>
       }
 
       // {
