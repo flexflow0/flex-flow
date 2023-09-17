@@ -18,6 +18,7 @@ const LandingPage = () => {
             <div className="h-[200px]">
                 <Loading />
             </div>
+
         </div>
     }
     if (user) {
