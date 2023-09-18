@@ -6,7 +6,7 @@ const AboutFlexflow = () => {
         <div className='h-full w-full text-white  mb-16'>
             
             <div id='about_banner' className=' w-full h-screen flex items-center'>
-                <p className='text-7xl pl-5 relative text-[#830FEA]'>FLEXFLOW.</p>
+                <p className='text-7xl pl-5 relative mx-auto text-[#830FEA]'>FLEXFLOW</p>
             </div>
             
             <div>
