@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import TvSeriesCard from "../TvSeriesCard/TvSeriesCard";
-import useTvSeries from "../useTvSeries/useTvSeries";
+import useTvSeries from "../../../../Hooks/useTvSeries/useTvSeries";
 
 const ShowAllTvSeries = () => {
 

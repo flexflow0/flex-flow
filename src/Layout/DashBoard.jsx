@@ -1,7 +1,9 @@
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import { FaHome } from 'react-icons/fa';
 import { AuthContext } from '../Pages/Provider/AuthProvider';
+
 import { useContext, useState } from 'react';
+
 import { RiContactsBookUploadFill, RiUploadCloud2Fill } from 'react-icons/ri';
 import { SiGoogleanalytics } from 'react-icons/si';
 import { ImBlog } from 'react-icons/im';
@@ -14,7 +16,6 @@ const Dashboard = () => {
 
     const { user, logout } = useContext(AuthContext)
 
-
     const { isLoading, data: isAdmin } = useGetAdminQuery(user?.email)
     if (isLoading) {
         return <div className="h-screen w-full flex items-center justify-center">
@@ -25,12 +26,8 @@ const Dashboard = () => {
     }
 
 
-
-
-
     return (
         <div>
-
             <div className="drawer drawer-mobile  lg:drawer-open">
                 <h1>{user?.name}</h1>
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -119,11 +116,14 @@ const Dashboard = () => {
                         <div className="divider"></div>
                         <li><Link
                             className='rounded-full font-semibold'
+
                             to='../home'><FaHome></FaHome>Main Home</Link></li>
+
                         <li
                             onClick={() => logout()}
                         ><Link
                             className='rounded-full font-semibold'
+
                             to='../login'><BiLogOut />Logout</Link></li>
 
                     </ul>

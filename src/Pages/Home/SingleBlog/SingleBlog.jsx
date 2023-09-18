@@ -14,13 +14,13 @@ const SingleBlog = ({ blog}) =>  {
     return (
         <div className='mb-16'>
             <div className=''>
-                <img className='w-full  mb-10 rounded-lg' src={thumbnail} alt="thumbnail" />
+                <img className='w-full  mb-10 rounded-lg flex ' src={thumbnail} alt="thumbnail" />
             </div>
 
             <div className='flex gap-5'>
                 <div className=''>
                     <img className='rounded-full w-12 ' src="https://i.ibb.co/0D57G8X/profile-Icon.jpg" alt="" />
-                    <h2 className=' w-28'>Posted by</h2>
+                    <h2 className='w-20'>Posted by</h2>
                     <p>{author}</p>
                 </div>
                 <div>
