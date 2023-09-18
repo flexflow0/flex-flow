@@ -16,7 +16,7 @@ const PlayVideo = ({ movie, isLoading }) => {
 
     return (
         <>
-            <OnlyVideo
+            <OnlyVideo 
                 movie={movie}
                 isLoading={isLoading}
             ></OnlyVideo>

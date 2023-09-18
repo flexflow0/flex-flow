@@ -6,8 +6,12 @@ import ShowDetails from './ShowDetails/ShowDetails';
 import useSingleMovie from '../../Hooks/useSingleMovie/useSingleMovie';
 import Loading from '../Shared/Loading';
 import { useEffect, useState } from 'react';
+import useAuth from '../../Hooks/useAuth/useAuth';
+import { useSetWatchHistoryMutation } from '../../Redux/Features/API/baseApi';
 const SingleMoviePage = () => {
     const { id } = useParams();
+    const { user, loading } = useAuth()
+    const [setWatchHistory, { data: WatchHistory, isLoading: watchLoading }] = useSetWatchHistoryMutation()
     const [movie, isLoading] = useSingleMovie(id);
     if (isLoading) {
         return (
@@ -16,7 +20,16 @@ const SingleMoviePage = () => {
             </div>
         )
     }
-
+    useEffect(() => {
+        if (!loading && !isLoading) {
+            const watchData = {
+                movieID: id,
+                email: user?.email
+            }
+            console.log(watchData);
+            setWatchHistory(watchData)
+        }
+    }, [])
     return (
         <div>
             <div className='px-5 lg:px-20 my-10 grid grid-cols-1 lg:grid-cols-4 gap-0 lg:gap-4'>
