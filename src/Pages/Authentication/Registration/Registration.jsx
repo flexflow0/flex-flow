@@ -3,7 +3,8 @@ import './Registration.css'
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
-import Swal from "sweetalert2";
+
+
 
 const Registration = () => {
     const { createUser, updateUser, verificationEmail } = useContext(AuthContext)
@@ -12,7 +13,8 @@ const Registration = () => {
     const [dob, setDob] = useState('');
     const [error, setError] = useState();
     const [show, setShow] = useState();
-    const from = location?.state?.from?.pathname || '/chooseplan'
+    const from = location?.state?.from?.pathname || '/home'
+
 
 
     const handelRegister = async (event) => {
@@ -50,98 +52,61 @@ const Registration = () => {
             return
         }
 
-        createUser(email, password)
-            .then(result => {
-                const loguser = result.user
-                console.log(loguser);
-                // console.log(loguser);
-                navigate(from, { replace: true })
-                updateUser(name, photo, birthDate)
+        if (photo.length > 0) {
+            const formData = new FormData()
+            formData.append('image', photo[0])
+            const api = import.meta.env.VITE_imgbbApiKey
 
-                    .then(() => {
-                        const userData = { name: name, email: email, photoURL: photo, birthDate: age, likes: [], favorites: [], WatchList: [], recentlyViewed: [] }
-                        fetch('http://localhost:5000/users', {
-                            method: 'POST',
-                            headers: {
-                                'content-type': 'application/json'
-                            },
-                            body: JSON.stringify(userData)
+            if (photo[0]) {
 
-                        })
-                            .then(res => res.json())
-                            .then(data => {
-                                if (data.insertedId) {
-                                    Swal.fire({
-                                        position: 'top-end',
-                                        icon: 'success',
-                                        title: 'Your Acount  has been Creatd',
-                                        showConfirmButton: false,
-                                        timer: 1500
+                await fetch(`https://api.imgbb.com/1/upload?key=${api}`, { method: 'POST', body: formData }).then(res => res.json()).then(imgData => {
+                    const image = imgData.data.display_url
+                    console.log(image)
+                    if (imgData.data.display_url) {
+                        createUser(email, password)
+                            .then(result => {
+                                const loguser = result.user
+                                console.log(loguser);
+              updateUser(name, image, birthDate)
+                                    .then(() => {
+                                        // const userData = { name, email, role:'user', photoURL: image, birthDate: age }
+                                        const userData = { name: name, email: email, photoURL: image, role:'user', birthDate: age, likes: [], favorites: [], WatchList: [], recentlyViewed: [],nonSubscribed: true}
+
+                                        fetch('http://localhost:5000/users', {
+                                            method: 'POST',
+                                            headers: {
+                                                'content-type': 'application/json'
+                                            },
+                                            body: JSON.stringify(userData)
+
+                                        })
+                                            .then(res => res.json())
+                                            .then(data => {
+                                                console.log(data);
+                                                if (data.insertedId) {
+                                                    toast.success("Your Account  has been Created")
+                                                    setTimeout(() => {
+                                                        navigate(from, { replace: true });
+                                                    }, 1500);
+                                                }
+                                            })
+
                                     })
-                                    navigate(from, { replace: true });
-                                }
+                                    .catch(error => {
+                                        console.log(error.message);
+                                        toast.error(error.message)
+                                    })
+                                emailVeri(result.user)
                             })
-                        if (photo.length > 0) {
-                            const formData = new FormData()
-                            formData.append('image', photo[0])
+                            .catch(error => {
+                                toast.error(error.message)
+                            })
+                    }
+                })
+            }
 
-                            const api = import.meta.env.VITE_imgbbApiKey
-                            console.log(photo);
-                            if (photo[0]) {
-
-                                 fetch(`https://api.imgbb.com/1/upload?key=${api}`, { method: 'POST', body: formData }).then(res => res.json()).then(imgData => {
-                                    const image = imgData.data.display_url
-                                    console.log(image)
-                                    if (imgData.data.display_url) {
-                                        createUser(email, password)
-                                            .then(result => {
-                                                const loguser = result.user
-                                                console.log(loguser);
-
-                                                updateUser(name, image, birthDate)
-
-                                                    .then(() => {
-                                                        const userData = { name, email, photoURL: image, birthDate: age }
-
-                                                        fetch('http://localhost:5000/users', {
-                                                            method: 'POST',
-                                                            headers: {
-                                                                'content-type': 'application/json'
-                                                            },
-                                                            body: JSON.stringify(userData)
-
-                                                        })
-                                                            .then(res => res.json())
-                                                            .then(data => {
-                                                                console.log(data);
-                                                                if (data.insertedId) {
-                                                                    toast.success("Your Account  has been Created")
-                                                                    setTimeout(() => {
-                                                                        navigate(from, { replace: true });
-                                                                    }, 1500);
-                                                                }
-                                                            })
-
-
-                                                    })
-                                                    .catch(error => {
-                                                        console.log(error.message);
-                                                        toast.error(error.message)
-                                                    })
-                                                emailVeri(result.user)
-                                            })
-                                            .catch(error => {
-                                                toast.error(error.message)
-                                            })
-                                    }
-                                })
-                            }
-
-                        }
-              
-                    })      
-
-     } )
+        }
+    }
     const emailVeri = () => {
         verificationEmail()
             .then(() => {
@@ -152,10 +117,6 @@ const Registration = () => {
     }
     const handleDateChange = (event) => {
         setDob(event.target.value);
-        if(age <7){
-            setError('You must be over 7 years old')
-             return
-         }
     };
 
     const calculateAge = (dob) => {
@@ -177,8 +138,6 @@ const Registration = () => {
 
     return (
         <div>
-
-
             <div className="banner">
                 <div className="hero min-h-screen  ">
                     <div className="hero-content flex-col lg:flex-row-reverse w-full">
@@ -218,8 +177,6 @@ const Registration = () => {
                                             <span className="label-text">Birth Date</span>
                                         </label>
                                         <input type="date" placeholder="Enter Your Birth Date" name="birthDate" value={dob} onChange={handleDateChange} className="input input-bordered" required />
-
-
                                     </div>
                                     <div className="form-control mt-5">
                                         <input type="file" name="photo" className="file-input file-input-bordered file-input-primary w-full max-w-xs" required />
@@ -240,15 +197,14 @@ const Registration = () => {
                                     </div>
                                 </form>
 
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
-                            <Toaster />
                         </div>
                     </div>
-                );
-            };
-        }
+                </div>
+                <Toaster />
+            </div>
+        </div>
+    );
+};
 
-        export default Registration;
+export default Registration;
