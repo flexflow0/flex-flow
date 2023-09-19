@@ -1,11 +1,11 @@
-
-import Loading from "../../../Shared/Loading";
-import useUser from "../../../../Hooks/useUser/useUser";
 import { useContext } from "react";
+import useUser from "../../../../Hooks/useUser/useUser";
+import Loading from "../../../Shared/Loading";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import useLists from "../../../../Hooks/useLists/useLists";
 import ShowListedMovies from "../../../Shared/ShowListedMovies/ShowListedMovies";
 
-const WatchLater = () => {
+const MyFavorites = () => {
     const { user, loading } = useContext(AuthContext);
 
     if (loading) {
@@ -18,7 +18,6 @@ const WatchLater = () => {
 
     const [userData, isLoading, refetch] = useUser(user.email);
 
-
     if (isLoading) {
         return (
             <div className='w-28 h-screen mx-auto flex items-center'>
@@ -27,15 +26,16 @@ const WatchLater = () => {
         )
     }
 
-    const { WatchList } = userData;
+    // console.log(userData);
+    const { favorites } = userData;
 
     return (
         <div>
             <ShowListedMovies
-                list={WatchList}
+                list={favorites}
             ></ShowListedMovies>
         </div>
     );
 };
 
-export default WatchLater;
+export default MyFavorites;

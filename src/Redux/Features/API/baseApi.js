@@ -30,16 +30,34 @@ export const baseApi = createApi({
         }),
         setWatchHistory: builder.mutation({
             query: (watchData) => ({
-                url: "watch-history",
+                url: "/watch-history",
                 method: "PATCH",
                 body: watchData
             })
         }),
         getWatchHistory: builder.query({
-            query: (email) =>  `/watch-history/${email}`
+            query: (email) => `/watch-history/${email}`
+        }),
+
+        deleteAllHistory: builder.mutation({
+            query: (email) => ({
+                url: `/delete-history?email=${email}`,
+                method: "PATCH",
+            })
+        }),
+        deleteHistoryByID: builder.mutation({
+            query: (data) => ({
+                url: `/delete-historyByID`,
+                method: "PATCH",
+                body: data
+            })
+        }),
+
+        getSingleMovie: builder.query({
+            query: (id)=> `/singleMovie/${id}`
         })
     })
 
 })
 
-export const { useGetUsersQuery, useSetUserMutation, useUpdateUserMutation, useGetPaymentHistoryQuery, useGetAdminQuery, useSetWatchHistoryMutation, useGetWatchHistoryQuery } = baseApi
+export const { useGetUsersQuery, useSetUserMutation, useUpdateUserMutation, useGetPaymentHistoryQuery, useGetAdminQuery, useSetWatchHistoryMutation, useGetWatchHistoryQuery, useDeleteAllHistoryMutation, useDeleteHistoryByIDMutation, useGetSingleMovieQuery } = baseApi

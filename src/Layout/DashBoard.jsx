@@ -8,7 +8,6 @@ import { RiContactsBookUploadFill, RiUploadCloud2Fill } from 'react-icons/ri';
 import { SiGoogleanalytics } from 'react-icons/si';
 import { ImBlog } from 'react-icons/im';
 import { MdPayment, MdWorkHistory, MdFavorite, MdWatchLater } from 'react-icons/md';
-
 import { BiSolidObjectsHorizontalLeft, BiSolidLike, BiLogOut } from 'react-icons/bi';
 import { FaUsersCog, FaUsersSlash } from 'react-icons/fa';
 import Loading from '../Pages/Shared/Loading';
@@ -29,7 +28,6 @@ const Dashboard = () => {
 
     return (
         <div>
-
             <div className="drawer drawer-mobile  lg:drawer-open">
                 <h1>{user?.name}</h1>
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -118,15 +116,15 @@ const Dashboard = () => {
                         <div className="divider"></div>
                         <li><Link
                             className='rounded-full font-semibold'
+
                             to='../home'><FaHome></FaHome>Main Home</Link></li>
 
                         <li
                             onClick={() => logout()}
                         ><Link
                             className='rounded-full font-semibold'
+
                             to='../login'><BiLogOut />Logout</Link></li>
-
-
 
                     </ul>
 

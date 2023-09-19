@@ -154,8 +154,9 @@ const MainNavbar = () => {
                             <Link to='/blog'>
                                 <li><a className="hover:text-white">Blog</a></li>
                             </Link>
-
-
+                   <Link to='/shortvideos'>
+                                <li><a className="hover:text-white">Short Videos</a></li>
+                            </Link>
                         </ul>
                     </div>
                 </div>

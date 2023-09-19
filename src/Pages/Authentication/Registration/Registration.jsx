@@ -7,14 +7,14 @@ import { Toaster, toast } from "react-hot-toast";
 
 
 const Registration = () => {
-
     const { createUser, updateUser, verificationEmail } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation()
     const [dob, setDob] = useState('');
     const [error, setError] = useState();
     const [show, setShow] = useState();
-    const from = location?.state?.from?.pathname || '/chooseplan'
+    const from = location?.state?.from?.pathname || '/home'
+
 
 
     const handelRegister = async (event) => {
@@ -55,9 +55,8 @@ const Registration = () => {
         if (photo.length > 0) {
             const formData = new FormData()
             formData.append('image', photo[0])
-
             const api = import.meta.env.VITE_imgbbApiKey
-            console.log(photo);
+
             if (photo[0]) {
 
                 await fetch(`https://api.imgbb.com/1/upload?key=${api}`, { method: 'POST', body: formData }).then(res => res.json()).then(imgData => {
@@ -68,11 +67,11 @@ const Registration = () => {
                             .then(result => {
                                 const loguser = result.user
                                 console.log(loguser);
-
-                                updateUser(name, image, birthDate)
-
+              updateUser(name, image, birthDate)
                                     .then(() => {
-                                        const userData = { name, email, role: "user", nonSubscribed: true, photoURL: image, birthDate: age }
+                                        // const userData = { name, email, role:'user', photoURL: image, birthDate: age }
+                                        const userData = { name: name, email: email, photoURL: image, role:'user', birthDate: age, likes: [], favorites: [], WatchList: [], recentlyViewed: [],nonSubscribed: true}
+
                                         fetch('http://localhost:5000/users', {
                                             method: 'POST',
                                             headers: {
@@ -92,7 +91,6 @@ const Registration = () => {
                                                 }
                                             })
 
-
                                     })
                                     .catch(error => {
                                         console.log(error.message);
@@ -108,9 +106,6 @@ const Registration = () => {
             }
 
         }
-
-
-
     }
     const emailVeri = () => {
         verificationEmail()
@@ -143,8 +138,6 @@ const Registration = () => {
 
     return (
         <div>
-
-
             <div className="banner">
                 <div className="hero min-h-screen  ">
                     <div className="hero-content flex-col lg:flex-row-reverse w-full">
@@ -184,8 +177,6 @@ const Registration = () => {
                                             <span className="label-text">Birth Date</span>
                                         </label>
                                         <input type="date" placeholder="Enter Your Birth Date" name="birthDate" value={dob} onChange={handleDateChange} className="input input-bordered" required />
-
-
                                     </div>
                                     <div className="form-control mt-5">
                                         <input type="file" name="photo" className="file-input file-input-bordered file-input-primary w-full max-w-xs" required />
