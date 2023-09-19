@@ -19,12 +19,12 @@ const SingleMoviePage = () => {
             })
     }, [id, setMovie])
     console.log(movie);
-const videoURL = movie?.movie_url;
-    const downloadVideo = () =>{
-const a = document.createElement('a');
-a.href =videoURL;
-a.download = 'movie?.title';
-a.click();
+    const videoURL = movie?.movie_url;
+    const downloadVideo = () => {
+        const a = document.createElement('a');
+        a.href = videoURL;
+        a.download = 'movie?.title';
+        a.click();
     }
 
     return (
@@ -187,7 +187,7 @@ a.click();
                                             Remove
                                         </span>
                                     </button>
-                                    <button   className="btn btn-sm rounded-lg grow btn-outline btn-primary text-white bg-[#5668cf] flex gap-1 align-middle" onClick={downloadVideo}>
+                                    <button className="btn btn-sm rounded-lg grow btn-outline btn-primary text-white bg-[#5668cf] flex gap-1 align-middle" onClick={downloadVideo}>
                                         Download
                                     </button>
                                 </div>
