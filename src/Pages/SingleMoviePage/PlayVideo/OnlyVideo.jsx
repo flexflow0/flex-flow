@@ -19,6 +19,7 @@ const OnlyVideo = ({ movie, isLoading }) => {
                 title={movie?.title}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen='true'
+                className='lg:h-[500px] md:h-[400px]'
             ></iframe>
         </div>
     );

@@ -44,7 +44,6 @@ const SingleMoviePage = () => {
                 ></SimilarMovies>
             </div>
         </div>
-
     );
 };
 
