@@ -8,9 +8,9 @@ import useMovies from '../../../../Hooks/useMovies/useMovies';
 import { Link } from 'react-router-dom';
 import './TopRatedMovies.css'
 
-const TopRatedMovies = () => {
+const TopRatedMovies = ({age}) => {
 
-    const movies = useMovies();
+    const movies = useMovies({}, age);
     const sortedByRating = movies[0].slice(0);
     sortedByRating.sort(function (a, b) {
         return b.IMDb_rating - a.IMDb_rating;

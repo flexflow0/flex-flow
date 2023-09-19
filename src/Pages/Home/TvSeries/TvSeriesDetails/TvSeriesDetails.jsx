@@ -1,53 +1,50 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import PlayTvSeries from "../PlayTvSeries/PlayTvSeries";
+import useSingelTvSeries from "../../../../Hooks/useSingelTvSeries/useSingelTvSeries";
 
 const TvSeriesDetails = () => {
-    const { id, } = useParams()
-    const [loading, setLoading] = useState(true);
-    const [tvSeries, setTvSeries] = useState([]);
-    useEffect(() => {
-        fetch(`http://localhost:5000/singleTvSeries/${id}`)
-            .then(res => res.json())
-            .then(data => {
-                setTvSeries(data)
-                console.log(data);
-                setLoading(false)
-            })
-    }, [id, setTvSeries])
-
-    console.log(id, tvSeries);
-    console.log(tvSeries.poster);
-
+    const { id } = useParams()
+    const ids =id.split('+')
+    const [tvSeries, isLoading] = useSingelTvSeries(ids[0]);
+    console.log(ids);
+    console.log(tvSeries.episodes);
+    if(isLoading){
+        return <div>Loading........</div>
+    }
+    const episodeNumber =parseInt(ids[1])
+    const displayEpisode =tvSeries.episodes.filter(episode=>episode.episode_number === episodeNumber)
+    const relatedEpisode =tvSeries.episodes.filter(episode=>episode.episode_number !== episodeNumber)
+    console.log(displayEpisode,relatedEpisode);
+    
     return (
         <div>
             {
-                loading ?
+                isLoading ?
                     <div className='h-screen flex align-middle justify-center'>
                         <span className="loading loading-ring loading-lg mb-16"></span>
                     </div> :
                     <div>
-                        {/* Modal */}
-                        <dialog id="my_modal_3" className="modal w-3/4 mx-auto">
-                            <form method="dialog" className='modal-box   w-11/12 max-w-5xl'>
-                                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                                <iframe width="100%" height="450" src={tvSeries?.trailer_url} title={tvSeries?.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen='true'></iframe>
-                            </form>
-                        </dialog>
+
                         {/* video */}
                         <div className='px-5 lg:px-20 my-10 grid grid-cols-1 lg:grid-cols-4 gap-0 lg:gap-4'>
                             <div className='col-span-3 rounded-lg overflow-hidden' id='full_movie'>
-                                <iframe
-                                className="lg:h-[500px] md:h-[400px] "
-                                    width="100%"
-                                    height="100%"
-                                    src={tvSeries?.seasons[0].episodes[0].link}
-                                    title={tvSeries?.title}
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen='true'
-                                ></iframe>
+                                <div>
+                                    <iframe
+                                        className="lg:h-[500px] md:h-[400px] "
+                                        width="100%"
+                                        height="100%"
+                                        src={displayEpisode[0]?.link}
+                                        title={displayEpisode[0]?.title}
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowfullscreen='true'
+                                    ></iframe>
+                                </div>
+
                             </div>
                             {/* details */}
-                            <div className='md:mt-5 lg:mt-0 mt-5 bg-[#1f1f1f] rounded-md p-4'>
+
+
+                            <div className=' lg:h-[500px] md:h-[400px]  md:mt-5 lg:mt-0 mt-5 bg-[#1f1f1f] rounded-md p-4'>
                                 <div className='relative'>
                                     <div>
                                         <div className='rounded border-2 border-[#3d1164] h-20 grid grid-cols-3 overflow-hidden'>
@@ -61,7 +58,7 @@ const TvSeriesDetails = () => {
                                                 <p className='text-[10px]'>
                                                     {tvSeries?.rating}
                                                     <span className='mx-1'>|</span>
-                                                    
+
                                                 </p>
                                             </div>
                                         </div>
@@ -104,7 +101,7 @@ const TvSeriesDetails = () => {
                                 </div>
                                 <div className='mb-2'>
                                     <h2>Short Info</h2>
-                                    <p className='text-xs'>{tvSeries?.description}</p>
+                                    <p className='text-xs'>{displayEpisode?.description}</p>
                                 </div>
                                 <div className='flex gap-2'>
                                     <button
@@ -147,6 +144,12 @@ const TvSeriesDetails = () => {
 
                     </div>
             }
+            <PlayTvSeries
+                relatedEpisode={relatedEpisode}
+                img={tvSeries.poster}
+                id={tvSeries._id}
+                isLoading={isLoading}
+            ></PlayTvSeries>
         </div>
     );
 };
