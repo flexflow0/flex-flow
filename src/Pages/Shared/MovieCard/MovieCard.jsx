@@ -3,13 +3,12 @@ import './MovieCard.css'
 
 const MovieCard = ({ movie }) => {
     return (
-        <div
-            className="rounded-md overflow-hidden relative container_card w-50 bg-[#111111]"
+        <div className="rounded-md overflow-hidden relative container_card w-50 bg-[#111111]"
         >
             <div
             >
                 <div
-                    className="w-full h-[650px] md:h-[400px] lg:h-[400px]"
+                    className="w-full h-[650px] md:h-[400px] lg:h-[360px]"
                 >
                     <img className="w-full h-full object-fill" src={movie?.poster} alt="" />
                 </div>

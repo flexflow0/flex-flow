@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure/useAxiosSecure";
 import DashboardTop from "../../../../components/dashboardTop";
 
-const img_hosting_token = import.meta.env.VITE_Image_Upload_Token;
+const img_hosting_token = import.meta.env.VITE_imgbbApiKey;
 
 const WriteaBlog = () => {
 

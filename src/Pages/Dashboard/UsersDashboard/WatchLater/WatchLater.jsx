@@ -1,25 +1,39 @@
-import { useEffect, useState } from "react";
+
+import Loading from "../../../Shared/Loading";
+import useUser from "../../../../Hooks/useUser/useUser";
+import { useContext } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import ShowListedMovies from "../../../Shared/ShowListedMovies/ShowListedMovies";
 
 const WatchLater = () => {
-    const [da, setda] = useState([]);
+    const { user, loading } = useContext(AuthContext);
 
-    useEffect(() => {
-        fetch("http://localhost:5000/movies")
-            .then((res) => res.json())
-            .then((data) => setda(data));
-    }, []);
-    console.log(da);
+    if (loading) {
+        return (
+            <div className='w-28 h-screen mx-auto flex items-center'>
+                <Loading></Loading>
+            </div>
+        )
+    }
+
+    const [userData, isLoading, refetch] = useUser(user.email);
+
+
+    if (isLoading) {
+        return (
+            <div className='w-28 h-screen mx-auto flex items-center'>
+                <Loading></Loading>
+            </div>
+        )
+    }
+
+    const { WatchList } = userData;
+
     return (
-        <div className="grid grid-cols-4 gap-5 p-5   ">  
-            {
-                da.map(sala => <div className="gap-5 border-2 border-purple-600 p-5 rounded">
-                    <div><img className="w-60 h-40 mt-10" src={sala.thumbnail} alt="" />
-                <p className="mt-2">{sala.title}</p>
-                <p>{sala.IMDb_rating}</p></div>
-                </div>)
-            }
-
-
+        <div>
+            <ShowListedMovies
+                list={WatchList}
+            ></ShowListedMovies>
         </div>
     );
 };

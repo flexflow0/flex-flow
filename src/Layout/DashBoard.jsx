@@ -1,17 +1,33 @@
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import { FaHome } from 'react-icons/fa';
 import { AuthContext } from '../Pages/Provider/AuthProvider';
-import { useContext } from 'react';
 
+import { useContext, useState } from 'react';
+
+import { RiContactsBookUploadFill, RiUploadCloud2Fill } from 'react-icons/ri';
+import { SiGoogleanalytics } from 'react-icons/si';
+import { ImBlog } from 'react-icons/im';
+import { MdPayment, MdWorkHistory, MdFavorite, MdWatchLater } from 'react-icons/md';
+import { BiSolidObjectsHorizontalLeft, BiSolidLike, BiLogOut } from 'react-icons/bi';
+import { FaUsersCog, FaUsersSlash } from 'react-icons/fa';
+import Loading from '../Pages/Shared/Loading';
+import { useGetAdminQuery } from '../Redux/Features/API/baseApi';
 const Dashboard = () => {
 
-    const { user, } = useContext(AuthContext)
-    const isAdmin = true;
+    const { user, logout } = useContext(AuthContext)
+
+    const { isLoading, data: isAdmin } = useGetAdminQuery(user?.email)
+    if (isLoading) {
+        return <div className="h-screen w-full flex items-center justify-center">
+            <div className="h-[200px]">
+                <Loading />
+            </div>
+        </div>
+    }
 
 
     return (
         <div>
-
             <div className="drawer drawer-mobile  lg:drawer-open">
                 <h1>{user?.name}</h1>
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -43,25 +59,52 @@ const Dashboard = () => {
                                 {/* Admin DashBoard */}
 
 
-                                <li ><NavLink className='rounded-l-full font-semibold' to='/dashboard/uploadmovies'>Upload Movies</NavLink></li>
-                                <li><NavLink className='rounded-l-full font-semibold' to='/dashboard/uploadtvseries'>Upload TV series </NavLink></li>
-                                <li><NavLink className='rounded-l-full font-semibold' to='/dashboard/analytics'>View Analytics</NavLink></li>
+                                <li ><NavLink className='rounded-l-full font-semibold' to='/dashboard/uploadmovies'><RiUploadCloud2Fill /> Upload Movies</NavLink></li>
+                                <li><NavLink className='rounded-l-full font-semibold' to='/dashboard/uploadtvseries'>
+                                    <RiContactsBookUploadFill />
+                                    Upload TV series </NavLink></li>
+                                <li><NavLink className='rounded-l-full font-semibold' to='/dashboard/analytics'>
+                                    <SiGoogleanalytics />
+                                    View Analytics</NavLink></li>
 
-                                <li><NavLink className='rounded-l-full font-semibold' to='/dashboard/writeablog'>Write a Blog</NavLink></li>
+                                <li><NavLink className='rounded-l-full font-semibold' to='/dashboard/writeablog'>
+                                    <ImBlog />
+                                    Write a Blog</NavLink></li>
 
-                                <li><NavLink className='rounded-l-full font-semibold' to='/dashboard/viewallblogs'>View All Blogs</NavLink></li>
-                                <li><NavLink className='rounded-l-full font-semibold' to='/dashboard/usersManagement'>Manage Users</NavLink></li>
-                                <li><NavLink className='rounded-l-full font-semibold' to='/dashboard/ExpiredUsers'>Expired Users</NavLink></li>
+                                <li><NavLink className='rounded-l-full font-semibold' to='/dashboard/viewallblogs'>
+                                    <BiSolidObjectsHorizontalLeft />
+                                    View All Blogs</NavLink></li>
+                                <li><NavLink className='rounded-l-full font-semibold' to='/dashboard/usersManagement'>
+                                    <FaUsersCog />
+                                    Manage Users</NavLink></li>
+                                <li><NavLink className='rounded-l-full font-semibold' to='/dashboard/ExpiredUsers'>
+                                    <FaUsersSlash />
+                                    Expired Users</NavLink></li>
                             </div>
                                 : <div className='-mr-4'>
                                     {/*User DashBoard */}
-                                    <li><NavLink to='/dashboard/WatchLater'>Watch Later</NavLink></li>
-                                    <li><NavLink to='/dashboard/likedmovies'> My Liked Movies</NavLink></li>
-                                    <li><NavLink to='/dashboard/favourite'>My Favourite Movies
+                                    <li><NavLink
+                                        className='rounded-l-full font-semibold'
+                                        to='/dashboard/WatchLater'>
+                                        <MdWatchLater />
+                                        Watch Later</NavLink></li>
+                                    <li><NavLink
+                                        className='rounded-l-full font-semibold' to='/dashboard/likedmovies'>
+                                        <BiSolidLike />
+                                        My Liked Movies</NavLink></li>
+                                    <li><NavLink
+                                        className='rounded-l-full font-semibold' to='/dashboard/favourite'>
+                                        <MdFavorite />
+                                        My Favourite Movies
                                     </NavLink></li>
-                                    <li><NavLink to='/dashboard/watchhistory'>Watch History
+                                    <li><NavLink
+                                        className='rounded-l-full font-semibold' to='/dashboard/watchhistory'>
+                                        <MdWorkHistory />
+                                        Watch History
                                     </NavLink></li>
-                                    <li><NavLink to='/dashboard/paymenthistory'>Payment history</NavLink></li>
+                                    <li><NavLink
+                                        className='rounded-l-full font-semibold' to='/dashboard/paymenthistory'>
+                                        <MdPayment /> Payment history</NavLink></li>
                                 </div>
 
 
@@ -71,7 +114,17 @@ const Dashboard = () => {
 
 
                         <div className="divider"></div>
-                        <li><Link to='/'><FaHome></FaHome>Main Home</Link></li>
+                        <li><Link
+                            className='rounded-full font-semibold'
+
+                            to='../home'><FaHome></FaHome>Main Home</Link></li>
+
+                        <li
+                            onClick={() => logout()}
+                        ><Link
+                            className='rounded-full font-semibold'
+
+                            to='../login'><BiLogOut />Logout</Link></li>
 
                     </ul>
 

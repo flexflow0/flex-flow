@@ -23,7 +23,6 @@ import Privacy from "../Pages/Privacy/Privacy";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import Dashboard from "../Layout/DashBoard";
 import Analytics from "../Pages/Dashboard/AdminDashboard/Analytics/Analytics";
-import MyFavaurite from "../Pages/Dashboard/UsersDashboard/MyFavourite/MyFavaurite";
 import WatchLater from "../Pages/Dashboard/UsersDashboard/WatchLater/WatchLater";
 import MyLikedMovies from "../Pages/Dashboard/UsersDashboard/MyLikedMovies/MyLikedMovies";
 import WatchHistory from "../Pages/Dashboard/UsersDashboard/WatchHistory/WatchHistory";
@@ -32,10 +31,18 @@ import WriteaBlog from "../Pages/Dashboard/AdminDashboard/WriteaBlog/WriteaBlog"
 import AboutFlexflow from "../Pages/AboutFlexflow/AboutFlexflow";
 import ShowAllTvSeries from "../Pages/Home/TvSeries/ShowAllTvSeries/ShowAllTvSeries";
 import TvSeriesDetails from "../Pages/Home/TvSeries/TvSeriesDetails/TvSeriesDetails";
-
 import ViewAllBlogs from "../Pages/Dashboard/AdminDashboard/ViewAllBlogs/ViewAllBlogs";
 import ExpiredUsers from "../Pages/Dashboard/AdminDashboard/UsersManagement/ExpiredUsers";
 import PaymentHistory from "../Pages/Dashboard/UsersDashboard/PaymentHistory/PaymentHistory";
+import SubscribeUser from "../Pages/Dashboard/AdminDashboard/SubscribeUser/SubscribeUser";
+import PrivateRoute from "./PrivateRoute";
+import MyFavorites from "../Pages/Dashboard/UsersDashboard/MyFavorites/MyFavorites";
+import UpdateBlog from "../Pages/Dashboard/AdminDashboard/ViewAllBlogs/UpdateBlog";
+import FrequentlyAsked from "../Pages/LandingPage/FrequentlyAsked/FrequentlyAsked";
+import LegalNotice from "../Pages/Shared/LegalNotice/LegalNotice";
+import TermsAndCondition from "../Pages/Shared/TermsAndCondition/TermsAndCondition";
+import ShortVideos from "../Pages/Shared/ShortVideos/ShortVideos";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -55,23 +62,23 @@ export const router = createBrowserRouter([
       },
       {
         path: '/chooseplan',
-        element: <ChoosePlan></ChoosePlan>
+        element: <PrivateRoute><ChoosePlan></ChoosePlan></PrivateRoute>
       },
       {
         path: '/choosetheplan',
-        element: <ChooseThePlan></ChooseThePlan>
+        element: <PrivateRoute><ChooseThePlan></ChooseThePlan></PrivateRoute>
       },
       {
         path: '/choosepay',
-        element: <ChoosePay></ChoosePay>
+        element: <PrivateRoute><ChoosePay></ChoosePay></PrivateRoute>
       },
       {
         path: '/paymentStripe',
-        element: <PaymentStripe></PaymentStripe>
+        element: <PrivateRoute><PaymentStripe></PaymentStripe></PrivateRoute>
       },
       {
         path: '/paymentSSLCommerz',
-        element: <SSLCommerzPay></SSLCommerzPay>
+        element: <PrivateRoute><SSLCommerzPay></SSLCommerzPay></PrivateRoute>
       },
       {
         path: '/payment/success/:transactionID',
@@ -83,28 +90,28 @@ export const router = createBrowserRouter([
       },
       {
         path: '/home',
-        element: <Home></Home>
+        element: <PrivateRoute><Home></Home></PrivateRoute>
       },
       {
         path: '/show_all_movies/:keyword',
-        element: <ShowAllMovies></ShowAllMovies>
+        element: <PrivateRoute><ShowAllMovies></ShowAllMovies></PrivateRoute>
       },
       {
         path: '/movie_details/:id',
-        element: <SingleMoviePage></SingleMoviePage>
+        element: <PrivateRoute><SingleMoviePage></SingleMoviePage></PrivateRoute>
       },
       {
         path: '/show_all_tvSeries/:region',
-        element: <ShowAllTvSeries></ShowAllTvSeries>
+        element: <PrivateRoute><ShowAllTvSeries></ShowAllTvSeries></PrivateRoute>
       },
       {
         path: '/tv_series_details/:id',
-        element: <TvSeriesDetails></TvSeriesDetails>
+        element: <PrivateRoute><TvSeriesDetails></TvSeriesDetails></PrivateRoute>
 
       },
       {
         path: '/aboutus',
-        element: <AboutUs></AboutUs>
+        element: <PrivateRoute><AboutUs></AboutUs></PrivateRoute>
       },
       {
         path: '/privacy',
@@ -117,12 +124,25 @@ export const router = createBrowserRouter([
       {
         path: '/blog',
         element: <Blog></Blog>
-
       },
       {
         path: '/aboutFlexflow',
         element: <AboutFlexflow />
-      }
+      },
+      {
+        path: "/faq",
+        element: <FrequentlyAsked></FrequentlyAsked>
+      },
+      {
+        path: '/legalnotice',
+        element: <LegalNotice></LegalNotice>
+      },
+      {
+        path:'/termsandcondition',
+        element:<TermsAndCondition></TermsAndCondition>
+      },
+       {   path:'/shortvideos',
+        element:<ShortVideos></ShortVideos>}
 
       // {
       //   path: '/genres/:genre',
@@ -137,7 +157,7 @@ export const router = createBrowserRouter([
   },
   {
     path: 'dashboard',
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
         path: 'uploadmovies',
@@ -163,13 +183,25 @@ export const router = createBrowserRouter([
         path: 'writeablog',
         element: <WriteaBlog></WriteaBlog>
       },
+      {
+        path: 'subscribeuser',
+        element: <SubscribeUser></SubscribeUser>
+      },
+      {
+        path: 'viewallblogs',
+        element: <ViewAllBlogs></ViewAllBlogs>
+      },
+      {
+        path: 'viewallblogs/updateblog/:id',
+        element: <UpdateBlog></UpdateBlog>
+      },
 
 
 
       // User Dashboard 
       {
-        path: 'favourite',
-        element: <MyFavaurite></MyFavaurite>
+        path: 'favorites',
+        element: <MyFavorites></MyFavorites>
       },
       {
         path: 'watchLater',
@@ -183,10 +215,7 @@ export const router = createBrowserRouter([
         path: 'watchhistory',
         element: <WatchHistory></WatchHistory>
       },
-      {
-        path:'viewallblogs',
-        element: <ViewAllBlogs></ViewAllBlogs>
-      },
+
       {
         path: 'paymenthistory',
         element: <PaymentHistory></PaymentHistory>
@@ -200,3 +229,4 @@ export const router = createBrowserRouter([
     element: <Loading />
   }
 ]);
+

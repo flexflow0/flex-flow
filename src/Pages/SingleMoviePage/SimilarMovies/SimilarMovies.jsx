@@ -15,17 +15,31 @@ const SimilarMovies = ({genres}) => {
         const randomValue = similarMovies[randomIndex];
         randomMovies.push(randomValue)
     }
-    console.log(randomMovies);
+    // console.log(randomMovies);
 
     return (
         <>
             <Swiper
-                slidesPerView={6}
-                spaceBetween={25}
+                slidesPerView={1}
+                spaceBetween={0}
                 grabCursor={true}
-                pagination={{
-                    clickable: true,
+                breakpoints={{
+                    330: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                    1024: {
+                        slidesPerView: 5,
+                        spaceBetween: 30,
+                    },
                 }}
+                // pagination={{
+                //     clickable: true,
+                // }}
                 autoplay={{
                     delay: 2500,
                     disableOnInteraction: false,
