@@ -107,8 +107,8 @@ export const router = createBrowserRouter([
       {
         path: '/tv_series_details/:id',
         element: <PrivateRoute><TvSeriesDetails></TvSeriesDetails></PrivateRoute>
-
       },
+    
       {
         path: '/aboutus',
         element: <PrivateRoute><AboutUs></AboutUs></PrivateRoute>
