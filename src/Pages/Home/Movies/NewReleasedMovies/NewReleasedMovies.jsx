@@ -7,10 +7,11 @@ import SectionMovieCard from '../../../Shared/SectionMovieCard/SectionMovieCard'
 import './NewReleasedMovies.css'
 import { Link } from 'react-router-dom';
 
-const NewReleasedMovies = () => {
+const NewReleasedMovies = ({age}) => {
 
-    const movies = useMovies();
-    const reversedMovies = movies[0].slice(0);
+    const [movies, refetch] = useMovies({}, age);
+    console.log(movies);    
+    const reversedMovies = movies.slice(0);
     const newMovies = reversedMovies.reverse().slice(0, 10);
 
     return (
