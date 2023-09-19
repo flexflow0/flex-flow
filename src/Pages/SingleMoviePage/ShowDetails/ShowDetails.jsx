@@ -17,7 +17,7 @@ const ShowDetails = ({ movie, loading }) => {
     }
 
     return (
-        <div className="bg-[#1f1f1f] rounded-md p-4">
+        <div className="bg-[#1f1f1f] lg:h-[500px] md:h-[400px] rounded-md p-4">
             <div className='relative'>
                 <div>
                     <div className='rounded border-2 border-[#3d1164] h-20 grid grid-cols-3 overflow-visible'>

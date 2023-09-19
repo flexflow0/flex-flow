@@ -51,9 +51,13 @@ export const baseApi = createApi({
                 method: "PATCH",
                 body: data
             })
+        }),
+
+        getSingleMovie: builder.query({
+            query: (id)=> `/singleMovie/${id}`
         })
     })
 
 })
 
-export const { useGetUsersQuery, useSetUserMutation, useUpdateUserMutation, useGetPaymentHistoryQuery, useGetAdminQuery, useSetWatchHistoryMutation, useGetWatchHistoryQuery, useDeleteAllHistoryMutation, useDeleteHistoryByIDMutation } = baseApi
+export const { useGetUsersQuery, useSetUserMutation, useUpdateUserMutation, useGetPaymentHistoryQuery, useGetAdminQuery, useSetWatchHistoryMutation, useGetWatchHistoryQuery, useDeleteAllHistoryMutation, useDeleteHistoryByIDMutation, useGetSingleMovieQuery } = baseApi
