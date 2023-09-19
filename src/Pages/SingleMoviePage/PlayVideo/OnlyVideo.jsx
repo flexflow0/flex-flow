@@ -1,7 +1,7 @@
 import React from 'react';
-
+import Loading from '../../Shared/Loading';
 const OnlyVideo = ({ movie, isLoading }) => {
-
+ 
     if (isLoading) {
         return (
             <div className='w-28 h-screen mx-auto flex items-center'>
@@ -9,7 +9,7 @@ const OnlyVideo = ({ movie, isLoading }) => {
             </div>
         )
     }
-
+   
     return (
         <div className="grow rounded-lg overflow-hidden">
             <iframe
@@ -19,6 +19,7 @@ const OnlyVideo = ({ movie, isLoading }) => {
                 title={movie?.title}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen='true'
+                className='lg:h-[500px] md:h-[400px]'
             ></iframe>
         </div>
     );
