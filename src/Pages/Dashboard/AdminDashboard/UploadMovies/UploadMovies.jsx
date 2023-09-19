@@ -137,7 +137,6 @@ const UploadMovies = () => {
                 }
             ],
             production_company
-
         }
 
         axios
@@ -187,8 +186,8 @@ const UploadMovies = () => {
                                 required
                             />
                         </div>
+
                     </div>
-                    {/* ********* */}
                     {/* ********** */}
                     <div className="grid grid-cols-2 gap-5">
                         {/* Movie URL */}
@@ -217,6 +216,7 @@ const UploadMovies = () => {
                                 required
                             />
                         </div>
+
                     </div>
                     {/* ********* */}
                     {/* ********** */}
@@ -250,6 +250,7 @@ const UploadMovies = () => {
                                 <option>R</option>
                             </select>
                         </div>
+
                     </div>
                     {/* ********* */}
                     {/* ********** */}

@@ -31,13 +31,15 @@ import WriteaBlog from "../Pages/Dashboard/AdminDashboard/WriteaBlog/WriteaBlog"
 import AboutFlexflow from "../Pages/AboutFlexflow/AboutFlexflow";
 import ShowAllTvSeries from "../Pages/Home/TvSeries/ShowAllTvSeries/ShowAllTvSeries";
 import TvSeriesDetails from "../Pages/Home/TvSeries/TvSeriesDetails/TvSeriesDetails";
-
 import ViewAllBlogs from "../Pages/Dashboard/AdminDashboard/ViewAllBlogs/ViewAllBlogs";
 import ExpiredUsers from "../Pages/Dashboard/AdminDashboard/UsersManagement/ExpiredUsers";
 import PaymentHistory from "../Pages/Dashboard/UsersDashboard/PaymentHistory/PaymentHistory";
 import SubscribeUser from "../Pages/Dashboard/AdminDashboard/SubscribeUser/SubscribeUser";
 import PrivateRoute from "./PrivateRoute";
 import MyFavorites from "../Pages/Dashboard/UsersDashboard/MyFavorites/MyFavorites";
+import UpdateBlog from "../Pages/Dashboard/AdminDashboard/ViewAllBlogs/UpdateBlog";
+import ShortVideos from "../Pages/Shared/ShortVideos/ShortVideos";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -57,23 +59,23 @@ export const router = createBrowserRouter([
       },
       {
         path: '/chooseplan',
-        element: <ChoosePlan></ChoosePlan>
+        element: <PrivateRoute><ChoosePlan></ChoosePlan></PrivateRoute>
       },
       {
         path: '/choosetheplan',
-        element: <ChooseThePlan></ChooseThePlan>
+        element: <PrivateRoute><ChooseThePlan></ChooseThePlan></PrivateRoute>
       },
       {
         path: '/choosepay',
-        element: <ChoosePay></ChoosePay>
+        element: <PrivateRoute><ChoosePay></ChoosePay></PrivateRoute>
       },
       {
         path: '/paymentStripe',
-        element: <PaymentStripe></PaymentStripe>
+        element: <PrivateRoute><PaymentStripe></PaymentStripe></PrivateRoute>
       },
       {
         path: '/paymentSSLCommerz',
-        element: <SSLCommerzPay></SSLCommerzPay>
+        element: <PrivateRoute><SSLCommerzPay></SSLCommerzPay></PrivateRoute>
       },
       {
         path: '/payment/success/:transactionID',
@@ -85,28 +87,28 @@ export const router = createBrowserRouter([
       },
       {
         path: '/home',
-        element: <Home></Home>
+        element: <PrivateRoute><Home></Home></PrivateRoute>
       },
       {
         path: '/show_all_movies/:keyword',
-        element: <ShowAllMovies></ShowAllMovies>
+        element: <PrivateRoute><ShowAllMovies></ShowAllMovies></PrivateRoute>
       },
       {
         path: '/movie_details/:id',
-        element: <SingleMoviePage></SingleMoviePage>
+        element: <PrivateRoute><SingleMoviePage></SingleMoviePage></PrivateRoute>
       },
       {
         path: '/show_all_tvSeries/:region',
-        element: <ShowAllTvSeries></ShowAllTvSeries>
+        element: <PrivateRoute><ShowAllTvSeries></ShowAllTvSeries></PrivateRoute>
       },
       {
         path: '/tv_series_details/:id',
-        element: <TvSeriesDetails></TvSeriesDetails>
+        element: <PrivateRoute><TvSeriesDetails></TvSeriesDetails></PrivateRoute>
 
       },
       {
         path: '/aboutus',
-        element: <AboutUs></AboutUs>
+        element: <PrivateRoute><AboutUs></AboutUs></PrivateRoute>
       },
       {
         path: '/privacy',
@@ -119,11 +121,14 @@ export const router = createBrowserRouter([
       {
         path: '/blog',
         element: <Blog></Blog>
-
       },
       {
         path: '/aboutFlexflow',
         element: <AboutFlexflow />
+      },
+      {
+        path:'/shortvideos',
+        element:<ShortVideos></ShortVideos>
       }
 
       // {
@@ -169,6 +174,14 @@ export const router = createBrowserRouter([
         path:'subscribeuser',
         element: <SubscribeUser></SubscribeUser>
       },
+      {
+        path:'viewallblogs',
+        element: <ViewAllBlogs></ViewAllBlogs>
+      },
+      {
+        path:'viewallblogs/updateblog/:id',
+        element: <UpdateBlog></UpdateBlog>
+      },
 
 
 
@@ -189,10 +202,7 @@ export const router = createBrowserRouter([
         path: 'watchhistory',
         element: <WatchHistory></WatchHistory>
       },
-      {
-        path:'viewallblogs',
-        element: <ViewAllBlogs></ViewAllBlogs>
-      },
+     
       {
         path: 'paymenthistory',
         element: <PaymentHistory></PaymentHistory>

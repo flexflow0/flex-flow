@@ -5,12 +5,10 @@ import PlayVideo from './PlayVideo/PlayVideo';
 import ShowDetails from './ShowDetails/ShowDetails';
 import useSingleMovie from '../../Hooks/useSingleMovie/useSingleMovie';
 import Loading from '../Shared/Loading';
-
+import { useEffect, useState } from 'react';
 const SingleMoviePage = () => {
-
     const { id } = useParams();
     const [movie, isLoading] = useSingleMovie(id);
-
     if (isLoading) {
         return (
             <div className='w-28 h-screen mx-auto flex items-center'>
