@@ -130,15 +130,6 @@ export const router = createBrowserRouter([
         path:'/shortvideos',
         element:<ShortVideos></ShortVideos>
       }
-
-      // {
-      //   path: '/genres/:genre',
-      //   element: <MoviesByGenres></MoviesByGenres>
-      // },
-      // {
-      //   path: '/regions/:region',
-      //   element: <MoviesByRegion></MoviesByRegion>
-      // }
     ],
     errorElement: <PageNotFound></PageNotFound>
   },
@@ -182,8 +173,6 @@ export const router = createBrowserRouter([
         path:'viewallblogs/updateblog/:id',
         element: <UpdateBlog></UpdateBlog>
       },
-
-
 
       // User Dashboard 
       {
