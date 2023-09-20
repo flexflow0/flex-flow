@@ -1,6 +1,7 @@
 import { useContext, useRef } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useUser from "../../../Hooks/useUser/useUser";
+import { FaDownload } from 'react-icons/fa';
 
 const AddRemoveToList = ({ movie }) => {
     const { user, loading } = useContext(AuthContext);
@@ -102,6 +103,14 @@ const AddRemoveToList = ({ movie }) => {
             playerRef.current.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
         }
     }
+    // ----------------------Arafat-----------------
+    const videoURL = movie?.movie_url;
+    const downloadVideo = () => {
+        const a = document.createElement('a');
+        a.href = videoURL;
+        a.download = 'movie?.title';
+        a.click();
+    }
 
     return (
         <>
@@ -160,6 +169,9 @@ const AddRemoveToList = ({ movie }) => {
                                 <i class="fa-sharp fa-regular fa-heart text-xl text-white"></i>
                             </button>
                     }
+                    <button className="text-white pl-3" onClick={downloadVideo}>
+                        <FaDownload></FaDownload>
+                    </button>
                     {
                         isWatchList ?
                             <button
