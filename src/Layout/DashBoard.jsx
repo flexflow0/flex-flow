@@ -93,7 +93,7 @@ const Dashboard = () => {
                                         <BiSolidLike />
                                         My Liked Movies</NavLink></li>
                                     <li><NavLink
-                                        className='rounded-l-full font-semibold' to='/dashboard/favourite'>
+                                        className='rounded-l-full font-semibold' to='/dashboard/favorites'>
                                         <MdFavorite />
                                         My Favourite Movies
                                     </NavLink></li>

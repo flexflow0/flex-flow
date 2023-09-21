@@ -16,7 +16,12 @@ const NewReleasedMovies = ({age}) => {
 
     return (
         <div className='mx-10 mt-20'>
-            <h2 className='text-2xl font-semibold mb-5'>Recently Released : </h2>
+            <div className='flex justify-between'>
+                <h2 className='text-2xl font-semibold mb-5'>Recently Released : </h2>
+                <Link to='/show_all_movies/all'>
+                    <span className='text-[#3c3cb8] text-base hover:underline uppercase font-semibold'>See More</span>
+                </Link>
+            </div>
             <Swiper
                 style={{
                     '--swiper-navigation-color': '#fff',
@@ -55,20 +60,6 @@ const NewReleasedMovies = ({age}) => {
                         ></SectionMovieCard>
                     </SwiperSlide>)
                 }
-                <SwiperSlide className=''>
-                    <Link to='/show_all_movies/all'>
-                        <div
-                            className="rounded-lg border border-[#918282] hover:bg-[#3b0764] hover:text-white aspect-ratio-container flex justify-center"
-                        >
-                            <p
-                                className='flex justify-center items-center text-xl text-[#dfd1d1d7]'
-                            >
-                                See more
-                                <i className="fa-solid fa-circle-right ml-2 mt-1"></i>
-                            </p>
-                        </div>
-                    </Link>
-                </SwiperSlide>
             </Swiper>
         </div>
     );
