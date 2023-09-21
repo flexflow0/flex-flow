@@ -33,7 +33,7 @@ const MyFavorites = () => {
         <div>
             <DashboardTop></DashboardTop>
             {
-                favorites.length === 0 ?
+                favorites?.length === 0 ?
                     <div className="my-10 text-2xl text-center">
                         <h2>"No movies to Favorites"</h2>
                     </div> :

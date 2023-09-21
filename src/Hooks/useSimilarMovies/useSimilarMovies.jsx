@@ -7,7 +7,7 @@ const useSimilarMovies = (genres) => {
         queryKey: [genres],
         queryFn: () =>
             axios
-                .get(`https://flex-flow-server.vercel.app/similar_movies?genres=${genres}`)
+                .get(`http://localhost:5000/similar_movies?genres=${genres}`)
                 .then((res) => res.data)
     })
 
