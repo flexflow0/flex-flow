@@ -164,41 +164,7 @@ const MainNavbar = () => {
             <div className="navbar-end">
                 <div className="dropdown dropdown-end">
                     {
-                        (pathname == '/home') ?
-                            <>
-                                <label tabIndex={0} className="">
-                                    <div className="avatar flex items-center justify-between space-x-2 mr-5 pl-1 rounded-full h-10 bg-[#cd9ffb] border-2 border-[#8700f5]">
-                                        <div className="w-6 opacity-40">
-                                            <img className="w-full Icon" src={menuIcon} alt="menuIcon" />
-                                        </div>
-                                        <div className="w-10 rounded-full h-10 border-2 border-[#8700f5] ">
-                                            <img
-                                                src={user?.photoURL} />
-                                        </div>
-                                    </div>
-                                </label>
-                                <ul
-                                    tabIndex={0}
-                                    className="dropdown-content z-10 menu p-2 shadow rounded-lg w-52 mt-3 bg-[#0d1334]"
-                                >
-                                    <li>
-                                        <NavLink className="text-center rounded-lg uppercase" to='/dashboard'>
-                                            {user?.displayName}</NavLink>
-                                    </li>
-                                    <li >
-                                        <NavLink className="rounded-lg uppercase" to='/dashboard'>
-                                            <BiSolidDashboard />
-                                            DashBoard</NavLink>
-                                    </li>
-
-                                    <li onClick={() => logout()} >
-                                        <Link to='/login'
-                                            className="rounded-lg uppercase" >
-                                            <BiLogOut />  Log Out
-                                        </Link></li>
-
-                                </ul>
-                            </> :
+                    (pathname == '/'|| pathname =='/login' || pathname =='/register') ?
                             <div className='mr-10'>
                                 {
                                     user ? <><button onClick={() => logout()} className='uppercase bg-[#22225a] px-5 py-2 rounded-lg font-medium'>Log Out</button>
@@ -206,7 +172,42 @@ const MainNavbar = () => {
                                     </>
 
                                 }
-                            </div>
+                            </div>:
+                              <>
+                              <label tabIndex={0} className="">
+                                  <div className="avatar flex items-center justify-between space-x-2 mr-5 pl-1 rounded-full h-10 bg-[#cd9ffb] border-2 border-[#8700f5]">
+                                      <div className="w-6 opacity-40">
+                                          <img className="w-full Icon" src={menuIcon} alt="menuIcon" />
+                                      </div>
+                                      <div className="w-10 rounded-full h-10 border-2 border-[#8700f5] ">
+                                          <img
+                                              src={user?.photoURL} />
+                                      </div>
+                                  </div>
+                              </label>
+                              <ul
+                                  tabIndex={0}
+                                  className="dropdown-content z-10 menu p-2 shadow rounded-lg w-52 mt-3 bg-[#0d1334]"
+                              >
+                                  <li>
+                                      <NavLink className="text-center rounded-lg uppercase" to='/dashboard'>
+                                          {user?.displayName}</NavLink>
+                                  </li>
+                                  <li >
+                                      <NavLink className="rounded-lg uppercase" to='/dashboard'>
+                                          <BiSolidDashboard />
+                                          DashBoard</NavLink>
+                                  </li>
+
+                                  <li onClick={() => logout()} >
+                                      <Link to='/login'
+                                          className="rounded-lg uppercase" >
+                                          <BiLogOut />  Log Out
+                                      </Link></li>
+
+                              </ul>
+                          </> 
+                            
                     }
                 </div>
 

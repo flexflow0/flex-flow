@@ -68,10 +68,7 @@ const TvSeriesDetails = () => {
                                         {/* <i className="fa-solid fa-thumbs-up"></i> */}
                                     </button>
                                 </div>
-                                <div className='my-2'>
-                                    <h2>Trailer</h2>
-                                    <p className='text-xs'>With not one, not two, but THREE Spider-Mans!</p>
-                                </div>
+                                
                                 <div className='my-2'>
                                     <h2>IMDB Rating</h2>
                                     <p className='text-xs'>The IMDB rating is weighted to help keep it reliable.</p>
@@ -102,6 +99,7 @@ const TvSeriesDetails = () => {
                                 <div className='mb-2'>
                                     <h2>Short Info</h2>
                                     <p className='text-xs'>{displayEpisode?.description}</p>
+                                    <p className='text-xs'>{tvSeries?.episode_number}</p>
                                 </div>
                                 <div className='flex gap-2'>
                                     <button
