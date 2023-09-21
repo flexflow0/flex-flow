@@ -10,7 +10,7 @@ const PopularFlicks = () => {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await fetch('https://flex-flow-server.vercel.app/movies');
+            const response = await fetch('http://localhost:5000/movies');
             const jsonData = await response.json();
             const sortedData = jsonData.sort((a, b) => a.rating - b.rating);
             const topSixData = sortedData.slice(0, 6);
