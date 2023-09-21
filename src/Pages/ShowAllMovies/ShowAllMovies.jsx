@@ -45,13 +45,11 @@ const ShowAllMovies = () => {
             <div className="flex justify-center items-center mt-16 gap-4">
 
                 <div className='relative mx-auto px-5 mb-20 w-full sm:w-96 md:w-[500px] '>
-                    {/* Subscribe Email */}
                     <input required className='pl-6  py-5 h-10 w-full sm:w-96 md:w-[500px] bg-transparent border-2 bg-[#3E3E3E] border-[#830fea] input rounded-full text-white' type="search" placeholder="Search Movies" onChange={(e) => setSearch(e.target.value)} />
-                    {/* Subscribe button */}
                         <button className='absolute top-1/2 -right-3 -translate-y-1/2  px-4 text-white'><FaSearch></FaSearch></button>
                 
                 </div>
-                {/* <input className="py-2 px-8 border bg-[#111111] hover:border-purple-700  border-purple-900 text-center  rounded-full w-1/2" type="search" placeholder="Search Movies" onChange={(e) => setSearch(e.target.value)} /> */}
+             
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 p-5 my-20">
                 {

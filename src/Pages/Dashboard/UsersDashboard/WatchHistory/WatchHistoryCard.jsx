@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from "react";
 import useAuth from '../../../../Hooks/useAuth/useAuth';
 import { BiTrash } from "react-icons/bi";
 import { useDeleteHistoryByIDMutation } from '../../../../Redux/Features/API/baseApi';
@@ -8,6 +8,13 @@ const WatchHistoryCard = ({ data, user, refetch }) => {
     const { thumbnail, title, production_company, release_year, release_month, IMDb_rating, languages, region, _id } = data
     // console.log(data);
 
+
+    useEffect(() => {
+        if (!deleteLoading && deleteResponse) {
+            toast.success("You are Successfully Deleted the Content From Watch History")
+            refetch()
+        }
+    }, [deleteResponse])
     const handleRemove = (id) => {
         console.log(id);
         const deleteData = {
@@ -15,17 +22,14 @@ const WatchHistoryCard = ({ data, user, refetch }) => {
         }
         deleteHistoryByID(deleteData)
     }
-    if (!deleteLoading && deleteResponse) {
-        toast.success("You are Successfully Deleted the Content")
-        refetch()
-    }
+
     // useEffect(() => { refetch() })
     return (
         <div className='rounded-lg  mb-2  bg-[#B3A8CA] overflow-hidden flex flex-col md:flex-row gap-4  lg:pr-5'>
             <img
                 className='h-full w-full md:w-52
                 mr-2'
-                src={thumbnail} alt="thumbnail" />
+                src={thumbnail || "https://i.ibb.co/BsmRhsq/placeholder1.jpg"} alt="thumbnail" />
 
             <div className=' grid grid-cols-4 items-center  justify-between w-full'>
                 <div className='col-span-2'>

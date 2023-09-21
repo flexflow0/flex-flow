@@ -5,18 +5,6 @@ import Loading from "../../../Shared/Loading";
 
 const PaymentHistory = () => {
     const { user, loading } = useAuth()
-
-    if (loading) {
-        return <div className="h-full w-full flex items-center justify-center">
-            <div className="h-[200px]">
-                <Loading />
-            </div>
-
-        </div>
-    }
-
-
-    console.log(user?.email);
     const { data: subscriptions, isLoading } = useGetPaymentHistoryQuery(user?.email)
     if (isLoading || loading) {
         return <div className="h-full w-full flex items-center justify-center">
@@ -26,6 +14,8 @@ const PaymentHistory = () => {
 
         </div>
     }
+
+
 
     // console.log(subscriptions);
     return (
