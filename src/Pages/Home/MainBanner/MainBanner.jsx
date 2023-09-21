@@ -9,17 +9,17 @@ const MainBanner = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedMovieTrailerLink, setSelectedMovieTrailerLink] = useState(""); // State variable for trailer link
 
-  
+
   if (!popularMovies) {
     return <div className="h-full w-full flex items-center justify-center">
-    <div className="h-[200px]">
+      <div className="h-[200px]">
         <Loading />
-    </div>
+      </div>
 
-</div>
+    </div>
   }
   useEffect(() => {
-    fetch("http://localhost:5000/upcomingmovies")
+    fetch("https://flex-flow-server-gold.vercel.app/upcomingmovies")
       .then((res) => res.json())
       .then((data) => setPopularMovies(data));
   }, []);

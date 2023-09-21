@@ -6,7 +6,7 @@ const TvSeriesDetails = () => {
     const [loading, setLoading] = useState(true);
     const [tvSeries, setTvSeries] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/singleTvSeries/${id}`)
+        fetch(`https://flex-flow-server-gold.vercel.app/singleTvSeries/${id}`)
             .then(res => res.json())
             .then(data => {
                 setTvSeries(data)
@@ -37,7 +37,7 @@ const TvSeriesDetails = () => {
                         <div className='px-5 lg:px-20 my-10 grid grid-cols-1 lg:grid-cols-4 gap-0 lg:gap-4'>
                             <div className='col-span-3 rounded-lg overflow-hidden' id='full_movie'>
                                 <iframe
-                                className="lg:h-[500px] md:h-[400px] "
+                                    className="lg:h-[500px] md:h-[400px] "
                                     width="100%"
                                     height="100%"
                                     src={tvSeries?.seasons[0].episodes[0].link}
@@ -61,7 +61,7 @@ const TvSeriesDetails = () => {
                                                 <p className='text-[10px]'>
                                                     {tvSeries?.rating}
                                                     <span className='mx-1'>|</span>
-                                                    
+
                                                 </p>
                                             </div>
                                         </div>

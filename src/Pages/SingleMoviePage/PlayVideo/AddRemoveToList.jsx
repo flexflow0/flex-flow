@@ -36,7 +36,7 @@ const AddRemoveToList = ({ movie }) => {
             to: "likes",
             action: like
         }
-        fetch('http://localhost:5000/users/lists', {
+        fetch('https://flex-flow-server-gold.vercel.app/users/lists', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -57,7 +57,7 @@ const AddRemoveToList = ({ movie }) => {
             to: "favorites",
             action: favorite
         }
-        fetch('http://localhost:5000/users/lists', {
+        fetch('https://flex-flow-server-gold.vercel.app/users/lists', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -79,7 +79,7 @@ const AddRemoveToList = ({ movie }) => {
             to: "WatchList",
             action: watchList
         }
-        fetch('http://localhost:5000/users/lists', {
+        fetch('https://flex-flow-server-gold.vercel.app/users/lists', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

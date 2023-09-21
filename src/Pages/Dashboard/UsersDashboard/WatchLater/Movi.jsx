@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useMovies from '../../../../Hooks/useMovies/useMovies';
 
-const Movi = ({movie}) => {
-    const [ refetch] = useMovies();
+const Movi = ({ movie }) => {
+    const [refetch] = useMovies();
 
 
     const handleDelete = movie => {
@@ -19,7 +19,7 @@ const Movi = ({movie}) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/watchLaterMovies/${movie._id}`, {
+                fetch(`https://flex-flow-server-gold.vercel.app/watchLaterMovies/${movie._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -65,9 +65,9 @@ const Movi = ({movie}) => {
                     className="fa-regular fa-circle-play text-5xl mb-20 hover:text-[#e7bb68] hover:cursor-pointer"
                 ></i>
             </Link>
-           <div className='text-center'>
-           <button onClick={() => handleDelete(movie)} className='lg:-right-5 right-5 drop-shadow-md transition-all duration-200 border-2 border-[#830FEA] px-4 text-white sm:px-10 rounded-full text-lg font-bold py-1 mt-4 bg-[#830FEA] hover:bg-purple-950'>Deleted</button>
-           </div>
+            <div className='text-center'>
+                <button onClick={() => handleDelete(movie)} className='lg:-right-5 right-5 drop-shadow-md transition-all duration-200 border-2 border-[#830FEA] px-4 text-white sm:px-10 rounded-full text-lg font-bold py-1 mt-4 bg-[#830FEA] hover:bg-purple-950'>Deleted</button>
+            </div>
         </div>
     );
 };

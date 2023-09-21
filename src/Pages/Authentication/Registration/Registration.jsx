@@ -67,12 +67,12 @@ const Registration = () => {
                             .then(result => {
                                 const loguser = result.user
                                 console.log(loguser);
-              updateUser(name, image, birthDate)
+                                updateUser(name, image, birthDate)
                                     .then(() => {
                                         // const userData = { name, email, role:'user', photoURL: image, birthDate: age }
-                                        const userData = { name: name, email: email, photoURL: image, role:'user', birthDate: age, likes: [], favorites: [], WatchList: [], recentlyViewed: [],nonSubscribed: true}
+                                        const userData = { name: name, email: email, photoURL: image, role: 'user', birthDate: age, likes: [], favorites: [], WatchList: [], recentlyViewed: [], nonSubscribed: true }
 
-                                        fetch('http://localhost:5000/users', {
+                                        fetch('https://flex-flow-server-gold.vercel.app/users', {
                                             method: 'POST',
                                             headers: {
                                                 'content-type': 'application/json'

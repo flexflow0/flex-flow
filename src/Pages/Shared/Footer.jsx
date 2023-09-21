@@ -12,12 +12,12 @@ const Footer = () => {
             title: 'Your mail successfully added in the mailing list',
             showConfirmButton: false,
             timer: 1500
-          })
+        })
         console.log(data);
         reset()
         const addEmail = { email: data.email }
 
-        fetch('http://localhost:5000/subscribe', {
+        fetch('https://flex-flow-server-gold.vercel.app/subscribe', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -28,7 +28,7 @@ const Footer = () => {
             .then(data => {
                 console.log(data);
             })
-            
+
     }
     return (
         <div className='text-center pb-5'>

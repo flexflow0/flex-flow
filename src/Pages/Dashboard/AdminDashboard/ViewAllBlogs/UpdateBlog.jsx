@@ -8,20 +8,20 @@ import { useEffect, useState } from "react";
 
 const UpdateBlog = () => {
 
-    const {id} = useParams()
+    const { id } = useParams()
 
 
     const [preBlog, setPreBlog] = useState()
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        fetch(`http://localhost:5000/blog/${id}`)
+        fetch(`https://flex-flow-server-gold.vercel.app/blog/${id}`)
             .then(res => res.json())
             .then(data => {
                 setPreBlog(data)
                 setLoading(false)
             })
     }, [])
-    
+
 
     const [axiosSecure] = useAxiosSecure();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -32,7 +32,7 @@ const UpdateBlog = () => {
 
         // const formData = new FormData();
         // formData.append('image', data.thumbnail[0])
-       
+
 
         // fetch(img_hosting_url, {
         //     method: 'PATCH',
@@ -42,11 +42,11 @@ const UpdateBlog = () => {
         //     .then(imgResponse => {
         //         if (imgResponse.success) {
         //             const imgUrl = imgResponse.data.display_url;
-                    const { author, content, thumbnail, title, date } = data;
-                    const blogItem = { author, content, thumbnail: preBlog.thumbnail, title, date }
-                    console.log(blogItem);
+        const { author, content, thumbnail, title, date } = data;
+        const blogItem = { author, content, thumbnail: preBlog.thumbnail, title, date }
+        console.log(blogItem);
 
-                    axiosSecure.patch(`/blog/${id}`, blogItem)
+        axiosSecure.patch(`/blog/${id}`, blogItem)
         //         }
         //     })
         // console.log(formData);
@@ -54,7 +54,7 @@ const UpdateBlog = () => {
         console.log(data);
     }
 
-    if(loading){
+    if (loading) {
         return <p>{loading}</p>
     }
 

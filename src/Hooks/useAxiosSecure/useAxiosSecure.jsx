@@ -5,12 +5,12 @@ import useAuth from '../useAuth/useAuth';
 
 
 const axiosSecure = axios.create({
-  baseURL: 'http://localhost:5000', 
+  baseURL: 'https://flex-flow-server-gold.vercel.app',
 });
 
 const useAxiosSecure = () => {
-  const { logOut } = useAuth(); 
-  const navigate = useNavigate(); 
+  const { logOut } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axiosSecure.interceptors.request.use((config) => {

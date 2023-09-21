@@ -6,7 +6,7 @@ const useMovies = (queries) => {
         queryKey: [queries],
         queryFn: () =>
             axios
-                .get(`http://localhost:5000/movies?genre=${queries?.genre}&region=${queries?.region}`)
+                .get(`https://flex-flow-server-gold.vercel.app/movies?genre=${queries?.genre}&region=${queries?.region}`)
                 .then((res) => res.data),
     })
 
