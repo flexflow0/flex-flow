@@ -91,7 +91,6 @@ const AddRemoveToList = ({ movie }) => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data)
                 refetch();
                 isWatchList = watchList;
             })
