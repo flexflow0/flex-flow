@@ -6,7 +6,7 @@ const useUser = (email) => {
     const { data: userData = [], isLoading, refetch } = useQuery({
         queryKey: [email],
         queryFn: async () =>
-            await axios.get(`http://localhost:5000/user/${email}`)
+            await axios.get(`https://flex-flow-server.vercel.app/user/${email}`)
             .then((res) => res.data)
     });
 
