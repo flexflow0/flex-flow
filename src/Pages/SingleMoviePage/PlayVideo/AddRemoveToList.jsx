@@ -53,6 +53,7 @@ const AddRemoveToList = ({ movie }) => {
                 isLike = like;
             })
     }
+    
     const handleFavorite = (favorite) => {
         const data = {
             id: movie._id,

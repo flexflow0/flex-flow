@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { AuthContext } from "../../../Provider/AuthProvider";
-import Loading from "../../../Shared/Loading";
 import useUser from "../../../../Hooks/useUser/useUser";
+import Loading from "../../../Shared/Loading";
+import { AuthContext } from "../../../Provider/AuthProvider";
 import ShowListedMovies from "../../../Shared/ShowListedMovies/ShowListedMovies";
+import DashboardTop from "../../../../components/dashboardTop";
 
 const MyLikedMovies = () => {
-
     const { user, loading } = useContext(AuthContext);
 
     if (loading) {
@@ -26,14 +26,24 @@ const MyLikedMovies = () => {
         )
     }
 
+    // console.log(userData);
     const { likes } = userData;
 
     return (
-        <ShowListedMovies
-            list={likes}
-        ></ShowListedMovies>
+        <div>
+            <DashboardTop></DashboardTop>
+            {
+                likes.length === 0 ?
+                    <div className="my-10 text-2xl text-center">
+                        <h2>"No movies likes"</h2>
+                    </div> :
+                    <ShowListedMovies
+                        list={likes}
+                        to="likes"
+                    ></ShowListedMovies>
+            }
+        </div>
     );
-
 };
 
 export default MyLikedMovies;

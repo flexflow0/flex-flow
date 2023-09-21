@@ -2,8 +2,8 @@ import { useContext } from "react";
 import useUser from "../../../../Hooks/useUser/useUser";
 import Loading from "../../../Shared/Loading";
 import { AuthContext } from "../../../Provider/AuthProvider";
-import useLists from "../../../../Hooks/useLists/useLists";
 import ShowListedMovies from "../../../Shared/ShowListedMovies/ShowListedMovies";
+import DashboardTop from "../../../../components/dashboardTop";
 
 const MyFavorites = () => {
     const { user, loading } = useContext(AuthContext);
@@ -31,9 +31,17 @@ const MyFavorites = () => {
 
     return (
         <div>
-            <ShowListedMovies
-                list={favorites}
-            ></ShowListedMovies>
+            <DashboardTop></DashboardTop>
+            {
+                favorites.length === 0 ?
+                    <div className="my-10 text-2xl text-center">
+                        <h2>"No movies to Favorites"</h2>
+                    </div> :
+                    <ShowListedMovies
+                        list={favorites}
+                        to="favorites"
+                    ></ShowListedMovies>
+            }
         </div>
     );
 };

@@ -18,8 +18,6 @@ const Home = () => {
         return;
     }
 
-    console.log(userData.birthDate);
-
     return (
         <div>
             <MainBanner></MainBanner>
