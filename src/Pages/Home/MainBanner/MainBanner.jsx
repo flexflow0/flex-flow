@@ -19,7 +19,7 @@ const MainBanner = () => {
 </div>
   }
   useEffect(() => {
-    fetch("https://flex-flow-server.vercel.app/upcomingmovies")
+    fetch("http://localhost:5000/upcomingmovies")
       .then((res) => res.json())
       .then((data) => setPopularMovies(data));
   }, []);

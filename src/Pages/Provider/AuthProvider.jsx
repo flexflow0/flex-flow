@@ -30,7 +30,7 @@ const AuthProvider = ({ children }) => {
 
             // get and set token-------------
             if (user) {
-                axios.post('https://flex-flow-server.vercel.app/jwt', { email: user.email })
+                axios.post('http://localhost:5000/jwt', { email: user.email })
                     .then(data => {
                         // console.log(data.data.token)
                         localStorage.setItem('access-token', data.data.token)
