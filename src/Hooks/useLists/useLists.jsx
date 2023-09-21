@@ -7,7 +7,7 @@ const useLists = (list) => {
         queryKey: [list],
         queryFn: () =>
             axios
-                .get(`http://localhost:5000/lists?list=${list}`)
+                .get(`https://flex-flow-server.vercel.app/lists?list=${list}`)
                 .then((res) => res.data),
     })
 

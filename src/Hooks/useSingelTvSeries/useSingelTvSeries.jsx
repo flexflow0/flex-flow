@@ -6,7 +6,7 @@ const useSingelTvSeries = (id) => {
         queryKey: [id],
         queryFn: () =>
             axios
-                .get(`http://localhost:5000/singleTvSeries/${id}`)
+                .get(`https://flex-flow-server.vercel.app/singleTvSeries/${id}`)
                 .then((res) => res.data),
     })
 
