@@ -25,6 +25,7 @@ const SingleMoviePage = () => {
         }
     }, [loading, isLoading, id]);
 
+
     if (loading || isLoading) {
         return (
             <div className='w-28 h-screen mx-auto flex items-center'>
@@ -34,7 +35,7 @@ const SingleMoviePage = () => {
     }
 
     console.log(movie);
-    
+
     return (
         <div>
             <div className='px-5 lg:px-20 lg:h-[500px] md:h-[400px] my-10 grid grid-cols-1 lg:grid-cols-4 gap-0 lg:gap-4'>
@@ -53,7 +54,7 @@ const SingleMoviePage = () => {
                 </div>
             </div>
             {/* Similar Movies */}
-            <div className='mx-5 lg:mx-20'>
+            <div className='mx-5 lg:mx-20 mt-20'>
                 <h1 className='text-3xl mb-4'>Similar Movies</h1>
                 <SimilarMovies
                     genres={movie?.Genres}
