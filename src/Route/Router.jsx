@@ -108,7 +108,6 @@ export const router = createBrowserRouter([
         path: '/tv_series_details/:id',
         element: <PrivateRoute><TvSeriesDetails></TvSeriesDetails></PrivateRoute>
       },
-    
       {
         path: '/aboutus',
         element: <PrivateRoute><AboutUs></AboutUs></PrivateRoute>
@@ -130,6 +129,10 @@ export const router = createBrowserRouter([
         element: <AboutFlexflow />
       },
       {
+        path:'/shortvideos',
+        element:<ShortVideos></ShortVideos>
+      },
+      {
         path: "/faq",
         element: <FrequentlyAsked></FrequentlyAsked>
       },
@@ -141,17 +144,10 @@ export const router = createBrowserRouter([
         path:'/termsandcondition',
         element:<TermsAndCondition></TermsAndCondition>
       },
-       {   path:'/shortvideos',
-        element:<ShortVideos></ShortVideos>}
-
-      // {
-      //   path: '/genres/:genre',
-      //   element: <MoviesByGenres></MoviesByGenres>
-      // },
-      // {
-      //   path: '/regions/:region',
-      //   element: <MoviesByRegion></MoviesByRegion>
-      // }
+      {   
+        path:'/shortvideos',
+        element:<ShortVideos></ShortVideos>
+      }
     ],
     errorElement: <PageNotFound></PageNotFound>
   },
@@ -196,8 +192,6 @@ export const router = createBrowserRouter([
         element: <UpdateBlog></UpdateBlog>
       },
 
-
-
       // User Dashboard 
       {
         path: 'favorites',
@@ -215,7 +209,6 @@ export const router = createBrowserRouter([
         path: 'watchhistory',
         element: <WatchHistory></WatchHistory>
       },
-
       {
         path: 'paymenthistory',
         element: <PaymentHistory></PaymentHistory>
