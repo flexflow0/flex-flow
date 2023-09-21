@@ -26,9 +26,15 @@ const AddRemoveToList = ({ movie }) => {
         )
     }
     // console.log(userData?.likes.includes(id));
+<<<<<<< HEAD
+    isLike = userData?.likes?.includes(movie?._id);
+    isFavorite = userData?.favorites?.includes(movie?._id);
+    isWatchList = userData?.WatchList?.includes(movie?._id);
+=======
     isLike = userData?.likes?.includes(movie._id);
     isFavorite = userData?.favorites?.includes(movie._id);
     isWatchList = userData?.WatchList?.includes(movie._id);
+>>>>>>> cb341b8038bca2f75948a0b88918e776d6efe2d2
     // console.log(userData?.likes, userData?.favorites, userData?.WatchList);
     // console.log(isLike, isFavorite, isWatchList);
 
@@ -39,7 +45,7 @@ const AddRemoveToList = ({ movie }) => {
             to: "likes",
             action: like
         }
-        fetch('http://localhost:5000/users/lists', {
+        fetch('https://flex-flow-server.vercel.app/users/lists', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -61,7 +67,7 @@ const AddRemoveToList = ({ movie }) => {
             to: "favorites",
             action: favorite
         }
-        fetch('http://localhost:5000/users/lists', {
+        fetch('https://flex-flow-server.vercel.app/users/lists', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -83,7 +89,7 @@ const AddRemoveToList = ({ movie }) => {
             to: "WatchList",
             action: watchList
         }
-        fetch('http://localhost:5000/users/lists', {
+        fetch('https://flex-flow-server.vercel.app/users/lists', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -62,7 +62,6 @@ const Registration = () => {
 
                 await fetch(`https://api.imgbb.com/1/upload?key=${api}`, { method: 'POST', body: formData }).then(res => res.json()).then(imgData => {
                     const image = imgData.data?.display_url
-                    console.log(image)
                     if (imgData.data.display_url) {
                         createUser(email, password)
                             .then(result => {
@@ -73,7 +72,7 @@ const Registration = () => {
                                         // const userData = { name, email, role:'user', photoURL: image, birthDate: age }
                                         const userData = { name: name, email: email, photoURL: image, role:'user', birthDate: age, likes: [], favorites: [], WatchList: [], recentlyViewed: [],nonSubscribed: true}
 
-                                        fetch('http://localhost:5000/users', {
+                                        fetch('https://flex-flow-server.vercel.app/users', {
                                             method: 'POST',
                                             headers: {
                                                 'content-type': 'application/json'
