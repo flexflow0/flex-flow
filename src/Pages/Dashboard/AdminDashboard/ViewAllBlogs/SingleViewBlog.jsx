@@ -26,7 +26,7 @@ const SingleViewBlog = ({ allBlog, refetch }) => {
             .then(result => {
                 if (result.isConfirmed) {
                     console.log('delete', id);
-                    axios.delete(`https://flex-flow-server.vercel.app/blog?id=${_id}`)
+                    axios.delete(`http://localhost:5000/blog?id=${_id}`)
                         .then(res => {
                             console.log(res);
                             refetch()
