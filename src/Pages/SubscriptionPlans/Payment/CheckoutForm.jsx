@@ -33,14 +33,14 @@ const CheckForm = ({ setDisable }) => {
     useEffect(() => {
 
         if (price > 0) {
-            axios('http://localhost:5000/create-payment-intent')
+            axios('https://flex-flow-server.vercel.app/create-payment-intent')
                 .then(res => {
                     setClientSecret(res.data.clientSecret);
                     console.log(res.data.clientSecret);
                 })
 
             if (price > 0) {
-                axios.post('http://localhost:5000/create-payment-intent', { price }).then(res => {
+                axios.post('https://flex-flow-server.vercel.app/create-payment-intent', { price }).then(res => {
 
                     setClientSecret(res.data.clientSecret);
                     console.log(res.data.clientSecret);
@@ -112,6 +112,7 @@ const CheckForm = ({ setDisable }) => {
                 }
                 console.log(payment);
                 fetch('http://localhost:5000/payment-stripe', {
+=
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payment)

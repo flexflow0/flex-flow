@@ -7,6 +7,7 @@ const useUser = (email) => {
         queryFn: async () =>
             await axios.get(`http://localhost:5000/user/${email}`)
             .then((res) => res.data)
+
     });
     return [userData, isLoading, refetch];
 };

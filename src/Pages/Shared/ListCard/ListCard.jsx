@@ -17,6 +17,7 @@ const ListCard = ({ movie, refetch, to }) => {
             action: false
         }
         fetch('http://localhost:5000users/lists', {
+
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

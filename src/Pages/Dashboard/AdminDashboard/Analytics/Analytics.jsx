@@ -7,14 +7,14 @@ const Analytics = () => {
     const [datas ,setDatas] = useState([])
     
     useEffect(() => {
-        fetch(`http://localhost:5000/users`)
+        fetch(`https://flex-flow-server.vercel.app/users`)
             .then(res => res.json())
             .then(data => setDatas(data) )
         
     }, [])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/users`)
+        fetch(`https://flex-flow-server.vercel.app/users`)
             .then(res => res.json())
             .then(data => setData(data.slice(3)) )
         
