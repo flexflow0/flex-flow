@@ -62,7 +62,6 @@ const Registration = () => {
 
                 await fetch(`https://api.imgbb.com/1/upload?key=${api}`, { method: 'POST', body: formData }).then(res => res.json()).then(imgData => {
                     const image = imgData.data?.display_url
-                    console.log(image)
                     if (imgData.data.display_url) {
                         createUser(email, password)
                             .then(result => {

@@ -14,6 +14,7 @@ const SingleMoviePage = () => {
     const { user, loading } = useAuth();
     const { data: movie, isLoading } = useGetSingleMovieQuery(id);
     const [setWatchHistory, { data: WatchHistory, isLoading: watchLoading }] = useSetWatchHistoryMutation();
+
     const { data: paymentData, isLoading: paymentLoading } = useGetPaymentHistoryQuery(user?.email)
     useEffect(() => {
         if (!loading && !isLoading) {

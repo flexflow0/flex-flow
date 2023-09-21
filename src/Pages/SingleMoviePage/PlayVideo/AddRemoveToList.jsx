@@ -26,9 +26,9 @@ const AddRemoveToList = ({ movie }) => {
         )
     }
     // console.log(userData?.likes.includes(id));
-    isLike = userData?.likes?.includes(movie._id);
-    isFavorite = userData?.favorites?.includes(movie._id);
-    isWatchList = userData?.WatchList?.includes(movie._id);
+    isLike = userData?.likes?.includes(movie?._id);
+    isFavorite = userData?.favorites?.includes(movie?._id);
+    isWatchList = userData?.WatchList?.includes(movie?._id);
     // console.log(userData?.likes, userData?.favorites, userData?.WatchList);
     // console.log(isLike, isFavorite, isWatchList);
 

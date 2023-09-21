@@ -16,7 +16,8 @@ const ListCard = ({ movie, refetch, to }) => {
             to: to,
             action: false
         }
-        fetch('https://flex-flow-server.vercel.app/users/lists', {
+        fetch('http://localhost:5000users/lists', {
+
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
