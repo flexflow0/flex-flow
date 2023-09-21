@@ -5,7 +5,7 @@ import DashboardTop from "../../../../components/dashboardTop";
 import Loading from "../../../Shared/Loading";
 import WatchHistoryCard from "./WatchHistoryCard";
 import { FcEmptyTrash, FcFullTrash } from "react-icons/fc";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 const WatchHistory = () => {
     const { user, loading } = useAuth();
@@ -39,21 +39,23 @@ const WatchHistory = () => {
             deleteAllHistory(user?.email);
         } else {
             // Show a message or toast indicating that there's nothing to delete
-            toast.error("No watch history to delete.");
+            toast.error("Nothing to be deleted.");
         }
     }
 
     useEffect(() => {
         // Check if deleteResponse contains data indicating successful deletion
         if (!deletingLoading && deleteResponse && deleteResponse?.modifiedCount > 0) {
+            toast.success("All Contents Successfully Deleted")
             // Clear the sorted watch history
             setSortedWatchHistory([]);
         }
-    }, [deleteResponse, deletingLoading]);
+    }, [deleteResponse]);
 
     return (
         <div className="MyContainer">
             <DashboardTop />
+            <Toaster />
             <div className="flex MyContainer my-3">
                 <h1 className="w-full text-2xl font5">Total Contents: {sortedWatchHistory?.length || 0}</h1>
                 <button
@@ -78,6 +80,7 @@ const WatchHistory = () => {
                     refetch={refetch}
                 />
             ))}
+
         </div>
     );
 };

@@ -17,7 +17,7 @@ export const baseApi = createApi({
         }),
         updateUser: builder.mutation({
             query: (upData) => ({
-                url: "/user/update",
+                url: "/users",
                 method: "PATCH",
                 body: upData
             })
@@ -52,8 +52,9 @@ export const baseApi = createApi({
                 body: data
             })
         }),
+
         getSingleMovie: builder.query({
-            query: (id)=> `/singleMovie/${id}`
+            query: (id) => `/singleMovie/${id}`
         })
         
     })
@@ -61,3 +62,4 @@ export const baseApi = createApi({
 })
 
 export const { useGetUsersQuery, useSetUserMutation, useUpdateUserMutation, useGetPaymentHistoryQuery, useGetAdminQuery, useSetWatchHistoryMutation, useGetWatchHistoryQuery, useDeleteAllHistoryMutation, useDeleteHistoryByIDMutation,useGetSingleMovieQuery } = baseApi
+

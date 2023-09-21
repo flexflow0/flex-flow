@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const TvSeriesEpisodes = ({ singleEpisodes,img,id}) => {
+const TvSeriesEpisodes = ({ singleEpisodes, img, id }) => {
     console.log(singleEpisodes);
     return (
         <div>
@@ -11,8 +11,8 @@ const TvSeriesEpisodes = ({ singleEpisodes,img,id}) => {
                         className="rounded-md overflow-hidden relative container_card w-50 bg-[#111111]">
                         <div>
                             <div
-                                className="w-full h-[650px] md:h-[400px] lg:h-[300px]">
-                                <img className="w-full h-full object-fill" src={img} alt="" />
+                                className="rounded-lg overflow-hidden">
+                                <img className="w-full lg:h-full md:h-full h-[280px] object-fill" src={img} alt="" />
                             </div>
                             <div className="py-2 px-2 font-bold text-l flex justify-between border-b border-[#5a2323] rounded-b-lg">
                                 <Link to={`/tv_series_details/${id}+${singleEpisodes.episode_number}`} className='w-[75%] '>
