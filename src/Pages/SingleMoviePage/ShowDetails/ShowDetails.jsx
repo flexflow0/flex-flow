@@ -17,6 +17,7 @@ const ShowDetails = ({ movie, loading }) => {
     }
 
     return (
+
         <div className="bg-[#1f1f1f] lg:h-[500px] md:h-[400px] rounded-md p-4">
             <div className='relative'>
                 <div>

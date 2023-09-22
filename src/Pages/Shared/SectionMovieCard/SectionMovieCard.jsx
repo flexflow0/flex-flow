@@ -13,10 +13,10 @@ const SectionMovieCard = ({ movie }) => {
                 </span>
                 <span>{movie?.release_year}</span>
             </p>
-            <div className="flex justify-between px-3">
-                <Link to={`/movie_details/${movie?._id}`}>
+            <div className="flex px-3">
+                <Link className=" w-[80%] " to={`/movie_details/${movie?._id}`}>
                     <pre
-                        className="text-xl md:text-md lg:text-sm font-semibold overflow-hidden text-ellipsis w-[80%] hover:underline hover:cursor-pointer"
+                        className="text-xl md:text-md lg:text-sm font-semibold overflow-hidden text-ellipsis hover:underline hover:cursor-pointer"
                     >{movie?.title}</pre>
                 </Link>
                 <p className="flex items-center">

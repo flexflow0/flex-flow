@@ -8,9 +8,9 @@ import useMovies from '../../../../Hooks/useMovies/useMovies';
 import { Link } from 'react-router-dom';
 import './TopRatedMovies.css'
 
-const TopRatedMovies = () => {
+const TopRatedMovies = ({age}) => {
 
-    const movies = useMovies();
+    const movies = useMovies({}, age);
     const sortedByRating = movies[0].slice(0);
     sortedByRating.sort(function (a, b) {
         return b.IMDb_rating - a.IMDb_rating;
@@ -22,7 +22,12 @@ const TopRatedMovies = () => {
 
     return (
         <div className='my-20 mx-10'>
-            <h2 className='text-2xl font-semibold mb-5'>Top rated : </h2>
+            <div className='flex justify-between'>
+                <h2 className='text-2xl font-semibold mb-5'>Top rated : </h2>
+                <Link to='/show_all_movies/top_rated'>
+                    <span className='text-[#3c3cb8] text-base hover:underline uppercase font-semibold'>See More</span>
+                </Link>
+            </div>
             <Swiper
                 style={{
                     '--swiper-navigation-color': '#fff',
@@ -61,20 +66,6 @@ const TopRatedMovies = () => {
                         ></SectionMovieCard>
                     </SwiperSlide>)
                 }
-                <SwiperSlide>
-                    <Link to='/show_all_movies/top_rated'>
-                        <div
-                            className="rounded-lg overflow-hidden border border-[#918282] hover:bg-[#3b0764] hover:text-white aspect-ratio-container flex justify-center"
-                        >
-                            <p
-                                className='flex justify-center items-center text-xl text-[#dfd1d1d7]'
-                            >
-                                See more
-                                <i className="fa-solid fa-circle-right ml-2 mt-1"></i>
-                            </p>
-                        </div>
-                    </Link>
-                </SwiperSlide>
             </Swiper>
         </div>
     );

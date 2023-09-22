@@ -1,9 +1,12 @@
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useUser from "../../../Hooks/useUser/useUser";
+import { FaDownload } from 'react-icons/fa';
 
 const AddRemoveToList = ({ movie }) => {
     const { user, loading } = useContext(AuthContext);
+    const playerRef = useRef(null);
+
     let isLike = false;
     let isFavorite = false;
     let isWatchList = false;
@@ -23,9 +26,9 @@ const AddRemoveToList = ({ movie }) => {
         )
     }
     // console.log(userData?.likes.includes(id));
-    isLike = userData?.likes?.includes(movie._id);
-    isFavorite = userData?.favorites?.includes(movie._id);
-    isWatchList = userData?.WatchList?.includes(movie._id);
+    isLike = userData?.likes?.includes(movie?._id);
+    isFavorite = userData?.favorites?.includes(movie?._id);
+    isWatchList = userData?.WatchList?.includes(movie?._id);
     // console.log(userData?.likes, userData?.favorites, userData?.WatchList);
     // console.log(isLike, isFavorite, isWatchList);
 
@@ -36,7 +39,7 @@ const AddRemoveToList = ({ movie }) => {
             to: "likes",
             action: like
         }
-        fetch('https://flex-flow-server-gold.vercel.app/users/lists', {
+        fetch('http://localhost:5000/users/lists', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -50,6 +53,7 @@ const AddRemoveToList = ({ movie }) => {
                 isLike = like;
             })
     }
+
     const handleFavorite = (favorite) => {
         const data = {
             id: movie._id,
@@ -57,7 +61,7 @@ const AddRemoveToList = ({ movie }) => {
             to: "favorites",
             action: favorite
         }
-        fetch('https://flex-flow-server-gold.vercel.app/users/lists', {
+        fetch('http://localhost:5000/users/lists', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -79,7 +83,7 @@ const AddRemoveToList = ({ movie }) => {
             to: "WatchList",
             action: watchList
         }
-        fetch('https://flex-flow-server-gold.vercel.app/users/lists', {
+        fetch('http://localhost:5000/users/lists', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -93,20 +97,46 @@ const AddRemoveToList = ({ movie }) => {
             })
     }
 
+    const handleClose = () => {
+        if (playerRef.current) {
+            playerRef.current.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
+        }
+    }
+    // ----------------------Arafat-----------------
+    const videoURL = movie?.movie_url;
+    const downloadVideo = () => {
+        const a = document.createElement('a');
+        a.href = videoURL;
+        a.download = 'movie?.title';
+        a.click();
+    }
+
     return (
         <>
             {/* Modal */}
             <dialog id="my_modal_3" className="modal w-3/4 mx-auto">
                 <form method="dialog" className='modal-box   w-11/12 max-w-5xl'>
-                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                    <iframe width="100%" height="450" src={movie?.trailer_url} title={movie?.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen='true'></iframe>
+                    <button
+                        onClick={handleClose}
+                        className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                    >✕</button>
+                    <iframe width="100%" height="450"
+                        src={movie?.trailer_url}
+                        title={movie?.title}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen='true'
+                        ref={playerRef}
+                    ></iframe>
                 </form>
             </dialog>
             <p className='my-1 mx-2 flex justify-between'>
-                <div>
-                    <button className="mt-1 btn btn-sm rounded-full btn-outline">
+                <div className="flex">
+                    <button
+                        onClick={() => document.getElementById('my_modal_3').showModal()}
+                        className="mt-1 btn btn-sm rounded-full btn-outline hover:bg-[#39134b] hover:text-white"
+                    >
                         <span className="capitalize">Trailer</span>
-                        <i class="fa-solid fa-play text-white ms-2"></i>
+                        <i class="fa-solid fa-play text-white ms-0"></i>
                     </button>
                 </div>
                 <div className="flex mt-1">
@@ -127,33 +157,36 @@ const AddRemoveToList = ({ movie }) => {
                         isFavorite ?
                             <button
                                 onClick={() => handleFavorite(!isFavorite)}
-                                className="btn btn-sm no-animation hover:bg-opacity-0 rounded-lg btn-outline border-0 bg-opacity-0 text-white bg-[#5668cf] flex gap-1 align-middle ms-5"
+                                className="rounded-lg text-white mt-[3px] flex gap-1 align-middle ms-2 md:ms-5"
                             >
                                 <i class="fa-sharp fa-solid fa-heart text-xl text-[#d62525e8]"></i>
                             </button> :
                             <button
                                 onClick={() => handleFavorite(!isFavorite)}
-                                className="btn btn-sm no-animation hover:bg-opacity-0 rounded-lg btn-outline border-0 bg-opacity-0 text-white bg-[#5668cf] flex gap-1 align-middle ms-5"
+                                className="rounded-lg text-white mt-[3px] flex gap-1 align-middle ms-2 md:ms-5"
                             >
                                 <i class="fa-sharp fa-regular fa-heart text-xl text-white"></i>
                             </button>
                     }
+                    <button className="text-white pl-3" onClick={downloadVideo}>
+                        <FaDownload></FaDownload>
+                    </button>
                     {
                         isWatchList ?
                             <button
                                 onClick={() => handleWatchList(!isWatchList)}
-                                className="btn btn-sm no-animation hover:bg-opacity-0 rounded-lg btn-outline border-0 bg-opacity-0 text-white bg-[#5668cf] flex gap-1 align-middle ms-2"
+                                className="rounded-lg text-white flex gap-1 align-middle ms-0 md:ms-2 mx-0 mt-1"
                             >
-                                <i className="fa-solid fa-minus text-white"></i>
+                                <i className="fa-solid fa-minus text-white mt-1 ms-2"></i>
                                 <span className='text-white capitalize'>
                                     Watch later
                                 </span>
                             </button> :
                             <button
                                 onClick={() => handleWatchList(!isWatchList)}
-                                className="btn btn-sm no-animation hover:bg-opacity-0 rounded-lg btn-outline border-0 bg-opacity-0 text-white bg-[#5668cf] flex gap-1 align-middle ms-2"
+                                className="rounded-lg text-white flex gap-1 align-middle ms-0 md:ms-2 mx-0 mt-1"
                             >
-                                <i className="fa-solid fa-plus text-white"></i>
+                                <i className="fa-solid fa-plus text-white mt-1 ms-2"></i>
                                 <span className='text-white capitalize'>
                                     Watch later
                                 </span>

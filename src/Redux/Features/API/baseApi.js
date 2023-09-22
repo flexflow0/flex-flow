@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const baseApi = createApi({
     reducerPath: 'api',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://flex-flow-server-gold.vercel.app' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000' }),
     endpoints: (builder) => ({
         getUsers: builder.query({
             query: () => "/users"
@@ -56,8 +56,10 @@ export const baseApi = createApi({
         getSingleMovie: builder.query({
             query: (id) => `/singleMovie/${id}`
         })
+
     })
 
 })
 
 export const { useGetUsersQuery, useSetUserMutation, useUpdateUserMutation, useGetPaymentHistoryQuery, useGetAdminQuery, useSetWatchHistoryMutation, useGetWatchHistoryQuery, useDeleteAllHistoryMutation, useDeleteHistoryByIDMutation, useGetSingleMovieQuery } = baseApi
+

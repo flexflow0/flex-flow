@@ -7,7 +7,7 @@ const useTvSeries = ({ region }) => {
         queryKey: [region],
         queryFn: () =>
             axios
-                .get(`https://flex-flow-server-gold.vercel.app/tvSeries?region=${region}`)
+                .get(`http://localhost:5000/tvSeries?region=${region}`)
                 .then((res) => res.data),
     })
 

@@ -19,7 +19,7 @@ const MainBanner = () => {
     </div>
   }
   useEffect(() => {
-    fetch("https://flex-flow-server-gold.vercel.app/upcomingmovies")
+    fetch("http://localhost:5000/upcomingmovies")
       .then((res) => res.json())
       .then((data) => setPopularMovies(data));
   }, []);
@@ -37,7 +37,7 @@ const MainBanner = () => {
 
   return (
     <>
-      <div className="poster">
+      <div className="poster ">
         <Carousel
           showThumbs={false}
           autoPlay={true}
@@ -46,27 +46,46 @@ const MainBanner = () => {
           showStatus={false}
         >
           {popularMovies.map((movie) => (
-            <div key={movie._id} className="posterImage">
-              <img src={movie.movie_thum} alt={movie.movie_name} />
-              <div className="posterImage__overlay">
-                <div className="posterImage__title">{movie.movie_name}</div>
+            <div key={movie._id} className="posterImage  ">
+              <img src={movie.thumbnail} alt={movie.movie_name} />
+              <div className="posterImage__overlay bg-black bg-opacity-30 relative">
+
+                <button className="btn absolute top-14  bg-white text-[20px] hover:bg-white px-5  border-2    rounded-full border-[#830FEA] right-3 text-[#830FEA] font-semibold ">
+                  UpComming
+                </button>
+
+                <div className="posterImage__title">{movie.title}</div>
+
                 <div className="posterImage__runtime">
                   {movie ? movie.release_date : ""}
-                  <span className="posterImage__rating">
-                    {movie ? movie.vote_average : ""}
-                    <i className="fas fa-star" />{" "}
-                  </span>
+
                 </div>
-                <div className="posterImage__description">
-                  {movie ? movie.movie_details : ""}
+
+                <div className=" posterImage__description">
+                  {movie ? movie.description : ""}
                 </div>
-                <button
-                  onClick={() => openModal(movie.trailer_link)}
-                  style={{ textDecoration: "none", color: "white" }}
+
+
+
+                <p className="posterImage__production  "> Production Company:<span>{movie.production_company}</span></p>
+
+
+                <div className="btn"
+                  onClick={() => openModal(`${movie.trailer_url}`)}
+
                 >
                   Watch Trailer
-                </button>
+                </div>
+
+
+
               </div>
+
+
+
+
+
+
             </div>
           ))}
         </Carousel>
@@ -81,7 +100,7 @@ const MainBanner = () => {
             backgroundColor: "rgba(0, 0, 0, 0.5)", // Background color of the modal overlay
           },
           content: {
-            width: "500px",  // Set the width of the modal content
+            width: "700px",  // Set the width of the modal content
             height: "400px", // Set the height of the modal content
             margin: "auto",  // Center the modal horizontally
             overflow: "hidden",// Hide the overflow
@@ -89,7 +108,7 @@ const MainBanner = () => {
           },
         }}>
 
-        <button onClick={closeModal} className="text-black">Close Modal</button>
+
         <iframe
           width="100%"
           height="100%"

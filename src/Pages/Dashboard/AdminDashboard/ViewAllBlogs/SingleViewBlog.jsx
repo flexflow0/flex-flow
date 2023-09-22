@@ -9,8 +9,8 @@ const SingleViewBlog = ({ allBlog, refetch }) => {
 
     const { author, content, thumbnail, title, date, _id } = allBlog
     const full = content;
-    const afterSlice = full.slice(0, 100)
-    const sliceTitle = title.slice(0, 30)
+    const afterSlice = full.slice(0, 80)
+    const sliceTitle = title.slice(0, 25)
     const [show, setShow] = useState(false);
 
     const handleDelete = (id) => {
@@ -26,7 +26,7 @@ const SingleViewBlog = ({ allBlog, refetch }) => {
             .then(result => {
                 if (result.isConfirmed) {
                     console.log('delete', id);
-                    axios.delete(`https://flex-flow-server-gold.vercel.app/blog?id=${_id}`)
+                    axios.delete(`http://localhost:5000/blog?id=${_id}`)
                         .then(res => {
                             console.log(res);
                             refetch()
@@ -50,11 +50,13 @@ const SingleViewBlog = ({ allBlog, refetch }) => {
                 mr-2'
                 src={thumbnail || "https://i.ibb.co/BsmRhsq/placeholder1.jpg"} alt="thumbnail" />
 
-            <div className=' grid grid-cols-4 items-center  justify-between w-full'>
-                <div className='col-span-2 text-black'>
+            <div className=' grid grid-cols-5 items-center  justify-between w-full'>
+                <div className='col-span-3 text-black'>
                     <h1 className='text-[#520596] text-[27px] font-semibold'>{sliceTitle}...</h1>
                     <p> {
-                        <p>{afterSlice}... <button className='text-purple-950' > Read More</button></p>
+                        <p>{afterSlice}...
+                            <Link to="../../blog" className='text-purple-950' > Read More</Link>
+                        </p>
                     }</p>
 
                 </div>
