@@ -9,17 +9,17 @@ const MainBanner = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedMovieTrailerLink, setSelectedMovieTrailerLink] = useState(""); // State variable for trailer link
 
-
+  
   if (!popularMovies) {
     return <div className="h-full w-full flex items-center justify-center">
-      <div className="h-[200px]">
+    <div className="h-[200px]">
         <Loading />
-      </div>
-
     </div>
+
+</div>
   }
   useEffect(() => {
-    fetch("https://flex-flow-server.vercel.app/upcomingmovies")
+    fetch("http://localhost:5000/upcomingmovies")
       .then((res) => res.json())
       .then((data) => setPopularMovies(data));
   }, []);
@@ -50,42 +50,45 @@ const MainBanner = () => {
               <img src={movie.thumbnail} alt={movie.movie_name} />
               <div className="posterImage__overlay bg-black bg-opacity-30 relative">
 
-                <button className="btn absolute top-14  bg-white text-[20px] hover:bg-white px-5  border-2    rounded-full border-[#830FEA] right-3 text-[#830FEA] font-semibold ">
-                  UpComming
-                </button>
-
-                <div className="posterImage__title">{movie.title}</div>
-
-                <div className="posterImage__runtime">
-                  {movie ? movie.release_date : ""}
-
-                </div>
-
-                <div className=" posterImage__description">
-                  {movie ? movie.description : ""}
-                </div>
-
-
-
-                <p className="posterImage__production  "> Production Company:<span>{movie.production_company}</span></p>
+              <button className="btn absolute top-14  bg-white text-[20px] hover:bg-white px-5  border-2    rounded-full border-[#830FEA] right-3 text-[#830FEA] font-semibold ">
+                 UpComming 
+              </button>
+                
+              <div className="flex flex-col justify-center items-start gap-12">
+              <h1 className="md:text-5xl lg:text-5xl sm:text-3xl font-bold">{movie.title}</h1>
+               
+               <p  >
+                 {movie ? movie.release_date : ""}
+                 
+               </p>
+               
+               <p  >
+                 {movie ? movie.description : ""}
+               </p>
+               
 
 
-                <div className="btn"
-                  onClick={() => openModal(`${movie.trailer_url}`)}
+               <p  > Production Company:<span>{movie.production_company}</span></p>
 
-                >
-                  Watch Trailer
-                </div>
+               <button className="btn   "
+                 onClick={() => openModal(`${movie.trailer_url}`)}
+                  
+               >
+                 Watch Trailer
+               </button>
 
+                           
+              </div>
 
+                
 
               </div>
 
 
 
-
-
-
+              
+               
+            
             </div>
           ))}
         </Carousel>
@@ -96,8 +99,10 @@ const MainBanner = () => {
         onRequestClose={closeModal}
         contentLabel="Trailer Modal"
         style={{
+          zIndex:999,
           overlay: {
             backgroundColor: "rgba(0, 0, 0, 0.5)", // Background color of the modal overlay
+             zIndex:999,
           },
           content: {
             width: "700px",  // Set the width of the modal content
@@ -108,7 +113,7 @@ const MainBanner = () => {
           },
         }}>
 
-
+        
         <iframe
           width="100%"
           height="100%"
@@ -123,3 +128,4 @@ const MainBanner = () => {
 };
 
 export default MainBanner;
+

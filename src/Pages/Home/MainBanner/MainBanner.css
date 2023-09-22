@@ -1,4 +1,6 @@
-.posterImage{
+/* Default styles for larger screens */
+
+.posterImage {
     height: 600px;
 }
 
@@ -7,7 +9,8 @@
     display: block;
     width: 100%;
 }
-.carousel *{
+
+.carousel * {
     margin-top: -38px;
 }
 
@@ -21,45 +24,48 @@
     width: 100%;
     justify-content: flex-end;
     align-items: flex-start;
-    background-image: linear-gradient(rgb(0,0,0,0), rgb(0,0,0,1));
-     
-    transition: opacity .3s;
-}   
+    background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
+    transition: opacity 0.3s;
+}
 
 .posterImage__overlay:hover {
     opacity: 1;
 }
 
-.posterImage__title {
-    font-weight: 900;
-    font-size: 4rem;
-    margin-bottom: 0.4rem;
-    text-align: left;
-}
-.posterImage__production{
-    font-weight: bold;
-    font-size: 1rem;
-    margin-top: 2rem;
-    margin-bottom: 0.4rem;
-    text-align: left;
-    margin-bottom: 70px;
-}
+ 
 
-.posterImage__runtime {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
+/* Updated styles for mobile screens */
+@media screen and (max-width: 768px) {
+    .posterImage {
+        height: auto; /* Allow the height to adjust based on content */
+    }
 
-.posterImage__rating {
-    margin-left: 3rem;
-}
+    .posterImage__overlay {
+        padding: 2rem; /* Reduce padding */
+    }
 
-.posterImage__description {
-    font-style: italic;
-    font-size: 1rem;
-    margin-bottom: 0.25rem;
-    display: flex;
-    text-align: left;
-    width: 50%;
-    margin-top: 1rem;
+    .posterImage__title {
+        font-size: 2rem; /* Reduce font size */
+        margin-bottom: 0.2rem;
+    }
+
+    .posterImage__production {
+        font-size: 0.8rem; /* Reduce font size */
+        margin-top: 1rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .posterImage__runtime {
+        font-size: 1.5rem; /* Reduce font size */
+        margin-bottom: 0.5rem;
+    }
+
+    .posterImage__description {
+        font-size: 0.8rem; /* Reduce font size */
+        margin-bottom: 0.2rem;
+    }
+
+    .carousel {
+        max-width: 100%; /* Ensure the carousel doesn't overflow the screen */
+    }
 }
