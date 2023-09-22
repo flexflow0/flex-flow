@@ -13,8 +13,11 @@ const ShowAllMovies = () => {
     if(loading){
         return;
     }
-    const [userData] = useUser(user.email)
+    const [userData, isLoading] = useUser(user.email)
 
+    if (isLoading) {
+        return;
+    }
     const queries = {
         genre: keyword.startsWith('genres') ? keyword.split('+')[1] : undefined,
         region: keyword.startsWith('regions') ? keyword.split('+')[1] : undefined,

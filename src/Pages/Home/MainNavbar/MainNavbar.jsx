@@ -59,8 +59,8 @@ const MainNavbar = () => {
     // ***************
 
     const { pathname } = useLocation();
-    // console.log(pathname);
-
+    const path = pathname.split("/")
+console.log(path);
 
 
 
@@ -77,7 +77,7 @@ const MainNavbar = () => {
             {/* Mobile Device */}
             <div className="navbar-start">
                 {
-                    (pathname == '/' || pathname == '/register' || pathname == '/login' || pathname == '/chooseplan' || pathname == '/choosetheplan' || pathname == '/choosepay' || pathname == '/payment' || pathname == '/aboutus' || pathname == '/blog') || <div className="dropdown">
+                    (path[1] == '/' || path[1] == '/register' || path[1] == '/login' || path[1] == '/chooseplan' || path[1] == '/choosetheplan' || path[1] == '/choosepay' || path[1] == '/payment' || path[1] == '/aboutus' || path[1] == '/blog') || <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
@@ -111,14 +111,14 @@ const MainNavbar = () => {
                     </div>
                 }
                 <div className="w-52">
-                    <Link to={`${(pathname == '/' || pathname == '/register' || pathname == '/login' || pathname == '/chooseplan' || pathname == '/choosetheplan' || pathname == '/choosepay' || pathname == '/payment') ? "/" : "/home"}`}>
+                    <Link to={`${(path[1] == '/' || path[1] == '/register' || path[1] == '/login' || path[1] == '/chooseplan' || path[1] == '/choosetheplan' || path[1] == '/choosepay' || path[1] == '/payment') ? "/" : "/home"}`}>
                         <img className="w-full" src="https://i.ibb.co/WpJvMk4/9270632-02.png" alt="" />
                     </Link>
                 </div>
             </div>
             {/* desktop device */}
             {
-                (pathname == '/' || pathname == '/register' || pathname == '/login' || pathname == '/chooseplan' || pathname == '/choosetheplan' || pathname == '/choosepay' || pathname == '/payment' || pathname == '/aboutus' || pathname == '/blog') || <div className="navbar-center hidden items-center lg:flex">
+                (path[1] == '/' || path[1] == '/register' || path[1] == '/login' || path[1] == '/chooseplan' || path[1] == '/choosetheplan' || path[1] == '/choosepay' || path[1] == '/payment' || path[1] == '/aboutus' || path[1] == '/blog') || <div className="navbar-center hidden items-center lg:flex">
                     <div className=" dropdown dropdown-hover">
                         <ul className="menu menu-horizontal items-center px-1">
 
@@ -164,7 +164,7 @@ const MainNavbar = () => {
             <div className="navbar-end">
                 <div className="dropdown dropdown-end">
                     {
-                        (pathname == '/home') ?
+                        (path[1] == '/home' || path[1] == "show_all_movies" || path[1] == "movie_details") ?
                             <>
                                 <label tabIndex={0} className="">
                                     <div className="avatar flex items-center justify-between space-x-2 mr-5 pl-1 rounded-full h-10 bg-[#cd9ffb] border-2 border-[#8700f5]">
