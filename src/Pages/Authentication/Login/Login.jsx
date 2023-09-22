@@ -11,9 +11,7 @@ import Loading from "../../Shared/Loading";
 const Login = () => {
   const { user, loginUser, resetPassword, googleLogin } = useContext(AuthContext)
   const [setUser, { data: getUserUpData, isLoading, }] = useSetUserMutation()
-
   const [updateUser, { data: UserUpdateData }] = useUpdateUserMutation()
-
   const [show, setShow] = useState(false)
   const emailRef = useRef();
   const navigate = useNavigate();
@@ -21,7 +19,6 @@ const Login = () => {
   const from = location?.state?.from?.pathname || '/home'
 
   const handelLogin = event => {
-
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
@@ -56,9 +53,7 @@ const Login = () => {
     )
   }
 
-
   // handle user about inserted data 
-
   if (!isLoading && getUserUpData) {
     console.log(getUserUpData);
     if (getUserUpData?.message === "user already exists") {
@@ -74,14 +69,12 @@ const Login = () => {
 
 
   const [enable, setEnable] = useState(false)
-
   const handleAge = async (event) => {
     event.preventDefault()
     const age = event.target.age.value
     const upData = {
       age, email: user?.email,
     }
-
 
     if (age > 2) {
       updateUser(upData)
@@ -91,7 +84,6 @@ const Login = () => {
   }
 
   useEffect(() => {
-
     if (UserUpdateData?.modifiedCount > 0 && UserUpdateData?.matchedCount > 0) {
       toast.success("Your Age Successfully updated")
       setEnable(true)
@@ -106,7 +98,6 @@ const Login = () => {
       toast.success(`close button has Enabled`,)
     }
   }, [UserUpdateData])
-
   const handleClose = () => {
     navigate(from, { replace: true })
   }

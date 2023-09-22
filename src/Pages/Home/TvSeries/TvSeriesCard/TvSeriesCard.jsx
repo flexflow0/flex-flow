@@ -2,9 +2,6 @@ import { Link } from "react-router-dom";
 
 const TvSeriesCard = ({ series }) => {
 
-    console.log(series);
-    console.log(series?.seasons[0].length);
-
     return (
         <div>
             <div

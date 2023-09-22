@@ -5,8 +5,7 @@ const useMovies = (queries, age) => {
     const { data: movies = [], refetch } = useQuery({
         queryKey: [queries],
         queryFn: () =>
-            axios
-                .get(`https://flex-flow-server.vercel.app/movies?genre=${queries?.genre}&region=${queries?.region}&age=${age}`)
+            axios.get(`http://localhost:5000/movies?genre=${queries?.genre}&region=${queries?.region}`)
                 .then((res) => res.data),
     })
     return [movies, refetch]

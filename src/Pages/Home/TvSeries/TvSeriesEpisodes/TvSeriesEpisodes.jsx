@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const TvSeriesEpisodes = ({ singleEpisodes, img, id }) => {
-    console.log(singleEpisodes);
     return (
         <div>
             <div>

@@ -3,21 +3,21 @@ import DashboardTop from "../../../../components/dashboardTop";
 import axios from "axios";
 
 const Analytics = () => {
-    const [data ,setData] = useState([])
-    const [datas ,setDatas] = useState([])
-    
+    const [data, setData] = useState([])
+    const [datas, setDatas] = useState([])
+
     useEffect(() => {
-        fetch(`https://flex-flow-server.vercel.app/users`)
+        fetch(`http://localhost:5000/users`)
             .then(res => res.json())
-            .then(data => setDatas(data) )
-        
+            .then(data => setDatas(data))
+
     }, [])
 
     useEffect(() => {
-        fetch(`https://flex-flow-server.vercel.app/users`)
+        fetch(`http://localhost:5000/users`)
             .then(res => res.json())
-            .then(data => setData(data.slice(3)) )
-        
+            .then(data => setData(data.slice(3)))
+
     }, [])
     console.log(data);
     return (
@@ -25,7 +25,7 @@ const Analytics = () => {
             <DashboardTop />
 
             <h1 className="  font-bold text-center text-4xl mt-5 text-purple-600 "> Recently added user </h1>
-            
+
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
@@ -42,7 +42,7 @@ const Analytics = () => {
                         {/* row */}
 
                         {
-                           data?.map(({ name, _id, email, photoURL, birthDate }, idx) => <tr key={_id}
+                            data?.map(({ name, _id, email, photoURL, birthDate }, idx) => <tr key={_id}
                                 className="hover"
                             >
                                 <th>{idx + 1}</th>
@@ -63,7 +63,7 @@ const Analytics = () => {
             {/*  */}
             <div className="grid grid-cols-2 mt-10 p-10 gap-5 text-purple-600">
                 <div className=" border-2 border-purple-800 h-[200px]">
-                <h1 className="w-full text-4xl font5 p-5">Total Users: {datas?.length}</h1>
+                    <h1 className="w-full text-4xl font5 p-5">Total Users: {datas?.length}</h1>
                 </div>
                 <div className=" border-2 border-purple-800 h-[200px]">
                     <h1 className="text-4xl p-5">Total Video = 60+</h1>
