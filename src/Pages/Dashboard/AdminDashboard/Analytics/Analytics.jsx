@@ -7,16 +7,16 @@ const Analytics = () => {
     const [datas, setDatas] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/users`)
+        fetch(`https://flex-flow-server.vercel.app/users`)
             .then(res => res.json())
             .then(data => setDatas(data))
 
     }, [])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/users`)
+        fetch(`https://flex-flow-server.vercel.app/users`)
             .then(res => res.json())
-            .then(data => setData(data.slice(3)))
+            .then(data => setData(data.slice(25)))
 
     }, [])
     console.log(data);
@@ -61,11 +61,11 @@ const Analytics = () => {
                 </table>
             </div>
             {/*  */}
-            <div className="grid grid-cols-2 mt-10 p-10 gap-5 text-purple-600">
-                <div className=" border-2 border-purple-800 h-[200px]">
+            <div className="lg:grid grid-cols-2 mt-10 p-10 gap-5 text-purple-600n">
+                <div className=" border-2 border-purple-800 h-[200px] rounded-lg">
                     <h1 className="w-full text-4xl font5 p-5">Total Users: {datas?.length}</h1>
                 </div>
-                <div className=" border-2 border-purple-800 h-[200px]">
+                <div className=" border-2 border-purple-800 h-[200px] rounded-lg">
                     <h1 className="text-4xl p-5">Total Video = 60+</h1>
 
                 </div>

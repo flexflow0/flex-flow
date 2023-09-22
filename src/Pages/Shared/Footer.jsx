@@ -17,7 +17,7 @@ const Footer = () => {
         reset()
         const addEmail = { email: data.email }
 
-        fetch('http://localhost:5000/subscribe', {
+        fetch('https://flex-flow-server.vercel.app/subscribe', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

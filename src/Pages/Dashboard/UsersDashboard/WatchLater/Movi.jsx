@@ -19,7 +19,7 @@ const Movi = ({ movie }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/watchLaterMovies/${movie._id}`, {
+                fetch(`https://flex-flow-server.vercel.app/watchLaterMovies/${movie._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

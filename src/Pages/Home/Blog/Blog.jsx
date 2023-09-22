@@ -8,7 +8,7 @@ const Blog = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/blog')
+        fetch('https://flex-flow-server.vercel.app/blog')
             .then(res => res.json())
             .then(data => setBlogs(data))
 

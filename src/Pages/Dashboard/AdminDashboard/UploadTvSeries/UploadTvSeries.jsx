@@ -140,7 +140,7 @@ const UploadTvSeries = () => {
         }
 
         axios
-            .post(`http://localhost:5000/movies`, movieData, {
+            .post(`https://flex-flow-server.vercel.app/movies`, movieData, {
                 headers: {
                     'Content-Type': 'application/json',
                 }

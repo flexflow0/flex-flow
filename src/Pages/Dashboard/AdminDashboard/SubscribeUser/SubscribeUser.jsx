@@ -7,7 +7,7 @@ const SubscribeUser = () => {
     const [users, setUsers] = useState();
 
     useEffect(() => {
-        fetch('http://localhost:5000/subscribe')
+        fetch('https://flex-flow-server.vercel.app/subscribe')
             .then(res => res.json())
             .then(data => setUsers(data))
     }, [])
