@@ -9,14 +9,14 @@ const MainBanner = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedMovieTrailerLink, setSelectedMovieTrailerLink] = useState(""); // State variable for trailer link
 
-  
+
   if (!popularMovies) {
     return <div className="h-full w-full flex items-center justify-center">
-    <div className="h-[200px]">
+      <div className="h-[200px]">
         <Loading />
-    </div>
+      </div>
 
-</div>
+    </div>
   }
   useEffect(() => {
     fetch("http://localhost:5000/upcomingmovies")
@@ -50,32 +50,32 @@ const MainBanner = () => {
               <img src={movie.thumbnail} alt={movie.movie_name} />
               <div className="posterImage__overlay bg-black bg-opacity-30 relative">
 
-              <button className="btn absolute top-14  bg-white text-[20px] hover:bg-white px-5  border-2    rounded-full border-[#830FEA] right-3 text-[#830FEA] font-semibold ">
-                 UpComming 
-              </button>
-                
-              <div className="posterImage__title">{movie.title}</div>
-               
-               <div className="posterImage__runtime">
-                 {movie ? movie.release_date : ""}
-                 
-               </div>
-               
-               <div className=" posterImage__description">
-                 {movie ? movie.description : ""}
-               </div>
-               
+                <button className="btn absolute top-14  bg-white text-[20px] hover:bg-white px-5  border-2    rounded-full border-[#830FEA] right-3 text-[#830FEA] font-semibold ">
+                  UpComming
+                </button>
+
+                <div className="posterImage__title">{movie.title}</div>
+
+                <div className="posterImage__runtime">
+                  {movie ? movie.release_date : ""}
+
+                </div>
+
+                <div className=" posterImage__description">
+                  {movie ? movie.description : ""}
+                </div>
 
 
-               <p className="posterImage__production  "> Production Company:<span>{movie.production_company}</span></p>
 
-               
-               <div className="btn"
-                 onClick={() => openModal(`${movie.trailer_url}`)}
-                  
-               >
-                 Watch Trailer
-               </div>
+                <p className="posterImage__production  "> Production Company:<span>{movie.production_company}</span></p>
+
+
+                <div className="btn"
+                  onClick={() => openModal(`${movie.trailer_url}`)}
+
+                >
+                  Watch Trailer
+                </div>
 
 
 
@@ -83,9 +83,9 @@ const MainBanner = () => {
 
 
 
-              
-               
-            
+
+
+
             </div>
           ))}
         </Carousel>
@@ -108,7 +108,7 @@ const MainBanner = () => {
           },
         }}>
 
-        
+
         <iframe
           width="100%"
           height="100%"

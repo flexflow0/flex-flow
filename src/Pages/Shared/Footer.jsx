@@ -34,6 +34,8 @@ const Footer = () => {
     function scrollToTop() {
         window.scrollTo(0, 0);
     }
+
+    scrollToTop()
     return (
         <div className='text-center pb-5'>
             {/* Heading Started */}
@@ -87,7 +89,7 @@ const Footer = () => {
                     <Link to='/contactus' onClick={scrollToTop}>
                         <li>Contact Us</li>
                     </Link>
-                    <Link to = '/legalnotice' onClick={scrollToTop}>
+                    <Link to='/legalnotice' onClick={scrollToTop}>
                         <li>Legal Notice</li>
                     </Link>
 

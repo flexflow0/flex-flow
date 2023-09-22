@@ -112,7 +112,6 @@ const CheckForm = ({ setDisable }) => {
                 }
                 console.log(payment);
                 fetch('http://localhost:5000/payment-stripe', {
-
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payment)
