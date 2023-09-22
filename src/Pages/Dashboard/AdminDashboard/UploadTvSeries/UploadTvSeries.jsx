@@ -80,7 +80,7 @@ const UploadTvSeries = () => {
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Description
-</span>
+                            </span>
                         </label>
                         <input type="text" placeholder="Description
 " name="name" className="input input-bordered rounded-lg h-40 " required />
@@ -96,7 +96,7 @@ const UploadTvSeries = () => {
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Thumbnail
-</span>
+                            </span>
                         </label>
                         <input type="file" className="file-input file-input-bordered file-input bg-purple-600 w-full max-w-xs rounded-lg" />
                     </div>
@@ -105,7 +105,7 @@ const UploadTvSeries = () => {
                         <label className="label">
                             <span className="label-text">Movie</span>
                         </label>
-                        <input type="file"  className="file-input file-input-bordered file-input  bg-purple-600 w-full max-w-xs rounded-lg" />
+                        <input type="file" className="file-input file-input-bordered file-input  bg-purple-600 w-full max-w-xs rounded-lg" />
                     </div>
 
                     <div className="form-control mt-6">

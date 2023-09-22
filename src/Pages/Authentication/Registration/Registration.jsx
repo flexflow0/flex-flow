@@ -3,9 +3,7 @@ import './Registration.css'
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
-import {  } from "react-icons/ai";
-
-
+import { } from "react-icons/ai";
 
 const Registration = () => {
     const { createUser, updateUser, verificationEmail } = useContext(AuthContext)
@@ -16,18 +14,14 @@ const Registration = () => {
     const [show, setShow] = useState();
     const from = location?.state?.from?.pathname || '/home'
 
-
-
     const handelRegister = async (event) => {
         event.preventDefault();
-
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
         const birthDate = form.birthDate.value;
         const photo = form.photo.files;
-
         if (!/(?=.*[!@#$%^&*])/.test(password)) {
             setError(' Please add some characters')
             return
@@ -67,10 +61,10 @@ const Registration = () => {
                             .then(result => {
                                 const loguser = result.user
                                 console.log(loguser);
-              updateUser(name, image, birthDate)
+                                updateUser(name, image, birthDate)
                                     .then(() => {
                                         // const userData = { name, email, role:'user', photoURL: image, birthDate: age }
-                                        const userData = { name: name, email: email, photoURL: image, role:'user', birthDate: age, likes: [], favorites: [], WatchList: [], recentlyViewed: [],nonSubscribed: true}
+                                        const userData = { name: name, email: email, photoURL: image, role: 'user', birthDate: age, likes: [], favorites: [], WatchList: [], recentlyViewed: [], nonSubscribed: true }
 
                                         fetch('http://localhost:5000/users', {
                                             method: 'POST',
@@ -117,7 +111,7 @@ const Registration = () => {
     }
     const handleDateChange = (event) => {
         setDob(event.target.value);
-        
+
     };
 
     const calculateAge = (dob) => {
@@ -128,9 +122,9 @@ const Registration = () => {
 
         if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
             return age - 1;
-           
+
         }
-       
+
 
         return age;
     };
@@ -139,7 +133,7 @@ const Registration = () => {
     const age = dob ? calculateAge(dob) : null;
     if (age !== null && age < 7) {
         toast("This user is under 7 years old.");
-        }
+    }
 
 
     return (
@@ -199,7 +193,7 @@ const Registration = () => {
                                         </label>
                                     </div>
                                     <div className="form-control mt-6">
-                                        <button  className="btn text-white bg-purple-800 rounded-md ">Register</button><br />
+                                        <button className="btn text-white bg-purple-800 rounded-md ">Register</button><br />
                                     </div>
                                 </form>
 

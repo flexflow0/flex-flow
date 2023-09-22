@@ -1,9 +1,7 @@
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import { FaHome } from 'react-icons/fa';
 import { AuthContext } from '../Pages/Provider/AuthProvider';
-
 import { useContext, useState } from 'react';
-
 import { RiContactsBookUploadFill, RiUploadCloud2Fill } from 'react-icons/ri';
 import { SiGoogleanalytics } from 'react-icons/si';
 import { ImBlog } from 'react-icons/im';

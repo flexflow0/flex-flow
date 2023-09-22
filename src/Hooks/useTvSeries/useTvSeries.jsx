@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-const useTvSeries = ({region}) => {
+const useTvSeries = ({ region }) => {
     console.log(region);
     const { data: tvSeries = [], refetch } = useQuery({
         queryKey: [region],
@@ -12,7 +12,7 @@ const useTvSeries = ({region}) => {
     })
 
     return [tvSeries, refetch]
-   
+
 };
 
 export default useTvSeries;

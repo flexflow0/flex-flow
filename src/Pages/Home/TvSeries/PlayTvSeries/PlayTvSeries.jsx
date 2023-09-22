@@ -20,7 +20,7 @@ const PlayTvSeries = ({ relatedEpisode, isLoading, img, id }) => {
 
     return (
         <div className="lg:mx-20 mx-4 lg:mt-20 md:mt-10 mt-10">
-                <Swiper
+            <Swiper
                 style={{
                     '--swiper-navigation-color': '#fff',
                     '--swiper-pagination-color': '#fff',
@@ -48,19 +48,19 @@ const PlayTvSeries = ({ relatedEpisode, isLoading, img, id }) => {
                 }}
                 modules={[Navigation, Pagination]}
                 className="mySwiper  "
-                 >
-                    {
-                        relatedEpisode?.map(singleEpisodes => <SwiperSlide className="mySwiper">
-                            <TvSeriesEpisodes
-                                key={singleEpisodes.episode_number}
-                                img={img}
-                                id={id}
-                                singleEpisodes={singleEpisodes}
-                            ></TvSeriesEpisodes>
+            >
+                {
+                    relatedEpisode?.map(singleEpisodes => <SwiperSlide className="mySwiper">
+                        <TvSeriesEpisodes
+                            key={singleEpisodes.episode_number}
+                            img={img}
+                            id={id}
+                            singleEpisodes={singleEpisodes}
+                        ></TvSeriesEpisodes>
                     </SwiperSlide>)
 
-                    }
-                </Swiper>
+                }
+            </Swiper>
 
 
         </div >

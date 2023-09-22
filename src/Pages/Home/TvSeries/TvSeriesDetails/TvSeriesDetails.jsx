@@ -4,18 +4,18 @@ import useSingelTvSeries from "../../../../Hooks/useSingelTvSeries/useSingelTvSe
 
 const TvSeriesDetails = () => {
     const { id } = useParams()
-    const ids =id.split('+')
+    const ids = id.split('+')
     const [tvSeries, isLoading] = useSingelTvSeries(ids[0]);
     console.log(ids);
     console.log(tvSeries.episodes);
-    if(isLoading){
+    if (isLoading) {
         return <div>Loading........</div>
     }
-    const episodeNumber =parseInt(ids[1])
-    const displayEpisode =tvSeries.episodes.filter(episode=>episode.episode_number === episodeNumber)
-    const relatedEpisode =tvSeries.episodes.filter(episode=>episode.episode_number !== episodeNumber)
-    console.log(displayEpisode,relatedEpisode);
-    
+    const episodeNumber = parseInt(ids[1])
+    const displayEpisode = tvSeries.episodes.filter(episode => episode.episode_number === episodeNumber)
+    const relatedEpisode = tvSeries.episodes.filter(episode => episode.episode_number !== episodeNumber)
+    console.log(displayEpisode, relatedEpisode);
+
     return (
         <div>
             {
@@ -68,7 +68,7 @@ const TvSeriesDetails = () => {
                                         {/* <i className="fa-solid fa-thumbs-up"></i> */}
                                     </button>
                                 </div>
-                                
+
                                 <div className='my-2'>
                                     <h2>IMDB Rating</h2>
                                     <p className='text-xs'>The IMDB rating is weighted to help keep it reliable.</p>
@@ -120,14 +120,7 @@ const TvSeriesDetails = () => {
                                         </svg>
                                         <span className='text-white capitalize'>Add favorite</span>
                                     </button>
-                                    {/* <button
-                                        className="btn btn-sm rounded-lg grow btn-outline btn-primary text-white bg-[#5668cf] flex gap-1 align-middle"
-                                    >
-                                        <i className="fa-solid fa-plus text-white"></i>
-                                        <span className='text-white capitalize'>
-                                            Watch later
-                                            </span>
-                                    </button> */}
+
                                     <button
                                         className="btn btn-sm rounded-lg grow btn-outline btn-primary text-white bg-[#5668cf] flex gap-1 align-middle"
                                     >
