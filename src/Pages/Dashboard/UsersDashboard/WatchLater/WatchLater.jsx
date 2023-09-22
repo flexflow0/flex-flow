@@ -33,12 +33,13 @@ const WatchLater = () => {
         <div>
             <DashboardTop></DashboardTop>
             {
-                WatchList.length === 0 ?
+                WatchList?.length === 0 ?
                     <div className="my-10 text-2xl text-center">
                         <h2>"No movies to WatchLater"</h2>
                     </div> :
                     <ShowListedMovies
                         list={WatchList}
+                        refetch={refetch}
                         to="WatchList"
                     ></ShowListedMovies>
             }

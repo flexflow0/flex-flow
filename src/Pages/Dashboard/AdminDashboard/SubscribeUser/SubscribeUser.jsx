@@ -23,8 +23,8 @@ const SubscribeUser = () => {
                 <input type="text" placeholder="Search By Email..." name="search" className="input input-bordered w-full max-w-[500px] rounded-full border-[#8700f5] border-2" required />
             </div>
 
-            <div className = "overflow-x-auto">
-                <table className = "table">
+            <div className="overflow-x-auto">
+                <table className="table">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -33,21 +33,21 @@ const SubscribeUser = () => {
                         </tr>
                     </thead>
                     <tbody>
-                    {
-                        users?.map(({ _id, email }, index) => <tr
-                            key={_id}
-                            className ="hover"
-                        >
+                        {
+                            users?.map(({ _id, email }, index) => <tr
+                                key={_id}
+                                className="hover"
+                            >
 
-                            <th>{index + 1}</th>
-                            <td>{email}</td>
-                            
+                                <th>{index + 1}</th>
+                                <td>{email}</td>
 
-                        </tr>)
-                    }
-                </tbody>
+
+                            </tr>)
+                        }
+                    </tbody>
                 </table>
-               
+
             </div>
 
         </div>

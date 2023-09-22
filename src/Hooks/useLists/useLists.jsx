@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-
-const useLists = (list) => {
+const useLists = ( list ) => {
     // console.log(list);
     const { data: movies = [], isLoading, refetch } = useQuery({
         queryKey: [list],

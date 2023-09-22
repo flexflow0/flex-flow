@@ -4,17 +4,15 @@ import useSingelTvSeries from "../../../../Hooks/useSingelTvSeries/useSingelTvSe
 
 const TvSeriesDetails = () => {
     const { id } = useParams()
-    const ids =id.split('+')
+    const ids = id.split('+')
     const [tvSeries, isLoading] = useSingelTvSeries(ids[0]);
-    console.log(ids);
-    console.log(tvSeries.episodes);
-    if(isLoading){
+ 
+    if (isLoading) {
         return <div>Loading........</div>
     }
     const episodeNumber =parseInt(ids[1])
     const displayEpisode =tvSeries.episodes.filter(episode=>episode.episode_number === episodeNumber)
     const relatedEpisode =tvSeries.episodes.filter(episode=>episode.episode_number !== episodeNumber)
-    console.log(displayEpisode,relatedEpisode);
     
     return (
         <div>
@@ -28,6 +26,7 @@ const TvSeriesDetails = () => {
                         {/* video */}
                         <div className='px-5 lg:px-20 my-10 grid grid-cols-1 lg:grid-cols-4 gap-0 lg:gap-4'>
                             <div className='col-span-3 rounded-lg overflow-hidden' id='full_movie'>
+
                                 <div>
                                     <iframe
                                         className="lg:h-[500px] md:h-[400px] "
@@ -39,12 +38,11 @@ const TvSeriesDetails = () => {
                                         allowfullscreen='true'
                                     ></iframe>
                                 </div>
-
-                            </div>
+                            </div >
                             {/* details */}
 
 
-                            <div className=' lg:h-[500px] md:h-[400px]  md:mt-5 lg:mt-0 mt-5 bg-[#1f1f1f] rounded-md p-4'>
+                            <div div className=' lg:h-[500px] md:h-[400px]  md:mt-5 lg:mt-0 mt-5 bg-[#1f1f1f] rounded-md p-4' >
                                 <div className='relative'>
                                     <div>
                                         <div className='rounded border-2 border-[#3d1164] h-20 grid grid-cols-3 overflow-hidden'>
@@ -68,7 +66,7 @@ const TvSeriesDetails = () => {
                                         {/* <i className="fa-solid fa-thumbs-up"></i> */}
                                     </button>
                                 </div>
-                                
+
                                 <div className='my-2'>
                                     <h2>IMDB Rating</h2>
                                     <p className='text-xs'>The IMDB rating is weighted to help keep it reliable.</p>
@@ -120,14 +118,7 @@ const TvSeriesDetails = () => {
                                         </svg>
                                         <span className='text-white capitalize'>Add favorite</span>
                                     </button>
-                                    {/* <button
-                                        className="btn btn-sm rounded-lg grow btn-outline btn-primary text-white bg-[#5668cf] flex gap-1 align-middle"
-                                    >
-                                        <i className="fa-solid fa-plus text-white"></i>
-                                        <span className='text-white capitalize'>
-                                            Watch later
-                                            </span>
-                                    </button> */}
+
                                     <button
                                         className="btn btn-sm rounded-lg grow btn-outline btn-primary text-white bg-[#5668cf] flex gap-1 align-middle"
                                     >
@@ -138,17 +129,17 @@ const TvSeriesDetails = () => {
                                     </button>
                                 </div>
                             </div>
-                        </div>
+                        </div >
 
-                    </div>
+                    </div >
             }
             <PlayTvSeries
                 relatedEpisode={relatedEpisode}
-                img={tvSeries.poster}
-                id={tvSeries._id}
+                img={tvSeries?.poster}
+                id={tvSeries?._id}
                 isLoading={isLoading}
             ></PlayTvSeries>
-        </div>
+        </div >
     );
 };
 
