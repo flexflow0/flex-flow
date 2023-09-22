@@ -16,7 +16,7 @@ const ListCard = ({ movie, refetch, to }) => {
             to: to,
             action: false
         }
-        fetch('http://localhost:5000users/lists', {
+        fetch('http://localhost:5000/users/lists', {
 
             method: 'POST',
             headers: {
@@ -27,7 +27,6 @@ const ListCard = ({ movie, refetch, to }) => {
             .then(res => res.json())
             .then(data => {
                 refetch();
-                console.log(data);
             })
     }
 

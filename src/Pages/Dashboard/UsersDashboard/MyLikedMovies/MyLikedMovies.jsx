@@ -39,6 +39,7 @@ const MyLikedMovies = () => {
                     </div> :
                     <ShowListedMovies
                         list={likes}
+                        refetch={refetch}
                         to="likes"
                     ></ShowListedMovies>
             }
