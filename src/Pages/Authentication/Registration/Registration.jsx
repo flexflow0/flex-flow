@@ -3,6 +3,7 @@ import './Registration.css'
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
+import { } from "react-icons/ai";
 
 
 
@@ -60,17 +61,16 @@ const Registration = () => {
             if (photo[0]) {
 
                 await fetch(`https://api.imgbb.com/1/upload?key=${api}`, { method: 'POST', body: formData }).then(res => res.json()).then(imgData => {
-                    const image = imgData.data.display_url
-                    console.log(image)
+                    const image = imgData.data?.display_url
                     if (imgData.data.display_url) {
                         createUser(email, password)
                             .then(result => {
                                 const loguser = result.user
                                 console.log(loguser);
-              updateUser(name, image, birthDate)
+                                updateUser(name, image, birthDate)
                                     .then(() => {
                                         // const userData = { name, email, role:'user', photoURL: image, birthDate: age }
-                                        const userData = { name: name, email: email, photoURL: image, role:'user', birthDate: age, likes: [], favorites: [], WatchList: [], recentlyViewed: [],nonSubscribed: true}
+                                        const userData = { name: name, email: email, photoURL: image, role: 'user', birthDate: age, likes: [], favorites: [], WatchList: [], recentlyViewed: [], nonSubscribed: true }
 
                                         fetch('http://localhost:5000/users', {
                                             method: 'POST',
@@ -117,6 +117,7 @@ const Registration = () => {
     }
     const handleDateChange = (event) => {
         setDob(event.target.value);
+
     };
 
     const calculateAge = (dob) => {
@@ -127,44 +128,49 @@ const Registration = () => {
 
         if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
             return age - 1;
+
         }
+
 
         return age;
     };
 
     // Inside your component:
     const age = dob ? calculateAge(dob) : null;
+    if (age !== null && age < 7) {
+        toast("This user is under 7 years old.");
+    }
 
 
     return (
         <div>
             <div className="banner">
-                <div className="hero min-h-screen  ">
-                    <div className="hero-content flex-col lg:flex-row-reverse w-full">
-                        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 bg-opacity-90">
+                <div className="hero min-h-screen   ">
+                    <div className="hero-content flex-col lg:flex-row-reverse w-full ">
+                        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 bg-opacity-90 rounded-xl">
                             <div className="card-body">
                                 <form onSubmit={handelRegister}>
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Name</span>
                                         </label>
-                                        <input type="text" placeholder="Enter Your Name" name="name" className="input input-bordered" required />
+                                        <input type="text" placeholder="Enter Your Name" name="name" className="input input-bordered rounded-md" required />
 
                                     </div>
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Email</span>
                                         </label>
-                                        <input type="email" placeholder="Enter Your Email" name="email" className="input input-bordered" required />
+                                        <input type="email" placeholder="Enter Your Email" name="email" className="input input-bordered rounded-md" required />
                                     </div>
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Password</span>
                                         </label>
                                         <div className="flex">
-                                            <input type={show ? "text" : "Password"} placeholder="Enter Your Password" name="password" className="input input-bordered w-full" required />
+                                            <input type={show ? "text" : "Password"} placeholder="Enter Your Password" name="password" className="input input-bordered w-full rounded-l-md" required />
 
-                                            <div className=" my-auto btn border-l-0" onClick={() => setShow(!show)}>
+                                            <div className=" my-auto btn border-l-0 rounded-r-md" onClick={() => setShow(!show)}>
                                                 {
                                                     show ? <p className="flex "><span className="w-[30px]">Hide</span></p> : <p className="flex "> <span className="w-[30px]">Show</span></p>
                                                 }
@@ -176,10 +182,10 @@ const Registration = () => {
                                         <label className="label">
                                             <span className="label-text">Birth Date</span>
                                         </label>
-                                        <input type="date" placeholder="Enter Your Birth Date" name="birthDate" value={dob} onChange={handleDateChange} className="input input-bordered" required />
+                                        <input type="date" placeholder="Enter Your Birth Date" name="birthDate" value={dob} onChange={handleDateChange} className="input input-bordered rounded-md " required />
                                     </div>
                                     <div className="form-control mt-5">
-                                        <input type="file" name="photo" className="file-input file-input-bordered file-input-primary w-full max-w-xs" required />
+                                        <input type="file" name="photo" className="file-input file-input-bordered file-input-primary w-full max-w-xs rounded-md" required />
                                     </div>
                                     <p className="text-red-600">{error}</p>
 
@@ -188,12 +194,12 @@ const Registration = () => {
                                     </label>
                                     <div className="mt-0">
                                         <label className="label">
-                                            <input className="w-10 h-4" type="checkbox" required />
+                                            <input className="w-10 h-4 rounded-md" type="checkbox" required />
                                             <p className="text-xs ">Accept Our<Link className="link-hover ml-2  text-purple-600" to='/privacy'>privacy policy</Link></p>
                                         </label>
                                     </div>
                                     <div className="form-control mt-6">
-                                        <button className="btn text-white bg-purple-800 ">Register</button><br />
+                                        <button className="btn text-white bg-purple-800 rounded-md ">Register</button><br />
                                     </div>
                                 </form>
 

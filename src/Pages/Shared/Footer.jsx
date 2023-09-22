@@ -7,12 +7,12 @@ const Footer = () => {
     const { register, handleSubmit, reset, } = useForm();
     const onSubmit = (data) => {
         Swal.fire({
-            position: 'top-end',
+            position: 'top-center',
             icon: 'success',
-            title: 'Your mail successfully added in the mailing list',
+            title: 'Your mail added in the mailing list',
             showConfirmButton: false,
             timer: 1500
-          })
+        })
         console.log(data);
         reset()
         const addEmail = { email: data.email }
@@ -28,8 +28,14 @@ const Footer = () => {
             .then(data => {
                 console.log(data);
             })
-            
+
     }
+
+    function scrollToTop() {
+        window.scrollTo(0, 0);
+    }
+
+    scrollToTop()
     return (
         <div className='text-center pb-5'>
             {/* Heading Started */}
@@ -54,45 +60,54 @@ const Footer = () => {
 
             <div className='pb-[50px] mx-auto MyContainer gap-5 max-w-7xl grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 text-white'>
                 <ul >
-                    {/* <li className='text-xl fontB'>Popular Classes</li> */}
-                    <li>FAQ</li>
-                    <li>Inventor Relations</li>
-                    <Link to="privacy">
-                        <li>Privacy</li>
+                    <Link to='/faq' onClick={scrollToTop}>
+                        <li>FAQ</li>
                     </Link>
-                    <li>Speed Test</li>
-
+                    <Link to='/aboutFlexflow' onClick={scrollToTop}><li>About flexflow</li>
+                    </Link>
+                    <Link to="/privacy" onClick={scrollToTop}>
+                        <li>Privacy and policy</li>
+                    </Link>
                 </ul>
+
                 <ul >
-                    {/* <li className='text-xl fontB'>Popular Instructors </li> */}
-                    <li>Help Center</li>
-                    <li>Jobs</li>
-                    <li>Cookie Preferences</li>
-                    <li>Legial Notices</li>
+                    <Link to="/termsandcondition" onClick={scrollToTop}>
+                        <li>Terms and conditions</li>
+                    </Link>
+                    <Link to='/aboutus' onClick={scrollToTop}>
+                        <li>About Us</li>
+                    </Link>
+                    <Link>
+                        <li>User Manual</li>
+                    </Link>
 
                 </ul>
                 <ul>
-                    {/* <li className='text-xl font-bold'>Contacts</li> */}
-                    <li>Account</li>
-                    <li>Ways to Watch</li>
-                    <li>Corporate Information</li>
-                    <li>Only on FlexFlow</li>
+                    <Link to='/login' onClick={scrollToTop}>
+                        <li>Login</li>
+                    </Link>
+                    <Link to='/contactus' onClick={scrollToTop}>
+                        <li>Contact Us</li>
+                    </Link>
+                    <Link to='/legalnotice' onClick={scrollToTop}>
+                        <li>Legal Notice</li>
+                    </Link>
 
                 </ul>
                 <ul>
-                    {/* <li className='text-xl font-bold'>Social</li> */}
-                    <li>Media Center</li>
-                    <li>Terms Of Use</li>
-                    <li>Contact Us</li>
-                    {/* <li>Twitter</li> */}
+                    <h2>Find Us On</h2>
+                    <div className="flex gap-3 my-auto justify-center ">
+                        <Link to='https://twitter.com/' target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current text-white"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg></Link>
+
+                        <Link to='https://youtube.com' target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current text-white"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg></Link>
+
+                        <Link to='https://facebook.com' target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current text-white rounded-lg text-center"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></Link>
+                    </div>
                 </ul>
             </div>
             <hr className='border-purple-950 mb-4' />
 
-            {/* <img
-                {className='h-10 mt-2 mx-auto' src={logo} />  */}
-
-            <p className=' mb-4 textShadow text-white'>Copyright © 2023 || Team Tech Titans</p>
+            <p className=' mb-4 textShadow text-white'>Copyright © 2023 || Team FlexFlow</p>
         </div>
     );
 };

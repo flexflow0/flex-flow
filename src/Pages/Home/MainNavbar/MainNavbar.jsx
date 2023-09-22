@@ -191,22 +191,15 @@ console.log(path);
                                             DashBoard</NavLink>
                                     </li>
 
-                                    <li onClick={() => logout()} >
-                                        <Link to='/login'
-                                            className="rounded-lg uppercase" >
-                                            <BiLogOut />  Log Out
-                                        </Link></li>
+                                  <li onClick={() => logout()} >
+                                      <Link to='/login'
+                                          className="rounded-lg uppercase" >
+                                          <BiLogOut />  Log Out
+                                      </Link></li>
 
-                                </ul>
-                            </> :
-                            <div className='mr-10'>
-                                {
-                                    user ? <><button onClick={() => logout()} className='uppercase bg-[#22225a] px-5 py-2 rounded-lg font-medium'>Log Out</button>
-                                    </> : <><Link to='/login'><button className='uppercase bg-[#22225a] px-5 py-2 rounded-lg font-medium'>Login</button></Link>
-                                    </>
-
-                                }
-                            </div>
+                              </ul>
+                          </> 
+                            
                     }
                 </div>
 

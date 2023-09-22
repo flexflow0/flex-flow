@@ -1,6 +1,7 @@
 import { useContext, useRef } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useUser from "../../../Hooks/useUser/useUser";
+import { FaDownload } from 'react-icons/fa';
 
 const AddRemoveToList = ({ movie }) => {
     const { user, loading } = useContext(AuthContext);
@@ -25,9 +26,9 @@ const AddRemoveToList = ({ movie }) => {
         )
     }
     // console.log(userData?.likes.includes(id));
-    isLike = userData?.likes.includes(movie._id);
-    isFavorite = userData?.favorites.includes(movie._id);
-    isWatchList = userData?.WatchList.includes(movie._id);
+    isLike = userData?.likes?.includes(movie?._id);
+    isFavorite = userData?.favorites?.includes(movie?._id);
+    isWatchList = userData?.WatchList?.includes(movie?._id);
     // console.log(userData?.likes, userData?.favorites, userData?.WatchList);
     // console.log(isLike, isFavorite, isWatchList);
 
@@ -52,7 +53,7 @@ const AddRemoveToList = ({ movie }) => {
                 isLike = like;
             })
     }
-    
+
     const handleFavorite = (favorite) => {
         const data = {
             id: movie._id,
@@ -91,7 +92,6 @@ const AddRemoveToList = ({ movie }) => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data)
                 refetch();
                 isWatchList = watchList;
             })
@@ -101,6 +101,14 @@ const AddRemoveToList = ({ movie }) => {
         if (playerRef.current) {
             playerRef.current.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
         }
+    }
+    // ----------------------Arafat-----------------
+    const videoURL = movie?.movie_url;
+    const downloadVideo = () => {
+        const a = document.createElement('a');
+        a.href = videoURL;
+        a.download = 'movie?.title';
+        a.click();
     }
 
     return (
@@ -160,6 +168,9 @@ const AddRemoveToList = ({ movie }) => {
                                 <i class="fa-sharp fa-regular fa-heart text-xl text-white"></i>
                             </button>
                     }
+                    <button className="text-white pl-3" onClick={downloadVideo}>
+                        <FaDownload></FaDownload>
+                    </button>
                     {
                         isWatchList ?
                             <button

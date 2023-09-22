@@ -138,28 +138,28 @@ const Login = () => {
                     <label className="label">
                       <span className="label-text">Email</span>
                     </label>
-                    <input type="email" ref={emailRef} placeholder="Enter Your Email" name="email" className="input input-bordered" required />
+                    <input type="email" ref={emailRef} placeholder="Enter Your Email" name="email" className="input input-bordered rounded-md" required />
                   </div>
                   <div className="form-control">
                     <label className="label">
                       <span className="label-text">Password</span>
                     </label>
                     <div className="flex">
-                      <input type={show ? "text" : "Password"} placeholder="Enter Your Password" name="password" className="input input-bordered w-full" required />
-                      <div className=" my-auto btn border-l-0" onClick={() => setShow(!show)}>
+                      <input type={show ? "text" : "Password"} placeholder="Enter Your Password" name="password" className="input input-bordered w-full rounded-l-md" required />
+                      <div className=" my-auto btn border-l-0 rounded-r-md" onClick={() => setShow(!show)}>
                         {
                           show ? <p className="flex "><span className="w-[30px]">Hide</span></p> : <p className="flex "> <span className="w-[30px]">Show</span></p>
                         }
                       </div>
                     </div>
                   </div>
-                  <button className="btn w-full mt-5 text-white bg-purple-800 ">Login</button><br />
+                  <button className="btn w-full mt-5 text-white bg-purple-800 rounded-md ">Login</button><br />
                 </form>
                 <label className="label">
-                  <button onClick={handelForget} className="link-hover mx-auto text-purple-600 " >Forgotten password?</button>
+                  <button onClick={handelForget} className="link-hover mx-auto text-purple-600 rounded-md " >Forgotten password?</button>
                 </label>
                 <div className="divider text-xs my-0">OR</div>
-                <button onClick={handleGoogleLogin} className="btn text-white bg-purple-800  mt-2"> {isLoading ? <Loading /> : <>
+                <button onClick={handleGoogleLogin} className="btn text-white bg-purple-800  mt-2 rounded-md"> {isLoading ? <Loading /> : <>
                   <FaGoogle></FaGoogle>Login With Google</>}
                 </button>
                 <p> <span className="text-sm">You don,t have an account? </span> <Link className="link-hover ml-10 text-sm text-purple-600" to='/register' > Register Now </Link></p>

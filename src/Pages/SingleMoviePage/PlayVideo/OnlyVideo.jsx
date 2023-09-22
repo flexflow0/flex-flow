@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Loading from '../../Shared/Loading';
 const OnlyVideo = ({ movie, isLoading }) => {
 
     if (isLoading) {

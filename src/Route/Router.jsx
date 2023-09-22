@@ -38,6 +38,9 @@ import SubscribeUser from "../Pages/Dashboard/AdminDashboard/SubscribeUser/Subsc
 import PrivateRoute from "./PrivateRoute";
 import MyFavorites from "../Pages/Dashboard/UsersDashboard/MyFavorites/MyFavorites";
 import UpdateBlog from "../Pages/Dashboard/AdminDashboard/ViewAllBlogs/UpdateBlog";
+import FrequentlyAsked from "../Pages/LandingPage/FrequentlyAsked/FrequentlyAsked";
+import LegalNotice from "../Pages/Shared/LegalNotice/LegalNotice";
+import TermsAndCondition from "../Pages/Shared/TermsAndCondition/TermsAndCondition";
 import ShortVideos from "../Pages/Shared/ShortVideos/ShortVideos";
 
 export const router = createBrowserRouter([
@@ -104,7 +107,6 @@ export const router = createBrowserRouter([
       {
         path: '/tv_series_details/:id',
         element: <PrivateRoute><TvSeriesDetails></TvSeriesDetails></PrivateRoute>
-
       },
       {
         path: '/aboutus',
@@ -127,6 +129,22 @@ export const router = createBrowserRouter([
         element: <AboutFlexflow />
       },
       {
+        path:'/shortvideos',
+        element:<ShortVideos></ShortVideos>
+      },
+      {
+        path: "/faq",
+        element: <FrequentlyAsked></FrequentlyAsked>
+      },
+      {
+        path: '/legalnotice',
+        element: <LegalNotice></LegalNotice>
+      },
+      {
+        path:'/termsandcondition',
+        element:<TermsAndCondition></TermsAndCondition>
+      },
+      {   
         path:'/shortvideos',
         element:<ShortVideos></ShortVideos>
       }
@@ -162,15 +180,15 @@ export const router = createBrowserRouter([
         element: <WriteaBlog></WriteaBlog>
       },
       {
-        path:'subscribeuser',
+        path: 'subscribeuser',
         element: <SubscribeUser></SubscribeUser>
       },
       {
-        path:'viewallblogs',
+        path: 'viewallblogs',
         element: <ViewAllBlogs></ViewAllBlogs>
       },
       {
-        path:'viewallblogs/updateblog/:id',
+        path: 'viewallblogs/updateblog/:id',
         element: <UpdateBlog></UpdateBlog>
       },
 
@@ -191,7 +209,6 @@ export const router = createBrowserRouter([
         path: 'watchhistory',
         element: <WatchHistory></WatchHistory>
       },
-     
       {
         path: 'paymenthistory',
         element: <PaymentHistory></PaymentHistory>
