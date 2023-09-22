@@ -59,25 +59,19 @@ const MainNavbar = () => {
     // ***************
 
     const { pathname } = useLocation();
-    // console.log(pathname);
-
-
-
+    const path = pathname.split("/")
 
     const handleLogOut = () => {
         logout()
         navigate('/login')
     }
 
-
-
-
     return (
         <div className="navbar bg-[#39134b] h-10  rounded-sm text-white">
             {/* Mobile Device */}
             <div className="navbar-start">
                 {
-                    (pathname == '/' || pathname == '/register' || pathname == '/login' || pathname == '/chooseplan' || pathname == '/choosetheplan' || pathname == '/choosepay' || pathname == '/payment' || pathname == '/aboutus' || pathname == '/blog') || <div className="dropdown">
+                    (path[1] == '' || path[1] == 'register' || path[1] == 'login' || path[1] == 'chooseplan' || path[1] == 'choosetheplan' || path[1] == 'choosepay' || path[1] == 'payment' || path[1] == 'aboutus' || path[1] == 'blog') || <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
@@ -95,7 +89,6 @@ const MainNavbar = () => {
                                     {tvSeriesSector}
 
                                 </details>
-
                             </li>
                             {/* ************** */}
                             <li>
@@ -111,14 +104,14 @@ const MainNavbar = () => {
                     </div>
                 }
                 <div className="w-52">
-                    <Link to={`${(pathname == '/' || pathname == '/register' || pathname == '/login' || pathname == '/chooseplan' || pathname == '/choosetheplan' || pathname == '/choosepay' || pathname == '/payment') ? "/" : "/home"}`}>
+                    <Link to={`${(path[1] == '' || path[1] == 'register' || path[1] == 'login' || path[1] == 'chooseplan' || path[1] == 'choosetheplan' || path[1] == 'choosepay' || path[1] == 'payment') ? "/" : "/home"}`}>
                         <img className="w-full" src="https://i.ibb.co/WpJvMk4/9270632-02.png" alt="" />
                     </Link>
                 </div>
             </div>
             {/* desktop device */}
             {
-                (pathname == '/' || pathname == '/register' || pathname == '/login' || pathname == '/chooseplan' || pathname == '/choosetheplan' || pathname == '/choosepay' || pathname == '/payment' || pathname == '/aboutus' || pathname == '/blog') || <div className="navbar-center hidden items-center lg:flex">
+                (path[1] == '' || path[1] == 'register' || path[1] == 'login' || path[1] == 'chooseplan' || path[1] == 'choosetheplan' || path[1] == 'choosepay' || path[1] == 'payment' || path[1] == 'aboutus' || path[1] == 'blog') || <div className="navbar-center hidden items-center lg:flex">
                     <div className=" dropdown dropdown-hover">
                         <ul className="menu menu-horizontal items-center px-1">
 
@@ -154,7 +147,7 @@ const MainNavbar = () => {
                             <Link to='/blog'>
                                 <li><a className="hover:text-white">Blog</a></li>
                             </Link>
-                   <Link to='/shortvideos'>
+                            <Link to='/shortvideos'>
                                 <li><a className="hover:text-white">Short Videos</a></li>
                             </Link>
                         </ul>
@@ -164,50 +157,44 @@ const MainNavbar = () => {
             <div className="navbar-end">
                 <div className="dropdown dropdown-end">
                     {
-                    (pathname == '/'|| pathname =='/login' || pathname =='/register') ?
-                            <div className='mr-10'>
-                                {
-                                    user ? <><button onClick={() => logout()} className='uppercase bg-[#22225a] px-5 py-2 rounded-lg font-medium'>Log Out</button>
-                                    </> : <><Link to='/login'><button className='uppercase bg-[#22225a] px-5 py-2 rounded-lg font-medium'>Login</button></Link>
-                                    </>
+                        (path[1] == 'home' || path[1] == "show_all_movies" || path[1] == "show_all_tvSeries" || path[1] == "movie_details" || path[1] == "aboutus" || path[1] == "blog" || path[1] == "shortvideos") ?
+                            <>
+                                <label tabIndex={0} className="">
+                                    <div className="avatar flex items-center justify-between space-x-2 mr-5 pl-1 rounded-full h-10 bg-[#cd9ffb] border-2 border-[#8700f5]">
+                                        <div className="w-6 opacity-40">
+                                            <img className="w-full Icon" src={menuIcon} alt="menuIcon" />
+                                        </div>
+                                        <div className="w-10 rounded-full h-10 border-2 border-[#8700f5] ">
+                                            <img
+                                                src={user?.photoURL} />
+                                        </div>
+                                    </div>
+                                </label>
+                                <ul
+                                    tabIndex={0}
+                                    className="dropdown-content z-10 menu p-2 shadow rounded-lg w-52 mt-3 bg-[#0d1334]"
+                                >
+                                    <li>
+                                        <NavLink className="text-center rounded-lg uppercase" to='/dashboard'>
+                                            {user?.displayName}</NavLink>
+                                    </li>
+                                    <li >
+                                        <NavLink className="rounded-lg uppercase" to='/dashboard'>
+                                            <BiSolidDashboard />
+                                            DashBoard</NavLink>
+                                    </li>
 
-                                }
-                            </div>:
-                              <>
-                              <label tabIndex={0} className="">
-                                  <div className="avatar flex items-center justify-between space-x-2 mr-5 pl-1 rounded-full h-10 bg-[#cd9ffb] border-2 border-[#8700f5]">
-                                      <div className="w-6 opacity-40">
-                                          <img className="w-full Icon" src={menuIcon} alt="menuIcon" />
-                                      </div>
-                                      <div className="w-10 rounded-full h-10 border-2 border-[#8700f5] ">
-                                          <img
-                                              src={user?.photoURL} />
-                                      </div>
-                                  </div>
-                              </label>
-                              <ul
-                                  tabIndex={0}
-                                  className="dropdown-content z-10 menu p-2 shadow rounded-lg w-52 mt-3 bg-[#0d1334]"
-                              >
-                                  <li>
-                                      <NavLink className="text-center rounded-lg uppercase" to='/dashboard'>
-                                          {user?.displayName}</NavLink>
-                                  </li>
-                                  <li >
-                                      <NavLink className="rounded-lg uppercase" to='/dashboard'>
-                                          <BiSolidDashboard />
-                                          DashBoard</NavLink>
-                                  </li>
+                                    <li onClick={() => logout()} >
+                                        <Link to='/login'
+                                            className="rounded-lg uppercase" >
+                                            <BiLogOut />  Log Out
+                                        </Link></li>
 
-                                  <li onClick={() => logout()} >
-                                      <Link to='/login'
-                                          className="rounded-lg uppercase" >
-                                          <BiLogOut />  Log Out
-                                      </Link></li>
-
-                              </ul>
-                          </> 
-                            
+                                </ul>
+                            </> :
+                            <Link to="/login">
+                                <button className="btn rounded-lg capitalize mr-2">Login</button>
+                            </Link>
                     }
                 </div>
 

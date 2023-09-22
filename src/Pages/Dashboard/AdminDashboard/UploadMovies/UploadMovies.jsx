@@ -140,7 +140,7 @@ const UploadMovies = () => {
         }
 
         axios
-            .post(`https://flex-flow-server.vercel.app/movies`, movieData, {
+            .post(`http://localhost:5000/movies`, movieData, {
                 headers: {
                     'Content-Type': 'application/json',
                 }
@@ -160,7 +160,7 @@ const UploadMovies = () => {
             <div className="p-10">
                 <form onSubmit={handelRegister}>
                     {/* ********* */}
-                    <div className="grid grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                         {/* Title */}
                         <div className="form-control mb-3">
                             <label className="label">
@@ -189,7 +189,7 @@ const UploadMovies = () => {
 
                     </div>
                     {/* ********** */}
-                    <div className="grid grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                         {/* Movie URL */}
                         <div className="form-control mb-3">
                             <label className="label">
@@ -220,7 +220,7 @@ const UploadMovies = () => {
                     </div>
                     {/* ********* */}
                     {/* ********** */}
-                    <div className="grid grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                         {/* IMDB Rating */}
                         <div className="form-control mb-3">
                             <label className="label">
@@ -254,7 +254,7 @@ const UploadMovies = () => {
                     </div>
                     {/* ********* */}
                     {/* ********** */}
-                    <div className="grid grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                         {/* Release Month */}
                         <div className="form-control mb-3">
                             <label className="label">
@@ -301,7 +301,7 @@ const UploadMovies = () => {
                         <label className="label">
                             <span className="label-text">Genres:</span>
                         </label>
-                        <div className="mx-5 grid grid-cols-4 gap-3">
+                        <div className="mx-5 grid grid-cols-1 md:grid-cols-4 gap-3">
                             {
                                 genresNames.map(genres => <label className="flex items-center">
                                     <input
@@ -321,7 +321,7 @@ const UploadMovies = () => {
                         <label className="label">
                             <span className="label-text">Region:</span>
                         </label>
-                        <div className="mx-5 grid grid-cols-4 gap-3">
+                        <div className="mx-5 grid grid-cols-1 md:grid-cols-4 gap-3">
                             {
                                 regionNames.map(region => <label className="flex items-center">
                                     <input
@@ -342,7 +342,7 @@ const UploadMovies = () => {
                         <label className="label">
                             <span className="label-text">Language:</span>
                         </label>
-                        <div className="mx-5 grid grid-cols-4 gap-3">
+                        <div className="mx-5 grid grid-cols-1 md:grid-cols-4 gap-3">
                             {
                                 languages.map(language => <label className="flex items-center">
                                     <input
@@ -362,7 +362,7 @@ const UploadMovies = () => {
                         <label className="label">
                             <span className="label-text">Directors</span>
                         </label>
-                        <div className="grid grid-cols-2">
+                        <div className="grid grid-cols-1 lg:grid-cols-2">
                             {directors.map((director, index) => (
                                 <div key={index} className="flex gap-1 align-middle items-center mb-1">
                                     <input
@@ -391,7 +391,7 @@ const UploadMovies = () => {
                         <label className="label">
                             <span className="label-text">Writers</span>
                         </label>
-                        <div className="grid grid-cols-2">
+                        <div className="grid grid-cols-1 lg:grid-cols-2">
                             {writers.map((writer, index) => (
                                 <div key={index} className="flex gap-1 align-middle items-center mb-1">
                                     <input
@@ -420,7 +420,7 @@ const UploadMovies = () => {
                         <label className="label">
                             <span className="label-text">Stars</span>
                         </label>
-                        <div className="grid grid-cols-2">
+                        <div className="grid grid-cols-1 lg:grid-cols-2">
                             {stars.map((star, index) => (
                                 <div key={index} className="flex gap-1 align-middle items-center mb-1">
                                     <input
@@ -472,7 +472,7 @@ const UploadMovies = () => {
                         ></textarea>
                     </div>
                     {/* **************** */}
-                    <div className="grid grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                         {/* Poster */}
                         <div className="form-control mb-3">
                             <label className="label">

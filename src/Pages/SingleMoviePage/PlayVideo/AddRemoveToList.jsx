@@ -39,7 +39,7 @@ const AddRemoveToList = ({ movie }) => {
             to: "likes",
             action: like
         }
-        fetch('https://flex-flow-server.vercel.app/users/lists', {
+        fetch('http://localhost:5000/users/lists', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -61,7 +61,7 @@ const AddRemoveToList = ({ movie }) => {
             to: "favorites",
             action: favorite
         }
-        fetch('https://flex-flow-server.vercel.app/users/lists', {
+        fetch('http://localhost:5000/users/lists', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -83,7 +83,7 @@ const AddRemoveToList = ({ movie }) => {
             to: "WatchList",
             action: watchList
         }
-        fetch('https://flex-flow-server.vercel.app/users/lists', {
+        fetch('http://localhost:5000/users/lists', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -130,7 +130,7 @@ const AddRemoveToList = ({ movie }) => {
                 </form>
             </dialog>
             <p className='my-1 mx-2 flex justify-between'>
-                <div className="flex">
+                <div className="flex items-center">
                     <button
                         onClick={() => document.getElementById('my_modal_3').showModal()}
                         className="mt-1 btn btn-sm rounded-full btn-outline hover:bg-[#39134b] hover:text-white"
@@ -157,18 +157,18 @@ const AddRemoveToList = ({ movie }) => {
                         isFavorite ?
                             <button
                                 onClick={() => handleFavorite(!isFavorite)}
-                                className="rounded-lg text-white mt-[3px] flex gap-1 align-middle ms-2 md:ms-5"
+                                className="rounded-lg text-white mt-[3px] flex gap-1 align-middle ms-1 md:ms-5"
                             >
                                 <i class="fa-sharp fa-solid fa-heart text-xl text-[#d62525e8]"></i>
                             </button> :
                             <button
                                 onClick={() => handleFavorite(!isFavorite)}
-                                className="rounded-lg text-white mt-[3px] flex gap-1 align-middle ms-2 md:ms-5"
+                                className="rounded-lg text-white mt-[3px] flex gap-1 align-middle ms-1 md:ms-5"
                             >
                                 <i class="fa-sharp fa-regular fa-heart text-xl text-white"></i>
                             </button>
                     }
-                    <button className="text-white pl-3" onClick={downloadVideo}>
+                    <button className="text-white pl-1 md:pl-3" onClick={downloadVideo}>
                         <FaDownload></FaDownload>
                     </button>
                     {

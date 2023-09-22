@@ -10,7 +10,7 @@ const SingleViewBlog = ({ allBlog, refetch }) => {
     const { author, content, thumbnail, title, date, _id } = allBlog
     const full = content;
     const afterSlice = full.slice(0, 80)
-    const sliceTitle = title.slice(0, 25)
+    const sliceTitle = title.slice(0, 35)
     const [show, setShow] = useState(false);
 
     const handleDelete = (id) => {
@@ -26,7 +26,7 @@ const SingleViewBlog = ({ allBlog, refetch }) => {
             .then(result => {
                 if (result.isConfirmed) {
                     console.log('delete', id);
-                    axios.delete(`https://flex-flow-server.vercel.app/blog?id=${_id}`)
+                    axios.delete(`http://localhost:5000/blog?id=${_id}`)
                         .then(res => {
                             console.log(res);
                             refetch()
@@ -51,18 +51,16 @@ const SingleViewBlog = ({ allBlog, refetch }) => {
                 src={thumbnail || "https://i.ibb.co/BsmRhsq/placeholder1.jpg"} alt="thumbnail" />
 
             <div className=' grid grid-cols-5 items-center  justify-between w-full'>
-                <div className='col-span-3 text-black'>
-                    <h1 className='text-[#520596] text-[27px] font-semibold'>{sliceTitle}...</h1>
+                <div className='col-span-4 text-black'>
+                    <h1 className='text-[#520596] text-[27px] font-semibold'>{sliceTitle}{title.length > 30 ? "..." : ""}</h1>
                     <p> {
-                        <p>{afterSlice}...
+                        <p>{afterSlice}{full.length > 80 ? "..." : ""}
                             <Link to="../../blog" className='text-purple-950' > Read More</Link>
                         </p>
                     }</p>
 
                 </div>
-                <div className='text-center'>
-                    <button className='rounded-full text-[14px] px-2  border border-[#520596] text-[#520596]'>Trending</button>
-                </div>
+
                 <div className="ml-auto ">
                     <Link to={`updateblog/${_id}`}>
                         <button className=' rounded-full p-3 mr-2 bg-[#f2d6ff] text-[#520596] border-2 border-[#520596]'><FiEdit /></button>

@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import PlayTvSeries from "../PlayTvSeries/PlayTvSeries";
 import useSingelTvSeries from "../../../../Hooks/useSingelTvSeries/useSingelTvSeries";
+import Loading from "../../../Shared/Loading";
 
 const TvSeriesDetails = () => {
     const { id } = useParams()
@@ -8,7 +9,7 @@ const TvSeriesDetails = () => {
     const [tvSeries, isLoading] = useSingelTvSeries(ids[0]);
  
     if (isLoading) {
-        return <div>Loading........</div>
+        return <Loading></Loading>
     }
     const episodeNumber =parseInt(ids[1])
     const displayEpisode =tvSeries.episodes.filter(episode=>episode.episode_number === episodeNumber)
@@ -99,7 +100,10 @@ const TvSeriesDetails = () => {
                                     <p className='text-xs'>{displayEpisode?.description}</p>
                                     <p className='text-xs'>{tvSeries?.episode_number}</p>
                                 </div>
-                                <div className='flex gap-2'>
+                                <div>
+                                    <h1>It is a free TV series so you can't  download, add favorites, or watch later</h1>
+                                </div>
+                                {/* <div className='flex gap-2'>
                                     <button
                                         className="btn btn-sm rounded-lg grow btn-outline btn-primary text-white bg-[#5668cf] flex gap-1 align-middle"
                                     >
@@ -127,7 +131,7 @@ const TvSeriesDetails = () => {
                                             Remove
                                         </span>
                                     </button>
-                                </div>
+                                </div> */}
                             </div>
                         </div >
 
