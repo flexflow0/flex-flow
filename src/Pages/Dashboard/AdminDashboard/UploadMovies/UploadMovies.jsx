@@ -1,6 +1,11 @@
 import { useState } from "react";
+import { BiCloudUpload } from 'react-icons/bi';
+
 import DashboardTop from "../../../../components/dashboardTop";
 import axios from "axios";
+import { Cloudinary } from '@cloudinary/url-gen';
+import { AdvancedImage, AdvancedVideo } from '@cloudinary/react';
+import Loading from "../../../Shared/Loading";
 
 const UploadMovies = () => {
 
@@ -10,6 +15,35 @@ const UploadMovies = () => {
     const [directors, setDirectors] = useState(['']);
     const [writers, setWriters] = useState(['']);
     const [stars, setStars] = useState(['']);
+    const [loading, setLoading] = useState(false)
+
+    const [videoUrl, setVideoUrl] = useState('');
+    const [file, setFile] = useState('')
+    const handleVideoUpload = async () => {
+        setLoading(true)
+        if (file) {
+            console.log(file);
+            const formData = new FormData()
+            formData.append("file", file)
+            formData.append("upload_preset", "FlexFlow")
+
+            try {
+                const cloudName = "digzbfxin"
+                const api = `https://api.cloudinary.com/v1_1/${cloudName}/auto/upload`
+                const res = await axios.post(api, formData)
+                console.log(formData);
+                const url = res.data.url
+                setVideoUrl(url)
+                console.log(url);
+                setLoading(false)
+            } catch (error) {
+                setLoading(false)
+
+                console.log(error);
+            }
+        }
+    };
+
 
     const handleGenreChange = (e) => {
         const genre = e.target.value;
@@ -77,6 +111,7 @@ const UploadMovies = () => {
         const title = form.title.value;
         const length = parseInt(form.length.value);
         const movie_url = form.movie_url.value;
+        const cloudinary = true;
         const trailer_url = form.trailer_url.value;
         const IMDb_rating = parseFloat(form.imdb_rating.value);
         const rating = form.rating.value;
@@ -128,6 +163,7 @@ const UploadMovies = () => {
             likes: 0,
             views: 0,
             trailer_url,
+            cloudinary,
             movie_url,
             cast: [
                 {
@@ -140,7 +176,7 @@ const UploadMovies = () => {
         }
 
         axios
-            .post(`http://localhost:5000/movies`, movieData, {
+            .post(`https://flex-flow-server.vercel.app/movies`, movieData, {
                 headers: {
                     'Content-Type': 'application/json',
                 }
@@ -155,12 +191,42 @@ const UploadMovies = () => {
     const languages = ["English", "Bangla", "Hindi", "Spanish", "Chinese", "Korean", "Japanese", "Russian", "French", "Italian"]
 
     return (
-        <div className="MyContainer">
+        <div className="MyContainer relative">
+            {loading && <div className="absolute top-20 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <div className="h-24 w-24">
+                    <Loading />
+                </div>
+            </div>}
             <DashboardTop />
             <div className="p-10">
+                {videoUrl && <video className=" border-purple-600 border-2 rounded-lg mx-auto" controls width="720" height="460">
+                    <source src={videoUrl} type="video/mp4" />
+                </video>}
+
+                <label className="label">
+                    <span className="label-text">Upload Movie</span>
+                </label>
+                <div className="flex items-center gap-2">
+                    <div className="w-full">
+
+                        <input type="file"
+                            accept="video/*"
+                            required placeholder="Upload Movie" name="" id="" className="file-input file-input-bordered bg-purple-600 w-full  rounded-lg" onChange={(e) => {
+                                setFile(e.target.files[0])
+                                setLoading(false)
+                            }} />
+                    </div>
+
+                    <button
+                        onClick={handleVideoUpload}
+                        className="btn w-1/2 file-input file-input-bordered hover:border-purple-600 border-2 bg-purple-600 rounded-lg">Upload <BiCloudUpload size={20} /></button>
+                </div>
+
+
                 <form onSubmit={handelRegister}>
+
                     {/* ********* */}
-                    <div className="grid grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                         {/* Title */}
                         <div className="form-control mb-3">
                             <label className="label">
@@ -189,7 +255,7 @@ const UploadMovies = () => {
 
                     </div>
                     {/* ********** */}
-                    <div className="grid grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                         {/* Movie URL */}
                         <div className="form-control mb-3">
                             <label className="label">
@@ -201,6 +267,7 @@ const UploadMovies = () => {
                                 name="movie_url"
                                 className="input input-bordered rounded-lg "
                                 required
+                                defaultValue={videoUrl}
                             />
                         </div>
                         {/* Trailer URL */}
@@ -220,7 +287,7 @@ const UploadMovies = () => {
                     </div>
                     {/* ********* */}
                     {/* ********** */}
-                    <div className="grid grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                         {/* IMDB Rating */}
                         <div className="form-control mb-3">
                             <label className="label">
@@ -254,7 +321,7 @@ const UploadMovies = () => {
                     </div>
                     {/* ********* */}
                     {/* ********** */}
-                    <div className="grid grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                         {/* Release Month */}
                         <div className="form-control mb-3">
                             <label className="label">
@@ -301,7 +368,7 @@ const UploadMovies = () => {
                         <label className="label">
                             <span className="label-text">Genres:</span>
                         </label>
-                        <div className="mx-5 grid grid-cols-4 gap-3">
+                        <div className="mx-5 grid grid-cols-1 md:grid-cols-4 gap-3">
                             {
                                 genresNames.map(genres => <label className="flex items-center">
                                     <input
@@ -321,7 +388,7 @@ const UploadMovies = () => {
                         <label className="label">
                             <span className="label-text">Region:</span>
                         </label>
-                        <div className="mx-5 grid grid-cols-4 gap-3">
+                        <div className="mx-5 grid grid-cols-1 md:grid-cols-4 gap-3">
                             {
                                 regionNames.map(region => <label className="flex items-center">
                                     <input
@@ -342,7 +409,7 @@ const UploadMovies = () => {
                         <label className="label">
                             <span className="label-text">Language:</span>
                         </label>
-                        <div className="mx-5 grid grid-cols-4 gap-3">
+                        <div className="mx-5 grid grid-cols-1 md:grid-cols-4 gap-3">
                             {
                                 languages.map(language => <label className="flex items-center">
                                     <input
@@ -362,7 +429,7 @@ const UploadMovies = () => {
                         <label className="label">
                             <span className="label-text">Directors</span>
                         </label>
-                        <div className="grid grid-cols-2">
+                        <div className="grid grid-cols-1 lg:grid-cols-2">
                             {directors.map((director, index) => (
                                 <div key={index} className="flex gap-1 align-middle items-center mb-1">
                                     <input
@@ -391,7 +458,7 @@ const UploadMovies = () => {
                         <label className="label">
                             <span className="label-text">Writers</span>
                         </label>
-                        <div className="grid grid-cols-2">
+                        <div className="grid grid-cols-1 lg:grid-cols-2">
                             {writers.map((writer, index) => (
                                 <div key={index} className="flex gap-1 align-middle items-center mb-1">
                                     <input
@@ -420,7 +487,7 @@ const UploadMovies = () => {
                         <label className="label">
                             <span className="label-text">Stars</span>
                         </label>
-                        <div className="grid grid-cols-2">
+                        <div className="grid grid-cols-1 lg:grid-cols-2">
                             {stars.map((star, index) => (
                                 <div key={index} className="flex gap-1 align-middle items-center mb-1">
                                     <input
@@ -472,7 +539,7 @@ const UploadMovies = () => {
                         ></textarea>
                     </div>
                     {/* **************** */}
-                    <div className="grid grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                         {/* Poster */}
                         <div className="form-control mb-3">
                             <label className="label">

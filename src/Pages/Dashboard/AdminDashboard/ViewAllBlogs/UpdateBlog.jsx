@@ -14,7 +14,7 @@ const UpdateBlog = () => {
     const [preBlog, setPreBlog] = useState()
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        fetch(`http://localhost:5000/blog/${id}`)
+        fetch(`https://flex-flow-server.vercel.app/blog/${id}`)
             .then(res => res.json())
             .then(data => {
                 setPreBlog(data)

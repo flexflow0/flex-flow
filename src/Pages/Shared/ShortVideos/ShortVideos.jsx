@@ -8,7 +8,7 @@ const ShortVideos = () => {
     const [scrollPosition, setScrollPosition] = useState(0);
 
     useEffect(() => {
-        fetch('http://localhost:5000/shortVideos')
+        fetch('https://flex-flow-server.vercel.app/shortVideos')
             .then(data => data.json())
             .then(data => setShort(data))
     }, [])

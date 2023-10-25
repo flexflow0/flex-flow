@@ -4,14 +4,14 @@ import axios from "axios";
 const useSingleMovie = (id) => {
 
     // const { data: movie = [], refetch } = useQuery(['singleMovie'], async () => {
-    //     const res = await fetch(`http://localhost:5000/singleMovie/${id}`)
+    //     const res = await fetch(`https://flex-flow-server.vercel.app/singleMovie/${id}`)
     //     return res.json();
     // })
     const { data: movie = [], isLoading, refetch } = useQuery({
         queryKey: [id],
         queryFn: () =>
             axios
-                .get(`http://localhost:5000/singleMovie/${id}`)
+                .get(`https://flex-flow-server.vercel.app/singleMovie/${id}`)
                 .then((res) => res.data),
     })
 

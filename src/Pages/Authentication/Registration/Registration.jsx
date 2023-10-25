@@ -5,8 +5,6 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
 import { } from "react-icons/ai";
 
-
-
 const Registration = () => {
     const { createUser, updateUser, verificationEmail } = useContext(AuthContext)
     const navigate = useNavigate();
@@ -16,18 +14,14 @@ const Registration = () => {
     const [show, setShow] = useState();
     const from = location?.state?.from?.pathname || '/home'
 
-
-
     const handelRegister = async (event) => {
         event.preventDefault();
-
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
         const birthDate = form.birthDate.value;
         const photo = form.photo.files;
-
         if (!/(?=.*[!@#$%^&*])/.test(password)) {
             setError(' Please add some characters')
             return
@@ -72,7 +66,7 @@ const Registration = () => {
                                         // const userData = { name, email, role:'user', photoURL: image, birthDate: age }
                                         const userData = { name: name, email: email, photoURL: image, role: 'user', birthDate: age, likes: [], favorites: [], WatchList: [], recentlyViewed: [], nonSubscribed: true }
 
-                                        fetch('http://localhost:5000/users', {
+                                        fetch('https://flex-flow-server.vercel.app/users', {
                                             method: 'POST',
                                             headers: {
                                                 'content-type': 'application/json'

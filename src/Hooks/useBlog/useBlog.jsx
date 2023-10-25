@@ -7,7 +7,7 @@ const useBlog = () => {
     const { data: blog = [], refetch } = useQuery({
         queryFn: () =>
             axios
-                .get(`http://localhost:5000/blog`)
+                .get(`https://flex-flow-server.vercel.app/blog`)
                 .then((res) => res.data),
     })
 

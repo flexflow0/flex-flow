@@ -39,6 +39,7 @@ const WatchLater = () => {
                     </div> :
                     <ShowListedMovies
                         list={WatchList}
+                        refetch={refetch}
                         to="WatchList"
                     ></ShowListedMovies>
             }

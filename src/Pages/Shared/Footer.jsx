@@ -17,7 +17,7 @@ const Footer = () => {
         reset()
         const addEmail = { email: data.email }
 
-        fetch('http://localhost:5000/subscribe', {
+        fetch('https://flex-flow-server.vercel.app/subscribe', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -77,15 +77,13 @@ const Footer = () => {
                     <Link to='/aboutus' onClick={scrollToTop}>
                         <li>About Us</li>
                     </Link>
-                    <Link>
-                        <li>User Manual</li>
+                    <Link to='/login' onClick={scrollToTop}>
+                        <li>Login</li>
                     </Link>
 
                 </ul>
                 <ul>
-                    <Link to='/login' onClick={scrollToTop}>
-                        <li>Login</li>
-                    </Link>
+                   
                     <Link to='/contactus' onClick={scrollToTop}>
                         <li>Contact Us</li>
                     </Link>

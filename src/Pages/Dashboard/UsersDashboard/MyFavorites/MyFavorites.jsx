@@ -39,6 +39,7 @@ const MyFavorites = () => {
                     </div> :
                     <ShowListedMovies
                         list={favorites}
+                        refetch={refetch}
                         to="favorites"
                     ></ShowListedMovies>
             }

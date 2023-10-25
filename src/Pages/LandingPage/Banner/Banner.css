@@ -1,6 +1,5 @@
-#banner{
-    background-image: linear-gradient(#090414ad, #000000e8), url('https://i.ibb.co/py1jFrx/banner.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position-x: center;
+.banner{
+    background: linear-gradient(#09041430, #0000005a),
+        url('https://i.ibb.co/py1jFrx/banner.jpg');
+    background-size: cover;
 }
